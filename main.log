@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.16)  16 DEC 2014 11:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.16)  16 DEC 2014 18:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -709,7 +709,11 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \l_MT_below_shortintertext_sep=\dimen156
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 39.
- (./main.aux)
+ (./main.aux
+
+LaTeX Warning: Label `IterationBlocksBenchmarks' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
@@ -732,8 +736,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: longtable package is loaded.
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/caption/ltcaption.sty
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/caption/ltcaption.sty
 Package: ltcaption 2013/02/03 v1.3-62 longtable captions (AR)
 )
 Package caption Info: rotating package is loaded.
@@ -847,50 +850,238 @@ Chapter 1.
 ------------------------------------------------------------------------------
  1 Introduction
 ------------------------------------------------------------------------------
-) (./Chapters/2_Vector_structure.tex [2
+) [2
 
-]
+] (./Chapters/2_Vector_structure.tex [3]
 Chapter 2.
 ------------------------------------------------------------------------------
  2 Vector Structure
 ------------------------------------------------------------------------------
-[3
+<Figures/Radix_Balanced.pdf, id=439, 784.9325pt x 161.60374pt>
+File: Figures/Radix_Balanced.pdf Graphic file (type pdf)
 
-]) (./Chapters/3_Implementation.tex [4]
+<use Figures/Radix_Balanced.pdf>
+Package pdftex.def Info: Figures/Radix_Balanced.pdf used on input line 24.
+(pdftex.def)             Requested size: 417.47307pt x 85.95287pt.
+
+<Figures/Relaxed_Radix_balanced.pdf, id=440, 519.9425pt x 161.60374pt>
+File: Figures/Relaxed_Radix_balanced.pdf Graphic file (type pdf)
+
+<use Figures/Relaxed_Radix_balanced.pdf>
+Package pdftex.def Info: Figures/Relaxed_Radix_balanced.pdf used on input line 
+113.
+(pdftex.def)             Requested size: 417.47307pt x 129.75415pt.
+ [4
+
+ <./Figures/Radix_Balanced.pdf>])
+(./Chapters/3_Implementation.tex [5 <./Figures/Relaxed_Radix_balanced.pdf>]
+[6]
 Chapter 3.
 ------------------------------------------------------------------------------
  3 Implementation and Optimizations
 ------------------------------------------------------------------------------
-) (./Chapters/4_Performance.tex [5
+<Figures/Radix_Balanced_index_example.pdf, id=502, 339.2675pt x 258.9675pt>
+File: Figures/Radix_Balanced_index_example.pdf Graphic file (type pdf)
 
-]
-Overfull \vbox (96.94128pt too high) has occurred while \output is active []
+<use Figures/Radix_Balanced_index_example.pdf>
+Package pdftex.def Info: Figures/Radix_Balanced_index_example.pdf used on input
+ line 43.
+(pdftex.def)             Requested size: 208.73653pt x 159.32925pt.
 
+<Figures/Balanced_subtrees.pdf, id=503, 533.995pt x 150.5625pt>
+File: Figures/Balanced_subtrees.pdf Graphic file (type pdf)
 
-[6]
+<use Figures/Balanced_subtrees.pdf>
+Package pdftex.def Info: Figures/Balanced_subtrees.pdf used on input line 58.
+(pdftex.def)             Requested size: 417.47307pt x 117.71394pt.
+ [7
+
+ <./Figures/Radix_Balanced_index_example.pdf>] <Figures/Transient_state.pdf, id
+=529, 474.77374pt x 161.60374pt>
+File: Figures/Transient_state.pdf Graphic file (type pdf)
+
+<use Figures/Transient_state.pdf>
+Package pdftex.def Info: Figures/Transient_state.pdf used on input line 86.
+(pdftex.def)             Requested size: 417.47307pt x 142.1057pt.
+) (./Chapters/4_Performance.tex [8 <./Figures/Balanced_subtrees.pdf> <./Figures
+/Transient_state.pdf>] [9]
 Chapter 4.
 ------------------------------------------------------------------------------
  4 Performance
 ------------------------------------------------------------------------------
-) (./Chapters/5_Testing.tex [7
+<Benchmarks/Apply_2.pdf, id=570, 704.6325pt x 456.70625pt>
+File: Benchmarks/Apply_2.pdf Graphic file (type pdf)
+
+<use Benchmarks/Apply_2.pdf>
+Package pdftex.def Info: Benchmarks/Apply_2.pdf used on input line 56.
+(pdftex.def)             Requested size: 417.47307pt x 270.58328pt.
+
+<Benchmarks/Apply_3.pdf, id=571, 704.6325pt x 426.59375pt>
+File: Benchmarks/Apply_3.pdf Graphic file (type pdf)
+
+<use Benchmarks/Apply_3.pdf>
+Package pdftex.def Info: Benchmarks/Apply_3.pdf used on input line 57.
+(pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Benchmarks/Apply_random_3.pdf, id=572, 704.6325pt x 426.59375pt>
+File: Benchmarks/Apply_random_3.pdf Graphic file (type pdf)
+
+<use Benchmarks/Apply_random_3.pdf>
+Package pdftex.def Info: Benchmarks/Apply_random_3.pdf used on input line 64.
+(pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Benchmarks/apply_blocks.pdf, id=573, 704.6325pt x 426.59375pt>
+File: Benchmarks/apply_blocks.pdf Graphic file (type pdf)
+
+<use Benchmarks/apply_blocks.pdf>
+Package pdftex.def Info: Benchmarks/apply_blocks.pdf used on input line 71.
+(pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Benchmarks/Append_2.pdf, id=574, 704.6325pt x 426.59375pt>
+File: Benchmarks/Append_2.pdf Graphic file (type pdf)
+
+<use Benchmarks/Append_2.pdf>
+Package pdftex.def Info: Benchmarks/Append_2.pdf used on input line 90.
+(pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
+
+<Benchmarks/Append_3.pdf, id=575, 704.6325pt x 426.59375pt>
+File: Benchmarks/Append_3.pdf Graphic file (type pdf)
+
+<use Benchmarks/Append_3.pdf>
+Package pdftex.def Info: Benchmarks/Append_3.pdf used on input line 91.
+(pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Benchmarks/Append_blocks_3.pdf, id=576, 704.6325pt x 426.59375pt>
+File: Benchmarks/Append_blocks_3.pdf Graphic file (type pdf)
+
+<use Benchmarks/Append_blocks_3.pdf>
+Package pdftex.def Info: Benchmarks/Append_blocks_3.pdf used on input line 99.
+(pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Benchmarks/Prepend_2.pdf, id=577, 704.6325pt x 456.70625pt>
+File: Benchmarks/Prepend_2.pdf Graphic file (type pdf)
+
+<use Benchmarks/Prepend_2.pdf>
+Package pdftex.def Info: Benchmarks/Prepend_2.pdf used on input line 111.
+(pdftex.def)             Requested size: 417.47307pt x 270.58328pt.
+
+<Benchmarks/Prepend_3.pdf, id=578, 704.6325pt x 426.59375pt>
+File: Benchmarks/Prepend_3.pdf Graphic file (type pdf)
+
+<use Benchmarks/Prepend_3.pdf>
+Package pdftex.def Info: Benchmarks/Prepend_3.pdf used on input line 112.
+(pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Benchmarks/Iteration_3.pdf, id=579, 704.6325pt x 426.59375pt>
+File: Benchmarks/Iteration_3.pdf Graphic file (type pdf)
+
+<use Benchmarks/Iteration_3.pdf>
+Package pdftex.def Info: Benchmarks/Iteration_3.pdf used on input line 124.
+(pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
+
+<Benchmarks/Iteration_4.pdf, id=580, 704.6325pt x 426.59375pt>
+File: Benchmarks/Iteration_4.pdf Graphic file (type pdf)
+
+<use Benchmarks/Iteration_4.pdf>
+Package pdftex.def Info: Benchmarks/Iteration_4.pdf used on input line 125.
+(pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Benchmarks/Iteration_blocks_3.pdf, id=581, 704.6325pt x 456.70625pt>
+File: Benchmarks/Iteration_blocks_3.pdf Graphic file (type pdf)
+
+<use Benchmarks/Iteration_blocks_3.pdf>
+Package pdftex.def Info: Benchmarks/Iteration_blocks_3.pdf used on input line 1
+33.
+(pdftex.def)             Requested size: 417.47307pt x 270.58328pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Benchmarks/Builder_3.pdf, id=582, 704.6325pt x 426.59375pt>
+File: Benchmarks/Builder_3.pdf Graphic file (type pdf)
+
+<use Benchmarks/Builder_3.pdf>
+Package pdftex.def Info: Benchmarks/Builder_3.pdf used on input line 144.
+(pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
+
+<Benchmarks/Builder_4.pdf, id=583, 704.6325pt x 426.59375pt>
+File: Benchmarks/Builder_4.pdf Graphic file (type pdf)
+
+<use Benchmarks/Builder_4.pdf>
+Package pdftex.def Info: Benchmarks/Builder_4.pdf used on input line 145.
+(pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Benchmarks/Parmap_balanced.pdf, id=584, 704.6325pt x 456.70625pt>
+File: Benchmarks/Parmap_balanced.pdf Graphic file (type pdf)
+
+<use Benchmarks/Parmap_balanced.pdf>
+Package pdftex.def Info: Benchmarks/Parmap_balanced.pdf used on input line 157.
+
+(pdftex.def)             Requested size: 417.47307pt x 270.58328pt.
+ [10
 
 ]
-Overfull \vbox (42.16962pt too high) has occurred while \output is active []
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Benchmarks/parmap_unbalanced.pdf, id=591, 704.6325pt x 426.59375pt>
+File: Benchmarks/parmap_unbalanced.pdf Graphic file (type pdf)
+
+<use Benchmarks/parmap_unbalanced.pdf>
+Package pdftex.def Info: Benchmarks/parmap_unbalanced.pdf used on input line 16
+4.
+(pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
 
 
-[8]
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) (./Chapters/5_Testing.tex
+Overfull \vbox (618.09554pt too high) has occurred while \output is active []
+
+
+[11 <./Benchmarks/Apply_2.pdf> <./Benchmarks/Apply_3.pdf>] [12 <./Benchmarks/Ap
+ply_random_3.pdf> <./Benchmarks/apply_blocks.pdf>] [13 <./Benchmarks/Append_2.p
+df> <./Benchmarks/Append_3.pdf>] [14 <./Benchmarks/Append_blocks_3.pdf>]
+[15 <./Benchmarks/Prepend_2.pdf> <./Benchmarks/Prepend_3.pdf>] [16 <./Benchmark
+s/Iteration_3.pdf> <./Benchmarks/Iteration_4.pdf>] [17 <./Benchmarks/Iteration_
+blocks_3.pdf>] [18 <./Benchmarks/Builder_3.pdf> <./Benchmarks/Builder_4.pdf>]
+[19 <./Benchmarks/Parmap_balanced.pdf> <./Benchmarks/parmap_unbalanced.pdf>]
 Chapter 5.
 ------------------------------------------------------------------------------
  5 Testing
 ------------------------------------------------------------------------------
-) (./Chapters/6_Related_work.tex [9
+) (./Chapters/6_Related_work.tex [20
 
 ]
 Chapter 6.
 ------------------------------------------------------------------------------
  6 Related Work
 ------------------------------------------------------------------------------
-) (./Chapters/7_Conclusion.tex [10
+) (./Chapters/7_Conclusion.tex [21
 
 ]
 Chapter 7.
@@ -899,14 +1090,14 @@ Chapter 7.
 ------------------------------------------------------------------------------
 )
 No file main.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 256.
-[11
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 257.
+[22
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 256.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 257.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 256.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 256.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 257.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 257.
 
 
 Package rerunfilecheck Warning: File `main.out' has changed.
@@ -914,40 +1105,136 @@ Package rerunfilecheck Warning: File `main.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: DAA950FD356A665698F9C9F2B19E4A1C;8924
-(rerunfilecheck)             After:  84BFAD8D575E0AC1D4AF0E64099143F1;10231.
+(rerunfilecheck)             Before: D59DF68FC455F84CCA125DBF2B3D8759;10231
+(rerunfilecheck)             After:  96AB190BB8D3ACCF33FFC773AE5B071B;10231.
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 256.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 257.
  ) 
 Here is how much of TeX's memory you used:
- 13643 strings out of 493117
- 193269 string characters out of 6135433
- 267632 words of memory out of 5000000
- 16806 multiletter control sequences out of 15000+600000
- 13262 words of font info for 48 fonts, out of 8000000 for 9000
+ 13838 strings out of 493117
+ 197638 string characters out of 6135433
+ 271500 words of memory out of 5000000
+ 16917 multiletter control sequences out of 15000+600000
+ 13563 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 49i,11n,45p,320b,430s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{chapter.64} has been referenced but does not exis
-t, replaced by a fixed one
+ 49i,11n,45p,430b,430s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{figure.caption.67} has been referenced but does n
+ot exist, replaced by a fixed one
 
-pdfTeX warning (dest): name{section.63} has been referenced but does not exist,
+pdfTeX warning (dest): name{figure.caption.61} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.60} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.59} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{chapter.83} has been referenced but does not exist,
  replaced by a fixed one
 
-pdfTeX warning (dest): name{chapter.62} has been referenced but does not exist,
+pdfTeX warning (dest): name{section.80} has been referenced but does not exist,
  replaced by a fixed one
 
-pdfTeX warning (dest): name{section.61} has been referenced but does not exist,
+pdfTeX warning (dest): name{subsection.79} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.77} has been referenced but does not exist,
  replaced by a fixed one
 
-pdfTeX warning (dest): name{section.58} has been referenced but does not exist,
+pdfTeX warning (dest): name{chapter.76} has been referenced but does not exist,
  replaced by a fixed one
 
-pdfTeX warning (dest): name{chapter.57} has been referenced but does not exist,
+pdfTeX warning (dest): name{subsection.66} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.62} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.58} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.57} has been referenced but does not exist,
  replaced by a fixed one
 
-pdfTeX warning (dest): name{subsection.55} has been referenced but does not exi
+pdfTeX warning (dest): name{section.56} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{section.55} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{chapter.52} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.51} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.50} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.48} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{section.47} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.45} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.43} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.42} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.41} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.40} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{chapter.39} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.38} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section*.36} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section*.35} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.33} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.32} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.30} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.29} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.27} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.26} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.25} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section*.23} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.20} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.19} has been referenced but does not exi
 st, replaced by a fixed one
 
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
@@ -955,12 +1242,13 @@ st, replaced by a fixed one
 usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></
 usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
 r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
-local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/l
-ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on main.pdf (18 pages, 125346 bytes).
+local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loc
+al/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/loca
+l/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on main.pdf (29 pages, 629439 bytes).
 PDF statistics:
- 460 PDF objects out of 1000 (max. 8388607)
- 428 compressed objects within 5 object streams
- 98 named destinations out of 1000 (max. 500000)
- 473 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 739 PDF objects out of 1000 (max. 8388607)
+ 659 compressed objects within 7 object streams
+ 157 named destinations out of 1000 (max. 500000)
+ 642 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -28,7 +28,22 @@ I% Chapter Template
 \subsection{Computing indices}
 % computing radix vs relaxed radix (traverse array other array)
 % longer, more complex code
+\[
+ 526843 = 00
+   	 \underbracket[0.2pt][4pt]{00000}_{\text{0}}
+   	 \underbracket[0.2pt][4pt]{00000}_{\text{0}}
+  	 \underbracket[0.2pt][4pt]{10000}_{\text{16}}
+ 	 \underbracket[0.2pt][4pt]{00010}_{\text{2}}
+	 \underbracket[0.2pt][4pt]{01111}_{\text{15}}
+     \underbracket[0.2pt][4pt]{11011}_{\text{27}}
+\]
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{Figures/Radix_Balanced_index_example}
+  \caption{Accessing element at index 526843 in a tree of depth 5. Empty nodes represent collapses subtrees.}
+  \label{radix_balanced_index_example}
+\end{figure}
 
 
 
@@ -37,6 +52,14 @@ I% Chapter Template
 %----------------------------------------------------------------------------------------
 
 \section{Displays}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Figures/Balanced_subtrees}
+  \label{Balanced_subtrees}
+  \caption{Radix Balanced Tree}
+\end{figure}
+
 
 %-----------------------------------
 %	SUBSECTION As cache
@@ -57,6 +80,14 @@ I% Chapter Template
 \subsection{For transient states}
 % transient states are used to amortized operations
 % operations: append, prepend, update
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Figures/Transient_state}
+  \label{Transient_state}
+  \caption{Radix Balanced Tree Transient state}
+\end{figure}
+
 
 %----------------------------------------------------------------------------------------
 %	SECTION - Builder

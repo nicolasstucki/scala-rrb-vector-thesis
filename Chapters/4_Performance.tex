@@ -51,7 +51,27 @@ I% Chapter Template
 %-----------------------------------
 \subsection{Apply}
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Benchmarks/Apply_2.pdf}
+  \includegraphics[width=\textwidth]{Benchmarks/Apply_3.pdf}
+  \label{ApplyBenchmarks}
+  \caption{Time to execute 10k apply operations on sequential indices.}
+\end{figure}
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Benchmarks/Apply_random_3.pdf}
+  \label{ApplyRandomBenchmarks}
+  \caption{Time to execute 10k apply operations on random indices.}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Benchmarks/apply_blocks.pdf}
+  \label{ApplyBlocksBenchmarks}
+  \caption{Time to execute 10k apply operations on sequential indices. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Copmlete/Quick).}
+\end{figure}
 
 %-----------------------------------
 %	SUBSECTION Concatenation
@@ -65,35 +85,86 @@ I% Chapter Template
 %-----------------------------------
 \subsection{Append}
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Benchmarks/Append_2.pdf}
+  \includegraphics[width=\textwidth]{Benchmarks/Append_3.pdf}
+  \label{AppendBenchmarks}
+  \caption{Time to execute 256 append operations. This shows the amortized cost of the append operation.}
+\end{figure}
 
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Benchmarks/Append_blocks_3.pdf}
+  \label{IterationBlocksBenchmarks}
+  \caption{Time to execute 256 append operations. This shows the amortized cost of the append operation. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Copmlete/Quick).}
+\end{figure}
 
 %-----------------------------------
 %	SUBSECTION Prepend
 %-----------------------------------
 \subsection{Prepend}
 
-
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Benchmarks/Prepend_2.pdf}
+  \includegraphics[width=\textwidth]{Benchmarks/Prepend_3.pdf}
+  \label{PrependBenchmarks}
+  \caption{Time to execute 256 prepend operations. This shows the amortized cost of the prepend operation.}
+\end{figure}
 
 %-----------------------------------
 %	SUBSECTION Iterator
 %-----------------------------------
 \subsection{Iterator}
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Benchmarks/Iteration_3.pdf}
+  \includegraphics[width=\textwidth]{Benchmarks/Iteration_4.pdf}
+  \label{IterationBenchmarks}
+  \caption{Excecution time to iterate through all the elements of the vector.}
+\end{figure}
 
+\begin{figure}[h!]
+  \centering
+  \label{IterationBlocksBenchmarks}
+  \includegraphics[width=\textwidth]{Benchmarks/Iteration_blocks_3.pdf}
+  \caption{Excecution time to iterate through all the elements of the vector. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Copmlete/Quick).}
+\end{figure}
 
 %-----------------------------------
 %	SUBSECTION Builder
 %-----------------------------------
 \subsection{Builder}
 
-
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Benchmarks/Builder_3.pdf}
+  \includegraphics[width=\textwidth]{Benchmarks/Builder_4.pdf}
+  \label{BuilderBenchmarks}
+  \caption{Execution time to build a vector of a given size.}
+\end{figure}
 
 %-----------------------------------
 %	SUBSECTION Parallel split-combine
 %-----------------------------------
 \subsection{Parallel split-combine}
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Benchmarks/Parmap_balanced.pdf}
+  \label{ParallelBenchmarks}
+  \caption{Benchmark on map and parallel map using the function (\textsc{x=>x}) to show the difference time used in the framework. This time represents the time spent in the splitters and combiners of the parallel collection (iterator and builder for the sequential version).}
+\end{figure}
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Benchmarks/parmap_unbalanced.pdf}
+  \label{ParallelUnbalancedBenchmarks}
+  \caption{Benchmark on map and parallel map using the function (\textsc{x=>x}) to show the difference time used in the framework. This time represents the time spent in the splitters and combiners of the parallel collection.}
+\end{figure}
 
 
 
