@@ -82,7 +82,7 @@ I% Chapter Template
   \centering
   \includegraphics[width=\textwidth]{Benchmarks/Concat.png}
   \label{ConcatBenchmarks}
-  \caption{Execution time for a concatenation operation on two vectors. In theory (and in practice) Vector conatenation is $O(left + right)$ and the rrbVector concatenation operation is $O(log_{32}(left + right))$.}
+  \caption{Execution time for a concatenation operation on two vectors. In theory (and in practice) Vector concatenation is $O(left + right)$ and the rrbVector concatenation operation is $O(log_{32}(left + right))$.}
 \end{figure}
 
 %-----------------------------------
@@ -119,6 +119,29 @@ I% Chapter Template
   \caption{Time to execute 256 prepend operations. This shows the amortized cost of the prepend operation.}
 \end{figure}
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Benchmarks/Prepend_block.pdf}
+  \label{PrependBenchmarks}
+  \caption{Time to execute 256 prepend operations. This shows the amortized cost of the append operation. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Copmlete/Quick).}
+\end{figure}
+
+
+%-----------------------------------
+%	SUBSECTION Splits
+%-----------------------------------
+\subsection{Splits}
+
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Benchmarks/Split_take_3.pdf}
+  \includegraphics[width=\textwidth]{Benchmarks/Split_drop_3.pdf}
+  \label{SplitsBenchmarks}
+  \caption{Execution time of take and drop.}
+\end{figure}
+
+
 %-----------------------------------
 %	SUBSECTION Iterator
 %-----------------------------------
@@ -152,6 +175,13 @@ I% Chapter Template
   \caption{Execution time to build a vector of a given size.}
 \end{figure}
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Benchmarks/Builder_blocks.pdf}
+  \label{BuilderBlocksBenchmarks}
+  \caption{Execution time to build a vector of a given size. Comparing performances for different block sizes.}
+\end{figure}
+
 %-----------------------------------
 %	SUBSECTION Parallel split-combine
 %-----------------------------------
@@ -169,6 +199,21 @@ I% Chapter Template
   \includegraphics[width=\textwidth]{Benchmarks/parmap_unbalanced.pdf}
   \label{ParallelUnbalancedBenchmarks}
   \caption{Benchmark on map and parallel map using the function (\textsc{x=>x}) to show the difference time used in the framework. This time represents the time spent in the splitters and combiners of the parallel collection.}
+\end{figure}
+
+
+%-----------------------------------
+%	SUBSECTION Memory footprint
+%-----------------------------------
+
+\subsection{Memory footprint}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Benchmarks/Memory_3.pdf}
+  \includegraphics[width=\textwidth]{Benchmarks/Memory_blocks.pdf}
+  \label{MemoryFootprints}
+  \caption{Memory Footprint}
 \end{figure}
 
 

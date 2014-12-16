@@ -109,48 +109,58 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}Concatenation}{12}{subsection.71}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4.3}Append}{12}{subsection.73}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4.4}Prepend}{12}{subsection.76}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.5}Iterator}{12}{subsection.78}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.6}Builder}{12}{subsection.81}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.7}Parallel split-combine}{12}{subsection.83}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.5}Splits}{12}{subsection.79}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.6}Iterator}{12}{subsection.81}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.7}Builder}{12}{subsection.84}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.8}Parallel split-combine}{12}{subsection.87}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.9}Memory footprint}{12}{subsection.90}}
 \newlabel{ApplyRandomBenchmarks}{{\caption@xref {ApplyRandomBenchmarks}{ on input line 65}}{13}{Apply}{figure.caption.69}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Time to execute 10k apply operations on random indices.\relax }}{13}{figure.caption.69}}
 \newlabel{ApplyBlocksBenchmarks}{{\caption@xref {ApplyBlocksBenchmarks}{ on input line 72}}{13}{Apply}{figure.caption.70}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Time to execute 10k apply operations on sequential indices. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Copmlete/Quick).\relax }}{13}{figure.caption.70}}
 \newlabel{ConcatBenchmarks}{{\caption@xref {ConcatBenchmarks}{ on input line 84}}{14}{Concatenation}{figure.caption.72}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Execution time for a concatenation operation on two vectors. In theory (and in practice) Vector conatenation is $O(left + right)$ and the rrbVector concatenation operation is $O(log_{32}(left + right))$.\relax }}{14}{figure.caption.72}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Execution time for a concatenation operation on two vectors. In theory (and in practice) Vector concatenation is $O(left + right)$ and the rrbVector concatenation operation is $O(log_{32}(left + right))$.\relax }}{14}{figure.caption.72}}
 \newlabel{AppendBenchmarks}{{\caption@xref {AppendBenchmarks}{ on input line 97}}{15}{Append}{figure.caption.74}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Time to execute 256 append operations. This shows the amortized cost of the append operation.\relax }}{15}{figure.caption.74}}
 \newlabel{IterationBlocksBenchmarks}{{\caption@xref {IterationBlocksBenchmarks}{ on input line 105}}{16}{Append}{figure.caption.75}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Time to execute 256 append operations. This shows the amortized cost of the append operation. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Copmlete/Quick).\relax }}{16}{figure.caption.75}}
 \newlabel{PrependBenchmarks}{{\caption@xref {PrependBenchmarks}{ on input line 118}}{17}{Prepend}{figure.caption.77}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces Time to execute 256 prepend operations. This shows the amortized cost of the prepend operation.\relax }}{17}{figure.caption.77}}
-\newlabel{IterationBenchmarks}{{\caption@xref {IterationBenchmarks}{ on input line 131}}{18}{Iterator}{figure.caption.79}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces Excecution time to iterate through all the elements of the vector.\relax }}{18}{figure.caption.79}}
-\newlabel{IterationBlocksBenchmarks}{{\caption@xref {IterationBlocksBenchmarks}{ on input line 137}}{19}{Iterator}{figure.caption.80}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces Excecution time to iterate through all the elements of the vector. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Copmlete/Quick).\relax }}{19}{figure.caption.80}}
-\newlabel{BuilderBenchmarks}{{\caption@xref {BuilderBenchmarks}{ on input line 151}}{20}{Builder}{figure.caption.82}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces Execution time to build a vector of a given size.\relax }}{20}{figure.caption.82}}
-\newlabel{ParallelBenchmarks}{{\caption@xref {ParallelBenchmarks}{ on input line 163}}{21}{Parallel split-combine}{figure.caption.84}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces Benchmark on map and parallel map using the function (\textsc  {x=>x}) to show the difference time used in the framework. This time represents the time spent in the splitters and combiners of the parallel collection (iterator and builder for the sequential version).\relax }}{21}{figure.caption.84}}
-\newlabel{ParallelUnbalancedBenchmarks}{{\caption@xref {ParallelUnbalancedBenchmarks}{ on input line 170}}{21}{Parallel split-combine}{figure.caption.85}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces Benchmark on map and parallel map using the function (\textsc  {x=>x}) to show the difference time used in the framework. This time represents the time spent in the splitters and combiners of the parallel collection.\relax }}{21}{figure.caption.85}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Testing}{22}{chapter.86}}
+\newlabel{PrependBenchmarks}{{\caption@xref {PrependBenchmarks}{ on input line 125}}{18}{Prepend}{figure.caption.78}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces Time to execute 256 prepend operations. This shows the amortized cost of the append operation. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Copmlete/Quick).\relax }}{18}{figure.caption.78}}
+\newlabel{SplitsBenchmarks}{{\caption@xref {SplitsBenchmarks}{ on input line 140}}{19}{Splits}{figure.caption.80}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces Execution time of take and drop.\relax }}{19}{figure.caption.80}}
+\newlabel{IterationBenchmarks}{{\caption@xref {IterationBenchmarks}{ on input line 154}}{20}{Iterator}{figure.caption.82}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces Excecution time to iterate through all the elements of the vector.\relax }}{20}{figure.caption.82}}
+\newlabel{IterationBlocksBenchmarks}{{\caption@xref {IterationBlocksBenchmarks}{ on input line 160}}{21}{Iterator}{figure.caption.83}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces Excecution time to iterate through all the elements of the vector. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Copmlete/Quick).\relax }}{21}{figure.caption.83}}
+\newlabel{BuilderBenchmarks}{{\caption@xref {BuilderBenchmarks}{ on input line 174}}{22}{Builder}{figure.caption.85}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces Execution time to build a vector of a given size.\relax }}{22}{figure.caption.85}}
+\newlabel{BuilderBlocksBenchmarks}{{\caption@xref {BuilderBlocksBenchmarks}{ on input line 181}}{23}{Builder}{figure.caption.86}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces Execution time to build a vector of a given size. Comparing performances for different block sizes.\relax }}{23}{figure.caption.86}}
+\newlabel{ParallelBenchmarks}{{\caption@xref {ParallelBenchmarks}{ on input line 193}}{23}{Parallel split-combine}{figure.caption.88}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces Benchmark on map and parallel map using the function (\textsc  {x=>x}) to show the difference time used in the framework. This time represents the time spent in the splitters and combiners of the parallel collection (iterator and builder for the sequential version).\relax }}{23}{figure.caption.88}}
+\newlabel{ParallelUnbalancedBenchmarks}{{\caption@xref {ParallelUnbalancedBenchmarks}{ on input line 200}}{24}{Parallel split-combine}{figure.caption.89}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.15}{\ignorespaces Benchmark on map and parallel map using the function (\textsc  {x=>x}) to show the difference time used in the framework. This time represents the time spent in the splitters and combiners of the parallel collection.\relax }}{24}{figure.caption.89}}
+\newlabel{MemoryFootprints}{{\caption@xref {MemoryFootprints}{ on input line 215}}{25}{Memory footprint}{figure.caption.91}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.16}{\ignorespaces Memory Footprint\relax }}{25}{figure.caption.91}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Testing}{26}{chapter.92}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{Testing}{{5}{22}{Testing}{chapter.86}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Teststing correctness}{22}{section.87}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}Invariant Assertions}{22}{subsection.88}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}Unit tests}{22}{subsection.89}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Main Section 2}{22}{section.90}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Related Work}{23}{chapter.91}}
+\newlabel{Testing}{{5}{26}{Testing}{chapter.92}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Teststing correctness}{26}{section.93}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}Invariant Assertions}{26}{subsection.94}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}Unit tests}{26}{subsection.95}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Main Section 2}{26}{section.96}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Related Work}{27}{chapter.97}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{RelatedWork}{{6}{23}{Related Work}{chapter.91}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}RRB-Vectors in Clojure}{23}{section.92}}
+\newlabel{RelatedWork}{{6}{27}{Related Work}{chapter.97}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}RRB-Vectors in Clojure}{27}{section.98}}
 \bibstyle{unsrtnat}
 \bibdata{Bibliography}
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Conclusions}{24}{chapter.93}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Conclusions}{28}{chapter.99}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{Conclusions}{{7}{24}{Conclusions}{chapter.93}{}}
-\newlabel{Bibliography}{{7}{24}{Conclusions}{chapter.93}{}}
+\newlabel{Conclusions}{{7}{28}{Conclusions}{chapter.99}{}}
+\newlabel{Bibliography}{{7}{28}{Conclusions}{chapter.99}{}}
