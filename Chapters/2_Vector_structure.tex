@@ -7,27 +7,145 @@ I% Chapter Template
 \lhead{Vector Structure. \emph{Vector Structure}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
-%	SECTION 1
+%	SECTION - Radix Balanced Vectors
 %----------------------------------------------------------------------------------------
 
-\section{Main Section 1}
+\section{Radix Balanced Vectors}
+
+%-----------------------------------
+%	SUBSECTION - Tree structure
+%-----------------------------------
+
+\subsection{Tree structure}
+% describe tree: balancing, filling, block sizes
 
 
 %-----------------------------------
-%	SUBSECTION 1
+%	SUBSECTION - Operations
 %-----------------------------------
-\subsection{Subsection 1}
+\subsection{Operations}
+% List core operations
+% Hint of displays and transient states
+
+%-----------------------------------
+%	SUBSUBSECTION - Apply
+%-----------------------------------
+
+\subsubsection{Apply (get element at index)}
+% used in head and last
 
 
 %-----------------------------------
-%	SUBSECTION 2
+%	SUBSUBSECTION - Updated
 %-----------------------------------
 
-\subsection{Subsection 2}
+\subsubsection{Updated}
+% base implementation needs to update the whole branch
+
+% with transient states, local updates can be amortised
+
+%-----------------------------------
+%	SUBSUBSECTION - Additions
+%-----------------------------------
+
+\subsubsection{Additions}
+
+\paragraph{Append and Prepend}
+% base implementation needs to update the whole branch
+% with transient states, consecutive appends are amortised
+
+\paragraph{Concatenation and Insert}
+
+
+%-----------------------------------
+%	SUBSUBSECTION - Splits
+%-----------------------------------
+
+\subsubsection{Splits}
+% used in tail, init, take, takeRight, drop, dropRight
 
 
 %----------------------------------------------------------------------------------------
-%	SECTION 2
+%	SECTION - Parallel Vectors
 %----------------------------------------------------------------------------------------
 
-\section{Main Section 2}
+\section{Parallel Vectors}
+
+%-----------------------------------
+%	SUBSUBSECTION - Splitter
+%-----------------------------------
+
+\subsection{Splitter Iterator}
+
+
+%-----------------------------------
+%	SUBSUBSECTION - Combiner
+%-----------------------------------
+
+\subsection{Combiner Builder}
+
+
+
+%----------------------------------------------------------------------------------------
+%	SECTION - Relaxed Radix Balanced Vectors
+%----------------------------------------------------------------------------------------
+
+\section{Relaxed Radix Balanced Vectors}
+
+%-----------------------------------
+%	SUBSECTION - Tree structure
+%-----------------------------------
+
+\subsection{Tree structure}
+% describe tree: balancing, filling, block sizes
+
+
+%-----------------------------------
+%	SUBSECTION - Operations
+%-----------------------------------
+\subsection{Operations}
+% List core operations
+% Hint of displays and transient states
+
+%-----------------------------------
+%	SUBSUBSECTION - Apply
+%-----------------------------------
+
+\subsubsection{Apply (get element at index)}
+% used in head and last
+
+
+%-----------------------------------
+%	SUBSUBSECTION - Updated
+%-----------------------------------
+
+\subsubsection{Updated}
+% base implementation needs to update the whole branch
+
+% with transient states, local updates can be amortised
+
+%-----------------------------------
+%	SUBSUBSECTION - Additions
+%-----------------------------------
+
+\subsubsection{Additions}
+
+\paragraph{Append and Prepend}
+% base implementation needs to update the whole branch
+% with transient states, consecutive appends are amortised
+
+\paragraph{Insert}
+
+
+\paragraph{Concatenation}
+
+
+%-----------------------------------
+%	SUBSUBSECTION - Splits
+%-----------------------------------
+
+\subsubsection{Splits}
+% used in tail, init, take, takeRight, drop, dropRight
+
+
+

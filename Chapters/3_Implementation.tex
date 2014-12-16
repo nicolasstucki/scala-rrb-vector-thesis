@@ -7,27 +7,100 @@ I% Chapter Template
 \lhead{Implementation. \emph{Implementation and optimizations}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
-%	SECTION 1
+%	SECTION - Where does time go?
 %----------------------------------------------------------------------------------------
 
-\section{Main Section 1}
+\section{Where does time go?}
 
 
 %-----------------------------------
 %	SUBSECTION 1
 %-----------------------------------
-\subsection{Subsection 1}
+
+\subsection{Arrays}
+% array creation, copy and access
 
 
 %-----------------------------------
 %	SUBSECTION 2
 %-----------------------------------
 
-\subsection{Subsection 2}
+\subsection{Computing indices}
+% computing radix vs relaxed radix (traverse array other array)
+% longer, more complex code
+
+
 
 
 %----------------------------------------------------------------------------------------
-%	SECTION 2
+%	SECTION - Displays
 %----------------------------------------------------------------------------------------
 
-\section{Main Section 2}
+\section{Displays}
+
+%-----------------------------------
+%	SUBSECTION As cache
+%-----------------------------------
+
+\subsection{As cache}
+% used to access some elements directly from the smaller subtrees
+
+% keeping relevant branch for next operations
+
+% operations: all operations that involve the tree structure
+
+
+%-----------------------------------
+%	SUBSECTION  For transient states
+%-----------------------------------
+
+\subsection{For transient states}
+% transient states are used to amortized operations
+% operations: append, prepend, update
+
+%----------------------------------------------------------------------------------------
+%	SECTION - Builder
+%----------------------------------------------------------------------------------------
+
+\section{Builder}
+% use of mutable tree 
+% avoid creation unnecessary arrays
+
+
+
+%----------------------------------------------------------------------------------------
+%	SECTION - Iterator
+%----------------------------------------------------------------------------------------
+
+\section{Iterator}
+% efficient tree traversal vs iteration by index
+% avoid re-traversing vertically the tree from the root
+
+
+%----------------------------------------------------------------------------------------
+%	SECTION - Relaxing the radix
+%----------------------------------------------------------------------------------------
+
+\section{Relaxing the Radix}
+
+%-----------------------------------
+%	SUBSECTION Displays
+%-----------------------------------
+
+\subsection{Displays}
+
+
+
+%-----------------------------------
+%	SUBSECTION Displays
+%-----------------------------------
+
+\subsection{Builder}
+
+
+%-----------------------------------
+%	SUBSECTION Displays
+%-----------------------------------
+
+\subsection{Iterator}
+
