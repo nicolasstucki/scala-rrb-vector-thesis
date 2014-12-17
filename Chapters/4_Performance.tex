@@ -11,15 +11,16 @@ I% Chapter Template
 %	SECTION In practice: Running on JVM
 %----------------------------------------------------------------------------------------
 \section{In practice: Running on JVM}
-% code interpreted
-% code compiled (inlined if hot)
-
+% code interpreted vs compiled
+% GC and memory alocations
 
 %-----------------------------------
 %	SUBSECTION Cost of Abstraction
 %-----------------------------------
 \subsection{Cost of Abstraction and JIT Inline}
-
+% cost of function invokation
+% code compiled (inlined if hot)
+% aim to make all critical methods 35< bytes
 
 
 %----------------------------------------------------------------------------------------
@@ -27,7 +28,7 @@ I% Chapter Template
 %----------------------------------------------------------------------------------------
 \section{Measuring performance}
 % Scalameter
-% JIT inline
+% warmup to JIT inline
 
 
 %----------------------------------------------------------------------------------------
@@ -44,12 +45,20 @@ I% Chapter Template
 %	SECTION Benchmarks
 %----------------------------------------------------------------------------------------
 \section{Benchmarks}
-
+% describe the the different benchmark types 
+%% differences between implementation (vector vs rrbvector)
+%% differences between unbalances
+%% differences between block sizes
+%% differences between concatenation rebalancing method
 
 %-----------------------------------
 %	SUBSECTION Apply
 %-----------------------------------
 \subsection{Apply}
+% describe the benchmark function
+% compare expectation with results
+% explain the upper bound
+% explain apparently incoherent results
 
 \begin{figure}[h!]
   \centering
@@ -70,17 +79,22 @@ I% Chapter Template
   \centering
   \includegraphics[width=\textwidth]{Benchmarks/apply_blocks.pdf}
   \label{ApplyBlocksBenchmarks}
-  \caption{Time to execute 10k apply operations on sequential indices. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Copmlete/Quick).}
+  \caption{Time to execute 10k apply operations on sequential indices. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Complete/Quick).}
 \end{figure}
 
 %-----------------------------------
 %	SUBSECTION Concatenation
 %-----------------------------------
 \subsection{Concatenation}
+% describe the benchmark function
+% compare expectation with results
+% explain the upper bound
+% explain apparently incoherent results
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Benchmarks/Concat.png}
+  \includegraphics[width=\textwidth]{Benchmarks/Concat2.png}
   \label{ConcatBenchmarks}
   \caption{Execution time for a concatenation operation on two vectors. In theory (and in practice) Vector concatenation is $O(left + right)$ and the rrbVector concatenation operation is $O(log_{32}(left + right))$.}
 \end{figure}
@@ -89,6 +103,10 @@ I% Chapter Template
 %	SUBSECTION Append
 %-----------------------------------
 \subsection{Append}
+% describe the benchmark function
+% compare expectation with results
+% explain the upper bound
+% explain apparently incoherent results
 
 \begin{figure}[h!]
   \centering
@@ -103,13 +121,17 @@ I% Chapter Template
   \centering
   \includegraphics[width=\textwidth]{Benchmarks/Append_blocks_3.pdf}
   \label{IterationBlocksBenchmarks}
-  \caption{Time to execute 256 append operations. This shows the amortized cost of the append operation. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Copmlete/Quick).}
+  \caption{Time to execute 256 append operations. This shows the amortized cost of the append operation. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Complete/Quick).}
 \end{figure}
 
 %-----------------------------------
 %	SUBSECTION Prepend
 %-----------------------------------
 \subsection{Prepend}
+% describe the benchmark function
+% compare expectation with results
+% explain the upper bound
+% explain apparently incoherent results
 
 \begin{figure}[h!]
   \centering
@@ -123,7 +145,7 @@ I% Chapter Template
   \centering
   \includegraphics[width=\textwidth]{Benchmarks/Prepend_block.pdf}
   \label{PrependBenchmarks}
-  \caption{Time to execute 256 prepend operations. This shows the amortized cost of the append operation. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Copmlete/Quick).}
+  \caption{Time to execute 256 prepend operations. This shows the amortized cost of the append operation. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Complete/Quick).}
 \end{figure}
 
 
@@ -131,7 +153,10 @@ I% Chapter Template
 %	SUBSECTION Splits
 %-----------------------------------
 \subsection{Splits}
-
+% describe the benchmark function
+% compare expectation with results
+% explain the upper bound
+% explain apparently incoherent results
 
 \begin{figure}[h!]
   \centering
@@ -146,6 +171,10 @@ I% Chapter Template
 %	SUBSECTION Iterator
 %-----------------------------------
 \subsection{Iterator}
+% describe the benchmark function
+% compare expectation with results
+% explain the upper bound
+% explain apparently incoherent results
 
 \begin{figure}[h!]
   \centering
@@ -159,13 +188,17 @@ I% Chapter Template
   \centering
   \label{IterationBlocksBenchmarks}
   \includegraphics[width=\textwidth]{Benchmarks/Iteration_blocks_3.pdf}
-  \caption{Excecution time to iterate through all the elements of the vector. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Copmlete/Quick).}
+  \caption{Excecution time to iterate through all the elements of the vector. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Complete/Quick).}
 \end{figure}
 
 %-----------------------------------
 %	SUBSECTION Builder
 %-----------------------------------
 \subsection{Builder}
+% describe the benchmark function
+% compare expectation with results
+% explain the upper bound
+% explain apparently incoherent results
 
 \begin{figure}[h!]
   \centering
@@ -186,6 +219,10 @@ I% Chapter Template
 %	SUBSECTION Parallel split-combine
 %-----------------------------------
 \subsection{Parallel split-combine}
+% describe the benchmark function
+% compare expectation with results
+% explain the upper bound
+% explain apparently incoherent results
 
 \begin{figure}[h!]
   \centering
@@ -207,6 +244,10 @@ I% Chapter Template
 %-----------------------------------
 
 \subsection{Memory footprint}
+% describe the benchmark function
+% compare expectation with results
+% explain the upper bound
+% explain apparently incoherent results
 
 \begin{figure}[h!]
   \centering

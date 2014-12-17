@@ -6,65 +6,65 @@
 \contentsline {chapter}{Abbreviations}{vii}{dummy.8}
 \contentsline {chapter}{\numberline {1}Introduction}{2}{chapter.11}
 \contentsline {section}{\numberline {1.1}Main Section 1}{2}{section.12}
-\contentsline {subsection}{\numberline {1.1.1}Subsection 1}{2}{subsection.13}
-\contentsline {subsection}{\numberline {1.1.2}Subsection 2}{2}{subsection.14}
-\contentsline {section}{\numberline {1.2}Main Section 2}{2}{section.15}
-\contentsline {chapter}{\numberline {2}Vector Structure}{4}{chapter.16}
-\contentsline {section}{\numberline {2.1}Radix Balanced Vectors}{4}{section.17}
-\contentsline {subsection}{\numberline {2.1.1}Tree structure}{4}{subsection.18}
-\contentsline {subsection}{\numberline {2.1.2}Operations}{4}{subsection.20}
-\contentsline {subsubsection}{\numberline {2.1.2.1}Apply}{4}{subsubsection.21}
-\contentsline {subsubsection}{\numberline {2.1.2.2}Updated}{4}{subsubsection.22}
-\contentsline {subsubsection}{\numberline {2.1.2.3}Additions}{4}{subsubsection.23}
-\contentsline {paragraph}{Append and Prepend}{4}{section*.24}
-\contentsline {paragraph}{Concatenation and Insert}{4}{section*.25}
-\contentsline {subsubsection}{\numberline {2.1.2.4}Splits}{5}{subsubsection.26}
-\contentsline {section}{\numberline {2.2}Parallel Vectors}{5}{section.27}
-\contentsline {subsection}{\numberline {2.2.1}Splitter Iterator}{5}{subsection.28}
-\contentsline {subsection}{\numberline {2.2.2}Combiner Builder}{5}{subsection.29}
-\contentsline {section}{\numberline {2.3}Relaxed Radix Balanced Vectors}{5}{section.30}
-\contentsline {subsection}{\numberline {2.3.1}Tree structure}{5}{subsection.31}
-\contentsline {subsection}{\numberline {2.3.2}Operations}{5}{subsection.33}
-\contentsline {subsubsection}{\numberline {2.3.2.1}Apply (get element at index)}{5}{subsubsection.34}
-\contentsline {subsubsection}{\numberline {2.3.2.2}Updated}{5}{subsubsection.35}
-\contentsline {subsubsection}{\numberline {2.3.2.3}Additions}{5}{subsubsection.36}
-\contentsline {paragraph}{Append and Prepend}{5}{section*.37}
-\contentsline {paragraph}{Insert}{5}{section*.38}
-\contentsline {paragraph}{Concatenation}{5}{figure.caption.43}
-\contentsline {subsubsection}{\numberline {2.3.2.4}Splits}{6}{subsubsection.44}
-\contentsline {chapter}{\numberline {3}Implementation and Optimizations}{8}{chapter.45}
-\contentsline {section}{\numberline {3.1}Where does time go?}{8}{section.46}
-\contentsline {subsection}{\numberline {3.1.1}Arrays}{8}{subsection.47}
-\contentsline {subsection}{\numberline {3.1.2}Computing indices}{8}{subsection.48}
-\contentsline {section}{\numberline {3.2}Displays}{9}{section.50}
-\contentsline {subsection}{\numberline {3.2.1}As cache}{9}{subsection.52}
-\contentsline {subsection}{\numberline {3.2.2}For transient states}{9}{subsection.53}
-\contentsline {section}{\numberline {3.3}Builder}{10}{section.55}
-\contentsline {section}{\numberline {3.4}Iterator}{10}{section.56}
-\contentsline {section}{\numberline {3.5}Relaxing the Radix}{10}{section.57}
-\contentsline {subsection}{\numberline {3.5.1}Displays}{10}{subsection.58}
-\contentsline {subsection}{\numberline {3.5.2}Builder}{10}{subsection.59}
-\contentsline {subsection}{\numberline {3.5.3}Iterator}{10}{subsection.60}
-\contentsline {chapter}{\numberline {4}Performance}{11}{chapter.61}
-\contentsline {section}{\numberline {4.1}In practice: Running on JVM}{12}{section.62}
-\contentsline {subsection}{\numberline {4.1.1}Cost of Abstraction and JIT Inline}{12}{subsection.63}
-\contentsline {section}{\numberline {4.2}Measuring performance}{12}{section.64}
-\contentsline {section}{\numberline {4.3}Generators}{12}{section.65}
-\contentsline {section}{\numberline {4.4}Benchmarks}{12}{section.66}
-\contentsline {subsection}{\numberline {4.4.1}Apply}{12}{subsection.67}
-\contentsline {subsection}{\numberline {4.4.2}Concatenation}{12}{subsection.71}
-\contentsline {subsection}{\numberline {4.4.3}Append}{12}{subsection.73}
-\contentsline {subsection}{\numberline {4.4.4}Prepend}{12}{subsection.76}
-\contentsline {subsection}{\numberline {4.4.5}Splits}{12}{subsection.79}
-\contentsline {subsection}{\numberline {4.4.6}Iterator}{12}{subsection.81}
-\contentsline {subsection}{\numberline {4.4.7}Builder}{12}{subsection.84}
-\contentsline {subsection}{\numberline {4.4.8}Parallel split-combine}{12}{subsection.87}
-\contentsline {subsection}{\numberline {4.4.9}Memory footprint}{12}{subsection.90}
-\contentsline {chapter}{\numberline {5}Testing}{26}{chapter.92}
-\contentsline {section}{\numberline {5.1}Teststing correctness}{26}{section.93}
-\contentsline {subsection}{\numberline {5.1.1}Invariant Assertions}{26}{subsection.94}
-\contentsline {subsection}{\numberline {5.1.2}Unit tests}{26}{subsection.95}
-\contentsline {section}{\numberline {5.2}Main Section 2}{26}{section.96}
-\contentsline {chapter}{\numberline {6}Related Work}{27}{chapter.97}
-\contentsline {section}{\numberline {6.1}RRB-Vectors in Clojure}{27}{section.98}
-\contentsline {chapter}{\numberline {7}Conclusions}{28}{chapter.99}
+\contentsline {section}{\numberline {1.2}Main Section 2}{2}{section.13}
+\contentsline {chapter}{\numberline {2}Vector Structure}{4}{chapter.14}
+\contentsline {section}{\numberline {2.1}Radix Balanced Vectors}{4}{section.15}
+\contentsline {subsection}{\numberline {2.1.1}Tree structure}{4}{subsection.16}
+\contentsline {subsection}{\numberline {2.1.2}Operations}{4}{subsection.18}
+\contentsline {subsubsection}{\numberline {2.1.2.1}Apply}{4}{subsubsection.19}
+\contentsline {subsubsection}{\numberline {2.1.2.2}Updated}{4}{subsubsection.20}
+\contentsline {subsubsection}{\numberline {2.1.2.3}Additions}{4}{subsubsection.21}
+\contentsline {paragraph}{Append}{4}{section*.22}
+\contentsline {paragraph}{Prepend}{4}{section*.23}
+\contentsline {paragraph}{Concatenation and Insert}{5}{section*.24}
+\contentsline {subsubsection}{\numberline {2.1.2.4}Splits}{5}{subsubsection.25}
+\contentsline {section}{\numberline {2.2}Parallel Vectors}{5}{section.26}
+\contentsline {subsection}{\numberline {2.2.1}Splitter Iterator}{5}{subsection.27}
+\contentsline {subsection}{\numberline {2.2.2}Combiner Builder}{5}{subsection.28}
+\contentsline {section}{\numberline {2.3}Relaxed Radix Balanced Vectors}{5}{section.29}
+\contentsline {subsection}{\numberline {2.3.1}Relaxed Tree structure}{5}{subsection.30}
+\contentsline {subsection}{\numberline {2.3.2}Relaxed Operations}{6}{subsection.33}
+\contentsline {subsubsection}{\numberline {2.3.2.1}Apply (get element at index)}{6}{subsubsection.34}
+\contentsline {subsubsection}{\numberline {2.3.2.2}Updated}{6}{subsubsection.35}
+\contentsline {subsubsection}{\numberline {2.3.2.3}Additions}{6}{subsubsection.36}
+\contentsline {paragraph}{Append}{6}{section*.37}
+\contentsline {paragraph}{Prepend}{6}{section*.38}
+\contentsline {paragraph}{Concatenation}{6}{figure.caption.43}
+\contentsline {paragraph}{Insert}{6}{section*.44}
+\contentsline {subsubsection}{\numberline {2.3.2.4}Splits}{7}{subsubsection.45}
+\contentsline {chapter}{\numberline {3}Implementation and Optimizations}{8}{chapter.46}
+\contentsline {section}{\numberline {3.1}Where is time spent?}{8}{section.47}
+\contentsline {subsection}{\numberline {3.1.1}Arrays}{8}{subsection.48}
+\contentsline {subsection}{\numberline {3.1.2}Computing indices}{8}{subsection.49}
+\contentsline {subsection}{\numberline {3.1.3}Abstractions}{9}{subsection.51}
+\contentsline {section}{\numberline {3.2}Displays}{9}{section.52}
+\contentsline {subsection}{\numberline {3.2.1}As cache}{9}{subsection.54}
+\contentsline {subsection}{\numberline {3.2.2}For transient states}{9}{subsection.55}
+\contentsline {section}{\numberline {3.3}Builder}{10}{section.57}
+\contentsline {section}{\numberline {3.4}Iterator}{10}{section.58}
+\contentsline {section}{\numberline {3.5}Relaxing the Radix}{10}{section.59}
+\contentsline {subsection}{\numberline {3.5.1}Relaxing Displays}{10}{subsection.60}
+\contentsline {subsection}{\numberline {3.5.2}Relaxing the Builder}{10}{subsection.62}
+\contentsline {subsection}{\numberline {3.5.3}Relaxing Iterator}{10}{subsection.63}
+\contentsline {chapter}{\numberline {4}Performance}{11}{chapter.64}
+\contentsline {section}{\numberline {4.1}In practice: Running on JVM}{12}{section.65}
+\contentsline {subsection}{\numberline {4.1.1}Cost of Abstraction and JIT Inline}{12}{subsection.66}
+\contentsline {section}{\numberline {4.2}Measuring performance}{12}{section.67}
+\contentsline {section}{\numberline {4.3}Generators}{12}{section.68}
+\contentsline {section}{\numberline {4.4}Benchmarks}{12}{section.69}
+\contentsline {subsection}{\numberline {4.4.1}Apply}{12}{subsection.70}
+\contentsline {subsection}{\numberline {4.4.2}Concatenation}{12}{subsection.74}
+\contentsline {subsection}{\numberline {4.4.3}Append}{12}{subsection.76}
+\contentsline {subsection}{\numberline {4.4.4}Prepend}{12}{subsection.79}
+\contentsline {subsection}{\numberline {4.4.5}Splits}{12}{subsection.82}
+\contentsline {subsection}{\numberline {4.4.6}Iterator}{12}{subsection.84}
+\contentsline {subsection}{\numberline {4.4.7}Builder}{12}{subsection.87}
+\contentsline {subsection}{\numberline {4.4.8}Parallel split-combine}{12}{subsection.90}
+\contentsline {subsection}{\numberline {4.4.9}Memory footprint}{12}{subsection.93}
+\contentsline {chapter}{\numberline {5}Testing}{26}{chapter.95}
+\contentsline {section}{\numberline {5.1}Teststing correctness}{26}{section.96}
+\contentsline {subsection}{\numberline {5.1.1}Unit tests}{26}{subsection.97}
+\contentsline {subsection}{\numberline {5.1.2}Invariant Assertions}{26}{subsection.98}
+\contentsline {chapter}{\numberline {6}Related Work}{27}{chapter.99}
+\contentsline {section}{\numberline {6.1}RRB-Vectors in Clojure}{27}{section.100}
+\contentsline {chapter}{\numberline {7}Conclusions}{28}{chapter.101}

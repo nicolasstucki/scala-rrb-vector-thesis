@@ -10,8 +10,7 @@ I% Chapter Template
 %	SECTION - Where does time go?
 %----------------------------------------------------------------------------------------
 
-\section{Where does time go?}
-
+\section{Where is time spent?}
 
 %-----------------------------------
 %	SUBSECTION 1
@@ -19,6 +18,8 @@ I% Chapter Template
 
 \subsection{Arrays}
 % array creation, copy and access
+% size of array argument
+% system arraycopy primitive
 
 
 %-----------------------------------
@@ -45,6 +46,13 @@ I% Chapter Template
   \label{radix_balanced_index_example}
 \end{figure}
 
+%-----------------------------------
+%	SUBSECTION 3
+%-----------------------------------
+
+\subsection{Abstractions}
+% function calls
+% generic code vs specialized code
 
 
 %----------------------------------------------------------------------------------------
@@ -52,14 +60,15 @@ I% Chapter Template
 %----------------------------------------------------------------------------------------
 
 \section{Displays}
+% describe display fields in vector object
+% describe the focus field
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\textwidth]{Figures/Balanced_subtrees}
-  \label{Balanced_subtrees}
-  \caption{Radix Balanced Tree}
+  \includegraphics[width=\textwidth]{Figures/Displays}
+  \label{Displays}
+  \caption{Displays}
 \end{figure}
-
 
 %-----------------------------------
 %	SUBSECTION As cache
@@ -67,9 +76,7 @@ I% Chapter Template
 
 \subsection{As cache}
 % used to access some elements directly from the smaller subtrees
-
 % keeping relevant branch for next operations
-
 % operations: all operations that involve the tree structure
 
 
@@ -79,7 +86,7 @@ I% Chapter Template
 
 \subsection{For transient states}
 % transient states are used to amortized operations
-% operations: append, prepend, update
+% operation: append, prepend, update
 
 \begin{figure}[h!]
   \centering
@@ -115,23 +122,36 @@ I% Chapter Template
 \section{Relaxing the Radix}
 
 %-----------------------------------
+%	SUBSECTION Relaxing Displays
+%-----------------------------------
+
+\subsection{Relaxing Displays}
+% describe fundamental difference in the focus (focused on balanced subtree)
+% describe focus start, focus end and focus (focus relaxed)
+% describe how fetching elements change
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Figures/Balanced_subtrees}
+  \label{Balanced_subtrees}
+  \caption{Radix Balanced Tree}
+\end{figure}
+
+%-----------------------------------
 %	SUBSECTION Displays
 %-----------------------------------
 
-\subsection{Displays}
-
-
-
-%-----------------------------------
-%	SUBSECTION Displays
-%-----------------------------------
-
-\subsection{Builder}
-
+\subsection{Relaxing the Builder}
+% same base implementation for +=
+% addition of accumulator for  ++= 
 
 %-----------------------------------
 %	SUBSECTION Displays
 %-----------------------------------
 
-\subsection{Iterator}
+\subsection{Relaxing Iterator}
+% same implementation within a balanced subtree
+% refocus from root to iterate between balanced subtrees
+
+
 
