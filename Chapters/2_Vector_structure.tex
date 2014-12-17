@@ -122,9 +122,9 @@ def updated(index: Int, elem: A) = {
 
 \section{Parallel Vectors}
 % why are  parallel vector useful
-% how are they paralellized
+% how are they paralellized (wraps an vector)
 % why do they suffer performance wise (no efficient concat)
-
+% fork-join pool
 
 %-----------------------------------
 %	SUBSUBSECTION - Splitter
@@ -132,15 +132,20 @@ def updated(index: Int, elem: A) = {
 
 \subsection{Splitter Iterator}
 % split into half 
+To divide the work into tasks for thread pool, a splitter is used to iterate over all elements of the collection. Splitters are a special kind of iterator that can be split at any time into some partition of the remaining elements. In the case of sequences the splitter should retain the original order. The most common implementation consists in dividing the remaining elements into two half. 
 
+The current implementation of the immutable parallel  vector \cite{scalaParVector211}  uses the common division into 2 parts for it splitter. The drop and take operations are used divide the vector for the two new splitters.
 
 %-----------------------------------
 %	SUBSUBSECTION - Combiner
 %-----------------------------------
 
 \subsection{Combiner Builder}
+% lazy combiner
+Combiners are used to merge the results from different tasks (in methods like map, filter, collect, ...) into the new collection. Combiners are a special kind of builder that is able to merge to partial results efficiently. When it's impossible to implement efficient combination operation, usually a lazy combiner is used. The lazy combiner is one keeps all the it's sub-combiners in an array buffer and only when the end result is needed they are combined. This is a fairly efficient implementation but does not take advantage of parallelism. 
 
-
+The current implementation of the immutable parallel vector \cite{scalaParVector211} use the lazy approach because of it's inefficient concatenation operation. One of the consequences of this is that the parallel operations will always be bounded by this sequential combination of elements, which can be beaten by the sequential version in many cases.
+ 
 
 %----------------------------------------------------------------------------------------
 %	SECTION - Relaxed Radix Balanced Vectors

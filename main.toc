@@ -17,12 +17,12 @@
 \contentsline {paragraph}{Append}{5}{section*.47}
 \contentsline {paragraph}{Prepend}{5}{section*.48}
 \contentsline {paragraph}{Concatenation and Insert}{5}{section*.49}
-\contentsline {subsubsection}{\numberline {2.1.2.4}Splits}{7}{subsubsection.50}
-\contentsline {section}{\numberline {2.2}Parallel Vectors}{7}{section.51}
-\contentsline {subsection}{\numberline {2.2.1}Splitter Iterator}{7}{subsection.52}
-\contentsline {subsection}{\numberline {2.2.2}Combiner Builder}{7}{subsection.53}
-\contentsline {section}{\numberline {2.3}Relaxed Radix Balanced Vectors}{7}{section.54}
-\contentsline {subsection}{\numberline {2.3.1}Relaxed Tree structure}{7}{subsection.55}
+\contentsline {subsubsection}{\numberline {2.1.2.4}Splits}{5}{subsubsection.50}
+\contentsline {section}{\numberline {2.2}Parallel Vectors}{5}{section.51}
+\contentsline {subsection}{\numberline {2.2.1}Splitter Iterator}{5}{subsection.52}
+\contentsline {subsection}{\numberline {2.2.2}Combiner Builder}{6}{subsection.53}
+\contentsline {section}{\numberline {2.3}Relaxed Radix Balanced Vectors}{6}{section.54}
+\contentsline {subsection}{\numberline {2.3.1}Relaxed Tree structure}{6}{subsection.55}
 \contentsline {subsection}{\numberline {2.3.2}Relaxed Operations}{7}{subsection.58}
 \contentsline {subsubsection}{\numberline {2.3.2.1}Apply (get element at index)}{7}{subsubsection.59}
 \contentsline {subsubsection}{\numberline {2.3.2.2}Updated}{7}{subsubsection.60}
@@ -30,7 +30,7 @@
 \contentsline {paragraph}{Append}{7}{section*.62}
 \contentsline {paragraph}{Prepend}{7}{section*.63}
 \contentsline {paragraph}{Concatenation}{7}{figure.caption.68}
-\contentsline {paragraph}{Insert}{8}{section*.69}
+\contentsline {paragraph}{Insert}{7}{section*.69}
 \contentsline {subsubsection}{\numberline {2.3.2.4}Splits}{9}{subsubsection.70}
 \contentsline {subsubsection}{\numberline {2.3.2.5}Parallel Vector}{9}{subsubsection.71}
 \contentsline {chapter}{\numberline {3}Implementation and Optimizations}{10}{chapter.72}
