@@ -12,7 +12,7 @@ I% Chapter Template
 %----------------------------------------------------------------------------------------
 \section{In practice: Running on JVM}
 % code interpreted vs compiled
-% GC and memory alocations
+% GC and memory allocations
 
 %-----------------------------------
 %	SUBSECTION Cost of Abstraction
@@ -29,6 +29,7 @@ I% Chapter Template
 \section{Measuring performance}
 % Scalameter
 % warmup to JIT inline
+% using vectors that do not fill perfectly the last branch to avoid trivial cases (that would be faster but do not show the average of the operation)
 
 
 %----------------------------------------------------------------------------------------
@@ -116,7 +117,6 @@ I% Chapter Template
   \caption{Time to execute 256 append operations. This shows the amortized cost of the append operation.}
 \end{figure}
 
-
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Benchmarks/Append_blocks_3.pdf}
@@ -174,7 +174,7 @@ I% Chapter Template
 % describe the benchmark function
 % compare expectation with results
 % explain the upper bound
-% explain apparently incoherent results
+% explain apparently incoherent results: iteration of sightly unbalanced vector is faster
 
 \begin{figure}[h!]
   \centering

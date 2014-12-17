@@ -36,6 +36,7 @@ I% Chapter Template
 %-----------------------------------
 \subsection{Operations}
 % List core operations
+% naive implementation just as high level guide
 % Hint of displays and transient states
 
 
@@ -47,14 +48,42 @@ I% Chapter Template
 % used in head and last
 % performance log_32(n), hint of displays
 
+\begin{lstlisting}[frame=single]
+def apply(index: Int): A = {
+  def getElem(node: Array[AnyRef], depth: Int): A = {
+    val indexInNode = // compute index
+    if(depth == 1) node(indexInNode)
+    else getElem(node(indexInNode), depth-1) 
+  }
+  getElem(vectorRoot, vectorDepth)
+}
+
+\end{lstlisting}
+
 %-----------------------------------
 %	SUBSUBSECTION - Updated
 %-----------------------------------
 
 \subsubsection{Updated}
 % base implementation needs to update the whole branch
-
 % with transient states, local updates can be amortised
+
+\begin{lstlisting}[frame=single]
+def updated(index: Int, elem: A) = {
+  def updatedNode(node: Array[AnyRef], depth: Int) = {
+    val indexInNode = // compute index
+    val copy = clone(node)
+    if(depth == 1) {
+      copy(indexInNode) = elem
+    } else {
+      copy(indexInNode) = 
+        updatedNode(node(indexInNode), depth-1)
+    }
+    copy
+  }
+  new Vector(updatedNode(vectorRoot, vectorDepth), ...)
+}
+\end{lstlisting}
 
 %-----------------------------------
 %	SUBSUBSECTION - Additions
@@ -92,7 +121,9 @@ I% Chapter Template
 %----------------------------------------------------------------------------------------
 
 \section{Parallel Vectors}
-
+% why are  parallel vector useful
+% how are they paralellized
+% why do they suffer performance wise (no efficient concat)
 
 
 %-----------------------------------
@@ -100,7 +131,7 @@ I% Chapter Template
 %-----------------------------------
 
 \subsection{Splitter Iterator}
-
+% split into half 
 
 
 %-----------------------------------
@@ -229,5 +260,14 @@ I% Chapter Template
 \subsubsection{Splits}
 % used in tail, init, take, takeRight, drop, dropRight
 % describe difference between the implementation (null and shift vs. cut and update size)
+
+%-----------------------------------
+%	SUBSUBSECTION - Splits
+%-----------------------------------
+
+\subsubsection{Parallel Vector}
+% Combine: trivial expansion from builder
+%% heuristic: try to construct balanced trees 
+% Split into subtrees two, take the nearest power of 32 to the half
 
 

@@ -36,6 +36,79 @@
 \usepackage{amsfonts} % Mathesymbole
 \usepackage{calc}
 
+\usepackage{listings}
+
+\lstdefinelanguage{scala}{
+  morekeywords={%
+          abstract,case,catch,class,def,do,else,extends,%
+          false,final,finally,for,forSome,if,implicit,import,lazy,%
+          match,new,null,object,override,package,private,protected,%
+          return,sealed,super,this,throw,trait,true,try,type,%
+          val,var,while,with,yield},
+  otherkeywords={=>,<-,<\%,<:,>:,\#,@},
+  sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[n]{/*}{*/},
+  morestring=[b]",
+  morestring=[b]',
+  morestring=[b]"""
+}[keywords,comments,strings]
+
+\lstset{
+    language=Scala,%
+    xleftmargin=4mm,%
+    aboveskip=3mm,%
+    belowskip=3mm,%
+    fontadjust=true,%
+    columns=[c]fixed,%
+    keepspaces=true,%
+    basewidth={0.58em, 0.53em},%
+    tabsize=2,%
+    basicstyle=\renewcommand{\baselinestretch}{0.95}\ttfamily,%
+    commentstyle=\itshape,%
+    keywordstyle=\bfseries,%
+    mathescape=true,%
+    escapechar=?,%
+    captionpos=b,%
+    framerule=0.3pt,%
+    firstnumber=0,%
+    numbersep=1.5mm,%
+    numberstyle=\tiny,%
+}
+
+\lstdefinestyle{floating}{%
+    xleftmargin=10pt,%
+    xrightmargin=5pt,%
+    aboveskip=4mm,%
+    belowskip=4mm,%
+    fontadjust=true,%
+    columns=[c]flexible,%
+    keepspaces=true,%
+    basewidth={0.5em, 0.425em},%
+    tabsize=2,%
+    basicstyle=\renewcommand{\baselinestretch}{0.95}\ttfamily,%
+    commentstyle=\rm,%
+    keywordstyle=\bfseries,%
+    mathescape=true,%
+    captionpos=b,%
+    framerule=0.3pt,%
+    firstnumber=0,%
+    numbersep=1.5mm,%
+    numberstyle=\tiny,%
+    float=tbp,%
+    frame=tblr,%
+    framesep=5pt,%
+    framexleftmargin=3pt,%
+    abovecaptionskip=\smallskipamount,%
+    belowcaptionskip=\smallskipamount,%
+} % to define: caption, label
+
+\newcommand{\code}[1]{%
+    \lstinline[%keywordstyle=,%
+               flexiblecolumns=true,%
+               basicstyle=\ttfamily]£#1£}
+
+
 \hypersetup{urlcolor=blue, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
 \title{\ttitle} % Defines the thesis title - don't touch this
 
@@ -58,7 +131,8 @@
 \hypersetup{pdftitle={\ttitle}}
 \hypersetup{pdfsubject=\subjectname}
 \hypersetup{pdfauthor=\authornames}
-\hypersetup{pdfkeywords=\keywordnames}
+\hypersetup{pdfkeywords=\keywordnames}               
+            
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
