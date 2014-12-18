@@ -79,7 +79,10 @@ I% Chapter Template
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\textwidth]{Benchmarks/apply_blocks.pdf}
+  \includegraphics[width=0.49\textwidth]{Benchmarks/Apply_blocks_32.pdf}
+  \includegraphics[width=0.49\textwidth]{Benchmarks/Apply_blocks_64.pdf}
+  \includegraphics[width=0.49\textwidth]{Benchmarks/Apply_blocks_128.pdf}
+  \includegraphics[width=0.49\textwidth]{Benchmarks/Apply_blocks_256.pdf}
   \label{ApplyBlocksBenchmarks}
   \caption{Time to execute 10k apply operations on sequential indices. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Complete/Quick).}
 \end{figure}
@@ -96,7 +99,6 @@ I% Chapter Template
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Benchmarks/Concat.png}
-  \includegraphics[width=\textwidth]{Benchmarks/Concat2.png}
   \label{ConcatBenchmarks}
   \caption{Execution time for a concatenation operation on two vectors. In theory (and in practice) Vector concatenation is $O(left + right)$ and the rrbVector concatenation operation is $O(log_{32}(left + right))$.}
 \end{figure}
@@ -113,14 +115,23 @@ I% Chapter Template
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Benchmarks/Append_2.pdf}
-  \includegraphics[width=\textwidth]{Benchmarks/Append_3.pdf}
-  \label{AppendBenchmarks}
+  \label{Append2Benchmarks}
   \caption{Time to execute 256 append operations. This shows the amortized cost of the append operation.}
 \end{figure}
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\textwidth]{Benchmarks/Append_blocks_3.pdf}
+  \includegraphics[width=\textwidth]{Benchmarks/Append_3.pdf}
+  \label{Append3Benchmarks}
+  \caption{Time to execute 256 append operations. This shows the amortized cost of the append operation.}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.49\textwidth]{Benchmarks/Append_blocks_32.pdf}
+  \includegraphics[width=0.49\textwidth]{Benchmarks/Append_blocks_64.pdf}
+  \includegraphics[width=0.49\textwidth]{Benchmarks/Append_blocks_128.pdf}
+  \includegraphics[width=0.49\textwidth]{Benchmarks/Append_blocks_256.pdf}
   \label{IterationBlocksBenchmarks}
   \caption{Time to execute 256 append operations. This shows the amortized cost of the append operation. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Complete/Quick).}
 \end{figure}
@@ -144,7 +155,10 @@ I% Chapter Template
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\textwidth]{Benchmarks/Prepend_block.pdf}
+  \includegraphics[width=0.49\textwidth]{Benchmarks/Prepend_blocks_32.pdf}
+  \includegraphics[width=0.49\textwidth]{Benchmarks/Prepend_blocks_64.pdf}
+  \includegraphics[width=0.49\textwidth]{Benchmarks/Prepend_blocks_128.pdf}
+  \includegraphics[width=0.49\textwidth]{Benchmarks/Prepend_blocks_256.pdf}
   \label{PrependBenchmarks}
   \caption{Time to execute 256 prepend operations. This shows the amortized cost of the append operation. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Complete/Quick).}
 \end{figure}
@@ -188,7 +202,10 @@ I% Chapter Template
 \begin{figure}[h!]
   \centering
   \label{IterationBlocksBenchmarks}
-  \includegraphics[width=\textwidth]{Benchmarks/Iteration_blocks_3.pdf}
+  \includegraphics[width=0.49\textwidth]{Benchmarks/Iteration_blocks_32.pdf}
+  \includegraphics[width=0.49\textwidth]{Benchmarks/Iteration_blocks_64.pdf}
+  \includegraphics[width=0.49\textwidth]{Benchmarks/Iteration_blocks_128.pdf}
+  \includegraphics[width=0.49\textwidth]{Benchmarks/Iteration_blocks_256.pdf}
   \caption{Excecution time to iterate through all the elements of the vector. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Complete/Quick).}
 \end{figure}
 
@@ -234,7 +251,10 @@ I% Chapter Template
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\textwidth]{Benchmarks/parmap_unbalanced.pdf}
+  \includegraphics[width=0.49\textwidth]{Benchmarks/parmap_unbalanced_1.pdf}
+  \includegraphics[width=0.49\textwidth]{Benchmarks/parmap_unbalanced_2.pdf}
+  \includegraphics[width=0.49\textwidth]{Benchmarks/parmap_unbalanced_4.pdf}
+  \includegraphics[width=0.49\textwidth]{Benchmarks/parmap_unbalanced_8.pdf}
   \label{ParallelUnbalancedBenchmarks}
   \caption{Benchmark on map and parallel map using the function (\textsc{x=>x}) to show the difference time used in the framework. This time represents the time spent in the splitters and combiners of the parallel collection.}
 \end{figure}

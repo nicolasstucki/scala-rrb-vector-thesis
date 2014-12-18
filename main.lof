@@ -17,18 +17,19 @@
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Time to execute 10k apply operations on random indices.\relax }}{16}{figure.caption.108}
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Time to execute 10k apply operations on sequential indices. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Complete/Quick).\relax }}{16}{figure.caption.109}
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Execution time for a concatenation operation on two vectors. In theory (and in practice) Vector concatenation is $O(left + right)$ and the rrbVector concatenation operation is $O(log_{32}(left + right))$.\relax }}{17}{figure.caption.111}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Time to execute 256 append operations. This shows the amortized cost of the append operation.\relax }}{18}{figure.caption.113}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Time to execute 256 append operations. This shows the amortized cost of the append operation. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Complete/Quick).\relax }}{19}{figure.caption.114}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Time to execute 256 prepend operations. This shows the amortized cost of the prepend operation.\relax }}{20}{figure.caption.116}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Time to execute 256 prepend operations. This shows the amortized cost of the append operation. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Complete/Quick).\relax }}{21}{figure.caption.117}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Execution time of take and drop.\relax }}{22}{figure.caption.119}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Excecution time to iterate through all the elements of the vector.\relax }}{23}{figure.caption.121}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Excecution time to iterate through all the elements of the vector. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Complete/Quick).\relax }}{24}{figure.caption.122}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Execution time to build a vector of a given size.\relax }}{25}{figure.caption.124}
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Execution time to build a vector of a given size. Comparing performances for different block sizes.\relax }}{26}{figure.caption.125}
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Benchmark on map and parallel map using the function (\textsc {x=>x}) to show the difference time used in the framework. This time represents the time spent in the splitters and combiners of the parallel collection (iterator and builder for the sequential version).\relax }}{26}{figure.caption.127}
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Benchmark on map and parallel map using the function (\textsc {x=>x}) to show the difference time used in the framework. This time represents the time spent in the splitters and combiners of the parallel collection.\relax }}{27}{figure.caption.128}
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Memory Footprint\relax }}{28}{figure.caption.130}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Time to execute 256 append operations. This shows the amortized cost of the append operation.\relax }}{17}{figure.caption.113}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Time to execute 256 append operations. This shows the amortized cost of the append operation.\relax }}{18}{figure.caption.114}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Time to execute 256 append operations. This shows the amortized cost of the append operation. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Complete/Quick).\relax }}{18}{figure.caption.115}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Time to execute 256 prepend operations. This shows the amortized cost of the prepend operation.\relax }}{19}{figure.caption.117}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Time to execute 256 prepend operations. This shows the amortized cost of the append operation. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Complete/Quick).\relax }}{20}{figure.caption.118}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Execution time of take and drop.\relax }}{21}{figure.caption.120}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Excecution time to iterate through all the elements of the vector.\relax }}{22}{figure.caption.122}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Excecution time to iterate through all the elements of the vector. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Complete/Quick).\relax }}{23}{figure.caption.123}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Execution time to build a vector of a given size.\relax }}{24}{figure.caption.125}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Execution time to build a vector of a given size. Comparing performances for different block sizes.\relax }}{25}{figure.caption.126}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Benchmark on map and parallel map using the function (\textsc {x=>x}) to show the difference time used in the framework. This time represents the time spent in the splitters and combiners of the parallel collection (iterator and builder for the sequential version).\relax }}{25}{figure.caption.128}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Benchmark on map and parallel map using the function (\textsc {x=>x}) to show the difference time used in the framework. This time represents the time spent in the splitters and combiners of the parallel collection.\relax }}{26}{figure.caption.129}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Memory Footprint\relax }}{27}{figure.caption.131}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
