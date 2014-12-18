@@ -51,13 +51,12 @@ I% Chapter Template
 \begin{lstlisting}[frame=single]
 def apply(index: Int): A = {
   def getElem(node: Array[AnyRef], depth: Int): A = {
-    val indexInNode = // compute index
+    val indexInNode = // get subindex
     if(depth == 1) node(indexInNode)
     else getElem(node(indexInNode), depth-1) 
   }
   getElem(vectorRoot, vectorDepth)
 }
-
 \end{lstlisting}
 
 %-----------------------------------
@@ -130,7 +129,7 @@ def updated(index: Int, elem: A) = {
 %	SUBSUBSECTION - Splitter
 %-----------------------------------
 
-\subsection{Splitter Iterator}
+\subsection{Splitter (Iterator)}
 % split into half 
 To divide the work into tasks for thread pool, a splitter is used to iterate over all elements of the collection. Splitters are a special kind of iterator that can be split at any time into some partition of the remaining elements. In the case of sequences the splitter should retain the original order. The most common implementation consists in dividing the remaining elements into two half. 
 
@@ -140,9 +139,9 @@ The current implementation of the immutable parallel  vector \cite{scalaParVecto
 %	SUBSUBSECTION - Combiner
 %-----------------------------------
 
-\subsection{Combiner Builder}
+\subsection{Combiner (Builder)}
 % lazy combiner
-Combiners are used to merge the results from different tasks (in methods like map, filter, collect, ...) into the new collection. Combiners are a special kind of builder that is able to merge to partial results efficiently. When it's impossible to implement efficient combination operation, usually a lazy combiner is used. The lazy combiner is one keeps all the it's sub-combiners in an array buffer and only when the end result is needed they are combined. This is a fairly efficient implementation but does not take advantage of parallelism. 
+Combiners are used to merge the results from different tasks (in methods like map, filter, collect, ...) into the new collection. Combiners are a special kind of builder that is able to merge to partial results efficiently. When it's impossible to implement efficient combination operation, usually a lazy combiner is used. The lazy combiner is one keeps all the it's sub-combiners in an array buffer and only when the end result is needed they are combined. This is a fairly efficient implementation but does not take full advantage of parallelism. 
 
 The current implementation of the immutable parallel vector \cite{scalaParVector211} use the lazy approach because of it's inefficient concatenation operation. One of the consequences of this is that the parallel operations will always be bounded by this sequential combination of elements, which can be beaten by the sequential version in many cases.
  
