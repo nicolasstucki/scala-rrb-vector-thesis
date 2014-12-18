@@ -17,9 +17,11 @@ I% Chapter Template
 %-----------------------------------
 
 \subsection{Arrays}
-% array creation, copy and access
+% array creation, copy
+Most of the memory used in the vector data structure is composed of arrays. The three key operations used on this arrays: array creation, array update and array access. The arrays are used as immutable arrays, as such the update operations are only allowed when the array is initialised. This also implies that each time there is a modification on some part of an array, a new array must be created and all the old elements copied. 
+
 % size of array argument
-% system arraycopy primitive
+The size of the array will affect the performance of the vector. With larger blocks the access times will be reduced because the depth of the tree will decrease. But, on the other hand, increasing the size of the block will make slow down the update operations. This is a direct consequence of the need to copy the entire array for a single update.
 
 
 %-----------------------------------
@@ -28,10 +30,11 @@ I% Chapter Template
 
 \subsection{Computing indices}
 
+Computing the indices in each node while traversing or modifying the vector is key in performance. This performances is gained by using low level binary computations on the indices in the case where the tree is balanced. And, using precomputed sizes in the case where the balance is relaxed.
+
 %-----------------------------------
 \paragraph{Radix}
 % Explain how to compute them
-% how to generalise
 Assuming that the tree is full, elements are fetched from the tree using radix search on the index. As each node has a branching of 32, the index can be split bitwise in blocks of 5 ($2^5 = 32$) and used to know the path that must be taken from the root down to the element. The indices at each level $L$ can be computed with $(index >> (5 \cdot L)) \& 31$. For example the index 526843 would be:
 \[
  526843 = 00
@@ -48,6 +51,7 @@ def getSubIndex(indexInTree: Int, level: Int): Int =
   (index >> (5*level)) & 31
 \end{lstlisting}
 
+% how to generalise
 This scheme can be generalised to any block size $m$ where $m=2^i$ for $0 < i \leq 31$. The formula would be $(index >> (m \cdot L)) \& ((1<<m)-1)$. It is also possible to generalise for other values of $m$ using the modulo, division and power operations. In that case the formula would become $(index / (m^L)) \% m$. This last generalisation is not used because it reduces sightly the performance and it complicates other index manipulations. 
 
 \begin{figure}[h!]
@@ -58,10 +62,8 @@ This scheme can be generalised to any block size $m$ where $m=2^i$ for $0 < i \l
 \end{figure}
 
 %-----------------------------------
-\paragraph{Relaxed Radix}
+\paragraph{Relaxing the Radix}
 % Explain how to compute them 
-% longer, more complex code
-% fallback 
 When the tree is relaxed it is not possible to know the subindices from index. That is why we keep the sizes array in the unbalanced nodes. This array keeps the accumulated sizes to make the computation of subindices as trivial as possible. The subindex is the same as the first index in the sizes array where $index < sizes[subindex]$. The simplest way to find this subindex is by a linearly scanning the array. 
 
 \begin{lstlisting}[frame=single]
@@ -73,9 +75,11 @@ def getSubIndex(sizes: Array[Int], indexInTree: Int): Int = {
 }
 \end{lstlisting}
 
+% linear vs binary search
 For small arrays (like blocks of size 32) this will take be faster than a binary search because it takes advantage of the cache lines. If we would consider using bigger block sizes it would be better to use a hybrid between binary and linear search.
 
-To traverse the tree down to the leaf where the index is, the subindices are computed from the sizes as long as the tree node is unbalanced. If the node is balanced, then the more efficient radix based method is used from there to the leaf. 
+% fallback to radix
+To traverse the tree down to the leaf where the index is, the subindices are computed from the sizes as long as the tree node is unbalanced. If the node is balanced, then the more efficient radix based method is used from there to the leaf. To avoid the need of accessing and scanning an additional array in each level.
 
 
 %-----------------------------------
@@ -85,6 +89,8 @@ To traverse the tree down to the leaf where the index is, the subindices are com
 \subsection{Abstractions}
 % function calls
 % generic code vs specialized code
+% expanded code 
+% example with simple expanded get operation (show expansion and specialisation)
 
 
 %----------------------------------------------------------------------------------------
@@ -128,36 +134,11 @@ To traverse the tree down to the leaf where the index is, the subindices are com
 \end{figure}
 
 
-%----------------------------------------------------------------------------------------
-%	SECTION - Builder
-%----------------------------------------------------------------------------------------
-
-\section{Builder}
-% use of mutable tree 
-% avoid creation unnecessary arrays
-
-
-
-%----------------------------------------------------------------------------------------
-%	SECTION - Iterator
-%----------------------------------------------------------------------------------------
-
-\section{Iterator}
-% efficient tree traversal vs iteration by index
-% avoid re-traversing vertically the tree from the root
-
-
-%----------------------------------------------------------------------------------------
-%	SECTION - Relaxing the radix
-%----------------------------------------------------------------------------------------
-
-\section{Relaxing the Radix}
-
 %-----------------------------------
-%	SUBSECTION Relaxing Displays
+%	SUBSECTION  For transient states
 %-----------------------------------
 
-\subsection{Relaxing Displays}
+\subsection{Relaxing the Displays}
 % describe fundamental difference in the focus (focused on balanced subtree)
 % describe focus start, focus end and focus (focus relaxed)
 % describe how fetching elements change
@@ -169,21 +150,40 @@ To traverse the tree down to the leaf where the index is, the subindices are com
   \caption{Radix Balanced Tree}
 \end{figure}
 
-%-----------------------------------
-%	SUBSECTION Displays
-%-----------------------------------
 
-\subsection{Relaxing the Builder}
+
+%----------------------------------------------------------------------------------------
+%	SECTION - Builder
+%----------------------------------------------------------------------------------------
+
+\section{Builder}
+% use of mutable tree 
+% avoid creation unnecessary arrays
+
+
+%-----------------------------------
+\paragraph{Relaxing the Builder}
 % same base implementation for +=
 % addition of accumulator for  ++= 
 
-%-----------------------------------
-%	SUBSECTION Displays
-%-----------------------------------
 
-\subsection{Relaxing Iterator}
+
+%----------------------------------------------------------------------------------------
+%	SECTION - Iterator
+%----------------------------------------------------------------------------------------
+
+\section{Iterator}
+% efficient tree traversal vs iteration by index
+% avoid re-traversing vertically the tree from the root
+
+%-----------------------------------
+\paragraph{Relaxing the Iterator}
 % same implementation within a balanced subtree
 % refocus from root to iterate between balanced subtrees
+
+
+
+
 
 
 
