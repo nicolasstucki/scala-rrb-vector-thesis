@@ -113,8 +113,7 @@ As base for optimizations, the vector object keeps a set of fields to track one 
 To know on which branch the vector is focused there is also a \texttt{focus} field with an index. This index is the index of any element in the current \texttt{display0}. This index represents the radix indexing scheme of node subindices described in \ref{ComputingIndices}.
 
 % immutability of displays
-To follow the simple implementations scheme of immutable objects in concurrent contexts, the focus is also immutable. Therefore each vector object will have a single focused branch during its existence\footnote{The display focus may change during the initialisation of the object as optimisation of some methods}. Each method that creates a new vector must decide which focus to set. Two heuristics are used for this: If there was an update operation on some branch where that operations could be used again, that branch is used as focus. If the first one cant be applied, the display is set to the first element as this helps key collection operations such as \texttt{iterator}.
-
+To follow the simple implementations scheme of immutable objects in concurrent contexts, the focus is also immutable. Therefore each vector object will have a single focused branch during its existence\footnote{The display focus may change during the initialisation of the object as optimisation of some methods}. Each method that creates a new vector must decide which focus to set. 
 
 %-----------------------------------
 %	SUBSECTION As cache
@@ -122,15 +121,31 @@ To follow the simple implementations scheme of immutable objects in concurrent c
 
 \subsection{As cache}
 % used to access some elements directly from the smaller subtrees (XOR)
-% keeping relevant branch for next operations
-% operations: all operations that involve the tree structure
+One of the uses of the displays is as a cached branch. If the same leaf node is used in the following operation, there is no need for vertical tree traversal which is key to amortize operation to constant time. In the case another branch in needed, then it can be fetched from the lowest common node of the two branches. 
 
+% xor
+To know the which is the level of the lowest common node in a vector of block size $2^m$ (for some consistent $m$), only the \texttt{focus} index and the index being fetched are needed. The operation $index \veebar focus$ will return a number is bounded to the maximum number of elements in a tree of that level. The actual level can be extracted with some if statements. This operation bounded by the same number of operations that will be needed to traverse the tree back down through the new branch.
+
+\begin{lstlisting}[frame=single]
+def getLowestCommonLevel(index: Int, focus: Int): Int = {
+  val xor = index ^ focus
+  if (xor < 32 /*(1<<5)*/ ) 0
+  else if (xor < 1024 /*(1<<10)*/ ) 1
+  else if (xor < 32768 /*(1<<15)*/ ) 2
+  ...
+  else 5
+}
+\end{lstlisting}
+
+% keeping relevant branch for next operations
+When deciding which will be the focused branch of a new vector two heuristics are used for this: If there was an update operation on some branch where that operations could be used again, that branch is used as focus. If the first one cant be applied, the display is set to the first element as this helps key collection operations such as \texttt{iterator}.
 
 %-----------------------------------
 %	SUBSECTION  For transient states
 %-----------------------------------
 
 \subsection{For transient states}
+Transient states is the key optimisation to get append, prepend and update to amortized constant time.
 % transient states are used to amortized operations
 % operation: append, prepend, update
 % normailization
