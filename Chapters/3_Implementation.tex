@@ -1,10 +1,10 @@
 I% Chapter Template
 
-\chapter{Implementation and Optimizations} % Main chapter title
+\chapter{Optimizations} % Main chapter title
 
-\label{Implementation} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
+\label{Optimizations} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
-\lhead{Implementation. \emph{Implementation and optimizations}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
+\lhead{Optimizations. \emph{Optimizations}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
 %	SECTION - Where does time go?
@@ -29,6 +29,7 @@ The size of the array will affect the performance of the vector. With larger blo
 %-----------------------------------
 
 \subsection{Computing indices}
+\label{ComputingIndices}
 
 Computing the indices in each node while traversing or modifying the vector is key in performance. This performances is gained by using low level binary computations on the indices in the case where the tree is balanced. And, using precomputed sizes in the case where the balance is relaxed.
 
@@ -99,7 +100,7 @@ To traverse the tree down to the leaf where the index is, the subindices are com
 
 \section{Displays}
 % describe display fields in vector object
-% describe the focus field
+As base for optimizations, the vector object keeps a set of fields to track one branch of the tree. They are named with using the level number from 0 up to the maximum possible level. In the case of blocks of size 32 the maximum level used is 5 \footnote{As in practice, only the 30 bits of the index are used.}, they are allocated by default and nulled if the tree if shallower. The highest non null display is and replaces the root field. All displays bellow the root are never null. This implies that the vector will always be focused on some branch.
 
 \begin{figure}[h!]
   \centering
@@ -107,6 +108,13 @@ To traverse the tree down to the leaf where the index is, the subindices are com
   \label{Displays}
   \caption{Displays}
 \end{figure}
+
+% describe the focus field
+To know on which branch the vector is focused there is also a \texttt{focus} field with an index. This index is the index of any element in the current \texttt{display0}. This index represents the radix indexing scheme of node subindices described in \ref{ComputingIndices}.
+
+% immutability of displays
+To follow the simple implementations scheme of immutable objects in concurrent contexts, the focus is also immutable. Therefore each vector object will have a single focused branch during its existence\footnote{The display focus may change during the initialisation of the object as optimisation of some methods}. Each method that creates a new vector must decide which focus to set. Two heuristics are used for this: If there was an update operation on some branch where that operations could be used again, that branch is used as focus. If the first one cant be applied, the display is set to the first element as this helps key collection operations such as \texttt{iterator}.
+
 
 %-----------------------------------
 %	SUBSECTION As cache
@@ -125,6 +133,7 @@ To traverse the tree down to the leaf where the index is, the subindices are com
 \subsection{For transient states}
 % transient states are used to amortized operations
 % operation: append, prepend, update
+% normailization
 
 \begin{figure}[h!]
   \centering
