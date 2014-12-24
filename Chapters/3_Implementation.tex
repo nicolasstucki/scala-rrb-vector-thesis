@@ -145,21 +145,25 @@ When deciding which will be the focused branch of a new vector two heuristics ar
 %-----------------------------------
 
 \subsection{For transient states}
-Transient states is the key optimisation to get append, prepend and update to amortized constant time.
-% transient states are used to amortized operations
 % operation: append, prepend, update
-% normailization
+Transient states is the key optimisation to get append, prepend and update to amortized constant time. It consists in decoupling the tree by creating an equivalent tree that does not contain the edges on the current focused branch. The information missing in the edges of the tree is represented and can be reconstructed from the displays. In the current version of the collections vector \cite{scalaVector211} this state is identified by the \texttt{dirty} flag.
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Figures/Transient_state}
   \label{Transient_state}
-  \caption{Radix Balanced Tree Transient state}
+  \caption{Transient Tree with current focus displays marked in white and striped nulled edges.}
 \end{figure}
+
+% transient states are used to amortized operations
+Without transient states when some update is done on a leaf, all the branch must be updated. On the other hand, if the state is transient, it is possible to update only the subtree affected by the change. In the case of updates on the same leaf, only the leaf must be updated. When appending or prepending, $\frac{31}{32}$ operations must only update the leaf, then $\frac{31}{1024}$ need to update two levels of the tree and so on. These operations will thus be amortized to constant ($\sum_{k=1}^{\infty} \frac{k*31}{32^k} = \frac{32}{31}$ block updates per operation) time if they are executed in succession.
+
+% normailization
+There is a cost associated to the transformation from normal state to transient state and back. This cost is equivalent to one update of the focused branch. The transient state operations only start gaining performance on the normal ones after 3 consecutive operations. With 2 consecutive operations they are matched and with 1 there is a loss of performance.
 
 
 %-----------------------------------
-%	SUBSECTION  For transient states
+%	SUBSECTION  Relaxing the Displays
 %-----------------------------------
 
 \subsection{Relaxing the Displays}
