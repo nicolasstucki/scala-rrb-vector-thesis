@@ -104,7 +104,7 @@ As base for optimizations, the vector object keeps a set of fields to track one 
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\textwidth]{Figures/Displays}
+  \includegraphics[width=0.8\textwidth]{Figures/Displays}
   \label{Displays}
   \caption{Displays}
 \end{figure}
@@ -168,16 +168,32 @@ There is a cost associated to the transformation from normal state to transient 
 
 \subsection{Relaxing the Displays}
 % describe fundamental difference in the focus (focused on balanced subtree)
+When relaxing the tree balance it is also necessary to relax the displays. This is mainly due to the loss of a simple way to compute the lowest common node on unbalanced trees. Computing the node requires now the additional sizes information located in each unbalanced node. As such it is necessary to access the nodes to be abel to compute the lowest common node, and there is a loss in performance due to increased memory accesses. 
+
 % describe focus start, focus end and focus (focus relaxed)
+To still take advantage of efficient operations on balanced trees, the display is relaxed to be focused on a branch of some balanced subtree\footnote{A fully balanced tree will be itself the balanced subtree, as such it will always use the more performant operations.}. To keep track of this subtree there are three additional fields: \texttt{focusStart} that represents start index of the current focused subtree, \texttt{focusEnd} that represents the end index of the subtree and \texttt{focusDepth} that sets  height of the focused subtree\footnote{As an optimisation, the \texttt{focus} field is split into the part corresponding to the subtree and the part that represents the indices of the displays that are unbalanced.}. The operations that can take advantage of the the efficient display operations will check if the index is in the subtree index range and invoke the efficient operation. If not, it will invoke the relaxed version of the operation, that starts from the root of the tree.
+
 % describe how fetching elements change
+For example, the code for \texttt{getElement} would become:
+\begin{lstlisting}[frame=single]
+def getElement(index: Int): A = {
+  if (focusStart <= index && index < focusEnd) 
+    getElementFromDisplay(index - focusStart)
+  else if (0 <= index && index < endIndex) 
+    getElementFromRoot(index)    
+  else 
+    throw new IndexOutOfBoundsException(index)
+}
+\end{lstlisting}
+
+This \texttt{getElement} on the unbalanced subtrees of figure \ref{Balanced_subtrees}  would use the \texttt{getElementFromDisplay} to fetch elements in \texttt{display0} directly from it and fetch elements from nodes (1.1) and (1.2) from \texttt{display1}. The rest is fetched from the root using \texttt{getElementFromRoot}.
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Figures/Balanced_subtrees}
+  \caption{Relaxed Radix Balanced Tree with a focus on a balanced subtree rooted of \texttt{display1}. Light grey boxes represent unbalanced nodes sizes.}
   \label{Balanced_subtrees}
-  \caption{Radix Balanced Tree}
 \end{figure}
-
 
 
 %----------------------------------------------------------------------------------------
