@@ -38,10 +38,12 @@ I% Chapter Template
 % List core operations
 The immutable \texttt{Vector} \cite{scalaVector211} is a subtype of \texttt{IndexedSeq} in the current Scala collections, as such it implements all operations defined on it. Most operations are implemented using a set of core operations that can be implemented efficiently on RB-Trees, those operations are: \texttt{apply}, \texttt{updated}, \texttt{append}, \texttt{prepend}, \texttt{drop} and \texttt{take}. 
 
-% naive implementation just as high level guide, hint of displays and transient states
 % performance log_{32}(n) -> effective constant time
-displays (see section \ref{sec:Displays}).
-
+The performances of most operations on RB-Trees have a computational complexity of $O(log_{32}(n))$, equivalent to the height of the tree. This is usually referred as effective constant time because for 32 bit signed indices the height of the tree will bounded by a small constant (6.2 in the case of books of size 32). This bound is reasonable to ensure that in practice the operations behave like constant time operations.  
+ 
+% naive implementation just as high level guide
+% hint of displays and transient states
+In this section the operations will be presented on a high level and without optimisation. These reflect the worst case scenario or the base implementation that is used before adding optimizations (see chapter \ref{Optimizations}). To improve performance of some operations, displays are used on branches of the RB-Tree (see section \ref{sec:Displays}). To improve the complexity of operations to amortized constant time (instead of effective constant time\footnote{In this context, effective constant time has a large but bounded constant time complexity, while amortized constant time tends to have a bound closer to a one level tree update.}) for some operation sequences the vectors are augmented with transient states.
 
 %-----------------------------------
 %	SUBSUBSECTION - Apply
