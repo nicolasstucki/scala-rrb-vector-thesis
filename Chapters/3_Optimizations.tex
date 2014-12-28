@@ -18,7 +18,7 @@ I% Chapter Template
 
 \subsection{Arrays}
 % array creation, copy
-Most of the memory used in the vector data structure is composed of arrays. The three key operations used on this arrays: array creation, array update and array access. The arrays are used as immutable arrays, as such the update operations are only allowed when the array is initialised. This also implies that each time there is a modification on some part of an array, a new array must be created and all the old elements copied. 
+Most of the memory used in the vector data structure is composed of arrays. The three key operations used on these arrays: array creation, array update and array access. The arrays are used as immutable arrays, as such the update operations are only allowed when the array is initialised. This also implies that each time there is a modification on some part of an array, a new array must be created and all the old elements copied. 
 
 % size of array argument
 The size of the array will affect the performance of the vector. With larger blocks the access times will be reduced because the depth of the tree will decrease. But, on the other hand, increasing the size of the block will make slow down the update operations. This is a direct consequence of the need to copy the entire array for a single update.
@@ -99,6 +99,7 @@ To traverse the tree down to the leaf where the index is, the subindices are com
 %----------------------------------------------------------------------------------------
 
 \section{Displays}
+\label{sec:Displays}
 % describe display fields in vector object
 As base for optimizations, the vector object keeps a set of fields to track one branch of the tree. They are named with using the level number from 0 up to the maximum possible level. In the case of blocks of size 32 the maximum level used is 5 \footnote{As in practice, only the 30 bits of the index are used.}, they are allocated by default and nulled if the tree if shallower. The highest non null display is and replaces the root field. All displays bellow the root are never null. This implies that the vector will always be focused on some branch.
 

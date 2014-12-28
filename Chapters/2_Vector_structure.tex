@@ -36,8 +36,11 @@ I% Chapter Template
 %-----------------------------------
 \subsection{Operations}
 % List core operations
-% naive implementation just as high level guide
-% Hint of displays and transient states
+The immutable \texttt{Vector} \cite{scalaVector211} is a subtype of \texttt{IndexedSeq} in the current Scala collections, as such it implements all operations defined on it. Most operations are implemented using a set of core operations that can be implemented efficiently on RB-Trees, those operations are: \texttt{apply}, \texttt{updated}, \texttt{append}, \texttt{prepend}, \texttt{drop} and \texttt{take}. 
+
+% naive implementation just as high level guide, hint of displays and transient states
+% performance log_{32}(n) -> effective constant time
+displays (see section \ref{sec:Displays}).
 
 
 %-----------------------------------
@@ -46,12 +49,12 @@ I% Chapter Template
 
 \subsubsection{Apply}
 % used in head and last
-% performance log_32(n), hint of displays
+The \texttt{apply} operation in indexed sequences is defined as the operation that gets the element located at some index. This is the main element access method and it is used in other methods such as \texttt{head} and \texttt{last}.
 
 \begin{lstlisting}[frame=single]
 def apply(index: Int): A = {
   def getElem(node: Array[AnyRef], depth: Int): A = {
-    val indexInNode = // get subindex
+    val indexInNode = // compute index
     if(depth == 1) node(indexInNode)
     else getElem(node(indexInNode), depth-1) 
   }
@@ -59,13 +62,19 @@ def apply(index: Int): A = {
 }
 \end{lstlisting}
 
+% performance log_{32}(n), hint of displays
+The base implementation on RB-Trees of this operation requires a simple traversal from the root to the leaf containing the element. Where the path taken is defined by the index of the element and extracted using some efficient bitwise operations (see section \ref{ComputingIndices}). With this traversal of the tree, the complexity of the \texttt{apply} operation is $O(log_{32}(n))$. This complexity can be reduced for some subset of elements by adding displays.
+
+
 %-----------------------------------
 %	SUBSUBSECTION - Updated
 %-----------------------------------
 
 \subsubsection{Updated}
 % base implementation needs to update the whole branch
-% with transient states, local updates can be amortised
+The \texttt{updated} method returns a new immutable \texttt{Vector} with one updated element at a given index. This is the core operation to modify the contents of the vector. 
+
+On immutable RB-Trees the updated operation has to recreate the whole branch from the root to the element being updated. The update of the leaf creates a fresh copy of the leaf with the updated element. Then the parent of the leaf also need to create a new node with the updated reference to the new leaf, and so on up to the root. 
 
 \begin{lstlisting}[frame=single]
 def updated(index: Int, elem: A) = {
@@ -83,6 +92,9 @@ def updated(index: Int, elem: A) = {
   new Vector(updatedNode(vectorRoot, vectorDepth), ...)
 }
 \end{lstlisting}
+
+% with transient states, local updates can be amortised
+Therefore the complexity of this operation is $O(log_{32}(n))$, for the traversal and creation of each node in the brach. This operation can be improved to have amortized constant time updates for local updates using displays with transient states. This way the parent nodes are only updated lazily when absolutely necessary. For example, if some leaf has all it's elements updated from left to right, the leaf will be copied as many times as there are updates, but the parent of that leaf does not change during those operations.
 
 %-----------------------------------
 %	SUBSUBSECTION - Additions
