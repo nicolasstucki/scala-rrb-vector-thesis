@@ -43,7 +43,7 @@ The performances of most operations on RB-Trees have a computational complexity 
  
 % naive implementation just as high level guide
 % hint of displays and transient states
-In this section the operations will be presented on a high level and without optimisation. These reflect the worst case scenario or the base implementation that is used before adding optimizations (see chapter \ref{Optimizations}). To improve performance of some operations, displays are used on branches of the RB-Tree (see section \ref{sec:Displays}). To improve the complexity of operations to amortized constant time (instead of effective constant time\footnote{In this context, effective constant time has a large but bounded constant time complexity, while amortized constant time tends to have a bound closer to a one level tree update.}) for some operation sequences the vectors are augmented with transient states.
+In this section the operations will be presented on a high level\footnote{Ignoring some pieces of code like casts, return types, type covariance, among others.} and without optimisation. These reflect the worst case scenario or the base implementation that is used before adding optimizations (see chapter \ref{Optimizations}). To improve performance of some operations, displays are used on branches of the RB-Tree (see section \ref{sec:Displays}). To improve the complexity of operations to amortized constant time (instead of effective constant time\footnote{In this context, effective constant time has a large but bounded constant time complexity, while amortized constant time tends to have a bound closer to a one level tree update.}) for some operation sequences the vectors are augmented with transient states.
 
 %-----------------------------------
 %	SUBSUBSECTION - Apply
@@ -102,21 +102,87 @@ Therefore the complexity of this operation is $O(log_{32}(n))$, for the traversa
 %	SUBSUBSECTION - Additions
 %-----------------------------------
 
-\subsubsection{Additions}
+\subsubsection{Extentions}
+The main operations to extend an immutable \texttt{Vector} are \texttt{append} and \texttt{prepend} a single element. Those operations are considered the main ones because they have efficient implementations on RB-Trees. Other operations like \texttt{concatenated} and \texttt{insert} are also present, but usually avoided because of performance.
+
 
 \paragraph{Append}
 % base implementation needs to update the whole branch
+To append an element on the tree there are two main cases, the last leaf of the tree is not full or it is full. If the last leaf is not full the element is inserted at the end of it and all nodes of the last branch are updated. Or, if the leaf is full we must find the lowest node in the last branch where there is sill room left for a new branch. Then a new branch is appended to it, down to the a new leaf with the element being appended. 
+
+In both cases the new \texttt{Vector} object will have the end index increased by one. When the root is full, the depth of the vector will also increase by one.
+
+\begin{lstlisting}[frame=single]
+def :+(elem: A): Vector[A] = {
+  def append(node: Array[AnyRef], depth: Int) = {
+    if (depth == 1) 
+      cloneAndAppend(node, elem)
+    else if (!isTreeFull(node.last, depth-1)) 
+      cloneAndUpdateLast(node, append(node.last, depth-1))
+    else
+      cloneAndAppend(node, newBranch(depth-1))
+  }
+  def createNewBranch(depth: Int): Array[AnyRef] = {
+    if (depth == 1) Array(elem)
+    else Array(newBranch(depth-1))
+  }
+  if(!isTreeFull(root, depth))) 
+    new Vector(append(root, depth), depth, ...)
+  else 
+    new Vector(Array(root, newBranch(depth)), depth+1, ...)
+}
+\end{lstlisting}
+
+Where the \texttt{isTreeFull} operation computes the answer using efficient bitwise operations on the end index of the vector.
+
 % performance log_32(n), hint of transient to amortise consecutive appends are amortised
+Due to the update of all nodes in the last branch, the complexity of this operation is $O(log_{32}(n))$. This complexity can be amortized to constant time using displays with transient states for consecutive append operations on the vector (see section \ref{sec:DisplaysTransient}).
 
 \paragraph{Prepend}
 % base implementation needs to update the whole branch
+The key to be able to prepend  elements to the tree is the additional \texttt{startIndex} that the vector keeps. Without this it would be impossible to prepend an element to the vector without a full copy of the vector to rebalance the RB-Tree. The operation can be split into to cases depending on the value of the start index.
+
 % shift top and start index
-% performance log_32(n), hint of transient to amortise consecutive appends are amortised
+The first case is to prepend an element on a vector that start at index 0. If the root is full, create a new root on top with the old root as branch at index 1. If there is still space in the root, shift branches in the root by one to the right. In both sub\-cases, create a new branch containing nodes of size 32, but with only the last branch assigned. Put the element in the last position of this newly created branch and set the start index of the vector to that index in the tree.
+
+The second case is to prepend an element on a vector that has a non zero start index. Follow the branch of the start index minus one from the root of the tree. If it reaches the a leaf, prepend the element to that leaf. If it encounters an inexistent branch, create it by putting the element in its rightmost position and leaving the rest empty. In both sub\-cases update the parent nodes up to the root.
+
+The new \texttt{Vector} object will have an updated start index and end index. to account for the changes in the structure of the tree. It may also have to increase the depth of the vector if the start index was previously zero. 
+
+\begin{lstlisting}[frame=single]
+def +:(elem: A): Vector[A] = {
+  def prepended(node: Array[AnyRef], depth: Int) = {
+    val indexInNode = // compute index
+    if (depth == 1) 
+      cloneAndUpdate(node, indexInNode, elem)
+    else 
+      cloneAndUpdate(node, indexInNode, 
+                prepended(node(indexInNode), depth-1))
+  }
+  def newBranch(depth: Int): Array[AnyRef] = {
+    val newNode = new Array[AnyRef](32)
+    newNode(31) = 
+      if (depth == 1) elem 
+      else newBranch(depth-1)
+    newNode
+  }
+  if(startIndex==0) {
+    new Vector(Array(newBranch(depth), root), depth+1, ...)
+  } else {
+    new Vector(prepended(root, depth), depth, ...)  
+  }
+}
+\end{lstlisting}
+
+% performance log_32(n), hint of transient to amortise consecutive prepends are amortised
+Due to the update of all nodes in the first branch, the complexity of this operation is $O(log_{32}(n))$. This complexity can be amortized to constant time using displays with transient states for consecutive append operations on the vector (see section \ref{sec:DisplaysTransient}).
+
 
 \paragraph{Concatenation and Insert}
 % describe high level implementation in vector
 %% describe branch rebalancing 
 % performance O(n)
+Given that elements in an RB-Tree are densely packed, the it is only possible to implement efficient element append and prepend.
 
 
 %-----------------------------------
@@ -215,7 +281,7 @@ The current implementation of the immutable parallel vector \cite{scalaParVector
 %	SUBSUBSECTION - Additions
 %-----------------------------------
 
-\subsubsection{Additions}
+\subsubsection{Joins}
 
 %-----------------------------------
 \paragraph{Append}

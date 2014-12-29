@@ -146,6 +146,7 @@ When deciding which will be the focused branch of a new vector two heuristics ar
 %-----------------------------------
 
 \subsection{For transient states}
+\label{sec:DisplaysTransient}
 % operation: append, prepend, update
 Transient states is the key optimisation to get append, prepend and update to amortized constant time. It consists in decoupling the tree by creating an equivalent tree that does not contain the edges on the current focused branch. The information missing in the edges of the tree is represented and can be reconstructed from the displays. In the current version of the collections vector \cite{scalaVector211} this state is identified by the \texttt{dirty} flag.
 
