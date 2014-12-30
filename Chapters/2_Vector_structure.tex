@@ -20,7 +20,7 @@ I% Chapter Template
 % describe tree: balancing, filling, block sizes
 % why structure helps with operations implementation 
 % hint why radix?  
-
+\color{red} TODO \color{black}
 
 \begin{figure}[h!]
   \centering
@@ -103,7 +103,7 @@ Therefore the complexity of this operation is $O(log_{32}(n))$, for the traversa
 %-----------------------------------
 
 \subsubsection{Extentions}
-The main operations to extend an immutable \texttt{Vector} are \texttt{append} and \texttt{prepend} a single element. Those operations are considered the main ones because they have efficient implementations on RB-Trees. Other operations like \texttt{concatenated} and \texttt{insert} are also present, but usually avoided because of performance.
+The main operations to extend an immutable \texttt{Vector} are \texttt{append} and \texttt{prepend} a single element. Those operations are considered the main ones because they have efficient implementations on RB-Trees. Other operations like \texttt{concatenated} are also present, but usually avoided because of performance.
 
 
 \paragraph{Append}
@@ -178,12 +178,12 @@ def +:(elem: A): Vector[A] = {
 Due to the update of all nodes in the first branch, the complexity of this operation is $O(log_{32}(n))$. This complexity can be amortized to constant time using displays with transient states for consecutive append operations on the vector (see section \ref{sec:DisplaysTransient}).
 
 
-\paragraph{Concatenation and Insert}
+\paragraph{Concatenation}
 % describe high level implementation in vector
-%% describe branch rebalancing 
-% performance O(n)
-Given that elements in an RB-Tree are densely packed, the it is only possible to implement efficient element append and prepend.
+Given that elements in an RB-Tree are densely packed, implementations for concatenation and insert will need to rebalance elements to make them again densely packed. In the case of concatenation there are three options to join the two vectors: append all elements of the RHS vector to the LHS vector, prepend all elements from the LHS vector to the RHS vector or simply reconstruct a new vector using a builder. The append and prepend options are used when on of the vectors is small enough in relation to the other one. When vectors become large, the best option is the one with the builder because it avoids creating one instance of the vector each time an element is added.
 
+% performance O(n)
+The computational complexity of the concatenation operation on RB-Trees for vectors lengths $n1$ and $n2$ is $O(n1 + n2)$ in general. In the special case where $n1$ or $n2$ is small enough the complexity becomes $O(min(n1,n2)*log_{32}(n1+n2))$, the complexity of repeatedly appending or prepending an element. This last one can be amortised to $min(n1,n2)$ using displays and transient states. 
 
 %-----------------------------------
 %	SUBSUBSECTION - Splits
@@ -191,8 +191,13 @@ Given that elements in an RB-Tree are densely packed, the it is only possible to
 
 \subsubsection{Splits}
 % used in tail, init, take, takeRight, drop, dropRight
+The core operations to remove elements in a vector are the \texttt{take} and \texttt{drop} methods. They are used to implement may other operations like \texttt{splitAt}, \texttt{tail}, \texttt{init}, ...
+
 % describe implementation in vector
+Take and drop have a similar implementation. The first step is traversing the tree the leaf where the cut will be done. Then the branch is copied and cleared on one side. The whole branch is not necessarily copied, if the resulting tree is shallower the nodes on the top that would have only one child are removed. Finally, the \texttt{startIndex} and \texttt{endIndex} are adjusted according to the changes on the tree.
+
 % performance log_32(n) 
+The computational complexity of any split operation is $O(log_{32}(n))$ due to the traversal and copy of nodes on the branch where the cut index is located.
 
 
 %----------------------------------------------------------------------------------------
@@ -200,10 +205,15 @@ Given that elements in an RB-Tree are densely packed, the it is only possible to
 %----------------------------------------------------------------------------------------
 
 \section{Parallel Vectors}
-% why are  parallel vector useful
+% why are parallel vector useful
+\color{red}TODO: why are parallel vector useful\color{black}
+
 % how are they paralellized (wraps an vector)
-% why do they suffer performance wise (no efficient concat)
 % fork-join pool
+Parallel vector or \texttt{ParVector} are just a wrapper around the normal \texttt{Vector} object that uses the parallel collections API instead of the normal collections API. With this, operations on collections get executed transparently on fork-join thread pools rather that on the main thread. The only additional implementation requirements are a \texttt{Splitter} and \texttt{Combiner} that are used to manage the execution distribution of work. 
+
+% why do they suffer performance wise (no efficient concat)
+\texttt{ParVector} has performance drawbacks on the \texttt{Combiner} because this one requires an efficient concatenation implementation. To avoid excessive overhead on concatenation the current implementation does it lazily, which comes with a second drawback on loss of parallelism of the combine operation.
 
 %-----------------------------------
 %	SUBSUBSECTION - Splitter
@@ -242,6 +252,8 @@ The current implementation of the immutable parallel vector \cite{scalaParVector
 % mention size of nodes and null sizes
 % unbalanced trees can only be generated by concatenation, and splits
 
+\color{red} TODO \color{black}
+
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Figures/Relaxed_Radix_balanced}
@@ -261,6 +273,7 @@ The current implementation of the immutable parallel vector \cite{scalaParVector
 %-----------------------------------
 \subsection{Relaxed Operations}
 % describe how the implementation uses relaxed radix when necessary and uses radix based operation when possible
+\color{red} TODO \color{black}
 
 %-----------------------------------
 %	SUBSUBSECTION - Apply
@@ -268,7 +281,7 @@ The current implementation of the immutable parallel vector \cite{scalaParVector
 
 \subsubsection{Apply (get element at index)}
 % describe the way to get the node indices in an unbalanced node
-
+\color{red} TODO \color{black}
 
 %-----------------------------------
 %	SUBSUBSECTION - Updated
@@ -276,28 +289,33 @@ The current implementation of the immutable parallel vector \cite{scalaParVector
 
 \subsubsection{Updated}
 % doesn't change much, the sizes do not need to be updated, they jus need to be copied. Going to the correct position still may needs to access the sizes.
+\color{red} TODO \color{black}
 
 %-----------------------------------
 %	SUBSUBSECTION - Additions
 %-----------------------------------
 
-\subsubsection{Joins}
+\subsubsection{Extentions}
+\color{red} TODO \color{black}
 
 %-----------------------------------
 \paragraph{Append}
 % difference is that the the sizes may need to be updated
 % performance log_32(n), remind hint of transient to amortise consecutive appends are amortised
+\color{red} TODO \color{black}
 
 \paragraph{Prepend}
 % describe different implementation
 % hint the 
-
+\color{red} TODO \color{black}
 
 %-----------------------------------
 \paragraph{Concatenation}
 % describe high level implementation in rrbvector
 %% describe branch rebalancing 
 % performance log_32(n)
+
+\color{red} TODO \color{black}
 
 \begin{figure}[h!]
   \centering
@@ -335,7 +353,7 @@ The current implementation of the immutable parallel vector \cite{scalaParVector
 % performance log_32 (from split + concat)
 % hint at possible optimization by inserting directly and using transient states (take advantage of locality)
 
-
+\color{red} TODO \color{black}
 
 %-----------------------------------
 %	SUBSUBSECTION - Splits
@@ -344,6 +362,8 @@ The current implementation of the immutable parallel vector \cite{scalaParVector
 \subsubsection{Splits}
 % used in tail, init, take, takeRight, drop, dropRight
 % describe difference between the implementation (null and shift vs. cut and update size)
+\color{red} TODO \color{black}
+
 
 %-----------------------------------
 %	SUBSUBSECTION - Splits
@@ -354,4 +374,4 @@ The current implementation of the immutable parallel vector \cite{scalaParVector
 %% heuristic: try to construct balanced trees 
 % Split into subtrees two, take the nearest power of 32 to the half
 
-
+\color{red} TODO \color{black}
