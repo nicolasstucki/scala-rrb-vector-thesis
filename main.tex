@@ -37,6 +37,23 @@
 \usepackage{calc}
 \usepackage{url}
 \usepackage{listings}
+\usepackage{titlesec}
+
+\titleformat
+{\chapter} % command
+[display] % shape
+{\normalfont\Large\bfseries} % format
+{Chapter \ \thechapter}
+{0.5ex} % sep
+{
+    \rule{\textwidth}{1pt}
+    \vspace{0ex}
+    \centering
+} % before-code
+[
+\vspace{-0.5ex}%
+\rule{\textwidth}{0.3pt}
+] % after-code
 
 \lstdefinelanguage{scala}{
   morekeywords={%
@@ -292,7 +309,6 @@ The Thesis Abstract is written here (and usually kept to just this page). The pa
 % Uncomment the lines as you write the chapters
 
 \input{Chapters/1_Introduction}
-\newpage
 \input{Chapters/2_Vector_structure}
 \input{Chapters/3_Optimizations} 
 \input{Chapters/4_Performance}
