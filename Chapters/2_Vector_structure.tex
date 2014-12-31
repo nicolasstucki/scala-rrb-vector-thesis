@@ -354,6 +354,16 @@ This operation needs to take into account the RRB tree traversal scheme to go do
 % describe simple implementation using split and concat 
 % performance log_32 (from split + concat)
 % hint at possible optimization by inserting directly and using transient states (take advantage of locality)
+The operation \texttt{insertAt} is not currently defined on \texttt{Vector} because there is no way to implement it efficiently. But with RRB-Trees it is possible to implement this operation quite simply using \texttt{splitAt}, \texttt{append} and \texttt{concatenate}. This implementation has a time complexity of $log_{32}(n)$ that comes directly from the operations used.
+
+\begin{lstlisting}[frame=single]
+def insertAt(elem: A, n: Int): Vector[A] = {
+  val splitted = this.splitAt(n)
+  (splitted._1 :+ elem) ++ splitted._2
+}
+\end{lstlisting}
+
+As this operation is new in the context of a vector and no real world use cases exist, this simple implementation is used. It would be is possible to optimise for localised inserts using displays and transient states.
 
 \subsection{Prepend}
 % describe different implementation
