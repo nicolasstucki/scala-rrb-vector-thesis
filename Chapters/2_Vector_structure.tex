@@ -50,6 +50,7 @@ In this section the operations will be presented on a high level\footnote{Ignori
 %-----------------------------------
 
 \subsubsection{Apply}
+\label{sec:apply}
 % used in head and last
 The \texttt{apply} operation in indexed sequences is defined as the operation that gets the element located at some index. This is the main element access method and it is used in other methods such as \texttt{head} and \texttt{last}.
 
@@ -73,6 +74,7 @@ The base implementation on RB-Trees of this operation requires a simple traversa
 %-----------------------------------
 
 \subsubsection{Updated}
+\label{sec:updated}
 % base implementation needs to update the whole branch
 The \texttt{updated} method returns a new immutable \texttt{Vector} with one updated element at a given index. This is the core operation to modify the contents of the vector. 
 
@@ -82,14 +84,14 @@ On immutable RB-Trees the updated operation has to recreate the whole branch fro
 def updated(index: Int, elem: A) = {
   def updatedNode(node: Array[AnyRef], depth: Int) = {
     val indexInNode = // compute index
-    val copy = clone(node)
+    val newNode = copy(node)
     if(depth == 1) {
-      copy(indexInNode) = elem
+      newNode(indexInNode) = elem
     } else {
-      copy(indexInNode) = 
+      newNode(indexInNode) = 
         updatedNode(node(indexInNode), depth-1)
     }
-    copy
+    newNode
   }
   new Vector(updatedNode(vectorRoot, vectorDepth), ...)
 }
@@ -116,11 +118,11 @@ In both cases the new \texttt{Vector} object will have the end index increased b
 def :+(elem: A): Vector[A] = {
   def append(node: Array[AnyRef], depth: Int) = {
     if (depth == 1) 
-      cloneAndAppend(node, elem)
+      copyLeafAndAppend(node, elem)
     else if (!isTreeFull(node.last, depth-1)) 
-      cloneAndUpdateLast(node, append(node.last, depth-1))
+      copyAndUpdateLast(node, append(node.last, depth-1))
     else
-      cloneAndAppend(node, newBranch(depth-1))
+      copyBranchAndAppend(node, newBranch(depth-1))
   }
   def createNewBranch(depth: Int): Array[AnyRef] = {
     if (depth == 1) Array(elem)
@@ -271,46 +273,48 @@ The current implementation of the immutable parallel vector \cite{scalaParVector
 %-----------------------------------
 %	SUBSECTION - Operations
 %-----------------------------------
-\subsection{Relaxed Operations}
+\subsection{Relaxing the Operations}
 % describe how the implementation uses relaxed radix when necessary and uses radix based operation when possible
-\color{red} TODO \color{black}
-
+Form most operations the implementation is relaxed using the same technique. It consist in using a generalised version of the code for RB-Trees that take into account the unbalanced nodes that do not support radix operations. Mainly this consists in changing the way the \texttt{indicesInNode} are computed on unbalanced nodes and their \texttt{clone} operations.
+ 
+To take advantage of radix based code when possible the operations will still call the radix version if the node is balanced. This implies that from a balanced node down the radix based code is executed. Only the unbalanced nodes will have loss in performance due to generalisation and therefore the code executed for a balanced RRB-Tree will tend to be the same as the one for RB-Trees.
+ 
 %-----------------------------------
 %	SUBSUBSECTION - Apply
 %-----------------------------------
+\subsection{Core operations with minor changes}
 
-\subsubsection{Apply (get element at index)}
+\paragraph{Apply}
 % describe the way to get the node indices in an unbalanced node
-\color{red} TODO \color{black}
+The apply operation does not fundamentally change. The only difference is in the way the index of the next branch of a node is computed. If the node is unbalanced the sizes of the tree must be accessed (see section \ref{ComputingIndices}).
+
 
 %-----------------------------------
 %	SUBSUBSECTION - Updated
 %-----------------------------------
 
-\subsubsection{Updated}
+\paragraph{Updated}
 % doesn't change much, the sizes do not need to be updated, they jus need to be copied. Going to the correct position still may needs to access the sizes.
-\color{red} TODO \color{black}
-
-%-----------------------------------
-%	SUBSUBSECTION - Additions
-%-----------------------------------
-
-\subsubsection{Extentions}
-\color{red} TODO \color{black}
+For the \texttt{updated} the changes are simple because the structure of the RRB-Tree will not be affected. The computation of the \texttt{indexInNode} will change to take into account the possibility of unbalanced nodes while traversing down the tree. The \texttt{copy} operation will need to copy the sizes of the node if the node is unbalances. Because the sizes are represented in an immutable array, this copy of sizes is in fact a reference to the same object.
 
 %-----------------------------------
 \paragraph{Append}
 % difference is that the the sizes may need to be updated
 % performance log_32(n), remind hint of transient to amortise consecutive appends are amortised
-\color{red} TODO \color{black}
+To append an element on an RRB-Tree it is only necessary to change the \texttt{copyBranchAndAppend},  \texttt{copyAndUpdateLast} and \texttt{createNewBranch} helper functions. The \texttt{copyBranchAndAppend} will additionaly copy the sizes ad append to it a new size with value equal the the old last size plus one. The \texttt{copyAndUpdateLast} will also copy the sizes of the branch and increase the last size by one. The \texttt{createNewBranch} will have to allocate one empty position at the end of the new non leaf nodes of the branch. Note that any new branch created by append will be created as a balanced subtree.
 
-\paragraph{Prepend}
-% describe different implementation
-% hint the 
-\color{red} TODO \color{black}
 
 %-----------------------------------
-\paragraph{Concatenation}
+%	SUBSUBSECTION - Splits
+%-----------------------------------
+
+\paragraph{Take}
+% describe difference between the implementation (null and shift vs. cut and update size)
+This operation needs to take into account the RRB tree traversal scheme to go down to the index. The tree is cut in the same way the RB-Tree is cut with an additional step. When cutting an unbalanced node the sizes of that node are cut at the same index and the last size is adjusted to match the elements in the cut. 
+
+
+%-----------------------------------
+\subsection{Concatenation}
 % describe high level implementation in rrbvector
 %% describe branch rebalancing 
 % performance log_32(n)
@@ -345,33 +349,35 @@ The current implementation of the immutable parallel vector \cite{scalaParVector
   \caption{Concatenation example with blocks of size 4: Rebalancing level 3}
 \end{figure}
 
-
-%-----------------------------------
 \paragraph{Insert}
 % new operation
 % describe simple implementation using split and concat 
 % performance log_32 (from split + concat)
 % hint at possible optimization by inserting directly and using transient states (take advantage of locality)
 
+\subsection{Prepend}
+% describe different implementation
+% hint the 
 \color{red} TODO \color{black}
 
-%-----------------------------------
-%	SUBSUBSECTION - Splits
-%-----------------------------------
-
-\subsubsection{Splits}
-% used in tail, init, take, takeRight, drop, dropRight
+\subsection{Drop}
 % describe difference between the implementation (null and shift vs. cut and update size)
 \color{red} TODO \color{black}
 
-
 %-----------------------------------
-%	SUBSUBSECTION - Splits
+%	SUBSUBSECTION
 %-----------------------------------
 
 \subsubsection{Parallel Vector}
 % Combine: trivial expansion from builder
 %% heuristic: try to construct balanced trees 
 % Split into subtrees two, take the nearest power of 32 to the half
+The main difference between the RB and RRB parallel vectors is in the implementation of the combiner. This combiner is capable of combining in parallel and each combination is done in $O(log_{32}(n))$. The splitter also changed a bit to add an heuristic that helps on the performance of the combination and will tend to recreate balanced trees. 
 
-\color{red} TODO \color{black}
+\paragraph{Splitter}
+The splitter heuristic consists in creating partitions of the tree that contain a number of elements equal to a multiple of a completely filled tree (i.e. $a \cdot 32^b$ elements). The splinter will always split into two new splitters that have a size that is as equivalent as possible taking into account the first rule. To do so, the mid point of the splitter elements is identified, the shifted to the next multiple of a power of 32. This way all nodes will be full and the subsequent concatenation rebalancing will be trivial. As all blocks are full, there is no node that requires shifting elements and therefore new block creation can be avoided.
+
+\paragraph{Combiner}
+The combiner is a trivial extension of the RRB-Vector builder. It wraps an instance of the builder and for each operation of the \texttt{Combiner} that is defined in \texttt{Builder} it delegates it to the builder. The \texttt{combine} operation concatenates the results of the two builders into a new combiner.
+
+The advantages of this combiner are that the combination is done in $O(log_{32}(n))$ and they can't run in parallel on different thread of the thread pool.
