@@ -225,14 +225,16 @@ Most of the operations implemented in the collections framework that use builder
 \section{Iterator}
 % efficient tree traversal vs iteration by index
 % avoid re-traversing vertically the tree from the root
-\color{red} TODO \color{black}
+The default implementation for iterator in \texttt{IndexedSeq} is by iterating on the indices and for each one use the \texttt{apply} method on it. This is not optimal because it requires traversing the tree down from the root each time an element is accessed. The traversal of the vector using this would have a computational complexity of $O(n \cdot log_{32}(n))$.
+
+To improve performance of the iteration on vector a normal tree traversal of the underlying RB-Tree amortises the computational complexity to $O(n)$. The iterator can use the display optimisation tho keep track of the current branch and move to the next branches efficiently using the radix index scheme. In this case the display is allowed to mutate. The current implementation of vector is implemented this way\footnote{The current \texttt{reverseIterator} is still using traversal by index.}.
 
 %-----------------------------------
 \paragraph{Relaxing the Iterator}
 % same implementation within a balanced subtree
 % refocus from root to iterate between balanced subtrees
+To keep the performance advantages of the tree traversal on balanced RRB-trees, iteration is done the same on every balanced subtree. When the end of a balanced subtree is reached the first element of the next balanced subtree is focused and the traversal continues efficiently from there. If the tree is not too unbalanced the traversal will tend to be $O(n)$. But if the tree is extremely unbalanced it will tend to fall back on $O(n \cdot log_{32}(n))$, where the additional $log_{32}(n)$ comes from the changes of balanced subtrees. Even in this bad last case the performance is better than the traversal by index because each leaf is a balanced subtree, on which efficient traversal is used. The RRB-Vector implements both \texttt{iterator} and \texttt{reverseIterator} this way.
 
-\color{red} TODO \color{black}
 
 
 
