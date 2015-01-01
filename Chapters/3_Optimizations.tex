@@ -205,13 +205,17 @@ This \texttt{getElement} on the unbalanced subtrees of figure \ref{Balanced_subt
 \section{Builder}
 % use of mutable tree 
 % avoid creation unnecessary arrays
-\color{red} TODO \color{black}
+A vector builder is a special wrapper for an RB-Tree that has an efficient \texttt{append} operation. It is implemented using encapsulated mutable arrays during the building of the vector and then frozen on the creation of the result. Any array that the builder can still mutate is cloned and possibly truncated to generate the RB-tree of the vector. 
+
+The benefits of the mutable \texttt{append} operation of the builder over \texttt{appended} operation of the vector are on the reduced amount of memory allocations needed in the process of appending. There is no need to allocate a new \texttt{Vector} object each time an element is appended. Even more important is that there is no need to create a new array in each charge on a node, nodes are allocated one and field as needed. 
 
 %-----------------------------------
 \paragraph{Relaxing the Builder}
 % same base implementation for +=
 % addition of accumulator for  ++= 
-\color{red} TODO \color{black}
+Most of the operations implemented in the collections framework that use builder usually create the new collection by appending one element at a time. To retain the performance of all existing operation that use builders the implementation builder append does not change. Therefore the tree where elements are appended is always perfectly balanced.
+ 
+ To add performance when concatenating a \texttt{Vector} to a builder a new field is added to retain a vector that will be lazily concatenated to the result. This vector is the accumulation \texttt{acc} of every all elements (vectors) that where added before (and including) the last concatenation and elements in the current tree been build. All elements added after the last concatenation are added to the main the mutable tree of the builder.
 
 
 %----------------------------------------------------------------------------------------
