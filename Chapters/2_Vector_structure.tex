@@ -12,29 +12,44 @@ I% Chapter Template
 
 \section{Radix Balanced Vectors}
 
+% vector as a wrappers for the tree
+The current immutable vector implementation\cite{scalaVector211} of the Scala collections is implemented as a wrapper around an RB-Tree. The vector implements the methods of \texttt{IndexedSeq} based on a set of core efficient operations on RB-Trees.
+
 %-----------------------------------
 %	SUBSECTION - Tree structure
 %-----------------------------------
 
 \subsection{Tree structure}
 % describe tree: balancing, filling, block sizes
+% hint why radix?
 % why structure helps with operations implementation 
-% hint why radix?  
-\color{red} TODO \color{black}
+The RB-Tree structure is shallow densely filled tree where elements are located only in the leafs and on the left side. Each node of the three has the same amount of children and the leaf have as many elements. Currently this number is 32, but could be any power of 2 to be able to have efficient radix based implementations (see \ref{ComputingIndices}). Figure \ref{badix_balanced} shows this structure for $m$ children on each node. 
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Figures/Radix_Balanced}
-  \label{badix_balanced}
   \caption{Radix Balanced Tree Structure}
+   \label{badix_balanced}
 \end{figure}
 
+All nodes are represented with immutable\footnote{Immutable arrays are just mutable arrays that do not get updated after initialisation.} \texttt{Array[AnyRef]}, as this is the most compact representation for the structure and will help performance by the use of JVM primitive operations (see \ref{InPractice}). Because branches and leafs are represented the same way, the vector also need to know the hight of the RB-Tree. It is kept in the \texttt{depth} field. This height will alway be upper bounded by $log_{32}(size-1)+1$ for nodes of 32 branches. Therefore the tree is quite shallow and the complexity to traverse it is considered as effectively constant when taking into account that the size will never exude the maximum index representable with \texttt{Int}.
 
+To have trees that will contain an amount of elements that does not match a full tree we fill first the elements from the left. The branches on the right that do not contain any element in any of it's leafs are not allocated (left as empty references or truncated arrays). For example the tree that would hold 1056 elements in figure \ref{badix_balanced_32} would have empty subtrees on the right of the nodes on the rightmost branch. To never access elements that are outside of a the trees right bound, the vector has an \texttt{endIndex} field that point to that last index. With this it is possible to have efficient implementations of  \texttt{take} and \texttt{append} (see \ref{Operations}).
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.4\textwidth]{Figures/Radix_Balanced_32}
+  \caption{Radix Balanced Tree Structure with nodes of size 32 filled with 1056 elements.}
+   \label{badix_balanced_32}
+\end{figure}
+
+Additionally, to have efficient implementation of \texttt{drop} and \texttt{prepend} operations (see \ref{Operations}), the vector defines a \texttt{startIndex} field that points to the first element in the tree that is actually used in the vector. The tree is left empty on the left of the first element. Arrays on the nodes of the left branch must be allocated wit the full size. As such, the tree structure is logically still full on the left but element are never access due to a shift if the index using the \texttt{startIndex}. Therefore radix indexing is still possible.
 
 %-----------------------------------
 %	SUBSECTION - Operations
 %-----------------------------------
 \subsection{Operations}
+\label{Operations}
 % List core operations
 The immutable \texttt{Vector} \cite{scalaVector211} is a subtype of \texttt{IndexedSeq} in the current Scala collections, as such it implements all operations defined on it. Most operations are implemented using a set of core operations that can be implemented efficiently on RB-Trees, those operations are: \texttt{apply}, \texttt{updated}, \texttt{append}, \texttt{prepend}, \texttt{drop} and \texttt{take}. 
 
@@ -207,9 +222,6 @@ The computational complexity of any split operation is $O(log_{32}(n))$ due to t
 %----------------------------------------------------------------------------------------
 
 \section{Parallel Vectors}
-% why are parallel vector useful
-\color{red}TODO: why are parallel vector useful\color{black}
-
 % how are they paralellized (wraps an vector)
 % fork-join pool
 Parallel vector or \texttt{ParVector} are just a wrapper around the normal \texttt{Vector} object that uses the parallel collections API instead of the normal collections API. With this, operations on collections get executed transparently on fork-join thread pools rather that on the main thread. The only additional implementation requirements are a \texttt{Splitter} and \texttt{Combiner} that are used to manage the execution distribution of work. 
@@ -243,6 +255,8 @@ The current implementation of the immutable parallel vector \cite{scalaParVector
 %----------------------------------------------------------------------------------------
 
 \section{Relaxed Radix Balanced Vectors}
+
+The implementation for RRB vectors proposed consists in replacing the wrapped RB-Tree by an RRB-Tree and augmenting the operations accordingly while trying to maintain the performance of RB-Tree operations.
 
 %-----------------------------------
 %	SUBSECTION - Tree structure
@@ -391,3 +405,4 @@ The splitter heuristic consists in creating partitions of the tree that contain 
 The combiner is a trivial extension of the RRB-Vector builder. It wraps an instance of the builder and for each operation of the \texttt{Combiner} that is defined in \texttt{Builder} it delegates it to the builder. The \texttt{combine} operation concatenates the results of the two builders into a new combiner.
 
 The advantages of this combiner are that the combination is done in $O(log_{32}(n))$ and they can't run in parallel on different thread of the thread pool.
+
