@@ -171,9 +171,9 @@ def +:(elem: A): Vector[A] = {
   def prepended(node: Array[AnyRef], depth: Int) = {
     val indexInNode = // compute index
     if (depth == 1) 
-      cloneAndUpdate(node, indexInNode, elem)
+      copyAndUpdate(node, indexInNode, elem)
     else 
-      cloneAndUpdate(node, indexInNode, 
+      copyAndUpdate(node, indexInNode, 
                 prepended(node(indexInNode), depth-1))
   }
   def newBranch(depth: Int): Array[AnyRef] = {
@@ -192,7 +192,7 @@ def +:(elem: A): Vector[A] = {
 \end{lstlisting}
 
 % performance log_32(n), hint of transient to amortise consecutive prepends are amortised
-Due to the update of all nodes in the first branch, the complexity of this operation is $O(log_{32}(n))$. This complexity can be amortized to constant time using displays with transient states for consecutive append operations on the vector (see section \ref{sec:DisplaysTransient}).
+Due to the update of all nodes in the first branch, the complexity of this operation is $O(log_{32}(n))$. This complexity can be amortized to constant time using displays with transient states for consecutive prepend operations on the vector (see section \ref{sec:DisplaysTransient}).
 
 
 \paragraph{Concatenation}
@@ -267,7 +267,7 @@ The implementation for RRB vectors proposed consists in replacing the wrapped RB
 An RRB-Tree is an generalisation of an RB-Tree where there is an additional kind of node. This is the unbalanced node, it is a node that does not require the it's children to be full. Leaf nodes are never considered as unbalanced. For efficiency it will additional have information on the sizes of it's children.
 
 % describe sizes array and where it is kept (change from left to right for indexing simplification)
-In an unbalanced node, the sizes are kept in an \texttt{Array[Int]} and attached at the end of the array that contains the children. The sizes array has the same length as the number of children of the node as is shown in figure \ref{Relaxed_Radix_balanced}. This kind of nodes get truncated rather that keep empty branches as all the information that was usually needed on radix operations is now in the sizes. 
+In an unbalanced node, the sizes are kept in an \texttt{Array[Int]} and attached at the end of the array that contains the children. The sizes array has the same length as the number of children of the node as is shown in figure \ref{Relaxed_Radix_balanced}. This kind of nodes get truncated rather that keep empty branches as all the information that was usually needed on radix operations is now in the sizes.
 
 \begin{figure}[h!]
   \centering
@@ -288,6 +288,7 @@ To have an homogenous representation for unbalanced nodes and balanced node, the
   \label{Relaxed_radix_example}
 \end{figure}
 
+As it it possible to represent trees that are not field on the left, the \texttt{startIndex} is removed from the \texttt{Vector} object and assumed to be alway zero. The \texttt{endIndex} is also not strictly necessary but is kept for performance of index bound checks.
 
 %-----------------------------------
 %	SUBSECTION - Operations
@@ -344,28 +345,28 @@ This operation needs to take into account the RRB tree traversal scheme to go do
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\textwidth]{Figures/Concat0.pdf}
+  \includegraphics[width=0.8\textwidth]{Figures/Concat0.pdf}
   \label{Concat0Benchmarks}
   \caption{Concatenation example with blocks of size 4: Rebalancing level 0}
 \end{figure}
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\textwidth]{Figures/Concat1.pdf}
+  \includegraphics[width=0.8\textwidth]{Figures/Concat1.pdf}
   \label{Concat1Benchmarks}
   \caption{Concatenation example with blocks of size 4: Rebalancing level 1}
 \end{figure}
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\textwidth]{Figures/Concat2.pdf}
+  \includegraphics[width=0.8\textwidth]{Figures/Concat2.pdf}
   \label{Concat2Benchmarks}
   \caption{Concatenation example with blocks of size 4: Rebalancing level 2}
 \end{figure}
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\textwidth]{Figures/Concat3.pdf}
+  \includegraphics[width=0.8\textwidth]{Figures/Concat3.pdf}
   \label{Concat3Benchmarks}
   \caption{Concatenation example with blocks of size 4: Rebalancing level 3}
 \end{figure}
@@ -386,14 +387,63 @@ def insertAt(elem: A, n: Int): Vector[A] = {
 
 As this operation is new in the context of a vector and no real world use cases exist, this simple implementation is used. It would be is possible to optimise for localised inserts using displays and transient states.
 
-\subsection{Prepend}
+\subsection{Prepend and Drop}
 % describe different implementation
-% hint the 
-\color{red} TODO \color{black}
+From a high level, the \texttt{prepend} and \texttt{drop} operations on RB-Trees and RRB-Trees are quite similar. The difference is in the way the nodes are copied, updated and cut. In the RRB operations the \texttt{startIndex} becomes zero when a node is not full the unbalanced nodes are used.
 
-\subsection{Drop}
+Both these operation will most of the time create new unbalanced nodes, but only on the left most branch. Calling several times combinations of these two will not contribute in generating even more unbalanced branches. As such they are only responsible for the creation of at most $ log_{32}(n)$ unbalanced nodes on any vector.
+
+\paragraph{Prepend}
+Just like with the RB version, the first step is to traverse down the left most part of the tree. Traversing the tree becomes trivial because now the first branch is alway on subindex 0. As know there is a need for checking if there is still space in the leftmost branch the prepend returns a result if it could prepend it on that subtree. 
+
+When prepending an element on a subtree, if the element was added the parent nodes are updated with there corresponding sizes. If the element could not be prepend, then we check if the root of the current subtree has still space for another branch. If there is space a new branch is prepended on it, otherwise the prepend is delegated back to the parent node.
+
+\begin{lstlisting}[frame=single]
+def +:(elem: A): Vector[A] = {
+  def prepended(node: Array[AnyRef], depth: Int) = {
+    if (depth == 1) {
+      Some(copyAndPrepend(node, elem))
+    } else {
+      prepended(node(0), depth-1) match {
+        case Some(newChild) => 
+          Some(copyAndUpdate(node, 0, newChild)))
+        case None if canPrependBranchOn(node) => 
+          Some(copyAndPrepend(node, newBranch(depth-1)))
+        case _ => None
+    }
+  }
+  def newBranch(depth: Int): Array[AnyRef] = {
+    val newNode = new Array[AnyRef](2)
+    newNode(0) = if (depth==1) elem else newBranch(depth-1)
+    newNode
+  }
+  prepended(root, depth) match {
+    case Some(newRoot) => new Vector(newRoot, depth, ...)  
+    case None => 
+      Vector(copyAndPrepend(root, newBranch(depth)), 
+             depth+1, ...)
+  }
+}
+\end{lstlisting}
+
+Sizes updated in adding one to each size and in the case of \texttt{copyAndPrepend} additionally prepend a 1. Nodes on new branches do not need sizes as they are balanced, but they still need the empty slot.
+
+% Talk about balancing
+This operation will generate unbalanced nodes, but will not unbalance the tree each time the \texttt{prepend} operation is called. In fact it will only generate a new unbalanced node when prepending a new branch on a balanced subtree. Then will start filling that new branch up to the point where it becomes balanced. 
+
+% performance
+% hint the displays
+Due to the update of all nodes in the first branch, the complexity of this operation is $O(log_{32}(n))$. This complexity can be amortized to constant time using displays with transient states for consecutive prepend operations on the vector (see section \ref{sec:DisplaysTransient}).
+
+%----------------------------------
+
+\paragraph{Drop}
 % describe difference between the implementation (null and shift vs. cut and update size)
-\color{red} TODO \color{black}
+
+Like with the RB-Tree \texttt{drop} operation, the first step is to traverse down the tree to the cut index. The difference is that when cutting the nodes, instead of clearing the left side of the node the node is truncated and the the sizes adjusted. The sizes of the nodes get truncated at the same index and are adjusted. For each node the adjustment is equal to the number of nodes that will be dropped in the left of the subtree. This numbers is already part of the computation of the cut indices on each node. 
+
+% performance
+The computational complexity of any split operation is $O(log_{32}(n))$ due to the traversal and copy of nodes on the branch where the cut index is located.
 
 %-----------------------------------
 %	SUBSUBSECTION
