@@ -272,7 +272,7 @@ In an unbalanced node, the sizes are kept in an \texttt{Array[Int]} and attached
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Figures/Relaxed_Radix_balanced}
-  \caption{Radix Balanced Tree}
+  \caption{Radix Balanced Tree structure}
   \label{Relaxed_Radix_balanced}
 \end{figure}
 
@@ -337,45 +337,108 @@ This operation needs to take into account the RRB tree traversal scheme to go do
 
 \subsection{Concatenation}
 % describe high level implementation in rrbvector
-%% describe branch rebalancing 
-%% describe bounds 
 % performance log_32(n)
+The concatenation algorithm use on RRB-Vectors is the one proposed in the RRB-Trees paper \cite{RRBTrees}. From a high level, the algorithm merges the rightmost branch of the vector on the LHS with the leftmost branch of the vector on the RHS. While merging the node, there is a rebalancing that is effectuated on each of them to ensure the logarithmic bound on the height of the vector. The RRB version of concatenation has a time complexity of $O(log_{32}(n))$, which is a clear improvement from the RB concatenation that was $O(n)$.
+ 
+%\lstinputlisting[]
+\begin{lstlisting}[frame=single]
+def concatenate(left: Vector[A], right: Vector[A]) = {
+   val newTree = mergedTrees(left.root, right.root)
+   val maxDepth = max(left.depth, right.depth)
+   if (newTree.hasSingleBranch)
+     new Vector(newTree.head, maxDepth)
+   else 
+     new Vector(newTree, maxDepth+1)
+}
+def mergedTrees(left: Node, right: Node, depth: Int) {
+  if (depth==1) {
+    mergedLeafs(left, right)
+  } else { 
+    val merged = 
+      if (depth==2) mergedLeafs(left.last, right.first) 
+      else mergedTrees(left.last, right.first, depth-1)
+    mergeRebalance(left.init, merged, right.tail)
+  }
+}
+def mergedLeafs(left: Node, right: Node} = {
+  // create a balanced new tree of height 2 
+  // with all elements in the nodes
+}
+\end{lstlisting}
 
-\color{red} TODO \color{black}
+%% describe high level algorithm
+The concatenation operation starts at the bottom of the branches by merging the leafs into a balanced tree of height 2 using \texttt{mergedLeafs}. Then, for each level on top of it, the newly created merged subtree and the remaining branches on that level will be merged and rebalanced into a new subtree. This new subtree always adds a new level to the tree, even though it might be drop later on. New sizes of nodes are computed each time a node is created based on sizes of children nodes.
+
+%% describe branch rebalancing 
+The rebalancing algorithm has two proposed variants. The first consists in completely rebalancing the nodes on the two top levels of the subtree. The second also rebalances the top two level of the subtree but it only rebalance the minimum amount of nodes that ensures the logarithmic bound. The first one leaves the tree better balanced, while the second is faster. More detail on the bounds and complexities can be bound on the RRB-Tree paper \cite{RRBTrees}. The following snippet of code shows a high level implementation of the first variant.
+
+\begin{lstlisting}[frame=single]
+def mergeRebalance(left: Node, center: Node, right: Node) {
+  val merged = left ++ centre ++ right // join all branches
+  var newRoot = new ArrayBuilder
+  var newSubtree = new ArrayBuilder
+  var newNode = new ArrayBuilder
+  def checkSubtree() = {
+    if(newSubtree.length == 32) {
+       newRoot += computeSizes(newSubtree.result())
+       newSubtree.clear()
+     }
+  }
+  for(subtree <- merged; node <-subree) {
+    if(newNode.length == 32) {
+      checkSubtree()
+      newSubtree += computeSizes(newNode.result())
+      newNode.clear()
+    } 
+     newNode += node
+  }
+  checkSubtree()
+  newSubtree += computeSizes(newNode.result())
+  computeSizes(newRoot.result)
+}
+
+\end{lstlisting}
+
+Figures \ref{Concat0Benchmarks}, \ref{Concat1Benchmarks}, \ref{Concat2Benchmarks} and \ref{Concat3Benchmarks} show a concrete step by step (level by level) example of the concatenation of two vectors. In the example, some of the subtrees where collapsed. This is not only to make it fit, but also to expose only the nodes that are referenced during the execution of the algorithm. Nodes with colours represent new nodes and changes, to help track them from figure to figure.
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.8\textwidth]{Figures/Concat0.pdf}
-  \label{Concat0Benchmarks}
   \caption{Concatenation example with blocks of size 4: Rebalancing level 0}
+  \label{Concat0Benchmarks}
 \end{figure}
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.8\textwidth]{Figures/Concat1.pdf}
-  \label{Concat1Benchmarks}
   \caption{Concatenation example with blocks of size 4: Rebalancing level 1}
+  \label{Concat1Benchmarks}
 \end{figure}
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.8\textwidth]{Figures/Concat2.pdf}
-  \label{Concat2Benchmarks}
   \caption{Concatenation example with blocks of size 4: Rebalancing level 2}
+  \label{Concat2Benchmarks}
 \end{figure}
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.8\textwidth]{Figures/Concat3.pdf}
-  \label{Concat3Benchmarks}
   \caption{Concatenation example with blocks of size 4: Rebalancing level 3}
+  \label{Concat3Benchmarks}
 \end{figure}
 
-\paragraph{Insert}
+% choose of algorithm
+The concatenation algorithm chosen as for the RRB-Vector is the one that is slower but that rebalances better the trees. The reason behind this decision is that with better balanced trees all other operations on the trees are more performant. In fact choosing the least performant option does not need to be seen as a reduction in performance because the improvement is in relation to the RB concatenation linear complexity. An interesting consequence of the this choice, is that all vectors of size at most 1024\footnote{The maximum size of a two level RRB-Tree.} that where created by concatenation will be completely balanced.
+
+% optimizations on small appends and prepends
+When using displays and transient states, concatenating a small vector the concatenation algorithm is less performant that strait forward append or prepends on the other vector. That case is identified by using bounds on their lengths. If one is big and the other is small, a \texttt{prependAll}/\texttt{appendAll} variant is used. Those two operations are optimised version of the \texttt{append}/\texttt{prepend} that do not create the intermediate \texttt{Vector} wrapper object and some of the leaf arrays. When both vector are small enough the rebalance is done directly with \texttt{mergedLeafs}.
+
+\paragraph{InsertAt}
 % new operation
 % describe simple implementation using split and concat 
 % performance log_32 (from split + concat)
-% hint at possible optimization by inserting directly and using transient states (take advantage of locality)
 The operation \texttt{insertAt} is not currently defined on \texttt{Vector} because there is no way to implement it efficiently. But with RRB-Trees it is possible to implement this operation quite simply using \texttt{splitAt}, \texttt{append} and \texttt{concatenate}. This implementation has a time complexity of $log_{32}(n)$ that comes directly from the operations used.
 
 \begin{lstlisting}[frame=single]
@@ -385,6 +448,7 @@ def insertAt(elem: A, n: Int): Vector[A] = {
 }
 \end{lstlisting}
 
+% hint at possible optimization by inserting directly and using transient states (take advantage of locality)
 As this operation is new in the context of a vector and no real world use cases exist, this simple implementation is used. It would be is possible to optimise for localised inserts using displays and transient states.
 
 \subsection{Prepend and Drop}
