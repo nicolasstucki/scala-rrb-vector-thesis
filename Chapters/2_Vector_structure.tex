@@ -183,7 +183,7 @@ def +:(elem: A): Vector[A] = {
       else newBranch(depth-1)
     newNode
   }
-  if(startIndex==0) {
+  if (startIndex==0) {
     new Vector(Array(newBranch(depth), root), depth+1, ...)
   } else {
     new Vector(prepended(root, depth), depth, ...)  
@@ -384,7 +384,7 @@ def mergeRebalance(left: Node, center: Node, right: Node) {
        newSubtree.clear()
      }
   }
-  for(subtree <- merged; node <-subree) {
+  for (subtree <- merged; node <-subree) {
     if(newNode.length == 32) {
       checkSubtree()
       newSubtree += computeSizes(newNode.result())
