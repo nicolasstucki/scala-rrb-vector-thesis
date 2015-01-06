@@ -19,7 +19,7 @@
 
 \bibitem[Phil~Bagwell(2011)]{RRBTrees}
 Tiark~Rompf Phil~Bagwell.
-\newblock Rrb-trees: Efficient immutable vectors.
+\newblock {R}{R}{B}-{T}rees: Efficient {I}mmutable {V}ectors.
 \newblock Technical report, EPFL, 2011.
 
 \bibitem[sca({\natexlab{c}})]{scalameter}
