@@ -250,7 +250,7 @@ This \texttt{getElement} on the unbalanced subtrees of figure \ref{Balanced_subt
 \section{Builder}
 % use of mutable tree 
 % avoid creation unnecessary arrays
-A vector builder is a special wrapper for an RB-Tree that has an efficient \texttt{append} operation. It is implemented using encapsulated mutable arrays during the building of the vector and then frozen on the creation of the result. Any array that the builder can still mutate is cloned and possibly truncated to generate the RB-tree of the vector. 
+A vector builder is a special wrapper for a RB-Tree that has an efficient \texttt{append} operation. It is implemented using encapsulated mutable arrays during the building of the vector and then frozen on the creation of the result. Any array that the builder can still mutate is cloned and possibly truncated to generate the RB-tree of the vector. 
 
 The benefits of the mutable \texttt{append} operation of the builder over \texttt{appended} operation of the vector are on the reduced amount of memory allocations needed in the process of appending. There is no need to allocate a new \texttt{Vector} object each time an element is appended. Even more important is that there is no need to create a new array in each charge on a node, nodes are allocated one and field as needed. 
 
