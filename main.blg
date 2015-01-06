@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2014)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+The style file: unsrtnat.bst
+Database file #1: Bibliography.bib
+Warning--empty year in scalaVector211
+Warning--empty year in scalaParVector211
+Warning--empty year in scalameter
+You've used 4 entries,
+            2481 wiz_defined-function locations,
+            568 strings with 4997 characters,
+and the built_in function-call counts, 921 in all, are:
+= -- 83
+> -- 7
+< -- 1
++ -- 12
+- -- 2
+* -- 51
+:= -- 117
+add.period$ -- 9
+call.type$ -- 4
+change.case$ -- 9
+chr.to.int$ -- 2
+cite$ -- 10
+duplicate$ -- 56
+empty$ -- 118
+format.name$ -- 3
+if$ -- 208
+int.to.chr$ -- 3
+int.to.str$ -- 5
+missing$ -- 0
+newline$ -- 25
+num.names$ -- 3
+pop$ -- 45
+preamble$ -- 1
+purify$ -- 4
+quote$ -- 0
+skip$ -- 39
+stack$ -- 0
+substring$ -- 11
+swap$ -- 10
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 28
+warning$ -- 3
+while$ -- 2
+width$ -- 0
+write$ -- 50
+(There were 3 warnings)

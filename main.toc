@@ -57,21 +57,21 @@
 \contentsline {subsection}{\numberline {4.1.1}Arrays}{30}{subsection.273}
 \contentsline {subsection}{\numberline {4.1.2}Cost of Abstraction and JIT Inline}{30}{subsection.274}
 \contentsline {section}{\numberline {4.2}Measuring performance}{30}{section.275}
-\contentsline {section}{\numberline {4.3}Implementation Generators}{31}{section.276}
-\contentsline {section}{\numberline {4.4}Benchmarks}{32}{section.279}
-\contentsline {subsection}{\numberline {4.4.1}Apply}{32}{subsection.280}
-\contentsline {subsection}{\numberline {4.4.2}Concatenation}{32}{subsection.284}
-\contentsline {subsection}{\numberline {4.4.3}Append}{32}{subsection.286}
-\contentsline {subsection}{\numberline {4.4.4}Prepend}{32}{subsection.290}
-\contentsline {subsection}{\numberline {4.4.5}Splits}{32}{subsection.293}
-\contentsline {subsection}{\numberline {4.4.6}Iterator}{32}{subsection.295}
-\contentsline {subsection}{\numberline {4.4.7}Builder}{32}{subsection.298}
-\contentsline {subsection}{\numberline {4.4.8}Parallel split-combine}{33}{subsection.301}
-\contentsline {subsection}{\numberline {4.4.9}Memory footprint}{34}{subsection.304}
-\contentsline {chapter}{\numberline {5}Testing}{46}{chapter.306}
-\contentsline {section}{\numberline {5.1}Teststing correctness}{46}{section.307}
-\contentsline {subsection}{\numberline {5.1.1}Unit tests}{46}{subsection.308}
-\contentsline {subsection}{\numberline {5.1.2}Invariant Assertions}{46}{subsection.309}
-\contentsline {chapter}{\numberline {6}Related Work}{47}{chapter.310}
-\contentsline {section}{\numberline {6.1}RRB-Vectors in Clojure}{47}{section.311}
-\contentsline {chapter}{\numberline {7}Conclusions}{48}{chapter.312}
+\contentsline {section}{\numberline {4.3}Implementation Generators}{31}{section.278}
+\contentsline {section}{\numberline {4.4}Benchmarks}{32}{section.281}
+\contentsline {subsection}{\numberline {4.4.1}Apply}{32}{subsection.282}
+\contentsline {subsection}{\numberline {4.4.2}Concatenation}{32}{subsection.286}
+\contentsline {subsection}{\numberline {4.4.3}Append}{33}{subsection.288}
+\contentsline {subsection}{\numberline {4.4.4}Prepend}{34}{subsection.292}
+\contentsline {subsection}{\numberline {4.4.5}Splits}{35}{subsection.295}
+\contentsline {subsection}{\numberline {4.4.6}Iterator}{36}{subsection.297}
+\contentsline {subsection}{\numberline {4.4.7}Builder}{37}{subsection.300}
+\contentsline {subsection}{\numberline {4.4.8}Parallel split-combine}{38}{subsection.303}
+\contentsline {subsection}{\numberline {4.4.9}Memory footprint}{38}{subsection.306}
+\contentsline {chapter}{\numberline {5}Testing}{46}{chapter.308}
+\contentsline {section}{\numberline {5.1}Teststing correctness}{46}{section.309}
+\contentsline {subsection}{\numberline {5.1.1}Unit tests}{46}{subsection.310}
+\contentsline {subsection}{\numberline {5.1.2}Invariant Assertions}{46}{subsection.311}
+\contentsline {chapter}{\numberline {6}Related Work}{47}{chapter.312}
+\contentsline {section}{\numberline {6.1}RRB-Vectors in Clojure}{47}{section.313}
+\contentsline {chapter}{\numberline {7}Conclusions}{48}{chapter.314}
