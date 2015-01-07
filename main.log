@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.16)  6 JAN 2015 19:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.16)  7 JAN 2015 10:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1063,6 +1063,13 @@ he un-bal-anced sub-trees of fig-ure [][]3.4[][] would use the \OT1/pcr/m/n/10.
 95 getElementFromDisplay
  []
 
+
+Overfull \hbox (33.01819pt too wide) in paragraph at lines 236--237
+\OT1/cmr/m/n/10.95 (1.2) start-ing from \OT1/pcr/m/n/10.95 display1\OT1/cmr/m/n
+/10.95 . The rest is fetched from the root us-ing \OT1/pcr/m/n/10.95 getElement
+FromRoot\OT1/cmr/m/n/10.95 . 
+ []
+
 <Figures/Balanced_subtrees.pdf, id=1093, 533.995pt x 150.5625pt>
 File: Figures/Balanced_subtrees.pdf Graphic file (type pdf)
 
@@ -1094,215 +1101,146 @@ Chapter 4.
 ------------------------------------------------------------------------------
 [30
 
-] [31] [32] <Benchmarks/Apply_2.pdf, id=1163, 704.6325pt x 456.70625pt>
+] [31] [32] <Benchmarks/Apply_2.pdf, id=1162, 704.6325pt x 456.70625pt>
 File: Benchmarks/Apply_2.pdf Graphic file (type pdf)
 
 <use Benchmarks/Apply_2.pdf>
-Package pdftex.def Info: Benchmarks/Apply_2.pdf used on input line 106.
+Package pdftex.def Info: Benchmarks/Apply_2.pdf used on input line 105.
 (pdftex.def)             Requested size: 417.47307pt x 270.58328pt.
 
-<Benchmarks/Apply_3.pdf, id=1164, 704.6325pt x 426.59375pt>
+<Benchmarks/Apply_3.pdf, id=1163, 704.6325pt x 426.59375pt>
 File: Benchmarks/Apply_3.pdf Graphic file (type pdf)
 
 <use Benchmarks/Apply_3.pdf>
-Package pdftex.def Info: Benchmarks/Apply_3.pdf used on input line 107.
+Package pdftex.def Info: Benchmarks/Apply_3.pdf used on input line 106.
 (pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Benchmarks/Apply_random_3.pdf, id=1165, 704.6325pt x 426.59375pt>
+<Benchmarks/Apply_random_3.pdf, id=1164, 704.6325pt x 426.59375pt>
 File: Benchmarks/Apply_random_3.pdf Graphic file (type pdf)
 
 <use Benchmarks/Apply_random_3.pdf>
-Package pdftex.def Info: Benchmarks/Apply_random_3.pdf used on input line 114.
+Package pdftex.def Info: Benchmarks/Apply_random_3.pdf used on input line 113.
 (pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Benchmarks/Apply_blocks_32.pdf, id=1166, 451.6875pt x 301.125pt>
+<Benchmarks/Apply_blocks_32.pdf, id=1165, 451.6875pt x 301.125pt>
 File: Benchmarks/Apply_blocks_32.pdf Graphic file (type pdf)
 
 <use Benchmarks/Apply_blocks_32.pdf>
-Package pdftex.def Info: Benchmarks/Apply_blocks_32.pdf used on input line 121.
+Package pdftex.def Info: Benchmarks/Apply_blocks_32.pdf used on input line 120.
 
 (pdftex.def)             Requested size: 204.56409pt x 136.37799pt.
 
-<Benchmarks/Apply_blocks_64.pdf, id=1167, 451.6875pt x 301.125pt>
+<Benchmarks/Apply_blocks_64.pdf, id=1166, 451.6875pt x 301.125pt>
 File: Benchmarks/Apply_blocks_64.pdf Graphic file (type pdf)
 
 <use Benchmarks/Apply_blocks_64.pdf>
-Package pdftex.def Info: Benchmarks/Apply_blocks_64.pdf used on input line 122.
+Package pdftex.def Info: Benchmarks/Apply_blocks_64.pdf used on input line 121.
 
 (pdftex.def)             Requested size: 204.56409pt x 136.37799pt.
 
-<Benchmarks/Apply_blocks_128.pdf, id=1168, 451.6875pt x 301.125pt>
+<Benchmarks/Apply_blocks_128.pdf, id=1167, 451.6875pt x 301.125pt>
 File: Benchmarks/Apply_blocks_128.pdf Graphic file (type pdf)
 
 <use Benchmarks/Apply_blocks_128.pdf>
-Package pdftex.def Info: Benchmarks/Apply_blocks_128.pdf used on input line 123
+Package pdftex.def Info: Benchmarks/Apply_blocks_128.pdf used on input line 122
 .
 (pdftex.def)             Requested size: 204.56409pt x 136.37799pt.
 
-<Benchmarks/Apply_blocks_256.pdf, id=1169, 451.6875pt x 301.125pt>
+<Benchmarks/Apply_blocks_256.pdf, id=1168, 451.6875pt x 301.125pt>
 File: Benchmarks/Apply_blocks_256.pdf Graphic file (type pdf)
 
 <use Benchmarks/Apply_blocks_256.pdf>
-Package pdftex.def Info: Benchmarks/Apply_blocks_256.pdf used on input line 124
+Package pdftex.def Info: Benchmarks/Apply_blocks_256.pdf used on input line 123
 .
 (pdftex.def)             Requested size: 204.56409pt x 136.37799pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Benchmarks/Concat.png, id=1170, 1581.91pt x 736.7525pt>
+<Benchmarks/Concat.png, id=1169, 1581.91pt x 736.7525pt>
 File: Benchmarks/Concat.png Graphic file (type png)
 
 <use Benchmarks/Concat.png>
-Package pdftex.def Info: Benchmarks/Concat.png used on input line 141.
+Package pdftex.def Info: Benchmarks/Concat.png used on input line 140.
 (pdftex.def)             Requested size: 417.47307pt x 194.42906pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Benchmarks/Append_2.pdf, id=1172, 704.6325pt x 426.59375pt>
+[33] <Benchmarks/Append_2.pdf, id=1176, 704.6325pt x 426.59375pt>
 File: Benchmarks/Append_2.pdf Graphic file (type pdf)
 
 <use Benchmarks/Append_2.pdf>
-Package pdftex.def Info: Benchmarks/Append_2.pdf used on input line 159.
+Package pdftex.def Info: Benchmarks/Append_2.pdf used on input line 158.
 (pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Benchmarks/Append_3.pdf, id=1173, 704.6325pt x 426.59375pt>
+<Benchmarks/Append_3.pdf, id=1177, 704.6325pt x 426.59375pt>
 File: Benchmarks/Append_3.pdf Graphic file (type pdf)
 
 <use Benchmarks/Append_3.pdf>
-Package pdftex.def Info: Benchmarks/Append_3.pdf used on input line 166.
+Package pdftex.def Info: Benchmarks/Append_3.pdf used on input line 165.
 (pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Benchmarks/Append_blocks_32.pdf, id=1174, 451.6875pt x 301.125pt>
+<Benchmarks/Append_blocks_32.pdf, id=1178, 451.6875pt x 301.125pt>
 File: Benchmarks/Append_blocks_32.pdf Graphic file (type pdf)
 
 <use Benchmarks/Append_blocks_32.pdf>
-Package pdftex.def Info: Benchmarks/Append_blocks_32.pdf used on input line 173
+Package pdftex.def Info: Benchmarks/Append_blocks_32.pdf used on input line 172
 .
 (pdftex.def)             Requested size: 204.56409pt x 136.37799pt.
 
-<Benchmarks/Append_blocks_64.pdf, id=1175, 451.6875pt x 301.125pt>
+<Benchmarks/Append_blocks_64.pdf, id=1179, 451.6875pt x 301.125pt>
 File: Benchmarks/Append_blocks_64.pdf Graphic file (type pdf)
 
 <use Benchmarks/Append_blocks_64.pdf>
-Package pdftex.def Info: Benchmarks/Append_blocks_64.pdf used on input line 174
+Package pdftex.def Info: Benchmarks/Append_blocks_64.pdf used on input line 173
 .
 (pdftex.def)             Requested size: 204.56409pt x 136.37799pt.
 
-<Benchmarks/Append_blocks_128.pdf, id=1176, 451.6875pt x 301.125pt>
+<Benchmarks/Append_blocks_128.pdf, id=1180, 451.6875pt x 301.125pt>
 File: Benchmarks/Append_blocks_128.pdf Graphic file (type pdf)
 
 <use Benchmarks/Append_blocks_128.pdf>
 Package pdftex.def Info: Benchmarks/Append_blocks_128.pdf used on input line 17
-5.
+4.
 (pdftex.def)             Requested size: 204.56409pt x 136.37799pt.
 
-<Benchmarks/Append_blocks_256.pdf, id=1177, 451.6875pt x 301.125pt>
+<Benchmarks/Append_blocks_256.pdf, id=1181, 451.6875pt x 301.125pt>
 File: Benchmarks/Append_blocks_256.pdf Graphic file (type pdf)
 
 <use Benchmarks/Append_blocks_256.pdf>
 Package pdftex.def Info: Benchmarks/Append_blocks_256.pdf used on input line 17
-6.
+5.
 (pdftex.def)             Requested size: 204.56409pt x 136.37799pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Benchmarks/Prepend_2.pdf, id=1178, 704.6325pt x 456.70625pt>
-File: Benchmarks/Prepend_2.pdf Graphic file (type pdf)
-
-<use Benchmarks/Prepend_2.pdf>
-Package pdftex.def Info: Benchmarks/Prepend_2.pdf used on input line 193.
-(pdftex.def)             Requested size: 417.47307pt x 270.58328pt.
-
-<Benchmarks/Prepend_3.pdf, id=1179, 704.6325pt x 426.59375pt>
-File: Benchmarks/Prepend_3.pdf Graphic file (type pdf)
-
-<use Benchmarks/Prepend_3.pdf>
-Package pdftex.def Info: Benchmarks/Prepend_3.pdf used on input line 194.
-(pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Benchmarks/Prepend_blocks_32.pdf, id=1180, 451.6875pt x 301.125pt>
-File: Benchmarks/Prepend_blocks_32.pdf Graphic file (type pdf)
-
-<use Benchmarks/Prepend_blocks_32.pdf>
-Package pdftex.def Info: Benchmarks/Prepend_blocks_32.pdf used on input line 20
-1.
-(pdftex.def)             Requested size: 204.56409pt x 136.37799pt.
-
-<Benchmarks/Prepend_blocks_64.pdf, id=1181, 451.6875pt x 301.125pt>
-File: Benchmarks/Prepend_blocks_64.pdf Graphic file (type pdf)
-
-<use Benchmarks/Prepend_blocks_64.pdf>
-Package pdftex.def Info: Benchmarks/Prepend_blocks_64.pdf used on input line 20
-2.
-(pdftex.def)             Requested size: 204.56409pt x 136.37799pt.
-
-<Benchmarks/Prepend_blocks_128.pdf, id=1182, 451.6875pt x 301.125pt>
-File: Benchmarks/Prepend_blocks_128.pdf Graphic file (type pdf)
-
-<use Benchmarks/Prepend_blocks_128.pdf>
-Package pdftex.def Info: Benchmarks/Prepend_blocks_128.pdf used on input line 2
-03.
-(pdftex.def)             Requested size: 204.56409pt x 136.37799pt.
-
-<Benchmarks/Prepend_blocks_256.pdf, id=1183, 451.6875pt x 301.125pt>
-File: Benchmarks/Prepend_blocks_256.pdf Graphic file (type pdf)
-
-<use Benchmarks/Prepend_blocks_256.pdf>
-Package pdftex.def Info: Benchmarks/Prepend_blocks_256.pdf used on input line 2
-04.
-(pdftex.def)             Requested size: 204.56409pt x 136.37799pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Benchmarks/Split_take_3.pdf, id=1184, 704.6325pt x 426.59375pt>
-File: Benchmarks/Split_take_3.pdf Graphic file (type pdf)
-
-<use Benchmarks/Split_take_3.pdf>
-Package pdftex.def Info: Benchmarks/Split_take_3.pdf used on input line 222.
-(pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
-
-<Benchmarks/Split_drop_3.pdf, id=1185, 704.6325pt x 456.70625pt>
-File: Benchmarks/Split_drop_3.pdf Graphic file (type pdf)
-
-<use Benchmarks/Split_drop_3.pdf>
-Package pdftex.def Info: Benchmarks/Split_drop_3.pdf used on input line 223.
-(pdftex.def)             Requested size: 417.47307pt x 270.58328pt.
- [33]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [34 <./Benchmarks/Apply_2.pdf> <./Benchmarks/Apply_3.pdf>]
-<Benchmarks/Iteration_3.pdf, id=1197, 704.6325pt x 426.59375pt>
-File: Benchmarks/Iteration_3.pdf Graphic file (type pdf)
+<Benchmarks/Prepend_2.pdf, id=1189, 704.6325pt x 456.70625pt>
+File: Benchmarks/Prepend_2.pdf Graphic file (type pdf)
 
-<use Benchmarks/Iteration_3.pdf>
-Package pdftex.def Info: Benchmarks/Iteration_3.pdf used on input line 241.
-(pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
+<use Benchmarks/Prepend_2.pdf>
+Package pdftex.def Info: Benchmarks/Prepend_2.pdf used on input line 192.
+(pdftex.def)             Requested size: 417.47307pt x 270.58328pt.
 
-<Benchmarks/Iteration_4.pdf, id=1198, 704.6325pt x 426.59375pt>
-File: Benchmarks/Iteration_4.pdf Graphic file (type pdf)
+<Benchmarks/Prepend_3.pdf, id=1190, 704.6325pt x 426.59375pt>
+File: Benchmarks/Prepend_3.pdf Graphic file (type pdf)
 
-<use Benchmarks/Iteration_4.pdf>
-Package pdftex.def Info: Benchmarks/Iteration_4.pdf used on input line 242.
+<use Benchmarks/Prepend_3.pdf>
+Package pdftex.def Info: Benchmarks/Prepend_3.pdf used on input line 193.
 (pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
  [35 <./Benchmarks/Apply_random_3.pdf> <./Benchmarks/Apply_blocks_32.pdf> <./Be
 nchmarks/Apply_blocks_64.pdf> <./Benchmarks/Apply_blocks_128.pdf> <./Benchmarks
@@ -1310,146 +1248,215 @@ nchmarks/Apply_blocks_64.pdf> <./Benchmarks/Apply_blocks_128.pdf> <./Benchmarks
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Benchmarks/Iteration_blocks_32.pdf, id=1208, 451.6875pt x 301.125pt>
-File: Benchmarks/Iteration_blocks_32.pdf Graphic file (type pdf)
+<Benchmarks/Prepend_blocks_32.pdf, id=1200, 451.6875pt x 301.125pt>
+File: Benchmarks/Prepend_blocks_32.pdf Graphic file (type pdf)
 
-<use Benchmarks/Iteration_blocks_32.pdf>
-Package pdftex.def Info: Benchmarks/Iteration_blocks_32.pdf used on input line 
-250.
+<use Benchmarks/Prepend_blocks_32.pdf>
+Package pdftex.def Info: Benchmarks/Prepend_blocks_32.pdf used on input line 20
+0.
 (pdftex.def)             Requested size: 204.56409pt x 136.37799pt.
 
-<Benchmarks/Iteration_blocks_64.pdf, id=1209, 451.6875pt x 301.125pt>
-File: Benchmarks/Iteration_blocks_64.pdf Graphic file (type pdf)
+<Benchmarks/Prepend_blocks_64.pdf, id=1201, 451.6875pt x 301.125pt>
+File: Benchmarks/Prepend_blocks_64.pdf Graphic file (type pdf)
 
-<use Benchmarks/Iteration_blocks_64.pdf>
-Package pdftex.def Info: Benchmarks/Iteration_blocks_64.pdf used on input line 
-251.
+<use Benchmarks/Prepend_blocks_64.pdf>
+Package pdftex.def Info: Benchmarks/Prepend_blocks_64.pdf used on input line 20
+1.
 (pdftex.def)             Requested size: 204.56409pt x 136.37799pt.
 
-<Benchmarks/Iteration_blocks_128.pdf, id=1210, 451.6875pt x 301.125pt>
-File: Benchmarks/Iteration_blocks_128.pdf Graphic file (type pdf)
+<Benchmarks/Prepend_blocks_128.pdf, id=1202, 451.6875pt x 301.125pt>
+File: Benchmarks/Prepend_blocks_128.pdf Graphic file (type pdf)
 
-<use Benchmarks/Iteration_blocks_128.pdf>
-Package pdftex.def Info: Benchmarks/Iteration_blocks_128.pdf used on input line
- 252.
+<use Benchmarks/Prepend_blocks_128.pdf>
+Package pdftex.def Info: Benchmarks/Prepend_blocks_128.pdf used on input line 2
+02.
 (pdftex.def)             Requested size: 204.56409pt x 136.37799pt.
 
-<Benchmarks/Iteration_blocks_256.pdf, id=1211, 451.6875pt x 301.125pt>
-File: Benchmarks/Iteration_blocks_256.pdf Graphic file (type pdf)
+<Benchmarks/Prepend_blocks_256.pdf, id=1203, 451.6875pt x 301.125pt>
+File: Benchmarks/Prepend_blocks_256.pdf Graphic file (type pdf)
 
-<use Benchmarks/Iteration_blocks_256.pdf>
-Package pdftex.def Info: Benchmarks/Iteration_blocks_256.pdf used on input line
- 253.
+<use Benchmarks/Prepend_blocks_256.pdf>
+Package pdftex.def Info: Benchmarks/Prepend_blocks_256.pdf used on input line 2
+03.
 (pdftex.def)             Requested size: 204.56409pt x 136.37799pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Benchmarks/Builder_3.pdf, id=1212, 704.6325pt x 426.59375pt>
-File: Benchmarks/Builder_3.pdf Graphic file (type pdf)
+<Benchmarks/Split_take_3.pdf, id=1204, 704.6325pt x 426.59375pt>
+File: Benchmarks/Split_take_3.pdf Graphic file (type pdf)
 
-<use Benchmarks/Builder_3.pdf>
-Package pdftex.def Info: Benchmarks/Builder_3.pdf used on input line 269.
+<use Benchmarks/Split_take_3.pdf>
+Package pdftex.def Info: Benchmarks/Split_take_3.pdf used on input line 221.
 (pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
 
-<Benchmarks/Builder_4.pdf, id=1213, 704.6325pt x 426.59375pt>
-File: Benchmarks/Builder_4.pdf Graphic file (type pdf)
+<Benchmarks/Split_drop_3.pdf, id=1205, 704.6325pt x 456.70625pt>
+File: Benchmarks/Split_drop_3.pdf Graphic file (type pdf)
 
-<use Benchmarks/Builder_4.pdf>
-Package pdftex.def Info: Benchmarks/Builder_4.pdf used on input line 270.
-(pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Benchmarks/Builder_blocks.pdf, id=1214, 704.6325pt x 426.59375pt>
-File: Benchmarks/Builder_blocks.pdf Graphic file (type pdf)
-
-<use Benchmarks/Builder_blocks.pdf>
-Package pdftex.def Info: Benchmarks/Builder_blocks.pdf used on input line 277.
-(pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
+<use Benchmarks/Split_drop_3.pdf>
+Package pdftex.def Info: Benchmarks/Split_drop_3.pdf used on input line 222.
+(pdftex.def)             Requested size: 417.47307pt x 270.58328pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [36 <./Benchmarks/Concat.png> <./Benchmarks/Append_2.pdf>]
-<Benchmarks/Parmap_balanced.pdf, id=1222, 704.6325pt x 456.70625pt>
-File: Benchmarks/Parmap_balanced.pdf Graphic file (type pdf)
+<Benchmarks/Iteration_3.pdf, id=1213, 704.6325pt x 426.59375pt>
+File: Benchmarks/Iteration_3.pdf Graphic file (type pdf)
 
-<use Benchmarks/Parmap_balanced.pdf>
-Package pdftex.def Info: Benchmarks/Parmap_balanced.pdf used on input line 294.
+<use Benchmarks/Iteration_3.pdf>
+Package pdftex.def Info: Benchmarks/Iteration_3.pdf used on input line 240.
+(pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
 
-(pdftex.def)             Requested size: 417.47307pt x 270.58328pt.
+<Benchmarks/Iteration_4.pdf, id=1214, 704.6325pt x 426.59375pt>
+File: Benchmarks/Iteration_4.pdf Graphic file (type pdf)
+
+<use Benchmarks/Iteration_4.pdf>
+Package pdftex.def Info: Benchmarks/Iteration_4.pdf used on input line 241.
+(pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
  [37 <./Benchmarks/Append_3.pdf> <./Benchmarks/Append_blocks_32.pdf> <./Benchma
 rks/Append_blocks_64.pdf> <./Benchmarks/Append_blocks_128.pdf> <./Benchmarks/Ap
 pend_blocks_256.pdf>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Benchmarks/parmap_unbalanced_1.pdf, id=1232, 451.6875pt x 301.125pt>
+<Benchmarks/Iteration_blocks_32.pdf, id=1224, 451.6875pt x 301.125pt>
+File: Benchmarks/Iteration_blocks_32.pdf Graphic file (type pdf)
+
+<use Benchmarks/Iteration_blocks_32.pdf>
+Package pdftex.def Info: Benchmarks/Iteration_blocks_32.pdf used on input line 
+249.
+(pdftex.def)             Requested size: 204.56409pt x 136.37799pt.
+
+<Benchmarks/Iteration_blocks_64.pdf, id=1225, 451.6875pt x 301.125pt>
+File: Benchmarks/Iteration_blocks_64.pdf Graphic file (type pdf)
+
+<use Benchmarks/Iteration_blocks_64.pdf>
+Package pdftex.def Info: Benchmarks/Iteration_blocks_64.pdf used on input line 
+250.
+(pdftex.def)             Requested size: 204.56409pt x 136.37799pt.
+
+<Benchmarks/Iteration_blocks_128.pdf, id=1226, 451.6875pt x 301.125pt>
+File: Benchmarks/Iteration_blocks_128.pdf Graphic file (type pdf)
+
+<use Benchmarks/Iteration_blocks_128.pdf>
+Package pdftex.def Info: Benchmarks/Iteration_blocks_128.pdf used on input line
+ 251.
+(pdftex.def)             Requested size: 204.56409pt x 136.37799pt.
+
+<Benchmarks/Iteration_blocks_256.pdf, id=1227, 451.6875pt x 301.125pt>
+File: Benchmarks/Iteration_blocks_256.pdf Graphic file (type pdf)
+
+<use Benchmarks/Iteration_blocks_256.pdf>
+Package pdftex.def Info: Benchmarks/Iteration_blocks_256.pdf used on input line
+ 252.
+(pdftex.def)             Requested size: 204.56409pt x 136.37799pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Benchmarks/Builder_3.pdf, id=1228, 704.6325pt x 426.59375pt>
+File: Benchmarks/Builder_3.pdf Graphic file (type pdf)
+
+<use Benchmarks/Builder_3.pdf>
+Package pdftex.def Info: Benchmarks/Builder_3.pdf used on input line 268.
+(pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
+
+<Benchmarks/Builder_4.pdf, id=1229, 704.6325pt x 426.59375pt>
+File: Benchmarks/Builder_4.pdf Graphic file (type pdf)
+
+<use Benchmarks/Builder_4.pdf>
+Package pdftex.def Info: Benchmarks/Builder_4.pdf used on input line 269.
+(pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Benchmarks/Builder_blocks.pdf, id=1230, 704.6325pt x 426.59375pt>
+File: Benchmarks/Builder_blocks.pdf Graphic file (type pdf)
+
+<use Benchmarks/Builder_blocks.pdf>
+Package pdftex.def Info: Benchmarks/Builder_blocks.pdf used on input line 276.
+(pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[38 <./Benchmarks/Prepend_2.pdf> <./Benchmarks/Prepend_3.pdf>]
+<Benchmarks/Parmap_balanced.pdf, id=1237, 704.6325pt x 456.70625pt>
+File: Benchmarks/Parmap_balanced.pdf Graphic file (type pdf)
+
+<use Benchmarks/Parmap_balanced.pdf>
+Package pdftex.def Info: Benchmarks/Parmap_balanced.pdf used on input line 293.
+
+(pdftex.def)             Requested size: 417.47307pt x 270.58328pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Benchmarks/parmap_unbalanced_1.pdf, id=1238, 451.6875pt x 301.125pt>
 File: Benchmarks/parmap_unbalanced_1.pdf Graphic file (type pdf)
 
 <use Benchmarks/parmap_unbalanced_1.pdf>
 Package pdftex.def Info: Benchmarks/parmap_unbalanced_1.pdf used on input line 
-301.
+300.
 (pdftex.def)             Requested size: 204.56409pt x 136.37799pt.
 
-<Benchmarks/parmap_unbalanced_2.pdf, id=1233, 451.6875pt x 301.125pt>
+<Benchmarks/parmap_unbalanced_2.pdf, id=1239, 451.6875pt x 301.125pt>
 File: Benchmarks/parmap_unbalanced_2.pdf Graphic file (type pdf)
 
 <use Benchmarks/parmap_unbalanced_2.pdf>
 Package pdftex.def Info: Benchmarks/parmap_unbalanced_2.pdf used on input line 
-302.
+301.
 (pdftex.def)             Requested size: 204.56409pt x 136.37799pt.
 
-<Benchmarks/parmap_unbalanced_4.pdf, id=1234, 451.6875pt x 301.125pt>
+<Benchmarks/parmap_unbalanced_4.pdf, id=1240, 451.6875pt x 301.125pt>
 File: Benchmarks/parmap_unbalanced_4.pdf Graphic file (type pdf)
 
 <use Benchmarks/parmap_unbalanced_4.pdf>
 Package pdftex.def Info: Benchmarks/parmap_unbalanced_4.pdf used on input line 
-303.
+302.
 (pdftex.def)             Requested size: 204.56409pt x 136.37799pt.
 
-<Benchmarks/parmap_unbalanced_8.pdf, id=1235, 451.6875pt x 301.125pt>
+<Benchmarks/parmap_unbalanced_8.pdf, id=1241, 451.6875pt x 301.125pt>
 File: Benchmarks/parmap_unbalanced_8.pdf Graphic file (type pdf)
 
 <use Benchmarks/parmap_unbalanced_8.pdf>
 Package pdftex.def Info: Benchmarks/parmap_unbalanced_8.pdf used on input line 
-304.
+303.
 (pdftex.def)             Requested size: 204.56409pt x 136.37799pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Benchmarks/Memory_3.pdf, id=1236, 704.6325pt x 426.59375pt>
+<Benchmarks/Memory_3.pdf, id=1242, 704.6325pt x 426.59375pt>
 File: Benchmarks/Memory_3.pdf Graphic file (type pdf)
 
 <use Benchmarks/Memory_3.pdf>
-Package pdftex.def Info: Benchmarks/Memory_3.pdf used on input line 323.
+Package pdftex.def Info: Benchmarks/Memory_3.pdf used on input line 322.
 (pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
 
-<Benchmarks/Memory_blocks.pdf, id=1237, 704.6325pt x 426.59375pt>
+<Benchmarks/Memory_blocks.pdf, id=1243, 704.6325pt x 426.59375pt>
 File: Benchmarks/Memory_blocks.pdf Graphic file (type pdf)
 
 <use Benchmarks/Memory_blocks.pdf>
-Package pdftex.def Info: Benchmarks/Memory_blocks.pdf used on input line 324.
+Package pdftex.def Info: Benchmarks/Memory_blocks.pdf used on input line 323.
 (pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (./Chapters/5_Testing.tex [38 <./Benchmarks/Prepend_2.pdf> <./Benchmarks/Prep
-end_3.pdf>] [39 <./Benchmarks/Prepend_blocks_32.pdf> <./Benchmarks/Prepend_bloc
-ks_64.pdf> <./Benchmarks/Prepend_blocks_128.pdf> <./Benchmarks/Prepend_blocks_2
-56.pdf>] [40 <./Benchmarks/Split_take_3.pdf> <./Benchmarks/Split_drop_3.pdf>]
-[41 <./Benchmarks/Iteration_3.pdf> <./Benchmarks/Iteration_4.pdf>] [42 <./Bench
-marks/Iteration_blocks_32.pdf> <./Benchmarks/Iteration_blocks_64.pdf> <./Benchm
-arks/Iteration_blocks_128.pdf> <./Benchmarks/Iteration_blocks_256.pdf>]
-[43 <./Benchmarks/Builder_3.pdf> <./Benchmarks/Builder_4.pdf>] [44 <./Benchmark
-s/Builder_blocks.pdf> <./Benchmarks/Parmap_balanced.pdf>] [45 <./Benchmarks/par
-map_unbalanced_1.pdf> <./Benchmarks/parmap_unbalanced_2.pdf> <./Benchmarks/parm
-ap_unbalanced_4.pdf> <./Benchmarks/parmap_unbalanced_8.pdf>] [46 <./Benchmarks/
-Memory_3.pdf> <./Benchmarks/Memory_blocks.pdf>]
+) (./Chapters/5_Testing.tex [39 <./Benchmarks/Prepend_blocks_32.pdf> <./Benchma
+rks/Prepend_blocks_64.pdf> <./Benchmarks/Prepend_blocks_128.pdf> <./Benchmarks/
+Prepend_blocks_256.pdf>] [40 <./Benchmarks/Split_take_3.pdf> <./Benchmarks/Spli
+t_drop_3.pdf>] [41 <./Benchmarks/Iteration_3.pdf> <./Benchmarks/Iteration_4.pdf
+>] [42 <./Benchmarks/Iteration_blocks_32.pdf> <./Benchmarks/Iteration_blocks_64
+.pdf> <./Benchmarks/Iteration_blocks_128.pdf> <./Benchmarks/Iteration_blocks_25
+6.pdf>] [43 <./Benchmarks/Builder_3.pdf> <./Benchmarks/Builder_4.pdf>] [44 <./B
+enchmarks/Builder_blocks.pdf> <./Benchmarks/Parmap_balanced.pdf>] [45 <./Benchm
+arks/parmap_unbalanced_1.pdf> <./Benchmarks/parmap_unbalanced_2.pdf> <./Benchma
+rks/parmap_unbalanced_4.pdf> <./Benchmarks/parmap_unbalanced_8.pdf>] [46 <./Ben
+chmarks/Memory_3.pdf> <./Benchmarks/Memory_blocks.pdf>]
 Chapter 5.
 ------------------------------------------------------------------------------
  5 Testing
@@ -1509,7 +1516,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 323.
 Here is how much of TeX's memory you used:
  15409 strings out of 493117
  218457 string characters out of 6135433
- 350301 words of memory out of 5000000
+ 351301 words of memory out of 5000000
  18213 multiletter control sequences out of 15000+600000
  17746 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1534,7 +1541,7 @@ s/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2014/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2014/texmf-dist/fonts/
 type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2014/texmf-dist/fo
 nts/type1/urw/courier/ucrr8a.pfb>
-Output written on main.pdf (59 pages, 1433716 bytes).
+Output written on main.pdf (59 pages, 1434546 bytes).
 PDF statistics:
  1469 PDF objects out of 1728 (max. 8388607)
  1278 compressed objects within 13 object streams

@@ -233,7 +233,7 @@ def getElement(index: Int): A = {
 }
 \end{lstlisting}
 
-This \texttt{getElement} on the unbalanced subtrees of figure \ref{Balanced_subtrees}  would use the \texttt{getElementFromDisplay} to fetch elements in \texttt{display0} directly from it and fetch elements from nodes (1.1) and (1.2) from \texttt{display1}. The rest is fetched from the root using \texttt{getElementFromRoot}.
+This \texttt{getElement} on the unbalanced subtrees of figure \ref{Balanced_subtrees}  would use the \texttt{getElementFromDisplay} to fetch elements in \texttt{display0} directly from it and fetch elements from nodes (1.1) and (1.2) starting from \texttt{display1}. The rest is fetched from the root using \texttt{getElementFromRoot}.
 
 \begin{figure}[h!]
   \centering

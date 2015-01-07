@@ -16,8 +16,7 @@ I% Chapter Template
 In practice, Scala compiles to Java bytecode and executes on a JVM, where we take the Java SE HotSpot as a reference. This imposes additional characteristics of performance that can't be evaluated on the algorithmic level alone.
 
 % code interpreted vs compiled
-\color{red} TODO:  interpreted code and compiled code \color{black}
-
+The JVM use \emph{just in time} (or JIT) compilation of code to take advantage of knowledge about how the code is used at runtime. At first it runs on interpreter mode, it consists of interpreting the bytecode and collecting statistics on the codes execution. Eventually it will compile the code to make it faster using several optimisations and heuristics. The code of the vectors tries to gains performance by aligning with those heuristics and hence taking advantage of the JVM optimizations.
 
 % GC and memory allocations
 One of the components of the JVM that will be affected by vectors is the garbage collector. The vector tends to create a large amount of \texttt{Arrays} during transformations, of which many are only necessary for a short time. Those objects will use up memory and possibly degrade performance of future allocations, until the next GC. Having all these unused object will also contribute in an increase in the frequency of GC executions. For that reason the code is optimised to avoid excessive creation of intermediary objects.
@@ -37,7 +36,7 @@ One of the optimizations that the JVM provides is function call elimination (abs
 % aim to make all critical methods 35< bytes
 The optimisation works as follows: the code is run in interpretation mode first while keeping track of statistics on which parts of the code are executed and how many times. When the code is eventually compiled, function calls that are deemed \emph{hot} are inlined. The heuristic favours inline when the function has less than 35 bytes. 
 
-We use this knowledge of the heuristic in two ways. The first is to avoid inlining everything, if the function is small and there is no other optimisation that can be done if inline manual, the code is kept as a function. The second is to inline the methods of the vector API into the clients code. When implementing functions with less than 35 bytes, performance was tested and cross referenced with the VMs inlining diagnostic\footnote{The JVMs \texttt{"-XX:+UnlockDiagnosticVMOptions -XX:+PrintInlining"} flag was used to track the inlining.}. The sizes of the code was inspected using \texttt{javap -c}.
+We use this knowledge of the heuristic in two ways. The first is to avoid inlining everything, if the function is small and there is no other optimisation that can be done if inline manual, the code is kept as a function. The second is to inline the methods of the vector API into the clients code. When implementing functions with less than 35 bytes, performance was tested and cross referenced with the VMs inlining diagnostic\footnote{The JVMs \texttt{"-XX:+UnlockDiagnosticVMOptions -XX:+PrintInlining"} flag was used to track the inlining.}. The code was inspected using \texttt{javap -c}, which gives the sizes of the function and helped identifying some optimisation possibilities.
 
 %----------------------------------------------------------------------------------------
 %	SECTION Scalameter
