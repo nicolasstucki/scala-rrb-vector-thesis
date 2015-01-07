@@ -41,6 +41,7 @@ We use this knowledge of the heuristic in two ways. The first is to avoid inlini
 %----------------------------------------------------------------------------------------
 %	SECTION Scalameter
 %----------------------------------------------------------------------------------------
+\clearpage
 \section{Measuring performance}
 % Scalameter
 ScalaMeter framework\cite{scalameter} is used to measure performance of operations on different implementations of vector. This framework was used to spot identify performance improvements or regressions during the development process. 
@@ -54,6 +55,7 @@ There are two main axis of performance comparisons. The first is between the RB-
 %----------------------------------------------------------------------------------------
 %	SECTION Generators
 %----------------------------------------------------------------------------------------
+\clearpage
 \section{Implementation Generators}
 Until now only one implementation of the RRB-Vector\footnote{Located in the \texttt{scala.collection.immutable.rrbvector} package on GitHub} that is compared against the RB-Vector. But in fact to compare performance on different characteristics like block sizes and concatenation algorithm variant concrete implementations where generated using Scala reflection. Other characteristics involve a complete structure assertion while testing and benchmarks generation. For each combination of characteristics there is a concrete artefact: class implementation, tests and benchmarks.
 
@@ -81,6 +83,7 @@ This also help to find and fix bugs, because a bug has a higher probability of a
 %----------------------------------------------------------------------------------------
 %	SECTION Benchmarks
 %----------------------------------------------------------------------------------------
+\clearpage
 \section{Benchmarks}
 % reiterate the the different benchmark types 
 %% differences between implementation (vector vs rrbvector)
@@ -288,27 +291,39 @@ Finally, the figures \ref{PrependBlocksBenchmarks} show what would happen if the
 %-----------------------------------
 \subsection{Iterator}
 % describe the benchmark function
-% compare expectation with results
-% explain the upper bound
-% explain apparently incoherent results: iteration of sightly unbalanced vector is faster
-\color{red} TODO \color{black}
+The iteration benchmarks aim to see the performance of traversing the whole vector using an iterator. Linear behaviour is expected from these benchmarks.
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Benchmarks/Iteration_3.pdf}
-  \includegraphics[width=\textwidth]{Benchmarks/Iteration_4.pdf}
-  \label{IterationBenchmarks}
   \caption{Excecution time to iterate through all the elements of the vector.}
+  \label{Iteration2Benchmarks}
 \end{figure}
+
+% compare expectation with results
+% explain the upper bound
+% explain apparently incoherent results: iteration of sightly unbalanced vector is faster
+Figures \ref{Iteration2Benchmarks} and \ref{Iteration3Benchmarks} show that for balanced RRB-Vectors the performances is identical. For slightly unbalanced once there is an increase in performance that seams to come from JIT optimizations of the code. In that case the code that is used to change branches uses fewer lines of code in each function (some are never access at runtime), it could be possible that the optimiser is using this to improve the performance\footnote{Further analysis on this situation should be done in the future.}. 
 
 \begin{figure}[h!]
   \centering
-  \label{IterationBlocksBenchmarks}
+  \includegraphics[width=\textwidth]{Benchmarks/Iteration_4.pdf}
+  \caption{Excecution time to iterate through all the elements of the vector.}
+  \label{Iteration3Benchmarks}
+\end{figure}
+
+When the vectors become extremely unbalanced, the performance degenerates by a factor proportional to the height of the vector. Because it changes from one balanced subtree to the next one from the root. It should be possible, by keeping more state in the iterator, to improve the performance to go from one balanced subtree to the next. But this would increase the initialisation time and might affect smaller vectors.
+
+Finally, the figures \ref{IterationBlocksBenchmarks} show what would happen if the block sizes changed or if the rebalance algorithm is changed. In general the quick rebalancing is usually worst than complete rebalancing for the iterator. The block sizes do not change much the performance of the iterator. This is a great result because it means that the overhead of traversing the tree is insignificant when traversing the vector, the cost is in the traversal of the leafs.
+
+\begin{figure}[h!]
+  \centering
   \includegraphics[width=0.49\textwidth]{Benchmarks/Iteration_blocks_32.pdf}
   \includegraphics[width=0.49\textwidth]{Benchmarks/Iteration_blocks_64.pdf}
   \includegraphics[width=0.49\textwidth]{Benchmarks/Iteration_blocks_128.pdf}
   \includegraphics[width=0.49\textwidth]{Benchmarks/Iteration_blocks_256.pdf}
   \caption{Excecution time to iterate through all the elements of the vector. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Complete/Quick).}
+  \label{IterationBlocksBenchmarks}
 \end{figure}
 
 \FloatBarrier
@@ -318,24 +333,33 @@ Finally, the figures \ref{PrependBlocksBenchmarks} show what would happen if the
 %-----------------------------------
 \subsection{Builder}
 % describe the benchmark function
+The builder benchmarks aim to show the time it takes to build a vector of some size by appending elements. The performance of this is expected to be linear. Note that all vectors that are generated will be completely balanced.
+
 % compare expectation with results
-% explain the upper bound
-% explain apparently incoherent results
-\color{red} TODO \color{black}
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Benchmarks/Builder_3.pdf}
-  \includegraphics[width=\textwidth]{Benchmarks/Builder_4.pdf}
-  \label{BuilderBenchmarks}
   \caption{Execution time to build a vector of a given size.}
+    \label{Builder3Benchmarks}
 \end{figure}
+
+Figures \ref{Builder3Benchmarks} and \ref{Builder4Benchmarks} show that the RB and RRB vector builder have the same results. This is not surprising, because the have the same code for appending elements, except for a small detail. The RRB Vector allocates arrays with one additional slot for all branch nodes.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Benchmarks/Builder_4.pdf}
+  \caption{Execution time to build a vector of a given size.}
+   \label{Builder4Benchmarks}
+\end{figure}
+
+Increasing the sizes of the blocks will reduce the amounts of blocks that need to be allocated during the building. Larger block will also take slightly longer to allocate. Figure \ref{BuilderBlocksBenchmarks} shows that the difference is not really big, but with a sweet spot on blocks of size 64 for builders.
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Benchmarks/Builder_blocks.pdf}
-  \label{BuilderBlocksBenchmarks}
   \caption{Execution time to build a vector of a given size. Comparing performances for different block sizes.}
+  \label{BuilderBlocksBenchmarks}
 \end{figure}
 
 \FloatBarrier
