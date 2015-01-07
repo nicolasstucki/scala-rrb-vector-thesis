@@ -27,8 +27,8 @@
 \contentsline {paragraph}{Updated}{13}{section*.102}
 \contentsline {paragraph}{Append}{13}{section*.102}
 \contentsline {paragraph}{Take}{13}{section*.102}
-\contentsline {subsection}{\numberline {2.3.4}Concatenation}{14}{subsection.103}
-\contentsline {paragraph}{InsertAt}{17}{figure.caption.155}
+\contentsline {subsection}{\numberline {2.3.4}Concatenation}{13}{subsection.103}
+\contentsline {paragraph}{InsertAt}{16}{figure.caption.155}
 \contentsline {subsection}{\numberline {2.3.5}Prepend and Drop}{17}{subsection.162}
 \contentsline {paragraph}{Prepend}{17}{section*.163}
 \contentsline {paragraph}{Drop}{18}{lstnumber.189}
@@ -60,17 +60,17 @@
 \contentsline {section}{\numberline {4.4}Benchmarks}{33}{section.281}
 \contentsline {subsection}{\numberline {4.4.1}Apply}{34}{subsection.282}
 \contentsline {subsection}{\numberline {4.4.2}Concatenation}{37}{subsection.287}
-\contentsline {subsection}{\numberline {4.4.3}Append}{37}{subsection.289}
-\contentsline {subsection}{\numberline {4.4.4}Prepend}{37}{subsection.293}
-\contentsline {subsection}{\numberline {4.4.5}Splits}{37}{subsection.296}
-\contentsline {subsection}{\numberline {4.4.6}Iterator}{37}{subsection.298}
-\contentsline {subsection}{\numberline {4.4.7}Builder}{38}{subsection.301}
-\contentsline {subsection}{\numberline {4.4.8}Parallel split-combine}{39}{subsection.304}
-\contentsline {subsection}{\numberline {4.4.9}Memory footprint}{39}{subsection.307}
-\contentsline {chapter}{\numberline {5}Testing}{49}{chapter.309}
-\contentsline {section}{\numberline {5.1}Teststing correctness}{49}{section.310}
-\contentsline {subsection}{\numberline {5.1.1}Unit tests}{49}{subsection.311}
-\contentsline {subsection}{\numberline {5.1.2}Invariant Assertions}{49}{subsection.312}
-\contentsline {chapter}{\numberline {6}Related Work}{50}{chapter.313}
-\contentsline {section}{\numberline {6.1}RRB-Vectors in Clojure}{50}{section.314}
-\contentsline {chapter}{\numberline {7}Conclusions}{51}{chapter.315}
+\contentsline {subsection}{\numberline {4.4.3}Append}{38}{subsection.289}
+\contentsline {subsection}{\numberline {4.4.4}Prepend}{39}{subsection.293}
+\contentsline {subsection}{\numberline {4.4.5}Splits}{42}{subsection.296}
+\contentsline {subsection}{\numberline {4.4.6}Iterator}{42}{subsection.298}
+\contentsline {subsection}{\numberline {4.4.7}Builder}{44}{subsection.301}
+\contentsline {subsection}{\numberline {4.4.8}Parallel split-combine}{47}{subsection.304}
+\contentsline {subsection}{\numberline {4.4.9}Memory footprint}{48}{subsection.307}
+\contentsline {chapter}{\numberline {5}Testing}{50}{chapter.309}
+\contentsline {section}{\numberline {5.1}Teststing correctness}{50}{section.310}
+\contentsline {subsection}{\numberline {5.1.1}Unit tests}{50}{subsection.311}
+\contentsline {subsection}{\numberline {5.1.2}Invariant Assertions}{50}{subsection.312}
+\contentsline {chapter}{\numberline {6}Related Work}{51}{chapter.313}
+\contentsline {section}{\numberline {6.1}RRB-Vectors in Clojure}{51}{section.314}
+\contentsline {chapter}{\numberline {7}Conclusions}{52}{chapter.315}

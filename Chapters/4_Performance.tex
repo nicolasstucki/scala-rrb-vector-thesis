@@ -101,7 +101,7 @@ The axis of comparisons are:
 \end{itemize}
 
 % machine description
-\color{red} TODO: Machine description \color{black}
+For the results of this sections, All benchmarks where executed on a Java HotSpot(TM) 64-Bit Server VM on a machine with an Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz with 32GiB on RAM. Each benchmarking VM instance was setup with 16GiB of heap memory. 
 
 %-----------------------------------
 %	SUBSECTION Apply
@@ -153,6 +153,8 @@ Finally, the figures \ref{ApplyBlocksBenchmarks} show what would happen if the b
   \label{ApplyBlocksBenchmarks}
 \end{figure}
 
+\FloatBarrier
+
 %-----------------------------------
 %	SUBSECTION Concatenation
 %-----------------------------------
@@ -169,6 +171,8 @@ Finally, the figures \ref{ApplyBlocksBenchmarks} show what would happen if the b
   \label{ConcatBenchmarks}
   \caption{Execution time for a concatenation operation on two vectors. In theory (and in practice) Vector concatenation is $O(left + right)$ and the rrbVector concatenation operation is $O(log_{32}(left + right))$.}
 \end{figure}
+
+\FloatBarrier
 
 %-----------------------------------
 %	SUBSECTION Append
@@ -205,6 +209,8 @@ Finally, the figures \ref{ApplyBlocksBenchmarks} show what would happen if the b
   \caption{Time to execute 256 append operations. This shows the amortized cost of the append operation. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Complete/Quick).}
 \end{figure}
 
+\FloatBarrier
+
 %-----------------------------------
 %	SUBSECTION Prepend
 %-----------------------------------
@@ -233,6 +239,7 @@ Finally, the figures \ref{ApplyBlocksBenchmarks} show what would happen if the b
   \caption{Time to execute 256 prepend operations. This shows the amortized cost of the append operation. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Complete/Quick).}
 \end{figure}
 
+\FloatBarrier
 
 %-----------------------------------
 %	SUBSECTION Splits
@@ -281,6 +288,8 @@ Finally, the figures \ref{ApplyBlocksBenchmarks} show what would happen if the b
   \caption{Excecution time to iterate through all the elements of the vector. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Complete/Quick).}
 \end{figure}
 
+\FloatBarrier
+
 %-----------------------------------
 %	SUBSECTION Builder
 %-----------------------------------
@@ -305,6 +314,8 @@ Finally, the figures \ref{ApplyBlocksBenchmarks} show what would happen if the b
   \label{BuilderBlocksBenchmarks}
   \caption{Execution time to build a vector of a given size. Comparing performances for different block sizes.}
 \end{figure}
+
+\FloatBarrier
 
 %-----------------------------------
 %	SUBSECTION Parallel split-combine
@@ -333,6 +344,7 @@ Finally, the figures \ref{ApplyBlocksBenchmarks} show what would happen if the b
   \caption{Benchmark on map and parallel map using the function (\textsc{x=>x}) to show the difference time used in the framework. This time represents the time spent in the splitters and combiners of the parallel collection.}
 \end{figure}
 
+\FloatBarrier
 
 %-----------------------------------
 %	SUBSECTION Memory footprint

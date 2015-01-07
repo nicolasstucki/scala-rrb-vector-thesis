@@ -23,7 +23,7 @@ Tiark~Rompf Phil~Bagwell.
 \newblock Technical report, EPFL, 2011.
 
 \bibitem[sca({\natexlab{c}})]{scalameter}
-Scalameter.
+Scala{M}eter.
 \newblock \url{https://scalameter.github.io/}, {\natexlab{c}}.
 
 \end{thebibliography}

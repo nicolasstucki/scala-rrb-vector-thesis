@@ -5,7 +5,7 @@
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Radix Balanced Tree structure\relax }}{11}{figure.caption.97}
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Concrete example of an RRB-Tree that contains 1090 elements.\relax }}{12}{figure.caption.99}
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Concatenation example with blocks of size 4: Rebalancing level 0\relax }}{15}{figure.caption.152}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Concatenation example with blocks of size 4: Rebalancing level 1\relax }}{16}{figure.caption.153}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Concatenation example with blocks of size 4: Rebalancing level 1\relax }}{15}{figure.caption.153}
 \contentsline {figure}{\numberline {2.7}{\ignorespaces Concatenation example with blocks of size 4: Rebalancing level 2\relax }}{16}{figure.caption.154}
 \contentsline {figure}{\numberline {2.8}{\ignorespaces Concatenation example with blocks of size 4: Rebalancing level 3\relax }}{16}{figure.caption.155}
 \addvspace {10\p@ }
@@ -17,7 +17,7 @@
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Time to execute 10k apply operations on sequential indices.\relax }}{35}{figure.caption.283}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Time to execute 10k apply operations on sequential indices.\relax }}{35}{figure.caption.284}
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Time to execute 10k apply operations on random indices.\relax }}{36}{figure.caption.285}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Time to execute 10k apply operations on sequential indices. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Complete/Quick).\relax }}{36}{figure.caption.286}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Time to execute 10k apply operations on sequential indices. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Complete/Quick).\relax }}{37}{figure.caption.286}
 \contentsline {figure}{\numberline {4.5}{\ignorespaces Execution time for a concatenation operation on two vectors. In theory (and in practice) Vector concatenation is $O(left + right)$ and the rrbVector concatenation operation is $O(log_{32}(left + right))$.\relax }}{37}{figure.caption.288}
 \contentsline {figure}{\numberline {4.6}{\ignorespaces Time to execute 256 append operations. This shows the amortized cost of the append operation.\relax }}{38}{figure.caption.290}
 \contentsline {figure}{\numberline {4.7}{\ignorespaces Time to execute 256 append operations. This shows the amortized cost of the append operation.\relax }}{38}{figure.caption.291}
@@ -29,9 +29,9 @@
 \contentsline {figure}{\numberline {4.13}{\ignorespaces Excecution time to iterate through all the elements of the vector. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Complete/Quick).\relax }}{44}{figure.caption.300}
 \contentsline {figure}{\numberline {4.14}{\ignorespaces Execution time to build a vector of a given size.\relax }}{45}{figure.caption.302}
 \contentsline {figure}{\numberline {4.15}{\ignorespaces Execution time to build a vector of a given size. Comparing performances for different block sizes.\relax }}{46}{figure.caption.303}
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Benchmark on map and parallel map using the function (\textsc {x=>x}) to show the difference time used in the framework. This time represents the time spent in the splitters and combiners of the parallel collection (iterator and builder for the sequential version).\relax }}{46}{figure.caption.305}
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Benchmark on map and parallel map using the function (\textsc {x=>x}) to show the difference time used in the framework. This time represents the time spent in the splitters and combiners of the parallel collection.\relax }}{47}{figure.caption.306}
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Memory Footprint\relax }}{48}{figure.caption.308}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Benchmark on map and parallel map using the function (\textsc {x=>x}) to show the difference time used in the framework. This time represents the time spent in the splitters and combiners of the parallel collection (iterator and builder for the sequential version).\relax }}{47}{figure.caption.305}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Benchmark on map and parallel map using the function (\textsc {x=>x}) to show the difference time used in the framework. This time represents the time spent in the splitters and combiners of the parallel collection.\relax }}{48}{figure.caption.306}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Memory Footprint\relax }}{49}{figure.caption.308}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
