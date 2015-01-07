@@ -135,6 +135,8 @@ The performance improvements where achieved by analysing the sizes of the functi
    \label{ApplyBenchmarks3}
 \end{figure}
 
+\FloatBarrier
+
 Figure \ref{ApplyRandomBenchmarks} show the results for random indices. It can be observed that the behaviour of the curve is quite similar, but the sequential one is around 2X faster due to memory locality.
 
 \begin{figure}[h!]
@@ -143,6 +145,8 @@ Figure \ref{ApplyRandomBenchmarks} show the results for random indices. It can b
   \caption{Time to execute 10k apply operations on random indices on vectors of height 3.}
   \label{ApplyRandomBenchmarks}
 \end{figure}
+
+\FloatBarrier
 
 Finally, the figures \ref{ApplyBlocksBenchmarks} show what would happen if the block sizes changed or if the rebalance algorithm is changed. Note that in the cases for blocks of 128 and 256 the complete rebalance is actually creating completely balanced vectors. It can be observed that the quick rebalance is nocive to the performance of the apply method. Increasing the sizes of the arrays will improve the performance of the apply method.
 
@@ -203,6 +207,8 @@ The figures \ref{Append2Benchmarks} and \ref{Append3Benchmarks} show that if the
    \label{Append3Benchmarks}
 \end{figure}
 
+\FloatBarrier
+
 Finally, the figures \ref{AppendBlocksBenchmarks} show what would happen if the block sizes changed or if the rebalance algorithm is changed. Note that in the cases for blocks of 128 and 256 the complete rebalance is actually creating completely balanced vectors (from $16384$ down in the case of 128). It can be observed that the quick rebalance is nocive to the performance of the append method. Increasing the sizes of the arrays will decrease the performance for balanced trees, but can potentially reduce the amount of unbalanced nodes in the extremely unbalanced trees.
 
 \begin{figure}[h!]
@@ -246,6 +252,8 @@ The figures \ref{Prepend2Benchmarks} and \ref{Prepend3Benchmarks} show that the 
   \label{Prepend3Benchmarks}
 \end{figure}
 
+\FloatBarrier
+
 Finally, the figures \ref{PrependBlocksBenchmarks} show what would happen if the block sizes changed or if the rebalance algorithm is changed. Note that with 128 and 256 there are some performance degradation. They probably reflect the limit in cacheline locality where the node updates become linear again due to memory accesses and updates. The performance for blocks of size 32 and 64 are quite similar, but it is more stable for 64 because it needs a lesser number of branch updates.
 
 \begin{figure}[h!]
@@ -286,6 +294,8 @@ Finally, the figures \ref{PrependBlocksBenchmarks} show what would happen if the
 \end{figure}
 
 
+\FloatBarrier
+
 %-----------------------------------
 %	SUBSECTION Iterator
 %-----------------------------------
@@ -313,6 +323,8 @@ Figures \ref{Iteration2Benchmarks} and \ref{Iteration3Benchmarks} show that for 
 \end{figure}
 
 When the vectors become extremely unbalanced, the performance degenerates by a factor proportional to the height of the vector. Because it changes from one balanced subtree to the next one from the root. It should be possible, by keeping more state in the iterator, to improve the performance to go from one balanced subtree to the next. But this would increase the initialisation time and might affect smaller vectors.
+
+\FloatBarrier
 
 Finally, the figures \ref{IterationBlocksBenchmarks} show what would happen if the block sizes changed or if the rebalance algorithm is changed. In general the quick rebalancing is usually worst than complete rebalancing for the iterator. The block sizes do not change much the performance of the iterator. This is a great result because it means that the overhead of traversing the tree is insignificant when traversing the vector, the cost is in the traversal of the leafs.
 
@@ -352,6 +364,8 @@ Figures \ref{Builder3Benchmarks} and \ref{Builder4Benchmarks} show that the RB a
   \caption{Execution time to build a vector of a given size.}
    \label{Builder4Benchmarks}
 \end{figure}
+
+\FloatBarrier
 
 Increasing the sizes of the blocks will reduce the amounts of blocks that need to be allocated during the building. Larger block will also take slightly longer to allocate. Figure \ref{BuilderBlocksBenchmarks} shows that the difference is not really big, but with a sweet spot on blocks of size 64 for builders.
 
@@ -396,21 +410,32 @@ Increasing the sizes of the blocks will reduce the amounts of blocks that need t
 %-----------------------------------
 %	SUBSECTION Memory footprint
 %-----------------------------------
-
 \subsection{Memory footprint}
 % describe the benchmark function
+This is not really a benchmark, it is rather the characterisation of the memory footprint of the vector that where used as input in the benchmarks. The aim of this is to show that even with the additional sizes of the unbalanced nodes and additional fields, the vectors size in memory is almost the same.
+
 % compare expectation with results
 % explain the upper bound
 % explain apparently incoherent results
-\color{red} TODO \color{black}
+Figure \ref{MemoryFootprints} shows that even for an extremely unbalanced RRB-Vector the increase in size is negligible. Fact for balanced ones it is even possible to have a smaller footprint (a few bytes) caused by the truncation of the last branch. 
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Benchmarks/Memory_3.pdf}
-  \includegraphics[width=\textwidth]{Benchmarks/Memory_blocks.pdf}
+  \caption{Memory Footprint for different vectors.}
   \label{MemoryFootprints}
-  \caption{Memory Footprint}
 \end{figure}
 
+\FloatBarrier
 
+Figure \ref{MemoryBlocksFootprints} shows the amount of space that could be saved by increasing the size of the block. The difference is not significant and as such the memory footprint is not a reason to change the size of blocks.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Benchmarks/Memory_blocks.pdf}
+  \caption{Memory Footprint for different block sizes.}
+  \label{MemoryBlocksFootprints}
+\end{figure}
+
+\FloatBarrier
 

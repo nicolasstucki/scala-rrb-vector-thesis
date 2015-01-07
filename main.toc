@@ -61,16 +61,16 @@
 \contentsline {subsection}{\numberline {4.4.1}Apply}{35}{subsection.282}
 \contentsline {subsection}{\numberline {4.4.2}Concatenation}{38}{subsection.287}
 \contentsline {subsection}{\numberline {4.4.3}Append}{39}{subsection.289}
-\contentsline {subsection}{\numberline {4.4.4}Prepend}{42}{subsection.293}
-\contentsline {subsection}{\numberline {4.4.5}Splits}{44}{subsection.297}
+\contentsline {subsection}{\numberline {4.4.4}Prepend}{41}{subsection.293}
+\contentsline {subsection}{\numberline {4.4.5}Splits}{43}{subsection.297}
 \contentsline {subsection}{\numberline {4.4.6}Iterator}{45}{subsection.300}
 \contentsline {subsection}{\numberline {4.4.7}Builder}{47}{subsection.305}
-\contentsline {subsection}{\numberline {4.4.8}Parallel split-combine}{50}{subsection.309}
+\contentsline {subsection}{\numberline {4.4.8}Parallel split-combine}{49}{subsection.309}
 \contentsline {subsection}{\numberline {4.4.9}Memory footprint}{51}{subsection.312}
-\contentsline {chapter}{\numberline {5}Testing}{53}{chapter.314}
-\contentsline {section}{\numberline {5.1}Teststing correctness}{53}{section.315}
-\contentsline {subsection}{\numberline {5.1.1}Unit tests}{53}{subsection.316}
-\contentsline {subsection}{\numberline {5.1.2}Invariant Assertions}{53}{subsection.317}
-\contentsline {chapter}{\numberline {6}Related Work}{54}{chapter.318}
-\contentsline {section}{\numberline {6.1}RRB-Vectors in Clojure}{54}{section.319}
-\contentsline {chapter}{\numberline {7}Conclusions}{55}{chapter.320}
+\contentsline {chapter}{\numberline {5}Testing}{53}{chapter.315}
+\contentsline {section}{\numberline {5.1}Teststing correctness}{53}{section.316}
+\contentsline {subsection}{\numberline {5.1.1}Unit tests}{53}{subsection.317}
+\contentsline {subsection}{\numberline {5.1.2}Invariant Assertions}{53}{subsection.318}
+\contentsline {chapter}{\numberline {6}Related Work}{54}{chapter.319}
+\contentsline {section}{\numberline {6.1}RRB-Vectors in Clojure}{54}{section.320}
+\contentsline {chapter}{\numberline {7}Conclusions}{55}{chapter.321}
