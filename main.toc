@@ -61,16 +61,16 @@
 \contentsline {subsection}{\numberline {4.4.1}Apply}{34}{subsection.282}
 \contentsline {subsection}{\numberline {4.4.2}Concatenation}{37}{subsection.287}
 \contentsline {subsection}{\numberline {4.4.3}Append}{38}{subsection.289}
-\contentsline {subsection}{\numberline {4.4.4}Prepend}{39}{subsection.293}
-\contentsline {subsection}{\numberline {4.4.5}Splits}{42}{subsection.296}
-\contentsline {subsection}{\numberline {4.4.6}Iterator}{42}{subsection.298}
-\contentsline {subsection}{\numberline {4.4.7}Builder}{44}{subsection.301}
-\contentsline {subsection}{\numberline {4.4.8}Parallel split-combine}{47}{subsection.304}
-\contentsline {subsection}{\numberline {4.4.9}Memory footprint}{48}{subsection.307}
-\contentsline {chapter}{\numberline {5}Testing}{50}{chapter.309}
-\contentsline {section}{\numberline {5.1}Teststing correctness}{50}{section.310}
-\contentsline {subsection}{\numberline {5.1.1}Unit tests}{50}{subsection.311}
-\contentsline {subsection}{\numberline {5.1.2}Invariant Assertions}{50}{subsection.312}
-\contentsline {chapter}{\numberline {6}Related Work}{51}{chapter.313}
-\contentsline {section}{\numberline {6.1}RRB-Vectors in Clojure}{51}{section.314}
-\contentsline {chapter}{\numberline {7}Conclusions}{52}{chapter.315}
+\contentsline {subsection}{\numberline {4.4.4}Prepend}{40}{subsection.293}
+\contentsline {subsection}{\numberline {4.4.5}Splits}{42}{subsection.297}
+\contentsline {subsection}{\numberline {4.4.6}Iterator}{43}{subsection.300}
+\contentsline {subsection}{\numberline {4.4.7}Builder}{44}{subsection.303}
+\contentsline {subsection}{\numberline {4.4.8}Parallel split-combine}{47}{subsection.306}
+\contentsline {subsection}{\numberline {4.4.9}Memory footprint}{48}{subsection.309}
+\contentsline {chapter}{\numberline {5}Testing}{50}{chapter.311}
+\contentsline {section}{\numberline {5.1}Teststing correctness}{50}{section.312}
+\contentsline {subsection}{\numberline {5.1.1}Unit tests}{50}{subsection.313}
+\contentsline {subsection}{\numberline {5.1.2}Invariant Assertions}{50}{subsection.314}
+\contentsline {chapter}{\numberline {6}Related Work}{51}{chapter.315}
+\contentsline {section}{\numberline {6.1}RRB-Vectors in Clojure}{51}{section.316}
+\contentsline {chapter}{\numberline {7}Conclusions}{52}{chapter.317}

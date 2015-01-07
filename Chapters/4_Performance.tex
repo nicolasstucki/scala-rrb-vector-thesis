@@ -119,7 +119,7 @@ The benchmark results for the sequential access in figures \ref{ApplyBenchmarks2
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Benchmarks/Apply_2.pdf}
-  \caption{Time to execute 10k apply operations on sequential indices.}
+  \caption{Time to execute 10k apply operations on sequential indices on vectors of height 2.}
    \label{ApplyBenchmarks2}
 \end{figure}
 
@@ -128,20 +128,20 @@ The performance improvements where achieved by analysing the sizes of the functi
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Benchmarks/Apply_3.pdf}
-  \caption{Time to execute 10k apply operations on sequential indices.}
+  \caption{Time to execute 10k apply operations on sequential indices on vectors of height 3.}
    \label{ApplyBenchmarks3}
 \end{figure}
 
-Figure \ref{ApplyRandomBenchmarks} show the results for random indices. It can be observed that the behaviour of the curve is quite similar, but with 0.5X factor due to losses in memory caches.
+Figure \ref{ApplyRandomBenchmarks} show the results for random indices. It can be observed that the behaviour of the curve is quite similar, but the sequential one is around 2X faster due to memory locality.
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Benchmarks/Apply_random_3.pdf}
-  \caption{Time to execute 10k apply operations on random indices.}
+  \caption{Time to execute 10k apply operations on random indices on vectors of height 3.}
   \label{ApplyRandomBenchmarks}
 \end{figure}
 
-Finally, the figures \ref{ApplyBlocksBenchmarks} show what would happen if the block sizes changed or if the rebalance algorithm is changed. Note that in the cases for blocks of 128 and 256 the complete rebalance is actually creating completely balanced vectors. In can be seen that the quick rebalance is nocive to the performance of the apply method. Increasing the sizes of the arrays will improve the performance of the apply method.
+Finally, the figures \ref{ApplyBlocksBenchmarks} show what would happen if the block sizes changed or if the rebalance algorithm is changed. Note that in the cases for blocks of 128 and 256 the complete rebalance is actually creating completely balanced vectors. It can be observed that the quick rebalance is nocive to the performance of the apply method. Increasing the sizes of the arrays will improve the performance of the apply method.
 
 \begin{figure}[h!]
   \centering
@@ -179,25 +179,28 @@ Finally, the figures \ref{ApplyBlocksBenchmarks} show what would happen if the b
 %-----------------------------------
 \subsection{Append}
 % describe the benchmark function
-% compare expectation with results
-% explain the upper bound
-% explain apparently incoherent results
-
-\color{red} TODO \color{black}
+The \texttt{append} benchmarks aim to see the amortised time taken to appending elements. With the transient states, the branch updates are amortized over leaf updates. For this, each benchmark appends 256 elements on a vector. This way there is at least one branch update for each benchmark, 8 if the block size is 32.
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Benchmarks/Append_2.pdf}
+  \caption{Time to execute 256 append operations on vectors of height 2. This shows the amortized cost of the append operation.}
   \label{Append2Benchmarks}
-  \caption{Time to execute 256 append operations. This shows the amortized cost of the append operation.}
 \end{figure}
+
+% compare expectation with results
+% explain the upper bound
+% explain apparently incoherent results
+The figures \ref{Append2Benchmarks} and \ref{Append3Benchmarks} show that if the RRB-Vectors are balanced or just slightly unbalanced the execution time is equivalent to the one for RB-Vectors. But, if it gets extremely unbalanced the performance can fall to by 0.6X. In figure \ref{Append2Benchmarks} it is possible to see that after 768 the performance does a step upward, this correspond to the addition of a level in the tree.
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Benchmarks/Append_3.pdf}
-  \label{Append3Benchmarks}
-  \caption{Time to execute 256 append operations. This shows the amortized cost of the append operation.}
+  \caption{Time to execute 256 append operations on vectors of height 3. This shows the amortized cost of the append operation.}
+   \label{Append3Benchmarks}
 \end{figure}
+
+Finally, the figures \ref{AppendBlocksBenchmarks} show what would happen if the block sizes changed or if the rebalance algorithm is changed. Note that in the cases for blocks of 128 and 256 the complete rebalance is actually creating completely balanced vectors (from $16384$ down in the case of 128). It can be observed that the quick rebalance is nocive to the performance of the append method. Increasing the sizes of the arrays will decrease the performance for balanced trees, but can potentially reduce the amount of unbalanced nodes in the extremely unbalanced trees.
 
 \begin{figure}[h!]
   \centering
@@ -205,9 +208,11 @@ Finally, the figures \ref{ApplyBlocksBenchmarks} show what would happen if the b
   \includegraphics[width=0.49\textwidth]{Benchmarks/Append_blocks_64.pdf}
   \includegraphics[width=0.49\textwidth]{Benchmarks/Append_blocks_128.pdf}
   \includegraphics[width=0.49\textwidth]{Benchmarks/Append_blocks_256.pdf}
-  \label{IterationBlocksBenchmarks}
   \caption{Time to execute 256 append operations. This shows the amortized cost of the append operation. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Complete/Quick).}
+  \label{AppendBlocksBenchmarks}
 \end{figure}
+
+
 
 \FloatBarrier
 
@@ -216,18 +221,29 @@ Finally, the figures \ref{ApplyBlocksBenchmarks} show what would happen if the b
 %-----------------------------------
 \subsection{Prepend}
 % describe the benchmark function
+The \texttt{prepend} benchmarks aim to see the amortised time taken to prepending elements. With the transient states, the branch updates are amortized over leaf updates. For this, each benchmark appends 256 elements on a vector. This way there is at least one branch update for each benchmark, 8 if the block size is 32.
+
 % compare expectation with results
 % explain the upper bound
 % explain apparently incoherent results
-\color{red} TODO \color{black}
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Benchmarks/Prepend_2.pdf}
-  \includegraphics[width=\textwidth]{Benchmarks/Prepend_3.pdf}
-  \label{PrependBenchmarks}
-  \caption{Time to execute 256 prepend operations. This shows the amortized cost of the prepend operation.}
+  \caption{Time to execute 256 prepend operations on vectors of height 2. This shows the amortized cost of the prepend operation.}
+  \label{Prepend2Benchmarks}
 \end{figure}
+
+The figures \ref{Prepend2Benchmarks} and \ref{Prepend3Benchmarks} show that the prepend operation on a balanced RRB-Vector is a bit slower. This is because prepending on this kind of vector requires the creation or update of an unbalanced node. But, this is a a case where the unbalanced vectors end up being more performant. This is because on these vectors there it is possible to find space to perpend elements on the left of the tree. In figure \ref{Prepend2Benchmarks} it is possible to see that after 768 the performance does a step upward, this correspond to the addition of a level in the tree.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Benchmarks/Prepend_3.pdf}
+  \caption{Time to execute 256 prepend operations on vectors of height 3. This shows the amortized cost of the prepend operation.}
+  \label{Prepend3Benchmarks}
+\end{figure}
+
+Finally, the figures \ref{PrependBlocksBenchmarks} show what would happen if the block sizes changed or if the rebalance algorithm is changed. Note that with 128 and 256 there are some performance degradation. They probably reflect the limit in cacheline locality where the node updates become linear again due to memory accesses and updates. The performance for blocks of size 32 and 64 are quite similar, but it is more stable for 64 because it needs a lesser number of branch updates.
 
 \begin{figure}[h!]
   \centering
@@ -235,8 +251,8 @@ Finally, the figures \ref{ApplyBlocksBenchmarks} show what would happen if the b
   \includegraphics[width=0.49\textwidth]{Benchmarks/Prepend_blocks_64.pdf}
   \includegraphics[width=0.49\textwidth]{Benchmarks/Prepend_blocks_128.pdf}
   \includegraphics[width=0.49\textwidth]{Benchmarks/Prepend_blocks_256.pdf}
-  \label{PrependBenchmarks}
   \caption{Time to execute 256 prepend operations. This shows the amortized cost of the append operation. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Complete/Quick).}
+  \label{PrependBlocksBenchmarks}
 \end{figure}
 
 \FloatBarrier
@@ -254,9 +270,16 @@ Finally, the figures \ref{ApplyBlocksBenchmarks} show what would happen if the b
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Benchmarks/Split_take_3.pdf}
+  \label{TakeBenchmarks}
+  \caption{Execution time of take.}
+\end{figure}
+
+
+\begin{figure}[h!]
+  \centering
   \includegraphics[width=\textwidth]{Benchmarks/Split_drop_3.pdf}
-  \label{SplitsBenchmarks}
-  \caption{Execution time of take and drop.}
+  \label{DropBenchmarks}
+  \caption{Execution time of drop.}
 \end{figure}
 
 
