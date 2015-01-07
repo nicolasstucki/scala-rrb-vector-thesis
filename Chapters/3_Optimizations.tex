@@ -208,20 +208,6 @@ Without transient states when some update is done on a leaf, all the branch must
 % normailization
 There is a cost associated to the transformation from canonical to transient state and back. This cost is equivalent to one update of the focused branch. The transient state operations only start gaining performance on the canonical ones after 3 consecutive operations. With 2 consecutive operations they are matched and with 1 there is a loss of performance.
 
-
-\paragraph{Vector object internal mutation}
-% State can mutate from transient to canonical exactly once (similar to lazy evaluation)
-% State mutation is not visible from outside
-\color{red} TODO: Explain \color{black}
-
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=\textwidth]{Figures/StatesGraph}
-  \caption{}
-  \label{StatesGraph}
-\end{figure}
-
-
 %-----------------------------------
 %	SUBSECTION  Relaxing the Displays
 %-----------------------------------
@@ -253,6 +239,25 @@ This \texttt{getElement} on the unbalanced subtrees of figure \ref{Balanced_subt
   \includegraphics[width=\textwidth]{Figures/Balanced_subtrees}
   \caption{Relaxed Radix Balanced Tree with a focus on a balanced subtree rooted of \texttt{display1}. Light grey boxes represent unbalanced nodes sizes.}
   \label{Balanced_subtrees}
+\end{figure}
+
+%-----------------------------------
+%	SUBSECTION  Vector Canonicalization
+%-----------------------------------
+
+\subsection{Vector Canonicalization}
+% State can mutate from transient to canonical exactly once (similar to lazy evaluation)
+% State mutation is not visible from outside
+% Explain append/prepend
+% Explain the apply operations
+% If more performance is requires it is possible to write transient state operations directly to transient state
+\color{red} TODO: Explain \color{black}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Figures/StatesGraph}
+  \caption{}
+  \label{StatesGraph}
 \end{figure}
 
 
