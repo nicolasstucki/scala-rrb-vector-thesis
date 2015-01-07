@@ -88,32 +88,60 @@ This also help to find and fix bugs, because a bug has a higher probability of a
 %% differences between block sizes
 %% differences between concatenation rebalancing method
 % benchmarks on core operations
-\color{red} TODO \color{black}
+Performance benchmarks aim to compare the performance of all core operations of the vectors RRB-Trees. These operations are: \texttt{apply}, \texttt{concatenate}, \texttt{append}, \texttt{prepend}, \texttt{take}, \texttt{drop}. The performance of specialized operations for the iterators, builder and the parallel vector where also benchmarked. Additionally, the memory footprint of different vectors was checked.
+
+The axis of comparisons are: 
+\begin{itemize}
+	\item Size of the vector. Split into ranges that correspond to vectors of the same height, when perfectly balanced.
+	\item \texttt{Vector} against completely balanced \texttt{RRBVector}
+	\item Differently balanced \texttt{RRBVector}s: perfectly balanced, unbalanced (by one concatenation) and extremely unbalanced. This is ignored on vector of depth lesser than 3 because there all those vectors end up being perfectly balanced.
+	\item Different block sizes: 32 (original), 64, 128 and 256.
+	\item Different implementation of the rebalancing in \texttt{concatenate}: Complete rebalance and Quick rebalance
+	\item Thread pool size for parallel vectors.
+\end{itemize}
+
+% machine description
+\color{red} TODO: Machine description \color{black}
 
 %-----------------------------------
 %	SUBSECTION Apply
 %-----------------------------------
 \subsection{Apply}
 % describe the benchmark function
+The \texttt{apply} benchmarks aim to see the amortised access time of elements. Amortising the displays optimisation and memory caches. For this, each benchmark invokes the \texttt{apply} operation $10k$ times on different elements. 
+
+There are two variants: the first variant access the elements sequentially and the second one chooses each time a random index. The first one is supposed to have better performance because the array that are access tend to be in cache. The computations of the next index is also a bit more complex on the second one, but mostly irrelevant compared with the cache misses of all the arrays on a branch.
+
 % compare expectation with results
 % explain the upper bound
-% explain apparently incoherent results
-\color{red} TODO \color{black}
+The benchmark results for the sequential access in figures \ref{ApplyBenchmarks2} and \ref{ApplyBenchmarks3} show that if the RRB-Vector is balanced or just sightly unbalanced will be faster than the RB-Vector. But when it gets extremely unbalanced the performance can drop by around 0.5X which is proportional to the increase of arrays that must be accessed (two per node).
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Benchmarks/Apply_2.pdf}
-  \includegraphics[width=\textwidth]{Benchmarks/Apply_3.pdf}
-  \label{ApplyBenchmarks}
   \caption{Time to execute 10k apply operations on sequential indices.}
+   \label{ApplyBenchmarks2}
 \end{figure}
+
+The performance improvements where achieved by analysing the sizes of the functions involved, there inlining and which parts of the code is used in each case. The aim was to improve performance of unbalanced vectors, that is why in some cases the slightly unbalanced vector is the faster.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Benchmarks/Apply_3.pdf}
+  \caption{Time to execute 10k apply operations on sequential indices.}
+   \label{ApplyBenchmarks3}
+\end{figure}
+
+Figure \ref{ApplyRandomBenchmarks} show the results for random indices. It can be observed that the behaviour of the curve is quite similar, but with 0.5X factor due to losses in memory caches.
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Benchmarks/Apply_random_3.pdf}
-  \label{ApplyRandomBenchmarks}
   \caption{Time to execute 10k apply operations on random indices.}
+  \label{ApplyRandomBenchmarks}
 \end{figure}
+
+Finally, the figures \ref{ApplyBlocksBenchmarks} show what would happen if the block sizes changed or if the rebalance algorithm is changed. Note that in the cases for blocks of 128 and 256 the complete rebalance is actually creating completely balanced vectors. In can be seen that the quick rebalance is nocive to the performance of the apply method. Increasing the sizes of the arrays will improve the performance of the apply method.
 
 \begin{figure}[h!]
   \centering
@@ -121,8 +149,8 @@ This also help to find and fix bugs, because a bug has a higher probability of a
   \includegraphics[width=0.49\textwidth]{Benchmarks/Apply_blocks_64.pdf}
   \includegraphics[width=0.49\textwidth]{Benchmarks/Apply_blocks_128.pdf}
   \includegraphics[width=0.49\textwidth]{Benchmarks/Apply_blocks_256.pdf}
+   \caption{Time to execute 10k apply operations on sequential indices. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Complete/Quick).}
   \label{ApplyBlocksBenchmarks}
-  \caption{Time to execute 10k apply operations on sequential indices. Comparing performances for different block sizes and different implementation of the concatenation inner branch rebalancing (Complete/Quick).}
 \end{figure}
 
 %-----------------------------------
