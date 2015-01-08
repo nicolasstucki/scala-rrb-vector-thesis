@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.16)  8 JAN 2015 15:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.16)  8 JAN 2015 15:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -857,7 +857,7 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 
 
 
-] (./Chapters/1_Introduction.tex [0
+] (./Chapters/1_Introduction.tex [1
 
 
 ]
@@ -1537,10 +1537,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 322.
  ) 
 Here is how much of TeX's memory you used:
- 15466 strings out of 493117
- 219584 string characters out of 6135433
+ 15467 strings out of 493117
+ 219595 string characters out of 6135433
  350831 words of memory out of 5000000
- 18246 multiletter control sequences out of 15000+600000
+ 18247 multiletter control sequences out of 15000+600000
  17746 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  49i,12n,45p,1060b,1873s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1564,7 +1564,7 @@ s/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2014/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2014/texmf-dist/fonts/
 type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2014/texmf-dist/fo
 nts/type1/urw/courier/ucrr8a.pfb>
-Output written on main.pdf (68 pages, 1506870 bytes).
+Output written on main.pdf (68 pages, 1506850 bytes).
 PDF statistics:
  1616 PDF objects out of 1728 (max. 8388607)
  1404 compressed objects within 15 object streams
