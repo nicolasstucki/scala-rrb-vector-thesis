@@ -167,17 +167,25 @@ Finally, the figures \ref{ApplyBlocksBenchmarks} show what would happen if the b
 %-----------------------------------
 \subsection{Concatenation}
 % describe the benchmark function
+The \texttt{concatenation} benchmarks aim to show the benefit of having the logarithmic concatenation algorithm against the linear version. The benchmarks concatenate two vectors of the same type and balance characteristics. As such these benchmarks have two axis representing the sizes of the LHS and RHS vector in the operation.
+
+
 % compare expectation with results
 % explain the upper bound
 % explain apparently incoherent results
-\color{red} TODO \color{black}
+
+Figure \ref{ConcatBenchmarks} shows how the concatenation time for RB-Vectors is linear on the size of the resulting vector. Below that, the three surfaces that represent the RRB-Vector concatenation are effectively constant time (or $log_{32}(n)$). The performance difference between the differently balanced RRB-Vectors is negligible in relation to the difference with RB-Vector. 
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Benchmarks/Concat.png}
-  \label{ConcatBenchmarks}
   \caption{Execution time for a concatenation operation on two vectors. In theory (and in practice) Vector concatenation is $O(left + right)$ and the rrbVector concatenation operation is $O(log_{32}(left + right))$.}
+   \label{ConcatBenchmarks}
 \end{figure}
+
+In the case of concatenation, being balanced or not does not impose performance improvements or degradations. Performance will be determined by the number elements in the branches that get merged and their alignment.
+
+The benchmark for the Quick rebalancing version where not included here because the implementation for that one is suboptimal and the comparison would not be fair. The main purpose of that version is to show the differences it would cause on other operation. The current version of the Quick rebalancing can achieve 2X performance benefit, but it could gain a lot form the same optimizations that were used on the Complete rebalancing.
 
 \FloatBarrier
 
@@ -383,17 +391,27 @@ Increasing the sizes of the blocks will reduce the amounts of blocks that need t
 %-----------------------------------
 \subsection{Parallel split-combine}
 % describe the benchmark function
+The aim of the parallel benchmarks is to show the overhead of the parallel framework. Specifically, the time spent in splitting and combining the vectors during parallel execution. For this the benchmarks execute a \texttt{map} on the identity function\footnote{The function that simply returns the element passed as parameter.}. This operation is done on the standard sequential version of the vector and on the parallel one.
+
 % compare expectation with results
 % explain the upper bound
 % explain apparently incoherent results
-\color{red} TODO \color{black}
+In figure \ref{ParallelBenchmarks} it can be seen that the base sequential \texttt{map} is exactly the same for both implementation. This was expected because the \texttt{map} implementation uses an \texttt{iterator} and \texttt{builder} to compute it in both cases, which have the same performance. 
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Benchmarks/Parmap_balanced.pdf}
-  \label{ParallelBenchmarks}
   \caption{Benchmark on map and parallel map using the function (\textsc{x=>x}) to show the difference time used in the framework. This time represents the time spent in the splitters and combiners of the parallel collection (iterator and builder for the sequential version).}
+  \label{ParallelBenchmarks}
 \end{figure}
+
+The current parallel \texttt{Vector} (that uses RB-Trees) results show that with 1, 2 and 4 threads the performance of the operation is worse. With 8 threads it becomes a little bit faster. This is what we expected, due to the lazy concatenation at the end of the combination of results. But, it show that this parallel collection is useless in practice.
+
+When using the the RRB-Vectors parallel, the parallelism is evident. With two threads the performance improvement is of almost 2X, then it tends to go towards 2.5X. This is the type of parallelism behaviour that is expected (see Amdahl's law\cite{TODO}). Even the case on thread pool of one thread is a bit faster than the normal sequential one.
+
+\FloatBarrier
+
+Figure \ref{ParallelUnbalancedBenchmarks} shows how unbalanced parallel vector behave. There is a slight loss in performance when they are unbalanced. But, this operations will create a balanced vector and therefore this small overhead can be amortized over the next operations.
 
 \begin{figure}[h!]
   \centering
@@ -401,8 +419,8 @@ Increasing the sizes of the blocks will reduce the amounts of blocks that need t
   \includegraphics[width=0.49\textwidth]{Benchmarks/parmap_unbalanced_2.pdf}
   \includegraphics[width=0.49\textwidth]{Benchmarks/parmap_unbalanced_4.pdf}
   \includegraphics[width=0.49\textwidth]{Benchmarks/parmap_unbalanced_8.pdf}
-  \label{ParallelUnbalancedBenchmarks}
   \caption{Benchmark on map and parallel map using the function (\textsc{x=>x}) to show the difference time used in the framework. This time represents the time spent in the splitters and combiners of the parallel collection.}
+  \label{ParallelUnbalancedBenchmarks}
 \end{figure}
 
 \FloatBarrier

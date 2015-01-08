@@ -103,7 +103,7 @@ A common way to reduce the amount of code that needs to be written when implemen
 The base mechanisms to specialize are: specialisation of a value, loops unrolling and arithmetic simplifications. Value specialization consist in explicitly identifying the value of some field and then using code specialized on that value. Loop unrolling (including recursions) consist in writing explicitly the code for each loop instead of the loop. This one is usually used on loops that are bounded by some value specialization. Once the first two specialisation are applied code can be simplified with arithmetic transformations. 
 
 % example with simple expanded get operation (show expansion and specialisation)
-Concretely, most of the value specialization is done on heights and indices on radix operations. The height are a bounded small range of numbers and therefore can be efficiently specialized with a \texttt{match}\footnote{All \texttt{match} expressions used in this specialization get compiled to \texttt{tableswitch} bytecode instruction.} expression. On ranges of indices that are on trees of the same size specialization is done using nested \texttt{if/else} expressions. It is also possible to specialize of the first and last index, the first index (the 0 index) gains much from specialization because arithmetics cancel many terms. As an example here is a version of the radix \texttt{apply}.
+Concretely, most of the value specialization is done on heights and indices on radix operations. The height are a bounded small range of numbers and therefore can be efficiently specialized with a \texttt{match}\footnote{All \texttt{match} expressions used in this specialization get compiled to \texttt{tableswitch} bytecode instruction. In some cases it would be beneficial to have  \texttt{tableswitch} with fallthrough, but the there is currently no Scala construct that compiles to that.} expression. On ranges of indices that are on trees of the same size specialization is done using nested \texttt{if/else} expressions. It is also possible to specialize of the first and last index, the first index (the 0 index) gains much from specialization because arithmetics cancel many terms. As an example here is a version of the radix \texttt{apply}.
 
 \begin{lstlisting}[frame=single]
 def apply(index: Int): A = {
@@ -255,11 +255,18 @@ This \texttt{getElement} on the unbalanced subtrees of figure \ref{Balanced_subt
 
 \begin{figure}[h!]
   \centering
+  \includegraphics[width=\textwidth]{Figures/StatesGraphSimple}
+  \caption{}
+  \label{StatesGraphSimple}
+\end{figure}
+
+
+\begin{figure}[h!]
+  \centering
   \includegraphics[width=\textwidth]{Figures/StatesGraph}
   \caption{}
   \label{StatesGraph}
 \end{figure}
-
 
 %----------------------------------------------------------------------------------------
 %	SECTION - Builder
