@@ -3,12 +3,13 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: unsrtnat.bst
 Database file #1: Bibliography.bib
+Warning--I didn't find a database entry for "TODO"
 Warning--empty year in scalaVector211
 Warning--empty year in scalaParVector211
 Warning--empty year in scalameter
 You've used 4 entries,
             2481 wiz_defined-function locations,
-            568 strings with 5011 characters,
+            570 strings with 5019 characters,
 and the built_in function-call counts, 921 in all, are:
 = -- 83
 > -- 7
@@ -47,4 +48,4 @@ warning$ -- 3
 while$ -- 2
 width$ -- 0
 write$ -- 50
-(There were 3 warnings)
+(There were 4 warnings)

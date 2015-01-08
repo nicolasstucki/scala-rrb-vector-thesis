@@ -32,7 +32,7 @@ The RB-Tree structure is shallow densely filled tree where elements are located 
    \label{badix_balanced}
 \end{figure}
 
-All nodes are represented with immutable\footnote{Immutable arrays are just mutable arrays that do not get updated after initialisation.} \texttt{Array[AnyRef]}, as this is the most compact representation for the structure and will help performance by the use of JVM primitive operations (see \ref{InPractice}). Because branches and leafs are represented the same way, the vector also need to know the hight of the RB-Tree. It is kept in the \texttt{depth} field. This height will alway be upper bounded by $log_{32}(size-1)+1$ for nodes of 32 branches. Therefore the tree is quite shallow and the complexity to traverse it is considered as effectively constant when taking into account that the size will never exude the maximum index representable with \texttt{Int}.
+All nodes are represented with immutable\footnote{Immutable arrays are just mutable arrays that do not get updated after initialisation.} \texttt{Array[AnyRef]}, as this is the most compact representation for the structure and will help performance by the use of JVM primitive operations (see \ref{InPractice}). Because branches and leafs are represented the same way, the vector also need to know the high of the RB-Tree. It is kept in the \texttt{depth} field. This height will always be upper bounded by $log_{32}(size-1)+1$ for nodes of 32 branches. Therefore the tree is quite shallow and the complexity to traverse it is considered as effectively constant when taking into account that the size will never exude the maximum index representable with \texttt{Int}. 
 
 To have trees that will contain an amount of elements that does not match a full tree we fill first the elements from the left. The branches on the right that do not contain any element in any of it's leafs are not allocated (left as empty references or truncated arrays). For example the tree that would hold 1056 elements in figure \ref{badix_balanced_32} would have empty subtrees on the right of the nodes on the rightmost branch. To never access elements that are outside of a the trees right bound, the vector has an \texttt{endIndex} field that point to that last index. With this it is possible to have efficient implementations of  \texttt{take} and \texttt{append} (see \ref{Operations}).
 
@@ -58,7 +58,7 @@ The performances of most operations on RB-Trees have a computational complexity 
  
 % naive implementation just as high level guide
 % hint of displays and transient states
-In this section the operations will be presented on a high level\footnote{Ignoring some pieces of code like casts, return types, type covariance, among others.} and without optimisation. These reflect the worst case scenario or the base implementation that is used before adding optimizations (see chapter \ref{Optimizations}). To improve performance of some operations, displays are used on branches of the RB-Tree (see section \ref{sec:Displays}). To improve the complexity of operations to amortized constant time (instead of effective constant time\footnote{In this context, effective constant time has a large but bounded constant time complexity, while amortized constant time tends to have a bound closer to a one level tree update.}) for some operation sequences the vectors are augmented with transient states.
+In this section the operations will be presented on a high level\footnote{Ignoring some pieces of code like casts, return types, type covariance, among others.} and without optimization. These reflect the worst case scenario or the base implementation that is used before adding optimizations (see chapter \ref{Optimizations}). To improve performance of some operations, displays are used on branches of the RB-Tree (see section \ref{sec:Displays}). To improve the complexity of operations to amortized constant time (instead of effective constant time\footnote{In this context, effective constant time has a large but bounded constant time complexity, while amortized constant time tends to have a bound closer to a one level tree update.}) for some operation sequences the vectors are augmented with transient states. 
 
 %-----------------------------------
 %	SUBSUBSECTION - Apply
@@ -113,7 +113,7 @@ def updated(index: Int, elem: A) = {
 \end{lstlisting}
 
 % with transient states, local updates can be amortised
-Therefore the complexity of this operation is $O(log_{32}(n))$, for the traversal and creation of each node in the brach. This operation can be improved to have amortized constant time updates for local updates using displays with transient states. This way the parent nodes are only updated lazily when absolutely necessary. For example, if some leaf has all it's elements updated from left to right, the leaf will be copied as many times as there are updates, but the parent of that leaf does not change during those operations.
+Therefore the complexity of this operation is $O(log_{32}(n))$, for the traversal and creation of each node in the branch. This operation can be improved to have amortized constant time updates for local updates using displays with transient states. This way the parent nodes are only updated lazily when absolutely necessary. For example, if some leaf has all it's elements updated from left to right, the leaf will be copied as many times as there are updates, but the parent of that leaf does not change during those operations. 
 
 %-----------------------------------
 %	SUBSUBSECTION - Additions
@@ -148,7 +148,7 @@ def :+(elem: A): Vector[A] = {
 
 Where the \texttt{isTreeFull} operation computes the answer using efficient bitwise operations on the end index of the vector.
 
-% performance log_32(n), hint of transient to amortise consecutive appends are amortised
+% performance log_32(n), hint of transient to amortize consecutive appends are amortized 
 Due to the update of all nodes in the last branch, the complexity of this operation is $O(log_{32}(n))$. This complexity can be amortized to constant time using displays with transient states for consecutive append operations on the vector (see section \ref{sec:DisplaysTransient}).
 
 \subsubsection{Prepend}
@@ -196,7 +196,7 @@ Due to the update of all nodes in the first branch, the complexity of this opera
 Given that elements in an RB-Tree are densely packed, implementations for concatenation and insert will need to rebalance elements to make them again densely packed. In the case of concatenation there are three options to join the two vectors: append all elements of the RHS vector to the LHS vector, prepend all elements from the LHS vector to the RHS vector or simply reconstruct a new vector using a builder. The append and prepend options are used when on of the vectors is small enough in relation to the other one. When vectors become large, the best option is the one with the builder because it avoids creating one instance of the vector each time an element is added.
 
 % performance O(n)
-The computational complexity of the concatenation operation on RB-Trees for vectors lengths $n1$ and $n2$ is $O(n1 + n2)$ in general. In the special case where $n1$ or $n2$ is small enough the complexity becomes $O(min(n1,n2)*log_{32}(n1+n2))$, the complexity of repeatedly appending or prepending an element. This last one can be amortised to $min(n1,n2)$ using displays and transient states. 
+The computational complexity of the concatenation operation on RB-Trees for vectors lengths $n1$ and $n2$ is $O(n1 + n2)$ in general. In the special case where $n1$ or $n2$ is small enough the complexity becomes $O(min(n1,n2)*log_{32}(n1+n2))$, the complexity of repeatedly appending or prepending an element. This last one can be amortized to $min(n1,n2)$ using displays and transient states.  
 
 %-----------------------------------
 %	SUBSUBSECTION - Splits
@@ -260,7 +260,7 @@ The implementation for RRB vectors proposed consists in replacing the wrapped RB
 
 \subsection{Relaxed Tree structure}
 % describe tree: balancing, filling, block sizes
-An RRB-Tree is an generalisation of an RB-Tree where there is an additional kind of node. This is the unbalanced node, it is a node that does not require the it's children to be full. Leaf nodes are never considered as unbalanced. For efficiency it will additional have information on the sizes of it's children.
+An RRB-Tree is an generalization of an RB-Tree where there is an additional kind of node. This is the unbalanced node, it is a node that does not require the it's children to be full. Leaf nodes are never considered as unbalanced. For efficiency it will additional have information on the sizes of it's children. 
 
 % describe sizes array and where it is kept (change from left to right for indexing simplification)
 In an unbalanced node, the sizes are kept in an \texttt{Array[Int]} and attached at the end of the array that contains the children. The sizes array has the same length as the number of children of the node as is shown in figure \ref{Relaxed_Radix_balanced}. This kind of nodes get truncated rather that keep empty branches as all the information that was usually needed on radix operations is now in the sizes.
@@ -454,7 +454,7 @@ From a high level, the \texttt{prepend} and \texttt{drop} operations on RB-Trees
 Both these operation will most of the time create new unbalanced nodes, but only on the left most branch. Calling several times combinations of these two will not contribute in generating even more unbalanced branches. As such they are only responsible for the creation of at most $ log_{32}(n)$ unbalanced nodes on any vector.
 
 \paragraph{Prepend}
-Just like with the RB version, the first step is to traverse down the left most part of the tree. Traversing the tree becomes trivial because now the first branch is alway on subindex 0. As know there is a need for checking if there is still space in the leftmost branch the prepend returns a result if it could prepend it on that subtree. 
+Just like with the RB version, the first step is to traverse down the left most part of the tree. Traversing the tree becomes trivial because now the first branch is always on sub-index 0. As know there is a need for checking if there is still space in the leftmost branch the prepend returns a result if it could prepend it on that subtree.  
 
 When prepending an element on a subtree, if the element was added the parent nodes are updated with there corresponding sizes. If the element could not be prepend, then we check if the root of the current subtree has still space for another branch. If there is space a new branch is prepended on it, otherwise the prepend is delegated back to the parent node.
 
@@ -500,7 +500,7 @@ Due to the update of all nodes in the first branch, the complexity of this opera
 \paragraph{Drop}
 % describe difference between the implementation (null and shift vs. cut and update size)
 
-Like with the RB-Tree \texttt{drop} operation, the first step is to traverse down the tree to the cut index. The difference is that when cutting the nodes, instead of clearing the left side of the node the node is truncated and the the sizes adjusted. The sizes of the nodes get truncated at the same index and are adjusted. For each node the adjustment is equal to the number of nodes that will be dropped in the left of the subtree. This numbers is already part of the computation of the cut indices on each node. 
+Like with the RB-Tree \texttt{drop} operation, the first step is to traverse down the tree to the cut index. The difference is that when cutting the nodes, instead of clearing the left side of the node the node is truncated and the sizes adjusted. The sizes of the nodes get truncated at the same index and are adjusted. For each node the adjustment is equal to the number of nodes that will be dropped in the left of the subtree. This numbers is already part of the computation of the cut indices on each node.  
 
 % performance
 The computational complexity of any split operation is $O(log_{32}(n))$ due to the traversal and copy of nodes on the branch where the cut index is located.
@@ -509,7 +509,7 @@ The computational complexity of any split operation is $O(log_{32}(n))$ due to t
 %	SUBSUBSECTION
 %-----------------------------------
 
-\subsubsection{Parallel Vector}
+\subsection{Parallel Vector}
 % Combine: trivial expansion from builder
 %% heuristic: try to construct balanced trees 
 % Split into subtrees two, take the nearest power of 32 to the half

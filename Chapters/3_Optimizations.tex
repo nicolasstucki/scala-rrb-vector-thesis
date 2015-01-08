@@ -18,7 +18,7 @@ I% Chapter Template
 
 \subsection{Arrays}
 % array creation, copy
-Most of the memory used in the vector data structure is composed of arrays. The three key operations used on these arrays: array creation, array update and array access. The arrays are used as immutable arrays, as such the update operations are only allowed when the array is initialised. This also implies that each time there is a modification on some part of an array, a new array must be created and all the old elements copied. 
+Most of the memory used in the vector data structure is composed of arrays. The three key operations used on these arrays: array creation, array update and array access. The arrays are used as immutable arrays, as such the update operations are only allowed when the array is initialized. This also implies that each time there is a modification on some part of an array, a new array must be created and all the old elements copied.  
 
 % size of array argument
 The size of the array will affect the performance of the vector. With larger blocks the access times will be reduced because the depth of the tree will decrease. But, on the other hand, increasing the size of the block will make slow down the update operations. This is a direct consequence of the need to copy the entire array for a single update.
@@ -65,7 +65,7 @@ This scheme can be generalised to any block size $m$ where $m=2^i$ for $0 < i \l
 %-----------------------------------
 \paragraph{Relaxing the Radix}
 % Explain how to compute them 
-When the tree is relaxed it is not possible to know the subindices from index. That is why we keep the sizes array in the unbalanced nodes. This array keeps the accumulated sizes to make the computation of subindices as trivial as possible. The subindex is the same as the first index in the sizes array where $index < sizes[subindex]$. The simplest way to find this subindex is by a linearly scanning the array. 
+When the tree is relaxed it is not possible to know the sub-indices from index. That is why we keep the sizes array in the unbalanced nodes. This array keeps the accumulated sizes to make the computation of sub-indices as trivial as possible. The sub-index is the same as the first index in the sizes array where $index < sizes[subIndex]$. The simplest way to find this sub-index is by a linearly scanning the array. 
 
 \begin{lstlisting}[frame=single]
 def getSubIndex(sizes: Array[Int], indexInTree: Int): Int = {
@@ -80,7 +80,7 @@ def getSubIndex(sizes: Array[Int], indexInTree: Int): Int = {
 For small arrays (like blocks of size 32) this will take be faster than a binary search because it takes advantage of the cache lines. If we would consider using bigger block sizes it would be better to use a hybrid between binary and linear search.
 
 % fallback to radix
-To traverse the tree down to the leaf where the index is, the subindices are computed from the sizes as long as the tree node is unbalanced. If the node is balanced, then the more efficient radix based method is used from there to the leaf. To avoid the need of accessing and scanning an additional array in each level.
+To traverse the tree down to the leaf where the index is, the sub-indices are computed from the sizes as long as the tree node is unbalanced. If the node is balanced, then the more efficient radix based method is used from there to the leaf. To avoid the need of accessing and scanning an additional array in each level.
 
 
 %-----------------------------------
@@ -103,7 +103,7 @@ A common way to reduce the amount of code that needs to be written when implemen
 The base mechanisms to specialize are: specialisation of a value, loops unrolling and arithmetic simplifications. Value specialization consist in explicitly identifying the value of some field and then using code specialized on that value. Loop unrolling (including recursions) consist in writing explicitly the code for each loop instead of the loop. This one is usually used on loops that are bounded by some value specialization. Once the first two specialisation are applied code can be simplified with arithmetic transformations. 
 
 % example with simple expanded get operation (show expansion and specialisation)
-Concretely, most of the value specialization is done on heights and indices on radix operations. The height are a bounded small range of numbers and therefore can be efficiently specialized with a \texttt{match}\footnote{All \texttt{match} expressions used in this specialization get compiled to \texttt{tableswitch} bytecode instruction. In some cases it would be beneficial to have  \texttt{tableswitch} with fallthrough, but the there is currently no Scala construct that compiles to that.} expression. On ranges of indices that are on trees of the same size specialization is done using nested \texttt{if/else} expressions. It is also possible to specialize of the first and last index, the first index (the 0 index) gains much from specialization because arithmetics cancel many terms. As an example here is a version of the radix \texttt{apply}.
+Concretely, most of the value specialization is done on heights and indices on radix operations. The height are a bounded small range of numbers and therefore can be efficiently specialized with a \texttt{match}\footnote{All \texttt{match} expressions used in this specialization get compiled to \texttt{tableswitch} bytecode instruction. In some cases it would be beneficial to have  \texttt{tableswitch} with fallthrough, but the there is currently no Scala construct that compiles to that.} expression. On ranges of indices that are on trees of the same size specialization is done using nested \texttt{if/else} expressions. It is also possible to specialize of the first and last index, the first index (the 0 index) gains much from specialization because of arithmetic cancelation of many terms. As an example here is a version of the radix \texttt{apply}. 
 
 \begin{lstlisting}[frame=single]
 def apply(index: Int): A = {
@@ -156,7 +156,7 @@ As base for optimizations, the vector object keeps a set of fields to track one 
 \end{figure}
 
 % describe the focus field
-To know on which branch the vector is focused there is also a \texttt{focus} field with an index. This index is the index of any element in the current \texttt{display0}. This index represents the radix indexing scheme of node subindices described in \ref{ComputingIndices}.
+To know on which branch the vector is focused there is also a \texttt{focus} field with an index. This index is the index of any element in the current \texttt{display0}. This index represents the radix indexing scheme of node sub-indices described in \ref{ComputingIndices}. 
 
 % immutability of displays
 To follow the simple implementations scheme of immutable objects in concurrent contexts, the focus is also immutable. Therefore each vector object will have a single focused branch during its existence\footnote{The display focus may change during the initialisation of the object as optimisation of some methods}. Each method that creates a new vector must decide which focus to set. 
@@ -214,7 +214,7 @@ There is a cost associated to the transformation from canonical to transient sta
 
 \subsection{Relaxing the Displays}
 % describe fundamental difference in the focus (focused on balanced subtree)
-When relaxing the tree balance it is also necessary to relax the displays. This is mainly due to the loss of a simple way to compute the lowest common node on unbalanced trees. Computing the node requires now the additional sizes information located in each unbalanced node. As such it is necessary to access the nodes to be abel to compute the lowest common node, and there is a loss in performance due to increased memory accesses. 
+When relaxing the tree balance it is also necessary to relax the displays. This is mainly due to the loss of a simple way to compute the lowest common node on unbalanced trees. Computing the node requires now the additional sizes information located in each unbalanced node. As such it is necessary to access the nodes to be able to compute the lowest common node, and there is a loss in performance due to increased memory accesses.  
 
 % describe focus start, focus end and focus (focus relaxed)
 To still take advantage of efficient operations on balanced trees, the display is relaxed to be focused on a branch of some balanced subtree\footnote{A fully balanced tree will be itself the balanced subtree, as such it will always use the more performant operations.}. To keep track of this subtree there are three additional fields: \texttt{focusStart} that represents start index of the current focused subtree, \texttt{focusEnd} that represents the end index of the subtree and \texttt{focusDepth} that sets  height of the focused subtree\footnote{As an optimisation, the \texttt{focus} field is split into the part corresponding to the subtree and the part that represents the indices of the displays that are unbalanced.}. The operations that can take advantage of the the efficient display operations will check if the index is in the subtree index range and invoke the efficient operation. If not, it will invoke the relaxed version of the operation, that starts from the root of the tree.
@@ -298,7 +298,7 @@ Most of the operations implemented in the collections framework that use builder
 % avoid re-traversing vertically the tree from the root
 The default implementation for iterator in \texttt{IndexedSeq} is by iterating on the indices and for each one use the \texttt{apply} method on it. This is not optimal because it requires traversing the tree down from the root each time an element is accessed. The traversal of the vector using this would have a computational complexity of $O(n \cdot log_{32}(n))$.
 
-To improve performance of the iteration on vector a normal tree traversal of the underlying RB-Tree amortises the computational complexity to $O(n)$. The iterator can use the display optimisation tho keep track of the current branch and move to the next branches efficiently using the radix index scheme. In this case the display is allowed to mutate. The current implementation of vector is implemented this way\footnote{The current \texttt{reverseIterator} is still using traversal by index.}.
+To improve performance of the iteration on vector a normal tree traversal of the underlying RB-Tree amortizes the computational complexity to $O(n)$. The iterator can use the display optimization to keep track of the current branch and move to the next branches efficiently using the radix index scheme. In this case the display is allowed to mutate. The current implementation of vector is implemented this way\footnote{The current \texttt{reverseIterator} is still using traversal by index.}. 
 
 %-----------------------------------
 \paragraph{Relaxing the Iterator}
