@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.16)  8 JAN 2015 14:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.16)  8 JAN 2015 14:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1056,12 +1056,12 @@ File: Figures/Balanced_subtrees.pdf Graphic file (type pdf)
 Package pdftex.def Info: Figures/Balanced_subtrees.pdf used on input line 239.
 (pdftex.def)             Requested size: 417.47307pt x 117.71394pt.
 
-<Figures/StatesGraphSimple.pdf, id=1122, 663.47874pt x 735.74875pt>
+<Figures/StatesGraphSimple.pdf, id=1122, 713.66624pt x 735.74875pt>
 File: Figures/StatesGraphSimple.pdf Graphic file (type pdf)
 
 <use Figures/StatesGraphSimple.pdf>
 Package pdftex.def Info: Figures/StatesGraphSimple.pdf used on input line 259.
-(pdftex.def)             Requested size: 417.47307pt x 462.9516pt.
+(pdftex.def)             Requested size: 333.97972pt x 344.30882pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1564,7 +1564,7 @@ s/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2014/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2014/texmf-dist/fonts/
 type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2014/texmf-dist/fo
 nts/type1/urw/courier/ucrr8a.pfb>
-Output written on main.pdf (68 pages, 1506281 bytes).
+Output written on main.pdf (68 pages, 1507432 bytes).
 PDF statistics:
  1616 PDF objects out of 1728 (max. 8388607)
  1404 compressed objects within 15 object streams
