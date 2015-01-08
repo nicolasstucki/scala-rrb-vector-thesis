@@ -10,27 +10,33 @@ I% Chapter Template
 %	SECTION Teststing correctness
 %----------------------------------------------------------------------------------------
 
-\section{Teststing correctness}
-
 %-----------------------------------
 %	SUBSECTION Unit Tests
 %-----------------------------------
-\subsection{Unit tests}
+\section{Black Box Testing}
 % black box testing
 % types of vector tested (balanced and different unbalanced vectors)
 % pseudorandom set of differently unbalanced vectors
 % comparing results of operations with other collections like lists
 % use of tests suit on old Vector to check that tests are correct and coherent 
-\color{red} TODO \color{black}
+Tests on vector where done using the Scala Test framework. The test suite covers all core operations and some of the ones that are implemented in \texttt{IndexedSeq}. It also covers iterators, builders and parallel versions. Operations on \texttt{IndexedSeq} are crossed checked with other existing implementations.
+
+The same test suite is used on the current \texttt{Vector} and on \texttt{RRBVector}. This way the test suite is also checked against the expected results from the current implementation. The test suite on \texttt{RRBVector} is executed on several sizes of vectors, with perfectly balanced vectors and several pseudo randomly unbalanced vectors. Each time a bug was identified, the test where extended to include the case where it failed.
+
+These tests where usually executed in combination with the white box tests. This way test have a larger coverage and will fail at the moment where the bug first appeared. 
 
 %-----------------------------------
 %	SUBSECTION Invariant Assertions
 %-----------------------------------
-\subsection{Invariant Assertions}
+\section{White Box Testing}
 \label{InvariantAssertions}
 % white box testing with assertions
 % explain how the invariants of the whole rrb-tree can be checked using assertions
 % list and describe assertions used
-\color{red} TODO \color{black}
+White box testing is done using a set of heavy assertions on the invariants of the vector\footnote{This is implemented in the private method \texttt{assertVectorInvariant} of \texttt{RRBVector}.}. They test that the coherence of the three structure and the fields of vector. This test is done after the creation of any new vector object and after any canonicalisation operation (see \ref{VectorCanonicalization}). This covers all the cases as no mutation is done in between of after those operations (assuming a non concurrent context). 
+
+The vector invariant is divided into canonical and transient, where both test the same characteristics with some differences on the focused branch. The invariant includes tests on the bounds of \texttt{depth}, \texttt{endIndex}, \texttt{focus}, \texttt{focusStart}, \texttt{focusEnd}. It traverses the whole tree structure checking the structure of each node and crosschecking sizes (from \texttt{sizes} array and expexcted \texttt{endIndex}). For canonical states it checks the the branch in the displays is coherent with the tree an \texttt{focus}. For transient state it checks that the focused branch is unliked (or null).
+
+The current implementation of RRB-Vector has a static boolean field to turn them on and off. When they are of they are dead code eliminated at compilation time. This feature must be disabled when in production due to its high overhead on operations. To protect the benchmark, they fail with an exception if it's enabled. The generated implementation (see \ref{ImplementationGenerators}) just create two different implementations, one without the assertions and one with them.
 
 

@@ -119,11 +119,7 @@ Therefore the complexity of this operation is $O(log_{32}(n))$, for the traversa
 %	SUBSUBSECTION - Additions
 %-----------------------------------
 
-\subsubsection{Extentions}
-The main operations to extend an immutable \texttt{Vector} are \texttt{append} and \texttt{prepend} a single element. Those operations are considered the main ones because they have efficient implementations on RB-Trees. Other operations like \texttt{concatenated} are also present, but usually avoided because of performance.
-
-
-\paragraph{Append}
+\subsubsection{Append}
 % base implementation needs to update the whole branch
 To append an element on the tree there are two main cases, the last leaf of the tree is not full or it is full. If the last leaf is not full the element is inserted at the end of it and all nodes of the last branch are updated. Or, if the leaf is full we must find the lowest node in the last branch where there is sill room left for a new branch. Then a new branch is appended to it, down to the a new leaf with the element being appended. 
 
@@ -155,7 +151,7 @@ Where the \texttt{isTreeFull} operation computes the answer using efficient bitw
 % performance log_32(n), hint of transient to amortise consecutive appends are amortised
 Due to the update of all nodes in the last branch, the complexity of this operation is $O(log_{32}(n))$. This complexity can be amortized to constant time using displays with transient states for consecutive append operations on the vector (see section \ref{sec:DisplaysTransient}).
 
-\paragraph{Prepend}
+\subsubsection{Prepend}
 % base implementation needs to update the whole branch
 The key to be able to prepend  elements to the tree is the additional \texttt{startIndex} that the vector keeps. Without this it would be impossible to prepend an element to the vector without a full copy of the vector to rebalance the RB-Tree. The operation can be split into to cases depending on the value of the start index.
 
@@ -195,7 +191,7 @@ def +:(elem: A): Vector[A] = {
 Due to the update of all nodes in the first branch, the complexity of this operation is $O(log_{32}(n))$. This complexity can be amortized to constant time using displays with transient states for consecutive prepend operations on the vector (see section \ref{sec:DisplaysTransient}).
 
 
-\paragraph{Concatenation}
+\subsubsection{Concatenation}
 % describe high level implementation in vector
 Given that elements in an RB-Tree are densely packed, implementations for concatenation and insert will need to rebalance elements to make them again densely packed. In the case of concatenation there are three options to join the two vectors: append all elements of the RHS vector to the LHS vector, prepend all elements from the LHS vector to the RHS vector or simply reconstruct a new vector using a builder. The append and prepend options are used when on of the vectors is small enough in relation to the other one. When vectors become large, the best option is the one with the builder because it avoids creating one instance of the vector each time an element is added.
 
