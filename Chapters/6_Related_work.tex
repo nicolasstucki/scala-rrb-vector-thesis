@@ -17,6 +17,7 @@ List of related subjects:
   \item Vector
   \item RRB-Trees and RRB-Vectors
   \item Semi-mutable data structures
+  \item Paper: Improving RRB-Tree Performance through Transience
   \item Performance and Code specialization (manual staging)
   \item JVM: Arrays, GC, JIT compiler
   \item ScalaMeter
@@ -24,9 +25,11 @@ List of related subjects:
   \item Scala Reflection and Quasicuotes
 \end{itemize}
 
-\paragraph{RRB-Vectors in Clojure}
+\color{red} TODO: Cite references \color{black}
 
-% Describe the improvements proposed with transience
+\paragraph{Paper: \emph{Improving RRB-Tree Performance through Transience}}
+
+% Describe the improvements proposed with transient mutable states
 
 % Describe fundamental difference between this transience and the display one.
 
@@ -39,14 +42,26 @@ List of related subjects:
 %----------------------------------------------------------------------------------------
 \section{Future Work}
 
+\paragraph{Mesure unbalance}
 % find a good measurement of unbalancess to characterise vectors
-
 % characterize vectors on real world programs
+One analysis that was left out of the scope of this project was the characterization of the vectors unbalance. There is currently no way to quantitatively measure the unbalance of on the tree node. Some ideas for this are: number of unbalanced nodes, number of balanced subtrees, average height of balanced subtrees, ... 
 
+Once this measurement exists it would be possible would be possible to conduct a real world application characterisation of fe vectors. And see how common the unbalanced vectors are and if they are only slightly unbalanced or extremely unbalanced. From this it would be possible to give a true expected performance for the cases where the performances differ.
+
+\paragraph{Formalization}
 % formal proof of correctness of relaxed operations
 % formal proof of correctness of canonicalisation
 
+\color{red} TODO \color{black}
+
+\paragraph{Simplify Code}
 % use macros to define core operations of the vector to simplify expanded code (half of the work is already done on the generators)
+It should be possible to simplify and reduce the amount of code of the Scala implementation of vector using Scala Macros\footnote{Or Scala Meta in the future} to expand and optimize the code that was done manually. This was partially done on the vector implementation generators (see \ref{ImplementationGenerators}), where some key abstractions generate most of the expansions. This is a good basis to write such macros.
+
+Another way to simplify the code would involve the creation of a new abstraction that would compile down to bytecode \texttt{tableswitch} instructions with fallthroughs. A switch with no \texttt{break}s should be enough\footnote{Look at \texttt{copyDisplays} function in the code, the \texttt{if/else} expressions could be replaced by a single \texttt{switch} statement.}. This could help a bit with performance.
+
+
 
 
 

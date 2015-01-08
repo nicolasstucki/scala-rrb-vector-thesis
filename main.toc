@@ -71,6 +71,9 @@
 \contentsline {section}{\numberline {5.2}White Box Testing}{54}{section.320}
 \contentsline {chapter}{\numberline {6}Related and Future Work}{56}{chapter.322}
 \contentsline {section}{\numberline {6.1}Related Work}{56}{section.323}
-\contentsline {paragraph}{RRB-Vectors in Clojure}{56}{section*.324}
+\contentsline {paragraph}{Paper: \emph {Improving RRB-Tree Performance through Transience}}{57}{section*.324}
 \contentsline {section}{\numberline {6.2}Future Work}{57}{section.325}
-\contentsline {chapter}{\numberline {7}Conclusions}{58}{chapter.326}
+\contentsline {paragraph}{Mesure unbalance}{57}{section*.326}
+\contentsline {paragraph}{Formalization}{57}{section*.326}
+\contentsline {paragraph}{Simplify Code}{57}{section*.327}
+\contentsline {chapter}{\numberline {7}Conclusions}{58}{chapter.330}
