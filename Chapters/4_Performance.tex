@@ -16,10 +16,10 @@ I% Chapter Template
 In practice, Scala compiles to Java bytecode and executes on a JVM, where we take the Java SE HotSpot as a reference. This imposes additional characteristics of performance that can't be evaluated on the algorithmic level alone.
 
 % code interpreted vs compiled
-The JVM use \emph{just in time} (or JIT) compilation of code to take advantage of knowledge about how the code is used at runtime. At first it runs on interpreter mode, it consists of interpreting the bytecode and collecting statistics on the codes execution. Eventually it will compile the code to make it faster using several optimisations and heuristics. The code of the vectors tries to gains performance by aligning with those heuristics and hence taking advantage of the JVM optimizations.
+The JVM use \emph{just in time} (or JIT) compilation of code to take advantage of knowledge about how the code is used at runtime. At first it runs on interpreter mode, it consists of interpreting the bytecode and collecting statistics on the codes execution. Eventually it will compile the code to make it faster using several optimizations and heuristics. The code of the vectors tries to gains performance by aligning with those heuristics and hence taking advantage of the JVM optimizations.
 
 % GC and memory allocations
-One of the components of the JVM that will be affected by vectors is the garbage collector. The vector tends to create a large amount of \texttt{Arrays} during transformations, of which many are only necessary for a short time. Those objects will use up memory and possibly degrade performance of future allocations, until the next GC. Having all these unused object will also contribute in an increase in the frequency of GC executions. For that reason the code is optimised to avoid excessive creation of intermediary objects.
+One of the components of the JVM that will be affected by vectors is the garbage collector. The vector tends to create a large amount of \texttt{Arrays} during transformations, of which many are only necessary for a short time. Those objects will use up memory and possibly degrade performance of future allocations, until the next GC. Having all these unused object will also contribute in an increase in the frequency of GC executions. For that reason the code is optimized to avoid excessive creation of intermediary objects.
 
 % memory access and caches
 % system arraycopy primitive
@@ -30,13 +30,13 @@ When running on some machine we have several memory cashes helping with performa
 %-----------------------------------
 \subsection{Cost of Abstraction and JIT Inline}
 % cost of function invokation
-One of the optimizations that the JVM provides is function call elimination (abstraction elimination) based on a set of heuristics. This is equivalent to the functions optimisation in section \ref{sec:Abstractions} but done on another level of the pipeline. Critical parts of the code are written with careful detail to match the heuristics of the JVM.
+One of the optimizations that the JVM provides is function call elimination (abstraction elimination) based on a set of heuristics. This is equivalent to the functions optimization in section \ref{sec:Abstractions} but done on another level of the pipeline. Critical parts of the code are written with careful detail to match the heuristics of the JVM. 
 
 % code compiled (inlined if hot)
 % aim to make all critical methods 35< bytes
 The optimisation works as follows: the code is run in interpretation mode first while keeping track of statistics on which parts of the code are executed and how many times. When the code is eventually compiled, function calls that are deemed \emph{hot} are inlined. The heuristic favours inline when the function has less than 35 bytes. 
 
-We use this knowledge of the heuristic in two ways. The first is to avoid inlining everything, if the function is small and there is no other optimisation that can be done if inline manual, the code is kept as a function. The second is to inline the methods of the vector API into the clients code. When implementing functions with less than 35 bytes, performance was tested and cross referenced with the VMs inlining diagnostic\footnote{The JVMs \texttt{"-XX:+UnlockDiagnosticVMOptions -XX:+PrintInlining"} flag was used to track the inlining.}. The code was inspected using \texttt{javap -c}, which gives the sizes of the function and helped identifying some optimisation possibilities.
+We use this knowledge of the heuristic in two ways. The first is to avoid inlining everything, if the function is small and there is no other optimization that can be done if inline manual, the code is kept as a function. The second is to inline the methods of the vector API into the clients code. When implementing functions with less than 35 bytes, performance was tested and cross referenced with the VMs inlining diagnostic\footnote{The JVMs \texttt{"-XX:+UnlockDiagnosticVMOptions -XX:+PrintInlining"} flag was used to track the inlining.}. The code was inspected using \texttt{javap -c}, which gives the sizes of the function and helped identifying some optimization possibilities.
 
 %----------------------------------------------------------------------------------------
 %	SECTION Scalameter
@@ -111,13 +111,13 @@ For the results of this sections, All benchmarks where executed on a Java HotSpo
 %-----------------------------------
 \subsection{Apply}
 % describe the benchmark function
-The \texttt{apply} benchmarks aim to see the amortised access time of elements. Amortising the displays optimisation and memory caches. For this, each benchmark invokes the \texttt{apply} operation $10k$ times on different elements. 
+The \texttt{apply} benchmarks aim to see the amortized access time of elements. Amortizing the displays optimization and memory caches. For this, each benchmark invokes the \texttt{apply} operation $10k$ times on different elements. 
 
 There are two variants: the first variant access the elements sequentially and the second one chooses each time a random index. The first one is supposed to have better performance because the array that are access tend to be in cache. The computations of the next index is also a bit more complex on the second one, but mostly irrelevant compared with the cache misses of all the arrays on a branch.
 
 % compare expectation with results
 % explain the upper bound
-The benchmark results for the sequential access in figures \ref{ApplyBenchmarks2} and \ref{ApplyBenchmarks3} show that if the RRB-Vector is balanced or just sightly unbalanced will be faster than the RB-Vector. But when it gets extremely unbalanced the performance can drop by around 0.5X which is proportional to the increase of arrays that must be accessed (two per node).
+The benchmark results for the sequential access in figures \ref{ApplyBenchmarks2} and \ref{ApplyBenchmarks3} show that if the RRB-Vector is balanced or just slightly unbalanced will be faster than the RB-Vector. But when it gets extremely unbalanced the performance can drop by around 0.5X which is proportional to the increase of arrays that must be accessed (two per node).
 
 \begin{figure}[h!]
   \centering
@@ -126,7 +126,7 @@ The benchmark results for the sequential access in figures \ref{ApplyBenchmarks2
    \label{ApplyBenchmarks2}
 \end{figure}
 
-The performance improvements where achieved by analysing the sizes of the functions involved, there inlining and which parts of the code is used in each case. The aim was to improve performance of unbalanced vectors, that is why in some cases the slightly unbalanced vector is the faster.
+The performance improvements where achieved by analyzing the sizes of the functions involved, there inlining and which parts of the code is used in each case. The aim was to improve performance of unbalanced vectors, that is why in some cases the slightly unbalanced vector is the faster.
 
 \begin{figure}[h!]
   \centering
@@ -148,7 +148,7 @@ Figure \ref{ApplyRandomBenchmarks} show the results for random indices. It can b
 
 \FloatBarrier
 
-Finally, the figures \ref{ApplyBlocksBenchmarks} show what would happen if the block sizes changed or if the rebalance algorithm is changed. Note that in the cases for blocks of 128 and 256 the complete rebalance is actually creating completely balanced vectors. It can be observed that the quick rebalance is nocive to the performance of the apply method. Increasing the sizes of the arrays will improve the performance of the apply method.
+Finally, the figures \ref{ApplyBlocksBenchmarks} show what would happen if the block sizes changed or if the rebalance algorithm is changed. Note that in the cases for blocks of 128 and 256 the complete rebalance is actually creating completely balanced vectors. It can be observed that the quick rebalance is harmful to the performance of the apply method. Increasing the sizes of the arrays will improve the performance of the apply method.
 
 \begin{figure}[h!]
   \centering
@@ -281,11 +281,11 @@ Finally, the figures \ref{PrependBlocksBenchmarks} show what would happen if the
 %-----------------------------------
 \subsection{Splits}
 % describe the benchmark function
-The \texttt{take} and \texttt{drop} benchmarks aimed to show the performance of those operation on a couple of splitting points. The splitting points where done on the the middle of the vectors an on the first quarter of the vector.
-
-Figure \ref{TakeBenchmarks} shows the performance for the take operation, and figure \ref{DropBenchmarks}. The performances are not always ideal. But the different types of vector have a consistent splitting time with different splitting indices and operation (\texttt{take} against \texttt{drop}). For some reason the sightly unbalanced vector is sower than the other ones. 
-
-To be consistent with the other benchmarks, the characterisation of vector was done by size. But, maybe this was not ideal as the characteristics of the branch that is being split and the index where it's split are more influential on performance than the size. 
+The \texttt{take} and \texttt{drop} benchmarks aimed to show the performance of those operation on a couple of splitting points. The splitting points where done on the middle of the vectors an on the first quarter of the vector. 
+  
+Figure \ref{TakeBenchmarks} shows the performance for the take operation, and figure \ref{DropBenchmarks}. The performances are not always ideal. But the different types of vector have a consistent splitting time with different splitting indices and operation (\texttt{take} against \texttt{drop}). For some reason the slightly unbalanced vector is sower than the other ones.  
+ 
+To be consistent with the other benchmarks, the characterization of vector was done by size. But, maybe this was not ideal as the characteristics of the branch that is being split and the index where it's split are more influential on performance than the size. 
 
 % compare expectation with results
 % explain the upper bound
@@ -326,7 +326,7 @@ The iteration benchmarks aim to see the performance of traversing the whole vect
 % compare expectation with results
 % explain the upper bound
 % explain apparently incoherent results: iteration of sightly unbalanced vector is faster
-Figures \ref{Iteration2Benchmarks} and \ref{Iteration3Benchmarks} show that for balanced RRB-Vectors the performances is identical. For slightly unbalanced once there is an increase in performance that seams to come from JIT optimizations of the code. In that case the code that is used to change branches uses fewer lines of code in each function (some are never access at runtime), it could be possible that the optimiser is using this to improve the performance\footnote{Further analysis on this situation should be done in the future.}. 
+Figures \ref{Iteration2Benchmarks} and \ref{Iteration3Benchmarks} show that for balanced RRB-Vectors the performances is identical. For slightly unbalanced once there is an increase in performance that seams to come from JIT optimizations of the code. In that case the code that is used to change branches uses fewer lines of code in each function (some are never access at runtime), it could be possible that the optimizer is using this to improve the performance\footnote{Further analysis on this situation should be done in the future.}. 
 
 \begin{figure}[h!]
   \centering
@@ -335,7 +335,7 @@ Figures \ref{Iteration2Benchmarks} and \ref{Iteration3Benchmarks} show that for 
   \label{Iteration3Benchmarks}
 \end{figure}
 
-When the vectors become extremely unbalanced, the performance degenerates by a factor proportional to the height of the vector. Because it changes from one balanced subtree to the next one from the root. It should be possible, by keeping more state in the iterator, to improve the performance to go from one balanced subtree to the next. But this would increase the initialisation time and might affect smaller vectors.
+When the vectors become extremely unbalanced, the performance degenerates by a factor proportional to the height of the vector. Because it changes from one balanced subtree to the next one from the root. It should be possible, by keeping more state in the iterator, to improve the performance to go from one balanced subtree to the next. But this would increase the initialization time and might affect smaller vectors.
 
 \FloatBarrier
 
@@ -412,8 +412,7 @@ In figure \ref{ParallelBenchmarks} it can be seen that the base sequential \text
 
 The current parallel \texttt{Vector} (that uses RB-Trees) results show that with 1, 2 and 4 threads the performance of the operation is worse. With 8 threads it becomes a little bit faster. This is what we expected, due to the lazy concatenation at the end of the combination of results. But, it show that this parallel collection is useless in practice.
 
-When using the the RRB-Vectors parallel, the parallelism is evident. With two threads the performance improvement is of almost 2X, then it tends to go towards 2.5X. This is the type of parallelism behaviour that is expected (see Amdahl's law\cite{TODO}). Even the case on thread pool of one thread is a bit faster than the normal sequential one.
-
+When using the RRB-Vectors parallel, the parallelism is evident. With two threads the performance improvement is of almost 2X, then it tends to go towards 2.5X. This is the type of parallelism behaviour that is expected (see Amdahl's law\cite{TODO}). Even the case on thread pool of one thread is a bit faster than the normal sequential one. 
 \FloatBarrier
 
 Figure \ref{ParallelUnbalancedBenchmarks} shows how unbalanced parallel vector behave. There is a slight loss in performance when they are unbalanced. But, this operations will create a balanced vector and therefore this small overhead can be amortized over the next operations.
@@ -435,7 +434,7 @@ Figure \ref{ParallelUnbalancedBenchmarks} shows how unbalanced parallel vector b
 %-----------------------------------
 \subsection{Memory footprint}
 % describe the benchmark function
-This is not really a benchmark, it is rather the characterisation of the memory footprint of the vector that where used as input in the benchmarks. The aim of this is to show that even with the additional sizes of the unbalanced nodes and additional fields, the vectors size in memory is almost the same.
+This is not really a benchmark, it is rather the characterization of the memory footprint of the vector that where used as input in the benchmarks. The aim of this is to show that even with the additional sizes of the unbalanced nodes and additional fields, the vectors size in memory is almost the same. 
 
 % compare expectation with results
 % explain the upper bound

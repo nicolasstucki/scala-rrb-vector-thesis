@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.16)  8 JAN 2015 11:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.16)  8 JAN 2015 12:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1451,7 +1451,7 @@ File: Benchmarks/parmap_unbalanced_1.pdf Graphic file (type pdf)
 
 <use Benchmarks/parmap_unbalanced_1.pdf>
 Package pdftex.def Info: Benchmarks/parmap_unbalanced_1.pdf used on input line 
-423.
+422.
 (pdftex.def)             Requested size: 204.56409pt x 136.37799pt.
 
 <Benchmarks/parmap_unbalanced_2.pdf, id=1426, 451.6875pt x 301.125pt>
@@ -1459,7 +1459,7 @@ File: Benchmarks/parmap_unbalanced_2.pdf Graphic file (type pdf)
 
 <use Benchmarks/parmap_unbalanced_2.pdf>
 Package pdftex.def Info: Benchmarks/parmap_unbalanced_2.pdf used on input line 
-424.
+423.
 (pdftex.def)             Requested size: 204.56409pt x 136.37799pt.
 
 <Benchmarks/parmap_unbalanced_4.pdf, id=1427, 451.6875pt x 301.125pt>
@@ -1467,7 +1467,7 @@ File: Benchmarks/parmap_unbalanced_4.pdf Graphic file (type pdf)
 
 <use Benchmarks/parmap_unbalanced_4.pdf>
 Package pdftex.def Info: Benchmarks/parmap_unbalanced_4.pdf used on input line 
-425.
+424.
 (pdftex.def)             Requested size: 204.56409pt x 136.37799pt.
 
 <Benchmarks/parmap_unbalanced_8.pdf, id=1428, 451.6875pt x 301.125pt>
@@ -1475,14 +1475,14 @@ File: Benchmarks/parmap_unbalanced_8.pdf Graphic file (type pdf)
 
 <use Benchmarks/parmap_unbalanced_8.pdf>
 Package pdftex.def Info: Benchmarks/parmap_unbalanced_8.pdf used on input line 
-426.
+425.
 (pdftex.def)             Requested size: 204.56409pt x 136.37799pt.
 
 <Benchmarks/Memory_3.pdf, id=1430, 704.6325pt x 426.59375pt>
 File: Benchmarks/Memory_3.pdf Graphic file (type pdf)
 
 <use Benchmarks/Memory_3.pdf>
-Package pdftex.def Info: Benchmarks/Memory_3.pdf used on input line 447.
+Package pdftex.def Info: Benchmarks/Memory_3.pdf used on input line 446.
 (pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
 
 
@@ -1494,7 +1494,7 @@ f> <./Benchmarks/parmap_unbalanced_4.pdf> <./Benchmarks/parmap_unbalanced_8.pdf
 File: Benchmarks/Memory_blocks.pdf Graphic file (type pdf)
 
 <use Benchmarks/Memory_blocks.pdf>
-Package pdftex.def Info: Benchmarks/Memory_blocks.pdf used on input line 458.
+Package pdftex.def Info: Benchmarks/Memory_blocks.pdf used on input line 457.
 (pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
 ) (./Chapters/5_Testing.tex [54 <./Benchmarks/Memory_3.pdf> <./Benchmarks/Memor
 y_blocks.pdf>]
@@ -1582,7 +1582,7 @@ s/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2014/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2014/texmf-dist/fonts/
 type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2014/texmf-dist/fo
 nts/type1/urw/courier/ucrr8a.pfb>
-Output written on main.pdf (68 pages, 1503577 bytes).
+Output written on main.pdf (68 pages, 1503557 bytes).
 PDF statistics:
  1626 PDF objects out of 1728 (max. 8388607)
  1414 compressed objects within 15 object streams
