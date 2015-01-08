@@ -64,7 +64,7 @@
 \contentsline {subsection}{\numberline {4.4.3}Append}{41}{subsection.292}
 \contentsline {subsection}{\numberline {4.4.4}Prepend}{43}{subsection.296}
 \contentsline {subsection}{\numberline {4.4.5}Splits}{45}{subsection.300}
-\contentsline {subsection}{\numberline {4.4.6}Iterator}{47}{subsection.303}
+\contentsline {subsection}{\numberline {4.4.6}Iterator}{46}{subsection.303}
 \contentsline {subsection}{\numberline {4.4.7}Builder}{49}{subsection.308}
 \contentsline {subsection}{\numberline {4.4.8}Parallel split-combine}{51}{subsection.312}
 \contentsline {subsection}{\numberline {4.4.9}Memory footprint}{53}{subsection.316}
@@ -72,6 +72,8 @@
 \contentsline {section}{\numberline {5.1}Teststing correctness}{55}{section.320}
 \contentsline {subsection}{\numberline {5.1.1}Unit tests}{55}{subsection.321}
 \contentsline {subsection}{\numberline {5.1.2}Invariant Assertions}{55}{subsection.322}
-\contentsline {chapter}{\numberline {6}Related Work}{56}{chapter.323}
-\contentsline {section}{\numberline {6.1}RRB-Vectors in Clojure}{56}{section.324}
-\contentsline {chapter}{\numberline {7}Conclusions}{57}{chapter.325}
+\contentsline {chapter}{\numberline {6}Related and Future Work}{56}{chapter.323}
+\contentsline {section}{\numberline {6.1}Related Work}{56}{section.324}
+\contentsline {paragraph}{RRB-Vectors in Clojure}{56}{section*.325}
+\contentsline {section}{\numberline {6.2}Future Work}{57}{section.326}
+\contentsline {chapter}{\numberline {7}Conclusions}{58}{chapter.327}

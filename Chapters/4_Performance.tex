@@ -281,24 +281,29 @@ Finally, the figures \ref{PrependBlocksBenchmarks} show what would happen if the
 %-----------------------------------
 \subsection{Splits}
 % describe the benchmark function
+The \texttt{take} and \texttt{drop} benchmarks aimed to show the performance of those operation on a couple of splitting points. The splitting points where done on the the middle of the vectors an on the first quarter of the vector.
+
+Figure \ref{TakeBenchmarks} shows the performance for the take operation, and figure \ref{DropBenchmarks}. The performances are not always ideal. But the different types of vector have a consistent splitting time with different splitting indices and operation (\texttt{take} against \texttt{drop}). For some reason the sightly unbalanced vector is sower than the other ones. 
+
+To be consistent with the other benchmarks, the characterisation of vector was done by size. But, maybe this was not ideal as the characteristics of the branch that is being split and the index where it's split are more influential on performance than the size. 
+
 % compare expectation with results
 % explain the upper bound
 % explain apparently incoherent results
-\color{red} TODO \color{black}
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Benchmarks/Split_take_3.pdf}
-  \label{TakeBenchmarks}
   \caption{Execution time of take.}
+  \label{TakeBenchmarks}
 \end{figure}
 
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Benchmarks/Split_drop_3.pdf}
-  \label{DropBenchmarks}
   \caption{Execution time of drop.}
+  \label{DropBenchmarks}
 \end{figure}
 
 
