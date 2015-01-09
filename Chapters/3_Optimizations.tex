@@ -4,7 +4,7 @@ I% Chapter Template
 
 \label{Optimizations} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
-\lhead{Optimizations. \emph{Optimizations}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
+\lhead{\emph{Optimizations}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
 %	SECTION - Where does time go?
@@ -170,7 +170,7 @@ To follow the simple implementations scheme of immutable objects in concurrent c
 One of the uses of the displays is as a cached branch. If the same leaf node is used in the following operation, there is no need for vertical tree traversal which is key to amortize operation to constant time. In the case another branch in needed, then it can be fetched from the lowest common node of the two branches. 
 
 % xor
-To know the which is the level of the lowest common node in a vector of block size $2^m$ (for some consistent $m$), only the \texttt{focus} index and the index being fetched are needed. The operation $index \veebar focus$ will return a number is bounded to the maximum number of elements in a tree of that level. The actual level can be extracted with some if statements. This operation bounded by the same number of operations that will be needed to traverse the tree back down through the new branch.
+To know the which is the level of the lowest common node in a vector of block size $2^m$ (for some consistent $m$), only the \texttt{focus} index and the index being fetched are needed. The operation $index XOR focus$ will return a number is bounded to the maximum number of elements in a tree of that level. The actual level can be extracted with some if statements. This operation bounded by the same number of operations that will be needed to traverse the tree back down through the new branch.
 
 \begin{lstlisting}[frame=single]
 def getLowestCommonLevel(index: Int, focus: Int): Int = {
@@ -249,16 +249,15 @@ This \texttt{getElement} on the unbalanced subtrees of figure \ref{Balanced_subt
 \label{VectorCanonicalization}
 % State can mutate from transient to canonical exactly once (similar to lazy evaluation)
 % State mutation is not visible from outside
-\color{red} TODO: Explain operation (once, ) \color{black}
+% If more performance is requires it is possible to write transient state operations directly to transient state
+As started in section \ref{sec:DisplaysTransient} vectors have two representation: canonical and transient. The transient state aims to improve performance of some operations by amortising costs. But, the transient state is not ideal for performance of other operations. For example an \texttt{apply} operation on an unbalanced vector may lack the sizes information it requires to access certain indices. And an iterator relies on a canonical tree for performance. It is always possible to implement those operations on transient states, but they would involve additional overhead on each call and duplication of code.
+
+The solution is to convert the transient representation to a canonical one when an operation that requires it is called on an instance of the immutable vector. The mutation of the vector is not visible from the outside and only happens at most once. This transformation only affects the nodes that are on the display, it copies each one (except the leaf) and links the trees. If the node is unbalanced, the size of the subtree in focus is inserted. This transformation could be seen as a lazy initialization of the current branch.
 
 % Explain append/prepend
-\color{red} TODO: Append/Prepend \color{black}
+Vector objects can only be in transient state if they where created that way. For example, the \texttt{append}/\texttt{prepend} operation will create a new object that is in transient state and focused on the last/first branch. If the source object was not focusing the last branch, then it is canonicalized (if needed) before change of branch operation. Vectors depth 1 are special cases, they are always in canonical form and their operations are equivalent to those in transient form.
 
-% Explain the apply operations
-\color{red} TODO: Apply \color{black}
-
-% If more performance is requires it is possible to write transient state operations directly to transient state
-\color{red} TODO: Direct form transient ops \color{black}
+Figure \ref{StatesGraphSimple} shows the different states and the effects of the \texttt{append} and \texttt{apply} operations on them. Figure \ref{StatesGraphComplete} shows the same for all operations. Note that the mutation of \texttt{this} object only happened from transient to canonical and that the only way to get to transient is with a creation of a new vector object.
 
 \begin{figure}[h!]
   \centering
@@ -272,7 +271,7 @@ This \texttt{getElement} on the unbalanced subtrees of figure \ref{Balanced_subt
   \centering
   \includegraphics[width=\textwidth]{Figures/StatesGraph}
   \caption{}
-  \label{StatesGraph}
+  \label{StatesGraphComplete}
 \end{figure}
 
 %----------------------------------------------------------------------------------------
