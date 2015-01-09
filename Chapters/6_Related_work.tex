@@ -27,6 +27,9 @@ List of related subjects:
 
 \color{red} TODO: Cite references \color{black}
 
+\paragraph{Paper: \emph{RRB-Trees: Efficient Immutable Vectors}}
+\color{red} TODO \color{black}
+
 \paragraph{Paper: \emph{Improving RRB-Tree Performance through Transience}}
 
 % Describe the improvements proposed with transient mutable states
@@ -49,12 +52,6 @@ One analysis that was left out of the scope of this project was the characteriza
 
 Once this measurement exists it would be possible would be possible to conduct a real world application characterisation of fe vectors. And see how common the unbalanced vectors are and if they are only slightly unbalanced or extremely unbalanced. From this it would be possible to give a true expected performance for the cases where the performances differ.
 
-\paragraph{Formalization}
-% formal proof of correctness of relaxed operations
-% formal proof of correctness of canonicalisation
-
-\color{red} TODO \color{black}
-
 \paragraph{Simplify Code}
 % use macros to define core operations of the vector to simplify expanded code (half of the work is already done on the generators)
 It should be possible to simplify and reduce the amount of code of the Scala implementation of vector using Scala Macros\footnote{Or Scala Meta in the future} to expand and optimize the code that was done manually. This was partially done on the vector implementation generators (see \ref{ImplementationGenerators}), where some key abstractions generate most of the expansions. This is a good basis to write such macros.
@@ -62,10 +59,8 @@ It should be possible to simplify and reduce the amount of code of the Scala imp
 % fallthroug switch
 Another way to simplify the code would involve the creation of a new abstraction that would compile down to bytecode \texttt{tableswitch} instructions with fallthroughs. A switch with no \texttt{break}s should be enough\footnote{Look at \texttt{copyDisplays} function in the code, the \texttt{if/else} expressions could be replaced by a single \texttt{switch} statement.}. This could help a bit with performance.
 
-
-
-
-
-
-
+\paragraph{Formalization}
+% formal proof of correctness of relaxed operations
+% formal proof of correctness of canonicalisation
+There is still the need for formal proof on some operations. Mainly for the optimized implementations of the relaxed relaxed operations. The canonicalization operation of the vector also needs a formal proof and may be a interesting study case for immutable data structures with simple internal mutation schemes.
 

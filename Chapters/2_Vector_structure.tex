@@ -4,7 +4,7 @@ I% Chapter Template
 
 \label{VectorStructure} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
-\lhead{\emph{Vector Structure}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
+\lhead{\emph{Vector Structure and Operations}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
 %	SECTION - Radix Balanced Vectors
@@ -291,12 +291,19 @@ As it it possible to represent trees that are not field on the left, the \texttt
 %-----------------------------------
 \subsection{Relaxing the Operations}
 % describe how the implementation uses relaxed radix when necessary and uses radix based operation when possible
-Form most operations the implementation is relaxed using the same technique. It consist in using a generalised version of the code for RB-Trees that take into account the unbalanced nodes that do not support radix operations. Mainly this consists in changing the way the \texttt{indicesInNode} are computed on unbalanced nodes and their \texttt{clone} operations.
- 
+Form most operations the implementation is relaxed using the same technique. It consist in using a generalised version of the code for RB-Trees that take into account the unbalanced nodes that do not support radix operations. Mainly this consists in changing the way the \texttt{indicesInNode} are computed on unbalanced nodes and their \texttt{clone} operations. This adds an abstraction layer for some of the operations (see figure \ref{AbstractionsLayers}).
+
 To take advantage of radix based code when possible the operations will still call the radix version if the node is balanced. This implies that from a balanced node down the radix based code is executed. Only the unbalanced nodes will have loss in performance due to generalisation and therefore the code executed for a balanced RRB-Tree will tend to be the same as the one for RB-Trees.
 
 % ensuring height bounds
 As the RRB-Tree structure does not ensure the bound on the height unless the tree is completely balanced, the operation must ensure that tree respects the $log_{32}(n)$ height. Fortunately there are only three operations that can unbalance a tree: the \texttt{concatenated}, \texttt{prepend} and \texttt{drop} operations. The operations that also modify the structure of the tree like \texttt{append} and \texttt{take} do not add unbalanced nodes but can affect the existing ones.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Figures/AbstractionsLayers}
+  \caption{Abstractions layers for original and relaxed RB trees.}
+  \label{AbstractionsLayers}
+\end{figure}
 
 %-----------------------------------
 %	SUBSUBSECTION - Apply

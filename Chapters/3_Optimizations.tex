@@ -170,7 +170,7 @@ To follow the simple implementations scheme of immutable objects in concurrent c
 One of the uses of the displays is as a cached branch. If the same leaf node is used in the following operation, there is no need for vertical tree traversal which is key to amortize operation to constant time. In the case another branch in needed, then it can be fetched from the lowest common node of the two branches. 
 
 % xor
-To know the which is the level of the lowest common node in a vector of block size $2^m$ (for some consistent $m$), only the \texttt{focus} index and the index being fetched are needed. The operation $index XOR focus$ will return a number is bounded to the maximum number of elements in a tree of that level. The actual level can be extracted with some if statements. This operation bounded by the same number of operations that will be needed to traverse the tree back down through the new branch.
+To know the which is the level of the lowest common node in a vector of block size $2^m$ (for some consistent $m$), only the \texttt{focus} index and the index being fetched are needed. The operation \texttt{index\^{ }focus} will return a number is bounded to the maximum number of elements in a tree of that level. The actual level can be extracted with some if statements. This operation bounded by the same number of operations that will be needed to traverse the tree back down through the new branch.
 
 \begin{lstlisting}[frame=single]
 def getLowestCommonLevel(index: Int, focus: Int): Int = {
@@ -232,7 +232,7 @@ def getElement(index: Int): A = {
 }
 \end{lstlisting}
 
-This \texttt{getElement} on the unbalanced subtrees of figure \ref{Balanced_subtrees}  would use the \texttt{getElementFromDisplay} to fetch elements in \texttt{display0} directly from it and fetch elements from nodes (1.1) and (1.2) starting from \texttt{display1}. The rest is fetched from the root using \texttt{getElementFromRoot}.
+This \texttt{getElement} method on the unbalanced subtrees of figure \ref{Balanced_subtrees}  would use the \texttt{getElementFromDisplay} to fetch elements in \texttt{display0} directly from it and fetch elements from nodes (1.1) and (1.2) starting from \texttt{display1}. The rest is fetched from the root using \texttt{getElementFromRoot}.
 
 \begin{figure}[h!]
   \centering
@@ -264,10 +264,7 @@ The solution is to convert the transient representation to a canonical one when 
 % Explain append/prepend
 Vector objects can only be in transient state if they where created that way. For example, the \texttt{append}/\texttt{prepend} operation will create a new object that is in transient state and focused on the last/first branch. If the source object was not focusing the last branch, then it is canonicalized (if needed) before change of branch operation. Vectors depth 1 are special cases, they are always in canonical form and their operations are equivalent to those in transient form.
 
-Figure \ref{StatesGraphSimple} shows the different states and the effects of the \texttt{append} and \texttt{apply} operations on them. Figure \ref{StatesGraphComplete} shows the same for all operations. Note that the mutation of \texttt{this} object only happened from transient to canonical and that the only way to get to transient is with a creation of a new vector object.
-
-
-
+Figure \ref{StatesGraphSimple} shows the different states and the effects of the \texttt{append} and \texttt{apply} operations on them. Figure \ref{StatesGraphComplete} shows the same for all operations. Note that the mutation of \texttt{this} object only happened from transient to canonical and that the only way to get to transient is with the creation of a new vector object.
 
 \begin{figure}[h!]
   \centering
