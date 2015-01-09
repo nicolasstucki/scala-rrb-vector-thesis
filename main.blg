@@ -3,51 +3,51 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: unsrtnat.bst
 Database file #1: Bibliography.bib
-Warning--I didn't find a database entry for "TODO"
+Warning--I didn't find a database entry for "ScalaBlitz"
 Warning--empty year in scalaVector211
 Warning--empty year in scalaParVector211
 Warning--empty year in scalameter
 Warning--empty year in 4637966
 Warning--empty year in 4637966
-You've used 12 entries,
+You've used 31 entries,
             2481 wiz_defined-function locations,
-            642 strings with 6842 characters,
-and the built_in function-call counts, 4149 in all, are:
-= -- 395
-> -- 133
-< -- 8
-+ -- 64
-- -- 38
-* -- 291
-:= -- 622
-add.period$ -- 48
-call.type$ -- 12
-change.case$ -- 25
-chr.to.int$ -- 10
-cite$ -- 20
-duplicate$ -- 222
-empty$ -- 415
-format.name$ -- 51
-if$ -- 916
+            803 strings with 12226 characters,
+and the built_in function-call counts, 12558 in all, are:
+= -- 1242
+> -- 476
+< -- 28
++ -- 202
+- -- 138
+* -- 894
+:= -- 1939
+add.period$ -- 149
+call.type$ -- 31
+change.case$ -- 57
+chr.to.int$ -- 29
+cite$ -- 39
+duplicate$ -- 676
+empty$ -- 1128
+format.name$ -- 172
+if$ -- 2795
 int.to.chr$ -- 3
-int.to.str$ -- 13
-missing$ -- 6
-newline$ -- 78
-num.names$ -- 27
-pop$ -- 106
+int.to.str$ -- 32
+missing$ -- 22
+newline$ -- 207
+num.names$ -- 84
+pop$ -- 232
 preamble$ -- 1
-purify$ -- 12
+purify$ -- 31
 quote$ -- 0
-skip$ -- 140
+skip$ -- 435
 stack$ -- 0
-substring$ -- 149
-swap$ -- 42
-text.length$ -- 2
+substring$ -- 495
+swap$ -- 164
+text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 84
+type$ -- 211
 warning$ -- 5
-while$ -- 29
+while$ -- 99
 width$ -- 0
-write$ -- 182
+write$ -- 528
 (There were 6 warnings)

@@ -2,12 +2,504 @@
 %% http://bibdesk.sourceforge.net/
 
 
-%% Created for Nicolas Stucki at 2015-01-09 16:12:41 +0100 
+%% Created for Nicolas Stucki at 2015-01-09 18:21:36 +0100 
 
 
 %% Saved with string encoding Unicode (UTF-8) 
 
 
+
+@inproceedings{Rodgers:1985:IMS:327010.327215,
+	Acmid = {327215},
+	Address = {Los Alamitos, CA, USA},
+	Author = {Rodgers, David P.},
+	Booktitle = {Proceedings of the 12th Annual International Symposium on Computer Architecture},
+	Date-Added = {2015-01-09 17:18:04 +0000},
+	Date-Modified = {2015-01-09 17:18:04 +0000},
+	Isbn = {0-8186-0634-7},
+	Location = {Boston, Massachusetts, USA},
+	Numpages = {7},
+	Pages = {225--231},
+	Publisher = {IEEE Computer Society Press},
+	Series = {ISCA '85},
+	Title = {Improvements in Multiprocessor System Design},
+	Url = {http://dl.acm.org/citation.cfm?id=327010.327215},
+	Year = {1985},
+	Bdsk-Url-1 = {http://dl.acm.org/citation.cfm?id=327010.327215}}
+
+@inproceedings{Stucki:2013:BIS:2489837.2489847,
+	Acmid = {2489847},
+	Address = {New York, NY, USA},
+	Articleno = {10},
+	Author = {Stucki, Nicolas and Ureche, Vlad},
+	Booktitle = {Proceedings of the 4th Workshop on Scala},
+	Date-Added = {2015-01-09 17:15:32 +0000},
+	Date-Modified = {2015-01-09 17:15:32 +0000},
+	Doi = {10.1145/2489837.2489847},
+	Isbn = {978-1-4503-2064-1},
+	Keywords = {Java virtual machine, Scala, bytecode, data representation, macros, reified types, specialization},
+	Location = {Montpellier, France},
+	Numpages = {4},
+	Pages = {10:1--10:4},
+	Publisher = {ACM},
+	Series = {SCALA '13},
+	Title = {Bridging Islands of Specialized Code Using Macros and Reified Types},
+	Url = {http://doi.acm.org/10.1145/2489837.2489847},
+	Year = {2013},
+	Bdsk-Url-1 = {http://doi.acm.org/10.1145/2489837.2489847},
+	Bdsk-Url-2 = {http://dx.doi.org/10.1145/2489837.2489847}}
+
+@inproceedings{Chafi:2011:DAH:1941553.1941561,
+	Acmid = {1941561},
+	Address = {New York, NY, USA},
+	Author = {Chafi, Hassan and Sujeeth, Arvind K. and Brown, Kevin J. and Lee, HyoukJoong and Atreya, Anand R. and Olukotun, Kunle},
+	Booktitle = {Proceedings of the 16th ACM Symposium on Principles and Practice of Parallel Programming},
+	Date-Added = {2015-01-09 17:12:59 +0000},
+	Date-Modified = {2015-01-09 17:12:59 +0000},
+	Doi = {10.1145/1941553.1941561},
+	Isbn = {978-1-4503-0119-0},
+	Keywords = {domain-specific languages, dynamic optimizations, parallel programming, runtimes},
+	Location = {San Antonio, TX, USA},
+	Numpages = {12},
+	Pages = {35--46},
+	Publisher = {ACM},
+	Series = {PPoPP '11},
+	Title = {A Domain-specific Approach to Heterogeneous Parallelism},
+	Url = {http://doi.acm.org/10.1145/1941553.1941561},
+	Year = {2011},
+	Bdsk-Url-1 = {http://doi.acm.org/10.1145/1941553.1941561},
+	Bdsk-Url-2 = {http://dx.doi.org/10.1145/1941553.1941561}}
+
+@phdthesis{5456/THESES,
+	Abstract = {Programs expressed in a high-level programming
+                     language need to be translated to a low-level machine
+                     dialect for execution. This translation is usually
+                     accomplished by a compiler, which is able to
+                     translate any legal program to equivalent low-level
+                     code. But for individual source programs, automatic
+                     translation does not always deliver good results:
+                     Software engineering practice demands generalization
+                     and abstraction, whereas high performance demands
+                     specialization and concretization. These goals are at
+                     odds, and compilers can only rarely translate
+                     expressive high-level programs tomodern hardware
+                     platforms in a way that makes best use of the
+                     available resources. Explicit program generation is a
+                     promising alternative to fully automatic translation.
+                     Instead of writing down the program and relying on a
+                     compiler for translation, developers write a program
+                     generator, which produces a specialized, efficient,
+                     low-level program as its output. However, developing
+                     high-quality program generators requires a very large
+                     effort that is often hard to amortize. In this
+                     thesis, we propose a hybrid design: Integrate
+                     compilers into programs so that programs can take
+                     control of the translation process, but rely on
+                     libraries of common compiler functionality for help.
+                     We present Lightweight Modular Staging (LMS), a
+                     generative programming approach that lowers the
+                     development effort significantly. LMS combines
+                     program generator logic with the generated code in a
+                     single program, using only types to distinguish the
+                     two stages of execution. Through extensive use of
+                     component technology, LMS makes a reusable and
+                     extensible compiler framework available at the
+                     library level, allowing programmers to tightly
+                     integrate domain-specific abstractions and
+                     optimizations into the generation process, with
+                     common generic optimizations provided by the
+                     framework. Compared to previous work on
+                     programgeneration, a key aspect of our design is the
+                     use of staging not only as a front-end, but also as a
+                     way to implement internal compiler passes and
+                     optimizations, many of which can be combined into
+                     powerful joint simplification passes. LMS is well
+                     suited to develop embedded domain specific languages
+                     (DSLs) and has been used to develop powerful
+                     performance-oriented DSLs for demanding domains such
+                     as machine learning, with code generation for
+                     heterogeneous platforms including GPUs. LMS has also
+                     been used to generate SQL for embedded database
+                     queries and JavaScript for web applications.},
+	Address = {Lausanne},
+	Affiliation = {EPFL},
+	Author = {Rompf, Tiark},
+	Date-Added = {2015-01-09 17:09:03 +0000},
+	Date-Modified = {2015-01-09 17:09:03 +0000},
+	Details = {http://infoscience.epfl.ch/record/180642},
+	Doctoral = {EDIC},
+	Documenturl = {http://infoscience.epfl.ch/record/180642/files/EPFL_TH5456.pdf},
+	Doi = {10.5075/epfl-thesis-5456},
+	Extra-Id = {7334938},
+	Institute = {IIF},
+	Keywords = {Programming Languages; Compilers; Staging; Performance; Parallelism},
+	Language = {eng},
+	Oai-Id = {oai:infoscience.epfl.ch:180642},
+	Oai-Set = {thesis-urn},
+	Original-Unit = {LAMP1},
+	Production-Date = 2012,
+	Publisher = {EPFL},
+	School = {IC},
+	Status = {PUBLISHED},
+	Submitter = {108898},
+	Thesis-Id = {5456},
+	Title = {Lightweight {M}odular {S}taging and {E}mbedded {C}ompilers},
+	Unit = {LAMP},
+	Urn = {urn:nbn:ch:bel-epfl-thesis5456-2},
+	Year = 2012,
+	Bdsk-Url-1 = {http://dx.doi.org/10.5075/epfl-thesis-5456}}
+
+@phdthesis{6264/THESES,
+	Address = {Lausanne},
+	Affiliation = {EPFL},
+	Author = {Prokopec, Aleksandar},
+	Date-Added = {2015-01-09 17:07:26 +0000},
+	Date-Modified = {2015-01-09 17:07:26 +0000},
+	Details = {http://infoscience.epfl.ch/record/200977},
+	Doctoral = {EDIC},
+	Documenturl = {http://infoscience.epfl.ch/record/200977/files/EPFL_TH6264.pdf},
+	Doi = {10.5075/epfl-thesis-6264},
+	Extra-Id = {10210624},
+	Institute = {IIF},
+	Keywords = {parallel programming; data structures; data-parallelism; parallelization; concatenation; scheduling; atomic snapshots; concurrent data structures; persistent data structures; work-stealing; linearizability; lock-freedom},
+	Language = {eng},
+	Oai-Id = {oai:infoscience.epfl.ch:200977},
+	Oai-Set = {thesis},
+	Original-Unit = {LAMP1},
+	Production-Date = 2014,
+	Public-Defence-Date = 2014,
+	Publisher = {EPFL},
+	School = {IC},
+	Status = {PUBLISHED},
+	Submitter = {108898; 108898},
+	Thesis-Id = {6264},
+	Thesis-Note = {Prof. O.N.A. Svensson (pr{\'e}sident) ; Prof. M. Odersky (directeur) ; Prof. D.S. Lea, Prof. V. Kuncak, Prof. E. Meijer (rapporteurs)},
+	Title = {Data {S}tructures and {A}lgorithms for {D}ata-{P}arallel {C}omputing in a {M}anaged {R}untime},
+	Unit = {LAMP},
+	Urn = {urn:nbn:ch:bel-epfl-thesis6264-0},
+	Year = 2014,
+	Bdsk-Url-1 = {http://dx.doi.org/10.5075/epfl-thesis-6264}}
+
+@book{odersky2008programming,
+	Author = {Odersky, Martin and Spoon, Lex and Venners, Bill},
+	Date-Added = {2015-01-09 16:48:37 +0000},
+	Date-Modified = {2015-01-09 16:48:37 +0000},
+	Publisher = {Artima Inc},
+	Title = {Programming in scala},
+	Year = {2008}}
+
+@book{cormen2001introduction,
+	Author = {Cormen, Thomas H and Leiserson, Charles E and Rivest, Ronald L and Stein, Clifford and others},
+	Date-Added = {2015-01-09 16:47:21 +0000},
+	Date-Modified = {2015-01-09 16:47:21 +0000},
+	Publisher = {MIT press Cambridge},
+	Title = {Introduction to algorithms},
+	Volume = {2},
+	Year = {2001}}
+
+@inproceedings{Coutts:2007:SFL:1291151.1291199,
+	Acmid = {1291199},
+	Address = {New York, NY, USA},
+	Author = {Coutts, Duncan and Leshchinskiy, Roman and Stewart, Don},
+	Booktitle = {Proceedings of the 12th ACM SIGPLAN International Conference on Functional Programming},
+	Date-Added = {2015-01-09 16:45:05 +0000},
+	Date-Modified = {2015-01-09 16:45:05 +0000},
+	Doi = {10.1145/1291151.1291199},
+	Isbn = {978-1-59593-815-2},
+	Keywords = {deforestation, functional programming, program fusion, program optimisation, program transformation},
+	Location = {Freiburg, Germany},
+	Numpages = {12},
+	Pages = {315--326},
+	Publisher = {ACM},
+	Series = {ICFP '07},
+	Title = {Stream Fusion: From Lists to Streams to Nothing at All},
+	Url = {http://doi.acm.org/10.1145/1291151.1291199},
+	Year = {2007},
+	Bdsk-Url-1 = {http://doi.acm.org/10.1145/1291151.1291199},
+	Bdsk-Url-2 = {http://dx.doi.org/10.1145/1291151.1291199}}
+
+@phdthesis{4820/THESES,
+	Abstract = {Scala is a new programming language bringing
+                     together object-oriented and functional programming.
+                     Its defining features are uniformity and
+                     extensibility. Scala offers great flexibility for
+                     programmers, allowing them to grow the language
+                     through libraries. Oftentimes what seems like a
+                     language feature is in fact implemented in a library,
+                     effectively giving programmers the power of language
+                     designers. The downside of this flexibility is that
+                     familiar looking code may hide unexpected performance
+                     costs. It is important for Scala compilers to bring
+                     down this cost as much as possible. We identify
+                     several areas of impact for Scala performance:
+                     higher-order functions and closures, and generic
+                     containers used with primitive types. We present two
+                     complementary approaches for improving performance in
+                     these areas: optimizations and specialization.
+                     Compiler optimization can bring down the cost through
+                     a combination of aggressive inlining of higher-order
+                     functions, an extended version of copy-propagation
+                     and dead-code elimination. Both anonymous functions
+                     and boxing can be eliminated by this approach. We
+                     show on a number of benchmarks that these language
+                     features can be up to 5 times faster when properly
+                     optimized, on current day JVMs. We propose a new
+                     approach to compiling parametric polymorphism for
+                     performance at primitive types. We mix a homogeneous
+                     translation scheme with user-directed specialization
+                     for primitive types. Type parameters may be annotated
+                     to require specialization of code depending on them.
+                     We propose definition-site specialization for
+                     primitive types, achieving separate compilation and
+                     no boxing when both the definition and call site are
+                     specialized. Specialized classes are compatible with
+                     unspecialized code, and specialization agnostic code
+                     can work with specialized instances, meaning that
+                     specialization is opportunistic. We present a
+                     formalism of a small subset of Scala with
+                     specialization and prove that specialization
+                     preserves types. We implemented this translation in
+                     the Scala compiler and report on improvements on a
+                     set of benchmarks, showing that specialization can
+                     make programs more than two times faster.},
+	Address = {Lausanne},
+	Affiliation = {EPFL},
+	Author = {Dragos, Iulian},
+	Date-Added = {2015-01-09 16:36:44 +0000},
+	Date-Modified = {2015-01-09 16:36:44 +0000},
+	Details = {http://infoscience.epfl.ch/record/150270},
+	Doctoral = {EDIC},
+	Documenturl = {http://infoscience.epfl.ch/record/150270/files/EPFL_TH4820.pdf},
+	Doi = {10.5075/epfl-thesis-4820},
+	Extra-Id = {6122055},
+	Institute = {IIF},
+	Keywords = {compiler; optimization; parametric polymorphism; generics; specialization; boxing; Scala},
+	Language = {eng},
+	Oai-Id = {oai:infoscience.epfl.ch:150270},
+	Oai-Set = {thesis-urn},
+	Original-Unit = {LAMP1},
+	Pagecount = {133},
+	Production-Date = 2010,
+	Publisher = {EPFL},
+	School = {IC},
+	Status = {PUBLISHED},
+	Thesis-Id = {4820},
+	Title = {Compiling {S}cala for {P}erformance},
+	Unit = {LAMP},
+	Urn = {urn:nbn:ch:bel-epfl-thesis4820-5},
+	Year = 2010,
+	Bdsk-Url-1 = {http://dx.doi.org/10.5075/epfl-thesis-4820}}
+
+@inproceedings{Wurthinger:2011:EGC:2048147.2048168,
+	Acmid = {2048168},
+	Address = {New York, NY, USA},
+	Author = {W\"{u}rthinger, Thomas},
+	Booktitle = {Proceedings of the ACM International Conference Companion on Object Oriented Programming Systems Languages and Applications Companion},
+	Date-Added = {2015-01-09 16:34:33 +0000},
+	Date-Modified = {2015-01-09 16:34:33 +0000},
+	Doi = {10.1145/2048147.2048168},
+	Isbn = {978-1-4503-0942-4},
+	Keywords = {compilers, java, jit, optimization, plug-ins, virtual machines},
+	Location = {Portland, Oregon, USA},
+	Numpages = {2},
+	Pages = {41--42},
+	Publisher = {ACM},
+	Series = {OOPSLA '11},
+	Title = {Extending the Graal Compiler to Optimize Libraries},
+	Url = {http://doi.acm.org/10.1145/2048147.2048168},
+	Year = {2011},
+	Bdsk-Url-1 = {http://doi.acm.org/10.1145/2048147.2048168},
+	Bdsk-Url-2 = {http://dx.doi.org/10.1145/2048147.2048168}}
+
+@inproceedings{Paleczny:2001:JHT:1267847.1267848,
+	Acmid = {1267848},
+	Address = {Berkeley, CA, USA},
+	Author = {Paleczny, Michael and Vick, Christopher and Click, Cliff},
+	Booktitle = {Proceedings of the 2001 Symposium on JavaTM Virtual Machine Research and Technology Symposium - Volume 1},
+	Date-Added = {2015-01-09 16:32:22 +0000},
+	Date-Modified = {2015-01-09 16:32:22 +0000},
+	Location = {Monterey, California},
+	Numpages = {1},
+	Pages = {1--1},
+	Publisher = {USENIX Association},
+	Series = {JVM'01},
+	Title = {The Java hotspotTM Server Compiler},
+	Url = {http://dl.acm.org/citation.cfm?id=1267847.1267848},
+	Year = {2001},
+	Bdsk-Url-1 = {http://dl.acm.org/citation.cfm?id=1267847.1267848}}
+
+@article{Kotzmann:2008:DJH:1369396.1370017,
+	Acmid = {1370017},
+	Address = {New York, NY, USA},
+	Articleno = {7},
+	Author = {Kotzmann, Thomas and Wimmer, Christian and M\"{o}ssenb\"{o}ck, Hanspeter and Rodriguez, Thomas and Russell, Kenneth and Cox, David},
+	Date-Added = {2015-01-09 16:31:48 +0000},
+	Date-Modified = {2015-01-09 16:31:48 +0000},
+	Doi = {10.1145/1369396.1370017},
+	Issn = {1544-3566},
+	Issue_Date = {May 2008},
+	Journal = {ACM Trans. Archit. Code Optim.},
+	Keywords = {Java, compiler, deoptimization, intermediate representation, just-in-time compilation, optimization, register allocation},
+	Month = may,
+	Number = {1},
+	Numpages = {32},
+	Pages = {7:1--7:32},
+	Publisher = {ACM},
+	Title = {Design of the Java HotSpot\&Trade; Client Compiler for Java 6},
+	Url = {http://doi.acm.org/10.1145/1369396.1370017},
+	Volume = {5},
+	Year = {2008},
+	Bdsk-Url-1 = {http://doi.acm.org/10.1145/1369396.1370017},
+	Bdsk-Url-2 = {http://dx.doi.org/10.1145/1369396.1370017}}
+
+@inproceedings{Georges:2007:SRJ:1297027.1297033,
+	Acmid = {1297033},
+	Address = {New York, NY, USA},
+	Author = {Georges, Andy and Buytaert, Dries and Eeckhout, Lieven},
+	Booktitle = {Proceedings of the 22Nd Annual ACM SIGPLAN Conference on Object-oriented Programming Systems and Applications},
+	Date-Added = {2015-01-09 16:31:01 +0000},
+	Date-Modified = {2015-01-09 16:31:01 +0000},
+	Doi = {10.1145/1297027.1297033},
+	Isbn = {978-1-59593-786-5},
+	Keywords = {benchmarking, data analysis, java, methodology, statistics},
+	Location = {Montreal, Quebec, Canada},
+	Numpages = {20},
+	Pages = {57--76},
+	Publisher = {ACM},
+	Series = {OOPSLA '07},
+	Title = {Statistically Rigorous Java Performance Evaluation},
+	Url = {http://doi.acm.org/10.1145/1297027.1297033},
+	Year = {2007},
+	Bdsk-Url-1 = {http://doi.acm.org/10.1145/1297027.1297033},
+	Bdsk-Url-2 = {http://dx.doi.org/10.1145/1297027.1297033}}
+
+@inproceedings{EPFL-CONF-186844,
+	Abstract = {Compile-time metaprogramming has been proven immensely
+                 useful enabling programming techniques such as language
+                 virtualization, embedding of external DSLs,
+                 self-optimization, and boilerplate generation amongst
+                 many others. In the recent production release of Scala
+                 2.10 we have introduced macros, an experimental facility
+                 which gives its users compile-time metaprogramming
+                 powers. Alongside of the mainline release of Scala
+                 Macros, we have also introduced other macro flavors,
+                 which provide their users with different interfaces and
+                 capabilities for interacting with the Scala compiler. In
+                 this paper, we show how the rich syntax and static types
+                 of Scala synergize with macros, through a number of real
+                 case studies using our macros (some of which are
+                 production systems) such as language virtualization, type
+                 providers, materialization of type class instances,
+                 type-level programming, and embedding of external DSLs.
+                 We explore how macros enable new and unique ways to use
+                 pre-existing language features such as implicits,
+                 dynamics, annotations, string interpolation and others,
+                 showing along the way how these synergies open up new
+                 ways of dealing with software development challenges.},
+	Affiliation = {EPFL},
+	Author = {Burmako, Eugene},
+	Booktitle = {4{t}h {A}nnual {W}orkshop {S}cala 2013},
+	Date-Added = {2015-01-09 16:27:22 +0000},
+	Date-Modified = {2015-01-09 16:27:22 +0000},
+	Details = {http://infoscience.epfl.ch/record/186844},
+	Documenturl = {http://infoscience.epfl.ch/record/186844/files/2013-04-22-LetOurPowersCombine.pdf},
+	Doi = {10.1145/2489837.2489840},
+	Isbn = {978-1-4503-2064-1/13/07},
+	Keywords = {Compile-time Metaprogramming; Macros},
+	Location = {Montpellier, France},
+	Oai-Id = {oai:infoscience.epfl.ch:186844},
+	Oai-Set = {conf},
+	Review = {REVIEWED},
+	Status = {ACCEPTED},
+	Submitter = {214505; 214505},
+	Title = {Scala {M}acros: {L}et {O}ur {P}owers {C}ombine!},
+	Unit = {LAMP},
+	Year = 2013,
+	Bdsk-Url-1 = {http://dx.doi.org/10.1145/2489837.2489840}}
+
+@techreport{quasiquotes,
+	Author = {Shabalin, Denys and Burmako, Eugene and Odersky, Martin},
+	Date-Added = {2015-01-09 16:25:03 +0000},
+	Date-Modified = {2015-01-09 17:01:21 +0000},
+	Institution = {EPFL},
+	Number = {EPFL-REPORT-185242},
+	Title = {Quasiquotes for Scala},
+	Year = {2013}}
+
+@inproceedings{Ureche:2013:MIS:2509136.2509537,
+	Acmid = {2509537},
+	Address = {New York, NY, USA},
+	Author = {Ureche, Vlad and Talau, Cristian and Odersky, Martin},
+	Booktitle = {Proceedings of the 2013 ACM SIGPLAN International Conference on Object Oriented Programming Systems Languages \&\#38; Applications},
+	Date-Added = {2015-01-09 16:22:23 +0000},
+	Date-Modified = {2015-01-09 16:22:23 +0000},
+	Doi = {10.1145/2509136.2509537},
+	Isbn = {978-1-4503-2374-1},
+	Keywords = {bytecode, data representation, erasure, generics, java virtual machine, miniboxing, parametric polymorphism, scala, specialization},
+	Location = {Indianapolis, Indiana, USA},
+	Numpages = {20},
+	Pages = {73--92},
+	Publisher = {ACM},
+	Series = {OOPSLA '13},
+	Title = {Miniboxing: Improving the Speed to Code Size Tradeoff in Parametric Polymorphism Translations},
+	Url = {http://doi.acm.org/10.1145/2509136.2509537},
+	Year = {2013},
+	Bdsk-Url-1 = {http://doi.acm.org/10.1145/2509136.2509537},
+	Bdsk-Url-2 = {http://dx.doi.org/10.1145/2509136.2509537}}
+
+@inproceedings{Ureche:2014:LDL:2660193.2660197,
+	Acmid = {2660197},
+	Address = {New York, NY, USA},
+	Author = {Ureche, Vlad and Burmako, Eugene and Odersky, Martin},
+	Booktitle = {Proceedings of the 2014 ACM International Conference on Object Oriented Programming Systems Languages \&\#38; Applications},
+	Date-Added = {2015-01-09 16:21:20 +0000},
+	Date-Modified = {2015-01-09 16:21:20 +0000},
+	Doi = {10.1145/2660193.2660197},
+	Isbn = {978-1-4503-2585-1},
+	Keywords = {annotated types, data representation, local type inference, object-oriented, type systems},
+	Location = {Portland, Oregon, USA},
+	Numpages = {20},
+	Pages = {397--416},
+	Publisher = {ACM},
+	Series = {OOPSLA '14},
+	Title = {Late Data Layout: Unifying Data Representation Transformations},
+	Url = {http://doi.acm.org/10.1145/2660193.2660197},
+	Year = {2014},
+	Bdsk-Url-1 = {http://doi.acm.org/10.1145/2660193.2660197},
+	Bdsk-Url-2 = {http://dx.doi.org/10.1145/2660193.2660197}}
+
+@inproceedings{Oliveira:2010:TCO:1869459.1869489,
+	Acmid = {1869489},
+	Address = {New York, NY, USA},
+	Author = {Oliveira, Bruno C.d.S. and Moors, Adriaan and Odersky, Martin},
+	Booktitle = {Proceedings of the ACM International Conference on Object Oriented Programming Systems Languages and Applications},
+	Date-Added = {2015-01-09 16:19:37 +0000},
+	Date-Modified = {2015-01-09 16:19:37 +0000},
+	Doi = {10.1145/1869459.1869489},
+	Isbn = {978-1-4503-0203-6},
+	Keywords = {abstract datatypes, c++ concepts, scala, type classes},
+	Location = {Reno/Tahoe, Nevada, USA},
+	Numpages = {20},
+	Pages = {341--360},
+	Publisher = {ACM},
+	Series = {OOPSLA '10},
+	Title = {Type Classes As Objects and Implicits},
+	Url = {http://doi.acm.org/10.1145/1869459.1869489},
+	Year = {2010},
+	Bdsk-Url-1 = {http://doi.acm.org/10.1145/1869459.1869489},
+	Bdsk-Url-2 = {http://dx.doi.org/10.1145/1869459.1869489}}
+
+@phdthesis{1979992642,
+	Author = {Moors, Adriaan},
+	Date-Added = {2015-01-09 16:16:19 +0000},
+	Date-Modified = {2015-01-09 16:16:19 +0000},
+	Month = May,
+	Note = {Joosen, Wouter and Piessens, Frank (supervisors)},
+	School = {Informatics Section, Department of Computer Science, Faculty of Engineering Science},
+	Title = {Type {C}onstructor {P}olymorphism for {S}cala: {T}heory and {P}ractice ({T}ype constructor polymorfisme voor {S}cala: theorie en praktijk)},
+	Url = {https://lirias.kuleuven.be/handle/1979/2642},
+	Year = {2009},
+	Bdsk-Url-1 = {https://lirias.kuleuven.be/handle/1979/2642}}
 
 @misc{collect11,
 	Author = {Prokopec, Aleksandar and Rompf, Tiark and Bagwell, Phil and Odersky, Martin},

@@ -1,4 +1,4 @@
-\begin{thebibliography}{12}
+\begin{thebibliography}{31}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -26,6 +26,54 @@ Tiark~Rompf Phil~Bagwell.
 Scala{M}eter.
 \newblock \url{https://scalameter.github.io/}, {\natexlab{c}}.
 
+\bibitem[Rodgers(1985)]{Rodgers:1985:IMS:327010.327215}
+David~P. Rodgers.
+\newblock Improvements in multiprocessor system design.
+\newblock In \emph{Proceedings of the 12th Annual International Symposium on
+  Computer Architecture}, ISCA '85, pages 225--231, Los Alamitos, CA, USA,
+  1985. IEEE Computer Society Press.
+\newblock ISBN 0-8186-0634-7.
+\newblock URL \url{http://dl.acm.org/citation.cfm?id=327010.327215}.
+
+\bibitem[L'orange(2014)]{lorange2014rrb}
+Jean~Niklas L'orange.
+\newblock {Improving RRB-Tree Performance through Transience}.
+\newblock Master's thesis, Norwegian University of Science and Technology, June
+  2014.
+
+\bibitem[Cormen et~al.(2001)Cormen, Leiserson, Rivest, Stein,
+  et~al.]{cormen2001introduction}
+Thomas~H Cormen, Charles~E Leiserson, Ronald~L Rivest, Clifford Stein, et~al.
+\newblock \emph{Introduction to algorithms}, volume~2.
+\newblock MIT press Cambridge, 2001.
+
+\bibitem[Odersky et~al.(2008)Odersky, Spoon, and
+  Venners]{odersky2008programming}
+Martin Odersky, Lex Spoon, and Bill Venners.
+\newblock \emph{Programming in scala}.
+\newblock Artima Inc, 2008.
+
+\bibitem[Moors(2009)]{1979992642}
+Adriaan Moors.
+\newblock \emph{Type {C}onstructor {P}olymorphism for {S}cala: {T}heory and
+  {P}ractice ({T}ype constructor polymorfisme voor {S}cala: theorie en
+  praktijk)}.
+\newblock PhD thesis, Informatics Section, Department of Computer Science,
+  Faculty of Engineering Science, May 2009.
+\newblock URL \url{https://lirias.kuleuven.be/handle/1979/2642}.
+\newblock Joosen, Wouter and Piessens, Frank (supervisors).
+
+\bibitem[Oliveira et~al.(2010)Oliveira, Moors, and
+  Odersky]{Oliveira:2010:TCO:1869459.1869489}
+Bruno~C.d.S. Oliveira, Adriaan Moors, and Martin Odersky.
+\newblock Type classes as objects and implicits.
+\newblock In \emph{Proceedings of the ACM International Conference on Object
+  Oriented Programming Systems Languages and Applications}, OOPSLA '10, pages
+  341--360, New York, NY, USA, 2010. ACM.
+\newblock ISBN 978-1-4503-0203-6.
+\newblock \doi{10.1145/1869459.1869489}.
+\newblock URL \url{http://doi.acm.org/10.1145/1869459.1869489}.
+
 \bibitem[Prokopec et~al.(2011)Prokopec, Rompf, Bagwell, and Odersky]{collect11}
 Aleksandar Prokopec, Tiark Rompf, Phil Bagwell, and Martin Odersky.
 \newblock On a generic parallel collection framework, 2011.
@@ -39,6 +87,12 @@ Doug Lea.
 \newblock \doi{10.1145/337449.337465}.
 \newblock URL \url{http://doi.acm.org/10.1145/337449.337465}.
 
+\bibitem[Prokopec(2014)]{6264/THESES}
+Aleksandar Prokopec.
+\newblock \emph{Data {S}tructures and {A}lgorithms for {D}ata-{P}arallel
+  {C}omputing in a {M}anaged {R}untime}.
+\newblock PhD thesis, IC, Lausanne, 2014.
+
 \bibitem[Prokopec and Odersky(2014)]{Prokopec:2014aa}
 Aleksandar Prokopec and Martin Odersky.
 \newblock Near optimal work-stealing tree scheduler for highly irregular
@@ -49,12 +103,6 @@ Aleksandar Prokopec and Martin Odersky.
 \newblock ISBN 978-3-319-09966-8.
 \newblock \doi{10.1007/978-3-319-09967-5_4}.
 \newblock URL \url{http://dx.doi.org/10.1007/978-3-319-09967-5_4}.
-
-\bibitem[L'orange(2014)]{lorange2014rrb}
-Jean~Niklas L'orange.
-\newblock {Improving RRB-Tree Performance through Transience}.
-\newblock Master's thesis, Norwegian University of Science and Technology, June
-  2014.
 
 \bibitem[Hinze and Paterson(2006)]{DBLP:journals/jfp/HinzeP06}
 Ralf Hinze and Ross Paterson.
@@ -78,6 +126,124 @@ Phil Bagwell.
 \newblock {Fast Functional Lists, Hash-Lists, Deques and Variable Length
   Arrays}.
 \newblock In \emph{Implementation of Functional Languages}.
+
+\bibitem[Rompf(2012)]{5456/THESES}
+Tiark Rompf.
+\newblock \emph{Lightweight {M}odular {S}taging and {E}mbedded {C}ompilers}.
+\newblock PhD thesis, IC, Lausanne, 2012.
+
+\bibitem[Chafi et~al.(2011)Chafi, Sujeeth, Brown, Lee, Atreya, and
+  Olukotun]{Chafi:2011:DAH:1941553.1941561}
+Hassan Chafi, Arvind~K. Sujeeth, Kevin~J. Brown, HyoukJoong Lee, Anand~R.
+  Atreya, and Kunle Olukotun.
+\newblock A domain-specific approach to heterogeneous parallelism.
+\newblock In \emph{Proceedings of the 16th ACM Symposium on Principles and
+  Practice of Parallel Programming}, PPoPP '11, pages 35--46, New York, NY,
+  USA, 2011. ACM.
+\newblock ISBN 978-1-4503-0119-0.
+\newblock \doi{10.1145/1941553.1941561}.
+\newblock URL \url{http://doi.acm.org/10.1145/1941553.1941561}.
+
+\bibitem[Kotzmann et~al.(2008)Kotzmann, Wimmer, M\"{o}ssenb\"{o}ck, Rodriguez,
+  Russell, and Cox]{Kotzmann:2008:DJH:1369396.1370017}
+Thomas Kotzmann, Christian Wimmer, Hanspeter M\"{o}ssenb\"{o}ck, Thomas
+  Rodriguez, Kenneth Russell, and David Cox.
+\newblock Design of the java hotspot\&trade; client compiler for java 6.
+\newblock \emph{ACM Trans. Archit. Code Optim.}, 5\penalty0 (1):\penalty0
+  7:1--7:32, May 2008.
+\newblock ISSN 1544-3566.
+\newblock \doi{10.1145/1369396.1370017}.
+\newblock URL \url{http://doi.acm.org/10.1145/1369396.1370017}.
+
+\bibitem[Paleczny et~al.(2001)Paleczny, Vick, and
+  Click]{Paleczny:2001:JHT:1267847.1267848}
+Michael Paleczny, Christopher Vick, and Cliff Click.
+\newblock The java hotspottm server compiler.
+\newblock In \emph{Proceedings of the 2001 Symposium on JavaTM Virtual Machine
+  Research and Technology Symposium - Volume 1}, JVM'01, pages 1--1, Berkeley,
+  CA, USA, 2001. USENIX Association.
+\newblock URL \url{http://dl.acm.org/citation.cfm?id=1267847.1267848}.
+
+\bibitem[W\"{u}rthinger(2011)]{Wurthinger:2011:EGC:2048147.2048168}
+Thomas W\"{u}rthinger.
+\newblock Extending the graal compiler to optimize libraries.
+\newblock In \emph{Proceedings of the ACM International Conference Companion on
+  Object Oriented Programming Systems Languages and Applications Companion},
+  OOPSLA '11, pages 41--42, New York, NY, USA, 2011. ACM.
+\newblock ISBN 978-1-4503-0942-4.
+\newblock \doi{10.1145/2048147.2048168}.
+\newblock URL \url{http://doi.acm.org/10.1145/2048147.2048168}.
+
+\bibitem[Georges et~al.(2007)Georges, Buytaert, and
+  Eeckhout]{Georges:2007:SRJ:1297027.1297033}
+Andy Georges, Dries Buytaert, and Lieven Eeckhout.
+\newblock Statistically rigorous java performance evaluation.
+\newblock In \emph{Proceedings of the 22Nd Annual ACM SIGPLAN Conference on
+  Object-oriented Programming Systems and Applications}, OOPSLA '07, pages
+  57--76, New York, NY, USA, 2007. ACM.
+\newblock ISBN 978-1-59593-786-5.
+\newblock \doi{10.1145/1297027.1297033}.
+\newblock URL \url{http://doi.acm.org/10.1145/1297027.1297033}.
+
+\bibitem[Burmako(2013)]{EPFL-CONF-186844}
+Eugene Burmako.
+\newblock Scala {M}acros: {L}et {O}ur {P}owers {C}ombine!
+\newblock In \emph{4{t}h {A}nnual {W}orkshop {S}cala 2013}, 2013.
+\newblock ISBN 978-1-4503-2064-1/13/07.
+\newblock \doi{10.1145/2489837.2489840}.
+
+\bibitem[Shabalin et~al.(2013)Shabalin, Burmako, and Odersky]{quasiquotes}
+Denys Shabalin, Eugene Burmako, and Martin Odersky.
+\newblock Quasiquotes for scala.
+\newblock Technical Report EPFL-REPORT-185242, EPFL, 2013.
+
+\bibitem[Ureche et~al.(2013)Ureche, Talau, and
+  Odersky]{Ureche:2013:MIS:2509136.2509537}
+Vlad Ureche, Cristian Talau, and Martin Odersky.
+\newblock Miniboxing: Improving the speed to code size tradeoff in parametric
+  polymorphism translations.
+\newblock In \emph{Proceedings of the 2013 ACM SIGPLAN International Conference
+  on Object Oriented Programming Systems Languages \&\#38; Applications},
+  OOPSLA '13, pages 73--92, New York, NY, USA, 2013. ACM.
+\newblock ISBN 978-1-4503-2374-1.
+\newblock \doi{10.1145/2509136.2509537}.
+\newblock URL \url{http://doi.acm.org/10.1145/2509136.2509537}.
+
+\bibitem[Ureche et~al.(2014)Ureche, Burmako, and
+  Odersky]{Ureche:2014:LDL:2660193.2660197}
+Vlad Ureche, Eugene Burmako, and Martin Odersky.
+\newblock Late data layout: Unifying data representation transformations.
+\newblock In \emph{Proceedings of the 2014 ACM International Conference on
+  Object Oriented Programming Systems Languages \&\#38; Applications}, OOPSLA
+  '14, pages 397--416, New York, NY, USA, 2014. ACM.
+\newblock ISBN 978-1-4503-2585-1.
+\newblock \doi{10.1145/2660193.2660197}.
+\newblock URL \url{http://doi.acm.org/10.1145/2660193.2660197}.
+
+\bibitem[Stucki and Ureche(2013)]{Stucki:2013:BIS:2489837.2489847}
+Nicolas Stucki and Vlad Ureche.
+\newblock Bridging islands of specialized code using macros and reified types.
+\newblock In \emph{Proceedings of the 4th Workshop on Scala}, SCALA '13, pages
+  10:1--10:4, New York, NY, USA, 2013. ACM.
+\newblock ISBN 978-1-4503-2064-1.
+\newblock \doi{10.1145/2489837.2489847}.
+\newblock URL \url{http://doi.acm.org/10.1145/2489837.2489847}.
+
+\bibitem[Dragos(2010)]{4820/THESES}
+Iulian Dragos.
+\newblock \emph{Compiling {S}cala for {P}erformance}.
+\newblock PhD thesis, IC, Lausanne, 2010.
+
+\bibitem[Coutts et~al.(2007)Coutts, Leshchinskiy, and
+  Stewart]{Coutts:2007:SFL:1291151.1291199}
+Duncan Coutts, Roman Leshchinskiy, and Don Stewart.
+\newblock Stream fusion: From lists to streams to nothing at all.
+\newblock In \emph{Proceedings of the 12th ACM SIGPLAN International Conference
+  on Functional Programming}, ICFP '07, pages 315--326, New York, NY, USA,
+  2007. ACM.
+\newblock ISBN 978-1-59593-815-2.
+\newblock \doi{10.1145/1291151.1291199}.
+\newblock URL \url{http://doi.acm.org/10.1145/1291151.1291199}.
 
 \bibitem[Boehm et~al.(1995)Boehm, Atkinson, and Plass]{SPE:SPE4380251203}
 Hans-J. Boehm, Russ Atkinson, and Michael Plass.

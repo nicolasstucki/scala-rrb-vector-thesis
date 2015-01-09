@@ -183,7 +183,7 @@
 
 \thesistitle{Turning Relaxed Radix Balanced Vector \\ from Theory into Practice \\ for Scala Collections} % Your thesis title - this is used in the title and abstract
 %-------------------------------------------------  
-\supervisor{Vlad \textsc{Ureche}} % You supervisor's name - this is used in the title page
+\supervisor{Martin \textsc{Odersky}} % You supervisor's name - this is used in the title page
 %-------------------------------------------------   
 \examiner{} % Your examiner's name - this is not currently used anywhere in the template, cite it with \examname if you want it
 %-------------------------------------------------   
