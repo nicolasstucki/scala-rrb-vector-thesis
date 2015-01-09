@@ -254,23 +254,25 @@ As started in section \ref{sec:DisplaysTransient} vectors have two representatio
 
 The solution is to convert the transient representation to a canonical one when an operation that requires it is called on an instance of the immutable vector. The mutation of the vector is not visible from the outside and only happens at most once. This transformation only affects the nodes that are on the display, it copies each one (except the leaf) and links the trees. If the node is unbalanced, the size of the subtree in focus is inserted. This transformation could be seen as a lazy initialization of the current branch.
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.8\textwidth]{Figures/StatesGraphSimple}
+  \caption{Transient state creation and canonicalization of vectors for \texttt{append} and \texttt{apply} operations.}
+  \label{StatesGraphSimple}
+\end{figure}
+
 % Explain append/prepend
 Vector objects can only be in transient state if they where created that way. For example, the \texttt{append}/\texttt{prepend} operation will create a new object that is in transient state and focused on the last/first branch. If the source object was not focusing the last branch, then it is canonicalized (if needed) before change of branch operation. Vectors depth 1 are special cases, they are always in canonical form and their operations are equivalent to those in transient form.
 
 Figure \ref{StatesGraphSimple} shows the different states and the effects of the \texttt{append} and \texttt{apply} operations on them. Figure \ref{StatesGraphComplete} shows the same for all operations. Note that the mutation of \texttt{this} object only happened from transient to canonical and that the only way to get to transient is with a creation of a new vector object.
 
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=0.8\textwidth]{Figures/StatesGraphSimple}
-  \caption{}
-  \label{StatesGraphSimple}
-\end{figure}
+
 
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Figures/StatesGraph}
-  \caption{}
+  \caption{Transient state creation and canonicalization of vectors for every operation.}
   \label{StatesGraphComplete}
 \end{figure}
 

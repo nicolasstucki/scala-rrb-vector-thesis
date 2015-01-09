@@ -13,8 +13,8 @@
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Displays\relax }}{25}{figure.caption.238}
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Transient Tree with current focus displays marked in white and striped nulled edges.\relax }}{26}{figure.caption.251}
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Relaxed Radix Balanced Tree with a focus on a balanced subtree rooted of \texttt {display1}. Light grey boxes represent unbalanced nodes sizes.\relax }}{28}{figure.caption.264}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces \relax }}{29}{figure.caption.266}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces \relax }}{30}{figure.caption.267}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Transient state creation and canonicalization of vectors for \texttt {append} and \texttt {apply} operations.\relax }}{29}{figure.caption.266}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Transient state creation and canonicalization of vectors for every operation.\relax }}{30}{figure.caption.267}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Time to execute 10k apply operations on sequential indices on vectors of height 2.\relax }}{38}{figure.caption.285}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Time to execute 10k apply operations on sequential indices on vectors of height 3.\relax }}{39}{figure.caption.286}
