@@ -7,47 +7,48 @@ Warning--I didn't find a database entry for "ScalaBlitz"
 Warning--empty year in scalaVector211
 Warning--empty year in scalaParVector211
 Warning--empty year in scalameter
+Warning--empty institution in EPFL-REPORT-200245
 Warning--empty year in 4637966
 Warning--empty year in 4637966
-You've used 31 entries,
+You've used 32 entries,
             2481 wiz_defined-function locations,
-            803 strings with 12226 characters,
-and the built_in function-call counts, 12558 in all, are:
-= -- 1242
-> -- 476
+            808 strings with 12413 characters,
+and the built_in function-call counts, 12870 in all, are:
+= -- 1269
+> -- 497
 < -- 28
-+ -- 202
-- -- 138
-* -- 894
-:= -- 1939
-add.period$ -- 149
-call.type$ -- 31
-change.case$ -- 57
-chr.to.int$ -- 29
-cite$ -- 39
-duplicate$ -- 676
-empty$ -- 1128
-format.name$ -- 172
-if$ -- 2795
++ -- 210
+- -- 144
+* -- 920
+:= -- 1997
+add.period$ -- 153
+call.type$ -- 32
+change.case$ -- 60
+chr.to.int$ -- 30
+cite$ -- 41
+duplicate$ -- 690
+empty$ -- 1149
+format.name$ -- 179
+if$ -- 2856
 int.to.chr$ -- 3
-int.to.str$ -- 32
+int.to.str$ -- 33
 missing$ -- 22
-newline$ -- 207
-num.names$ -- 84
-pop$ -- 232
+newline$ -- 213
+num.names$ -- 87
+pop$ -- 238
 preamble$ -- 1
-purify$ -- 31
+purify$ -- 32
 quote$ -- 0
-skip$ -- 435
+skip$ -- 443
 stack$ -- 0
-substring$ -- 495
-swap$ -- 164
+substring$ -- 497
+swap$ -- 165
 text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 211
-warning$ -- 5
-while$ -- 99
+type$ -- 218
+warning$ -- 6
+while$ -- 101
 width$ -- 0
-write$ -- 528
-(There were 6 warnings)
+write$ -- 542
+(There were 7 warnings)

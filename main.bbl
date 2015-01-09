@@ -1,4 +1,4 @@
-\begin{thebibliography}{31}
+\begin{thebibliography}{32}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -73,6 +73,13 @@ Bruno~C.d.S. Oliveira, Adriaan Moors, and Martin Odersky.
 \newblock ISBN 978-1-4503-0203-6.
 \newblock \doi{10.1145/1869459.1869489}.
 \newblock URL \url{http://doi.acm.org/10.1145/1869459.1869489}.
+
+\bibitem[Gen\^et et~al.(2014)Gen\^et, Ureche, and Odersky]{EPFL-REPORT-200245}
+Aymeric Gen\^et, Vlad Ureche, and Martin Odersky.
+\newblock Improving the {P}erformance of {S}cala {C}ollections with
+  {M}iniboxing.
+\newblock Technical report, 2014.
+\newblock URL \url{http://scala-miniboxing.org/}.
 
 \bibitem[Prokopec et~al.(2011)Prokopec, Rompf, Bagwell, and Odersky]{collect11}
 Aleksandar Prokopec, Tiark Rompf, Phil Bagwell, and Martin Odersky.

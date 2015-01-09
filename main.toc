@@ -47,35 +47,35 @@
 \contentsline {subsection}{\numberline {3.2.2}For transient states}{26}{subsection.251}
 \contentsline {subsection}{\numberline {3.2.3}Relaxing the Displays}{27}{subsection.253}
 \contentsline {subsection}{\numberline {3.2.4}Vector Canonicalization}{28}{subsection.266}
-\contentsline {section}{\numberline {3.3}Builder}{31}{section.269}
-\contentsline {paragraph}{Relaxing the Builder}{31}{section*.270}
-\contentsline {section}{\numberline {3.4}Iterator}{32}{section.271}
-\contentsline {paragraph}{Relaxing the Iterator}{32}{section*.273}
-\contentsline {chapter}{\numberline {4} Performance in Practice}{33}{chapter.274}
-\contentsline {section}{\numberline {4.1}In practice: Running on JVM}{33}{section.275}
-\contentsline {subsection}{\numberline {4.1.1}Cost of Abstraction and JIT Inline}{34}{subsection.276}
-\contentsline {section}{\numberline {4.2}Measuring performance}{35}{section.278}
-\contentsline {section}{\numberline {4.3}Implementation Generators}{36}{section.281}
-\contentsline {section}{\numberline {4.4}Benchmarks}{37}{section.284}
-\contentsline {subsection}{\numberline {4.4.1}Apply}{37}{subsection.285}
-\contentsline {subsection}{\numberline {4.4.2}Concatenation}{40}{subsection.290}
-\contentsline {subsection}{\numberline {4.4.3}Append}{41}{subsection.292}
-\contentsline {subsection}{\numberline {4.4.4}Prepend}{43}{subsection.296}
-\contentsline {subsection}{\numberline {4.4.5}Splits}{45}{subsection.300}
-\contentsline {subsection}{\numberline {4.4.6}Iterator}{46}{subsection.303}
-\contentsline {subsection}{\numberline {4.4.7}Builder}{49}{subsection.308}
-\contentsline {subsection}{\numberline {4.4.8}Parallel split-combine}{51}{subsection.312}
-\contentsline {subsection}{\numberline {4.4.9}Memory footprint}{53}{subsection.316}
-\contentsline {chapter}{\numberline {5}Testing}{55}{chapter.319}
-\contentsline {section}{\numberline {5.1}Black Box Testing}{55}{section.320}
-\contentsline {section}{\numberline {5.2}White Box Testing}{55}{section.321}
-\contentsline {chapter}{\numberline {6}Related and Future Work}{57}{chapter.323}
-\contentsline {section}{\numberline {6.1}Related Work}{57}{section.324}
-\contentsline {paragraph}{Paper: \emph {RRB-Trees: Efficient Immutable Vectors}}{58}{section*.325}
-\contentsline {paragraph}{Paper: \emph {Improving RRB-Tree Performance through Transience}}{58}{section*.325}
-\contentsline {section}{\numberline {6.2}Future Work}{58}{section.326}
-\contentsline {paragraph}{Mesure unbalance}{58}{section*.327}
-\contentsline {paragraph}{Simplify Code}{58}{section*.327}
-\contentsline {paragraph}{Formalization}{59}{section*.330}
-\contentsline {paragraph}{String concatenation}{59}{section*.330}
-\contentsline {chapter}{\numberline {7}Conclusions}{60}{chapter.331}
+\contentsline {section}{\numberline {3.3}Builder}{31}{section.270}
+\contentsline {paragraph}{Relaxing the Builder}{31}{section*.271}
+\contentsline {section}{\numberline {3.4}Iterator}{32}{section.272}
+\contentsline {paragraph}{Relaxing the Iterator}{32}{section*.274}
+\contentsline {chapter}{\numberline {4} Performance in Practice}{33}{chapter.275}
+\contentsline {section}{\numberline {4.1}In practice: Running on JVM}{33}{section.276}
+\contentsline {subsection}{\numberline {4.1.1}Cost of Abstraction and JIT Inline}{34}{subsection.277}
+\contentsline {section}{\numberline {4.2}Measuring performance}{35}{section.279}
+\contentsline {section}{\numberline {4.3}Implementation Generators}{36}{section.282}
+\contentsline {section}{\numberline {4.4}Benchmarks}{37}{section.285}
+\contentsline {subsection}{\numberline {4.4.1}Apply}{37}{subsection.286}
+\contentsline {subsection}{\numberline {4.4.2}Concatenation}{40}{subsection.291}
+\contentsline {subsection}{\numberline {4.4.3}Append}{41}{subsection.293}
+\contentsline {subsection}{\numberline {4.4.4}Prepend}{43}{subsection.297}
+\contentsline {subsection}{\numberline {4.4.5}Splits}{45}{subsection.301}
+\contentsline {subsection}{\numberline {4.4.6}Iterator}{46}{subsection.304}
+\contentsline {subsection}{\numberline {4.4.7}Builder}{49}{subsection.309}
+\contentsline {subsection}{\numberline {4.4.8}Parallel split-combine}{51}{subsection.313}
+\contentsline {subsection}{\numberline {4.4.9}Memory footprint}{53}{subsection.317}
+\contentsline {chapter}{\numberline {5}Testing}{55}{chapter.320}
+\contentsline {section}{\numberline {5.1}Black Box Testing}{55}{section.321}
+\contentsline {section}{\numberline {5.2}White Box Testing}{55}{section.322}
+\contentsline {chapter}{\numberline {6}Related and Future Work}{57}{chapter.324}
+\contentsline {section}{\numberline {6.1}Related Work}{57}{section.325}
+\contentsline {paragraph}{Paper: \emph {RRB-Trees: Efficient Immutable Vectors}}{58}{section*.326}
+\contentsline {paragraph}{Paper: \emph {Improving RRB-Tree Performance through Transience}}{58}{section*.326}
+\contentsline {section}{\numberline {6.2}Future Work}{58}{section.327}
+\contentsline {paragraph}{Mesure unbalance}{58}{section*.328}
+\contentsline {paragraph}{Simplify Code}{58}{section*.328}
+\contentsline {paragraph}{Formalization}{59}{section*.331}
+\contentsline {paragraph}{String concatenation}{59}{section*.331}
+\contentsline {chapter}{\numberline {7}Conclusions}{60}{chapter.332}

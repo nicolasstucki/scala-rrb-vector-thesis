@@ -250,9 +250,17 @@ This \texttt{getElement} method on the unbalanced subtrees of figure \ref{Balanc
 % State can mutate from transient to canonical exactly once (similar to lazy evaluation)
 % State mutation is not visible from outside
 % If more performance is requires it is possible to write transient state operations directly to transient state
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.8\textwidth]{Figures/StatesGraphRealySimple}
+  \caption{Transient state creation and canonicalization of vectors with operations effects.}
+  \label{StatesGraphRealySimple}
+\end{figure}
+
 As started in section \ref{sec:DisplaysTransient} vectors have two representation: canonical and transient. The transient state aims to improve performance of some operations by amortising costs. But, the transient state is not ideal for performance of other operations. For example an \texttt{apply} operation on an unbalanced vector may lack the sizes information it requires to access certain indices. And an iterator relies on a canonical tree for performance. It is always possible to implement those operations on transient states, but they would involve additional overhead on each call and duplication of code.
 
-The solution is to convert the transient representation to a canonical one when an operation that requires it is called on an instance of the immutable vector. The mutation of the vector is not visible from the outside and only happens at most once. This transformation only affects the nodes that are on the display, it copies each one (except the leaf) and links the trees. If the node is unbalanced, the size of the subtree in focus is inserted. This transformation could be seen as a lazy initialization of the current branch.
+The solution is to convert the transient representation to a canonical one when an operation that requires it is called on an instance of the immutable vector. The mutation of the vector is not visible from the outside and only happens at most once (see figure \ref{StatesGraphRealySimple}). This transformation only affects the nodes that are on the display, it copies each one (except the leaf) and links the trees. If the node is unbalanced, the size of the subtree in focus is inserted. This transformation could be seen as a lazy initialization of the current branch.
 
 \begin{figure}[h!]
   \centering
