@@ -7,45 +7,47 @@ Warning--I didn't find a database entry for "TODO"
 Warning--empty year in scalaVector211
 Warning--empty year in scalaParVector211
 Warning--empty year in scalameter
-You've used 4 entries,
+Warning--empty year in 4637966
+Warning--empty year in 4637966
+You've used 12 entries,
             2481 wiz_defined-function locations,
-            570 strings with 5019 characters,
-and the built_in function-call counts, 921 in all, are:
-= -- 83
-> -- 7
-< -- 1
-+ -- 12
-- -- 2
-* -- 51
-:= -- 117
-add.period$ -- 9
-call.type$ -- 4
-change.case$ -- 9
-chr.to.int$ -- 2
-cite$ -- 10
-duplicate$ -- 56
-empty$ -- 118
-format.name$ -- 3
-if$ -- 208
+            642 strings with 6842 characters,
+and the built_in function-call counts, 4149 in all, are:
+= -- 395
+> -- 133
+< -- 8
++ -- 64
+- -- 38
+* -- 291
+:= -- 622
+add.period$ -- 48
+call.type$ -- 12
+change.case$ -- 25
+chr.to.int$ -- 10
+cite$ -- 20
+duplicate$ -- 222
+empty$ -- 415
+format.name$ -- 51
+if$ -- 916
 int.to.chr$ -- 3
-int.to.str$ -- 5
-missing$ -- 0
-newline$ -- 25
-num.names$ -- 3
-pop$ -- 45
+int.to.str$ -- 13
+missing$ -- 6
+newline$ -- 78
+num.names$ -- 27
+pop$ -- 106
 preamble$ -- 1
-purify$ -- 4
+purify$ -- 12
 quote$ -- 0
-skip$ -- 39
+skip$ -- 140
 stack$ -- 0
-substring$ -- 11
-swap$ -- 10
-text.length$ -- 0
+substring$ -- 149
+swap$ -- 42
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 28
-warning$ -- 3
-while$ -- 2
+type$ -- 84
+warning$ -- 5
+while$ -- 29
 width$ -- 0
-write$ -- 50
-(There were 4 warnings)
+write$ -- 182
+(There were 6 warnings)

@@ -13,11 +13,11 @@ I% Chapter Template
 
 List of related subjects:
 \begin{itemize}
-  \item Scala Collections and Parallel Collection
-  \item Vector
-  \item RRB-Trees and RRB-Vectors
-  \item Semi-mutable data structures
-  \item Paper: Improving RRB-Tree Performance through Transience
+  \item Scala Collection \cite{collect11}
+  \item Scala Parallel Collection \cite{Lea:2000:JFF:337449.337465, Prokopec:2014aa}
+  \item RRB Trees and Vectors \cite{RRBTrees, lorange2014rrb}
+  \item Functional data structures and semi-mutable data structures \cite{DBLP:journals/jfp/HinzeP06, Driscoll:1989:MDS:64313.64317,4637966}
+  \item Paper: Improving RRB-Tree Performance through Transience \cite{lorange2014rrb}
   \item Performance and Code specialization (manual staging)
   \item JVM: Arrays, GC, JIT compiler
   \item ScalaMeter
@@ -63,4 +63,7 @@ Another way to simplify the code would involve the creation of a new abstraction
 % formal proof of correctness of relaxed operations
 % formal proof of correctness of canonicalisation
 There is still the need for formal proof on some operations. Mainly for the optimized implementations of the relaxed relaxed operations. The canonicalization operation of the vector also needs a formal proof and may be a interesting study case for immutable data structures with simple internal mutation schemes.
+
+\paragraph{String concatenation} 
+Explore the possibility of improving string concatenation using RRB vector. It would probably not be a good idea to use a vector of characters as a string due to overhead on memory an access time due to boxing of characters (this is speculation). Rather try to represent the result of string concatenations in a vector of strings. If a wrapper is used, it could use the same technique as the canonicalization to generate the actual string if needed and drop the vector. Compare performance with other string representation (like ropes \cite{SPE:SPE4380251203}).
 

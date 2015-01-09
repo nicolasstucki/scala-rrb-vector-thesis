@@ -1,4 +1,4 @@
-\begin{thebibliography}{4}
+\begin{thebibliography}{12}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -25,5 +25,67 @@ Tiark~Rompf Phil~Bagwell.
 \bibitem[sca({\natexlab{c}})]{scalameter}
 Scala{M}eter.
 \newblock \url{https://scalameter.github.io/}, {\natexlab{c}}.
+
+\bibitem[Prokopec et~al.(2011)Prokopec, Rompf, Bagwell, and Odersky]{collect11}
+Aleksandar Prokopec, Tiark Rompf, Phil Bagwell, and Martin Odersky.
+\newblock On a generic parallel collection framework, 2011.
+
+\bibitem[Lea(2000)]{Lea:2000:JFF:337449.337465}
+Doug Lea.
+\newblock A java fork/join framework.
+\newblock In \emph{Proceedings of the ACM 2000 Conference on Java Grande}, JAVA
+  '00, pages 36--43, New York, NY, USA, 2000. ACM.
+\newblock ISBN 1-58113-288-3.
+\newblock \doi{10.1145/337449.337465}.
+\newblock URL \url{http://doi.acm.org/10.1145/337449.337465}.
+
+\bibitem[Prokopec and Odersky(2014)]{Prokopec:2014aa}
+Aleksandar Prokopec and Martin Odersky.
+\newblock Near optimal work-stealing tree scheduler for highly irregular
+  data-parallel workloads.
+\newblock In \emph{Languages and Compilers for Parallel Computing}, Lecture
+  Notes in Computer Science, pages 55--86. Springer International Publishing,
+  2014.
+\newblock ISBN 978-3-319-09966-8.
+\newblock \doi{10.1007/978-3-319-09967-5_4}.
+\newblock URL \url{http://dx.doi.org/10.1007/978-3-319-09967-5_4}.
+
+\bibitem[L'orange(2014)]{lorange2014rrb}
+Jean~Niklas L'orange.
+\newblock {Improving RRB-Tree Performance through Transience}.
+\newblock Master's thesis, Norwegian University of Science and Technology, June
+  2014.
+
+\bibitem[Hinze and Paterson(2006)]{DBLP:journals/jfp/HinzeP06}
+Ralf Hinze and Ross Paterson.
+\newblock Finger trees: a simple general-purpose data structure.
+\newblock \emph{J. Funct. Program.}, 16\penalty0 (2):\penalty0 197--217, 2006.
+\newblock \doi{10.1017/S0956796805005769}.
+\newblock URL \url{http://dx.doi.org/10.1017/S0956796805005769}.
+
+\bibitem[Driscoll et~al.(1989)Driscoll, Sarnak, Sleator, and
+  Tarjan]{Driscoll:1989:MDS:64313.64317}
+James~R. Driscoll, Neil Sarnak, Daniel~D. Sleator, and Robert~E. Tarjan.
+\newblock Making data structures persistent.
+\newblock \emph{J. Comput. Syst. Sci.}, 38\penalty0 (1):\penalty0 86--124,
+  February 1989.
+\newblock ISSN 0022-0000.
+\newblock \doi{10.1016/0022-0000(89)90034-2}.
+\newblock URL \url{http://dx.doi.org/10.1016/0022-0000(89)90034-2}.
+
+\bibitem[Bagwell()]{4637966}
+Phil Bagwell.
+\newblock {Fast Functional Lists, Hash-Lists, Deques and Variable Length
+  Arrays}.
+\newblock In \emph{Implementation of Functional Languages}.
+
+\bibitem[Boehm et~al.(1995)Boehm, Atkinson, and Plass]{SPE:SPE4380251203}
+Hans-J. Boehm, Russ Atkinson, and Michael Plass.
+\newblock Ropes: An alternative to strings.
+\newblock \emph{Software: Practice and Experience}, 25\penalty0 (12):\penalty0
+  1315--1330, 1995.
+\newblock ISSN 1097-024X.
+\newblock \doi{10.1002/spe.4380251203}.
+\newblock URL \url{http://dx.doi.org/10.1002/spe.4380251203}.
 
 \end{thebibliography}
