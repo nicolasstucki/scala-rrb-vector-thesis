@@ -77,5 +77,4 @@
 \contentsline {paragraph}{Mesure unbalance}{58}{section*.328}
 \contentsline {paragraph}{Simplify Code}{58}{section*.328}
 \contentsline {paragraph}{Formalization}{59}{section*.331}
-\contentsline {paragraph}{String concatenation}{59}{section*.331}
 \contentsline {chapter}{\numberline {7}Conclusions}{60}{chapter.332}

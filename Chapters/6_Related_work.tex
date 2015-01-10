@@ -14,18 +14,18 @@ I% Chapter Template
 List of related subjects:
 \begin{itemize}
   \item RRB Trees and Vectors \cite{RRBTrees, lorange2014rrb, cormen2001introduction}
-  \item Scala \cite{odersky2008programming}
+  \item Scala \cite{odersky2008programming,36605}
   \item Scala Collection \cite{ 1979992642, Oliveira:2010:TCO:1869459.1869489, EPFL-REPORT-200245}
   \item Scala Parallel Collection \cite{collect11,Lea:2000:JFF:337449.337465, 6264/THESES, Prokopec:2014aa}
   \item Functional data structures and semi-mutable data structures \cite{DBLP:journals/jfp/HinzeP06, Driscoll:1989:MDS:64313.64317,4637966}
   \item Paper: Improving RRB-Tree Performance through Transience \cite{lorange2014rrb}
   \item Performance and Code specialization \cite{5456/THESES, Chafi:2011:DAH:1941553.1941561}
   \item JVM: Arrays, GC, JIT compiler \cite{Kotzmann:2008:DJH:1369396.1370017, Paleczny:2001:JHT:1267847.1267848, Wurthinger:2011:EGC:2048147.2048168}
-  \item ScalaMeter \cite{Georges:2007:SRJ:1297027.1297033}
-  \item Scala Test
+  \item ScalaMeter \cite{Georges:2007:SRJ:1297027.1297033,scalameter}
+  \item Scala Test \cite{scalatest}
   \item Scala Reflection and Quasiquotes \cite{EPFL-CONF-186844, quasiquotes}
   \item Type specialization and Miniboxing \cite{Ureche:2013:MIS:2509136.2509537, Ureche:2014:LDL:2660193.2660197, Stucki:2013:BIS:2489837.2489847, 4820/THESES, EPFL-REPORT-200245}
-  \item Fusion \cite{Coutts:2007:SFL:1291151.1291199, ScalaBlitz}
+  \item Fusion \cite{Coutts:2007:SFL:1291151.1291199, scalablitz15}
 \end{itemize}
 
 \color{red} TODO: Cite references \color{black}
@@ -67,6 +67,6 @@ Another way to simplify the code would involve the creation of a new abstraction
 % formal proof of correctness of canonicalisation
 There is still the need for formal proof on some operations. Mainly for the optimized implementations of the relaxed relaxed operations. The canonicalization operation of the vector also needs a formal proof and may be a interesting study case for immutable data structures with simple internal mutation schemes.
 
-\paragraph{String concatenation} 
-Explore the possibility of improving string concatenation using RRB vector. It would probably not be a good idea to use a vector of characters as a string due to overhead on memory an access time due to boxing of characters (this is speculation). Rather try to represent the result of string concatenations in a vector of strings. If a wrapper is used, it could use the same technique as the canonicalization to generate the actual string if needed and drop the vector. Compare performance with other string representation (like ropes \cite{SPE:SPE4380251203}).
+%\paragraph{String concatenation} 
+%Explore the possibility of improving string concatenation using RRB vector. It would probably not be a good idea to use a vector of characters as a string due to overhead on memory an access time due to boxing of characters (this is speculation). Rather try to represent the result of string concatenations in a vector of strings. If a wrapper is used, it could use the same technique as the canonicalization to generate the actual string if needed and drop the vector. Compare performance with other string representation (like ropes \cite{SPE:SPE4380251203}).
 
