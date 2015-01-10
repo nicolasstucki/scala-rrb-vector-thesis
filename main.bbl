@@ -1,4 +1,4 @@
-\begin{thebibliography}{35}
+\begin{thebibliography}{39}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -125,6 +125,12 @@ Aleksandar Prokopec and Martin Odersky.
 \newblock \doi{10.1007/978-3-319-09967-5_4}.
 \newblock URL \url{http://dx.doi.org/10.1007/978-3-319-09967-5_4}.
 
+\bibitem[Okasaki(1998)]{Okasaki:1998:PFD:280586}
+Chris Okasaki.
+\newblock \emph{Purely Functional Data Structures}.
+\newblock Cambridge University Press, New York, NY, USA, 1998.
+\newblock ISBN 0-521-63124-6.
+
 \bibitem[Hinze and Paterson(2006)]{DBLP:journals/jfp/HinzeP06}
 Ralf Hinze and Ross Paterson.
 \newblock Finger trees: a simple general-purpose data structure.
@@ -147,6 +153,29 @@ Phil Bagwell.
 \newblock {Fast Functional Lists, Hash-Lists, Deques and Variable Length
   Arrays}.
 \newblock In \emph{Implementation of Functional Languages}, 2002.
+
+\bibitem[Bayer and McCreight(1970)]{Bayer:1970:OML:1734663.1734671}
+R.~Bayer and E.~McCreight.
+\newblock Organization and maintenance of large ordered indices.
+\newblock In \emph{Proceedings of the 1970 ACM SIGFIDET (Now SIGMOD) Workshop
+  on Data Description, Access and Control}, SIGFIDET '70, pages 107--141, New
+  York, NY, USA, 1970. ACM.
+\newblock \doi{10.1145/1734663.1734671}.
+\newblock URL \url{http://doi.acm.org/10.1145/1734663.1734671}.
+
+\bibitem[Boehm et~al.(1995)Boehm, Atkinson, and Plass]{SPE:SPE4380251203}
+Hans-J. Boehm, Russ Atkinson, and Michael Plass.
+\newblock Ropes: An alternative to strings.
+\newblock \emph{Software: Practice and Experience}, 25\penalty0 (12):\penalty0
+  1315--1330, 1995.
+\newblock ISSN 1097-024X.
+\newblock \doi{10.1002/spe.4380251203}.
+\newblock URL \url{http://dx.doi.org/10.1002/spe.4380251203}.
+
+\bibitem[Bagwell(2001)]{Bagwell01idealhash}
+Phil Bagwell.
+\newblock Ideal hash trees.
+\newblock \emph{Es Grands Champs}, 1195, 2001.
 
 \bibitem[Rompf(2012)]{5456/THESES}
 Tiark Rompf.

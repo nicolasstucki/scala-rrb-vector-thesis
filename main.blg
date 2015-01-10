@@ -6,45 +6,45 @@ Database file #1: Bibliography.bib
 Warning--empty year in scalameter
 Warning--empty year in scalatest
 Warning--empty booktitle in scalablitz15
-You've used 35 entries,
+You've used 39 entries,
             2481 wiz_defined-function locations,
-            818 strings with 12710 characters,
-and the built_in function-call counts, 13622 in all, are:
-= -- 1319
-> -- 539
-< -- 31
-+ -- 227
-- -- 156
-* -- 936
-:= -- 2132
-add.period$ -- 162
-call.type$ -- 35
-change.case$ -- 65
-chr.to.int$ -- 34
-cite$ -- 40
-duplicate$ -- 739
-empty$ -- 1233
-format.name$ -- 195
-if$ -- 3021
+            852 strings with 13506 characters,
+and the built_in function-call counts, 15183 in all, are:
+= -- 1475
+> -- 589
+< -- 35
++ -- 249
+- -- 170
+* -- 1041
+:= -- 2374
+add.period$ -- 181
+call.type$ -- 39
+change.case$ -- 72
+chr.to.int$ -- 38
+cite$ -- 44
+duplicate$ -- 826
+empty$ -- 1380
+format.name$ -- 215
+if$ -- 3368
 int.to.chr$ -- 2
-int.to.str$ -- 36
-missing$ -- 24
-newline$ -- 228
-num.names$ -- 99
-pop$ -- 278
+int.to.str$ -- 40
+missing$ -- 29
+newline$ -- 254
+num.names$ -- 111
+pop$ -- 306
 preamble$ -- 1
-purify$ -- 35
+purify$ -- 39
 quote$ -- 0
-skip$ -- 475
+skip$ -- 531
 stack$ -- 0
-substring$ -- 471
-swap$ -- 172
-text.length$ -- 14
+substring$ -- 542
+swap$ -- 189
+text.length$ -- 15
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 236
+type$ -- 261
 warning$ -- 3
-while$ -- 107
+while$ -- 120
 width$ -- 0
-write$ -- 577
+write$ -- 644
 (There were 3 warnings)
