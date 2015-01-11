@@ -27,6 +27,10 @@ Nicolas Stucki.
   \url{https://github.com/scala/scala/blob/f4267ccd96a9143c910c66a5b0436aaa64b7c9dc/src/library/scala/collection/parallel/immutable/ParVector.scala},
   9 2013{\natexlab{b}}.
 
+\bibitem[Prokopec et~al.(2011)Prokopec, Rompf, Bagwell, and Odersky]{collect11}
+Aleksandar Prokopec, Tiark Rompf, Phil Bagwell, and Martin Odersky.
+\newblock On a generic parallel collection framework, 2011.
+
 \bibitem[Prokopec()]{scalameter}
 Aleksandar Prokopec.
 \newblock Scala{M}eter.
@@ -94,10 +98,6 @@ Aymeric Gen\^et, Vlad Ureche, and Martin Odersky.
   {M}iniboxing.
 \newblock Technical report, EPFL, 2014.
 \newblock URL \url{http://scala-miniboxing.org/}.
-
-\bibitem[Prokopec et~al.(2011)Prokopec, Rompf, Bagwell, and Odersky]{collect11}
-Aleksandar Prokopec, Tiark Rompf, Phil Bagwell, and Martin Odersky.
-\newblock On a generic parallel collection framework, 2011.
 
 \bibitem[Lea(2000)]{Lea:2000:JFF:337449.337465}
 Doug Lea.
