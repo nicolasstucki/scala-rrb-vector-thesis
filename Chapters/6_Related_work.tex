@@ -28,18 +28,7 @@ List of related subjects:
   \item Fusion \cite{Coutts:2007:SFL:1291151.1291199, scalablitz15}
 \end{itemize}
 
-\color{red} TODO: Cite references \color{black}
-
-\paragraph{Paper: \emph{RRB-Trees: Efficient Immutable Vectors}}
-\color{red} TODO \color{black}
-
-\paragraph{Paper: \emph{Improving RRB-Tree Performance through Transience}}
-
-% Describe the improvements proposed with transient mutable states
-
-% Describe fundamental difference between this transience and the display one.
-
-\color{red} TODO \color{black}
+\color{red} TODO: Cite more references \color{black}
 
 
 
@@ -53,7 +42,7 @@ List of related subjects:
 % characterize vectors on real world programs
 One analysis that was left out of the scope of this project was the characterization of the vectors unbalance. There is currently no way to quantitatively measure the unbalance of on the tree node. Some ideas for this are: number of unbalanced nodes, number of balanced subtrees, average height of balanced subtrees, ... 
 
-Once this measurement exists it would be possible would be possible to conduct a real world application characterisation of fe vectors. And see how common the unbalanced vectors are and if they are only slightly unbalanced or extremely unbalanced. From this it would be possible to give a true expected performance for the cases where the performances differ.
+Once this measurement exists it would be possible to conduct a real world application characterisation of these vectors. And see how common the unbalanced vectors are and if they are only slightly unbalanced or extremely unbalanced. From this it would be possible to give a true expected performance for the cases where the performances differ.
 
 \paragraph{Simplify Code}
 % use macros to define core operations of the vector to simplify expanded code (half of the work is already done on the generators)
@@ -65,7 +54,7 @@ Another way to simplify the code would involve the creation of a new abstraction
 \paragraph{Formalization}
 % formal proof of correctness of relaxed operations
 % formal proof of correctness of canonicalisation
-There is still the need for formal proof on some operations. Mainly for the optimized implementations of the relaxed relaxed operations. The canonicalization operation of the vector also needs a formal proof and may be a interesting study case for immutable data structures with simple internal mutation schemes.
+There is still the need for formal proof on some operations. Mainly for the optimized implementations of the relaxed operations. The canonicalization operation of the vector also needs a formal proof and may be a interesting study case for immutable data structures with simple internal mutation schemes.
 
 %\paragraph{String concatenation} 
 %Explore the possibility of improving string concatenation using RRB vector. It would probably not be a good idea to use a vector of characters as a string due to overhead on memory an access time due to boxing of characters (this is speculation). Rather try to represent the result of string concatenations in a vector of strings. If a wrapper is used, it could use the same technique as the canonicalization to generate the actual string if needed and drop the vector. Compare performance with other string representation (like ropes \cite{SPE:SPE4380251203}).

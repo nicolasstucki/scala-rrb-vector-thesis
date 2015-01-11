@@ -19,7 +19,7 @@ In practice, Scala compiles to Java bytecode and executes on a JVM, where we tak
 The JVM use \emph{just in time} (or JIT) compilation of code to take advantage of knowledge about how the code is used at runtime. At first it runs on interpreter mode, it consists of interpreting the bytecode and collecting statistics on the codes execution. Eventually it will compile the code to make it faster using several optimizations and heuristics. The code of the vectors tries to gains performance by aligning with those heuristics and hence taking advantage of the JVM optimizations.
 
 % GC and memory allocations
-One of the components of the JVM that will be affected by vectors is the garbage collector. The vector tends to create a large amount of \texttt{Arrays} during transformations, of which many are only necessary for a short time. Those objects will use up memory and possibly degrade performance of future allocations, until the next GC. Having all these unused object will also contribute in an increase in the frequency of GC executions. For that reason the code is optimized to avoid excessive creation of intermediary objects.
+One of the components of the JVM that will be affected by vectors is the garbage collector (or GC). The vector tends to create a large amount of \texttt{Arrays} during transformations, of which many are only necessary for a short time. Those objects will use up memory and possibly degrade performance of future allocations, until the next GC. Having all these unused object will also contribute in an increase in the frequency of GC executions. For that reason the code is optimized to avoid excessive creation of intermediary objects.
 
 % memory access and caches
 % system arraycopy primitive
@@ -36,7 +36,7 @@ One of the optimizations that the JVM provides is function call elimination (abs
 % aim to make all critical methods 35< bytes
 The optimisation works as follows: the code is run in interpretation mode first while keeping track of statistics on which parts of the code are executed and how many times. When the code is eventually compiled, function calls that are deemed \emph{hot} are inlined. The heuristic favours inline when the function has less than 35 bytes. 
 
-We use this knowledge of the heuristic in two ways. The first is to avoid inlining everything, if the function is small and there is no other optimization that can be done if inline manual, the code is kept as a function. The second is to inline the methods of the vector API into the clients code. When implementing functions with less than 35 bytes, performance was tested and cross referenced with the VMs inlining diagnostic\footnote{The JVMs \texttt{"-XX:+UnlockDiagnosticVMOptions -XX:+PrintInlining"} flag was used to track the inlining.}. The code was inspected using \texttt{javap -c}, which gives the sizes of the function and helped identifying some optimization possibilities.
+We use this knowledge of the heuristic in two ways. The first is to avoid inlining everything, if the function is small and there is no other optimization that can be done if inlined manualy, the code is kept as a function. The second is to inline the methods of the vector API into the clients code. When implementing functions with less than 35 bytes, performance was tested and cross referenced with the VMs inlining diagnostic\footnote{The JVMs \texttt{"-XX:+UnlockDiagnosticVMOptions -XX:+PrintInlining"} flag was used to track the inlining.}. The code was inspected using \texttt{javap -c}, which gives the sizes of the function and helped identifying some optimization possibilities.
 
 %----------------------------------------------------------------------------------------
 %	SECTION Scalameter
@@ -44,13 +44,13 @@ We use this knowledge of the heuristic in two ways. The first is to avoid inlini
 \clearpage
 \section{Measuring performance}
 % Scalameter
-ScalaMeter framework\cite{scalameter} is used to measure performance of operations on different implementations of vector. This framework was used to spot identify performance improvements or regressions during the development process. 
+ScalaMeter framework\cite{scalameter} is used to measure performance of operations on different implementations of vector. This framework was used to identify performance improvements or regressions during the development process. 
 
 % warmup to compile code and reduce jitter (JIT, GC)
 To have reproducible results with low error margins, ScalaMeter was configured on a per benchmark basis\footnote{The JVM \texttt{-XX:+PrintCompilation} flag vas used to help identifying the ideal configuration.}. Each test is run on 32 different JVM instances to average out badly allocated VMs. On each JVM 32 measurements are taken, while using outlier elimination to remove benchmark runs that where exceptionally different. This could happen if one particular run has a garbage collection, JIT compilation of code or OS executing something else. Before the benchmark runs the JVM is warmed up by running some times the benchmark without taking measurements. During these first execution the VM will be loading classes, taking some statistic on the code and then eventually compiling it.
 
 % types of vectors
-There are two main axis of performance comparisons. The first is between the RB-Vector and a perfectly balanced RRB-Tree where the aim is to have an equivalent performance, even if the RRB-Vector have an inherent additional overhead. The second axis is the one that shows the effects of unbalanced nodes on RRB-Tree. For this we compare the same perfect balanced vector with one that is the result of one concatenation of two vectors and with an extremely unbalanced vector. The later vector is generated by concatenating random\footnote{Pseudo random generator where used to be able to reproduce the same ones each time.} small vectors together. The amount of unbalanced nodes is in part affected by the size of the vector. Other axes are discussed in the next section.
+There are two main axis of performance comparisons. The first is between the RB-Vector and a perfectly balanced RRB-Tree where the aim is to have an equivalent performance, even if the RRB-Vectors have an inherent additional overhead. The second axis is the one that shows the effects of unbalanced nodes on RRB-Tree. For this we compare the same perfect balanced vector with one that is the result of one concatenation of two vectors and with an extremely unbalanced vector. The later vector is generated by concatenating random\footnote{Pseudo random generator where used to be able to reproduce the same ones each time.} small vectors together. The amount of unbalanced nodes is in part affected by the size of the vector. Other axes are discussed in the next section.
 
 %----------------------------------------------------------------------------------------
 %	SECTION Generators
@@ -58,20 +58,15 @@ There are two main axis of performance comparisons. The first is between the RB-
 \clearpage
 \section{Implementation Generators}
 \label{ImplementationGenerators}
-Until now only one implementation of the RRB-Vector\footnote{Located in the \texttt{scala.collection.immutable.rrbvector} package on GitHub} that is compared against the RB-Vector. But in fact to compare performance on different characteristics like block sizes and concatenation algorithm variant concrete implementations where generated using Scala reflection. Other characteristics involve a complete structure assertion while testing and benchmarks generation. For each combination of characteristics there is a concrete artefact: class implementation, tests and benchmarks.
+Until now, only one implementation of the RRB-Vector\footnote{Located in the \texttt{scala.collection.immutable.rrbvector} package on GitHub} was mentioned, comparing it against the RB-Vector. But in fact to compare performance on different characteristics like block sizes and concatenation algorithm variant concrete implementations where generated using Scala reflection. Other characteristics involve a complete structure assertion while testing and benchmarks generation. For each combination of characteristics there is a concrete artefact: class implementation, tests and benchmarks.
 
 Code is generated by combining AST using Quasiquotes with some domain specific optimizations. The optimizations are the same that where applied manually on the main implementation of the RRB-Vector. The resulting code is equivalent, except that it lacks formatting. The name of the artefact is used to identify the different characteristics\footnote{All generated artefacts are in the \texttt{scala.collection.immutable.generated.rrbvector} package on GitHub}.
 
 % block sizes
-The block sizes used where 32, 64, 128 and 256. 
-The main aim is the differences in performances of the operations and identify sizes for which permanence degrades due to loss of cache locality. 
-This is the only number in the name of the artefact.
+The block sizes used where 32, 64, 128 and 256. The main aim is to show the differences in performances of the operations and identify sizes for which permanence degrades due to loss of cache locality. This is the only number in the name of the artefact.
 
 % concat implementation
-Both version of the RRB-Vector are to generate vectors. 
-This done mostly to compare the performances of other operation on vector that got unbalanced using concatenation. 
-\texttt{Complete} (or \texttt{c} in the name of the artefact) is used to name identify the version that rebalances completely the subtree. 
-The other one is named \texttt{Quick} or \texttt{q} in the name of the artefact.
+Both versions of the RRB-Vector concatenation algorithm are used to generate vector implementations. This is done mostly to compare the performances of other operation on vector that got unbalanced using concatenation. \texttt{Complete} (or \texttt{c} in the name of the artefact) is used to name identify the version that rebalances completely the subtree. The other one is named \texttt{Quick} or \texttt{q} in the name of the artefact.
 
 % testing
 For testing purposes, for each implementation there is a second one generated with heavy assertions on the whole structure of the vector on most methods (see \ref{InvariantAssertions}). 
@@ -79,7 +74,7 @@ Concrete benchmarks are also generated at the same time.
 
 Generating this code was the only reasonable way to implement this huge amount of classes while implementing new features on them. 
 Changes that would otherwise had to be propagated by hand on each one. 
-This also help to find and fix bugs, because a bug has a higher probability of affecting at leas one of the artefact and a fixed bug fixes it on all of them.
+This also help to find and fix bugs, because a bug has a higher probability of affecting at least one of the artefact and a fix for a bug is reflected on all of them.
 
 %----------------------------------------------------------------------------------------
 %	SECTION Benchmarks
@@ -105,14 +100,14 @@ The axis of comparisons are:
 \end{itemize}
 
 % machine description
-For the results of this sections, All benchmarks where executed on a Java HotSpot(TM) 64-Bit Server VM on a machine with an Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz with 32GiB on RAM. Each benchmarking VM instance was setup with 16GiB of heap memory. 
+For the results of this sections, all benchmarks where executed on a Java HotSpot(TM) 64-Bit Server VM on a machine with an Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz with 32GiB on RAM. Each benchmarking VM instance was setup with 16GiB of heap memory. 
 
 %-----------------------------------
 %	SUBSECTION Apply
 %-----------------------------------
 \subsection{Apply}
 % describe the benchmark function
-The \texttt{apply} benchmarks aim to see the amortized access time of elements. Amortizing the displays optimization and memory caches. For this, each benchmark invokes the \texttt{apply} operation $10k$ times on different elements. 
+The \texttt{apply} benchmarks aim to show the amortized access time of elements. Amortizing the displays optimization and memory caches. For this, each benchmark invokes the \texttt{apply} operation $10k$ times on different elements. 
 
 There are two variants: the first variant access the elements sequentially and the second one chooses each time a random index. The first one is supposed to have better performance because the array that are access tend to be in cache. The computations of the next index is also a bit more complex on the second one, but mostly irrelevant compared with the cache misses of all the arrays on a branch.
 
@@ -127,7 +122,7 @@ The benchmark results for the sequential access in figures \ref{ApplyBenchmarks2
    \label{ApplyBenchmarks2}
 \end{figure}
 
-The performance improvements where achieved by analysing the sizes of the functions involved, there inlining and which parts of the code is used in each case. The aim was to improve performance of unbalanced vectors, that is why in some cases the slightly unbalanced vector is the faster. 
+The performance improvements where achieved by analysing the sizes of the functions involved, there inlining and which parts of the code is used in each case. The aim was to improve performance of unbalanced vectors, that is why in some cases the slightly unbalanced vector is the fastest. 
 
 \begin{figure}[h!]
   \centering
@@ -138,7 +133,7 @@ The performance improvements where achieved by analysing the sizes of the functi
 
 \FloatBarrier
 
-Figure \ref{ApplyRandomBenchmarks} show the results for random indices. It can be observed that the behaviour of the curve is quite similar, but the sequential one is around 2X faster due to memory locality.
+Figure \ref{ApplyRandomBenchmarks} shows the results for random indices. It can be observed that the behaviour of the curve is quite similar, but the sequential one is around 2X faster due to memory locality.
 
 \begin{figure}[h!]
   \centering
@@ -195,7 +190,7 @@ The benchmark for the Quick rebalancing version where not included here because 
 %-----------------------------------
 \subsection{Append}
 % describe the benchmark function
-The \texttt{append} benchmarks aim to see the amortised time taken to appending elements. With the transient states, the branch updates are amortized over leaf updates. For this, each benchmark appends 256 elements on a vector. This way there is at least one branch update for each benchmark, 8 if the block size is 32.
+The \texttt{append} benchmarks aim to show the amortised time taken to append elements. With the transient states, the branch updates are amortized over leaf updates. For this, each benchmark appends 256 elements on a vector. This way there is at least one branch update for each benchmark, 8 if the block size is 32.
 
 \begin{figure}[h!]
   \centering
@@ -239,7 +234,7 @@ Finally, the figures \ref{AppendBlocksBenchmarks} show what would happen if the 
 %-----------------------------------
 \subsection{Prepend}
 % describe the benchmark function
-The \texttt{prepend} benchmarks aim to see the amortised time taken to prepending elements. With the transient states, the branch updates are amortized over leaf updates. For this, each benchmark appends 256 elements on a vector. This way there is at least one branch update for each benchmark, 8 if the block size is 32.
+The \texttt{prepend} benchmarks aim to show the amortised time taken to prepending elements. With the transient states, the branch updates are amortized over leaf updates. For this, each benchmark appends 256 elements on a vector. This way there is at least one branch update for each benchmark, 8 if the block size is 32.
 
 % compare expectation with results
 % explain the upper bound
@@ -252,7 +247,7 @@ The \texttt{prepend} benchmarks aim to see the amortised time taken to prependin
   \label{Prepend2Benchmarks}
 \end{figure}
 
-The figures \ref{Prepend2Benchmarks} and \ref{Prepend3Benchmarks} show that the prepend operation on a balanced RRB-Vector is a bit slower. This is because prepending on this kind of vector requires the creation or update of an unbalanced node. But, this is a a case where the unbalanced vectors end up being more performant. This is because on these vectors there it is possible to find space to perpend elements on the left of the tree. In figure \ref{Prepend2Benchmarks} it is possible to see that after 768 the performance does a step upward, this correspond to the addition of a level in the tree.
+The figures \ref{Prepend2Benchmarks} and \ref{Prepend3Benchmarks} show that the prepend operation on a balanced RRB-Vector is a bit slower. This is because prepending on this kind of vector requires the creation or update of an unbalanced node. But, this is a a case where the unbalanced vectors end up being more performant. This is because on these vectors it is possible to find space to perpend elements on the left of the tree. In figure \ref{Prepend2Benchmarks} it is possible to see that after 768 the performance does a step upward, this correspond to the addition of a level in the tree.
 
 \begin{figure}[h!]
   \centering
@@ -284,7 +279,7 @@ Finally, the figures \ref{PrependBlocksBenchmarks} show what would happen if the
 % describe the benchmark function
 The \texttt{take} and \texttt{drop} benchmarks aimed to show the performance of those operation on a couple of splitting points. The splitting points where done on the middle of the vectors an on the first quarter of the vector. 
   
-Figure \ref{TakeBenchmarks} shows the performance for the take operation, and figure \ref{DropBenchmarks}. The performances are not always ideal. But the different types of vector have a consistent splitting time with different splitting indices and operation (\texttt{take} against \texttt{drop}). For some reason the slightly unbalanced vector is sower than the other ones.  
+Figure \ref{TakeBenchmarks} shows the performance for the take operation, and figure \ref{DropBenchmarks}. The performances are not always ideal. But the different types of vector have a consistent splitting time with different splitting indices and operation (\texttt{take} against \texttt{drop}). 
  
 To be consistent with the other benchmarks, the characterization of vector was done by size. But, maybe this was not ideal as the characteristics of the branch that is being split and the index where it's split are more influential on performance than the size. 
 
@@ -315,7 +310,7 @@ To be consistent with the other benchmarks, the characterization of vector was d
 %-----------------------------------
 \subsection{Iterator}
 % describe the benchmark function
-The iteration benchmarks aim to see the performance of traversing the whole vector using an iterator. Linear behaviour is expected from these benchmarks.
+The iteration benchmarks aim to show the performance of traversing the whole vector using an iterator. Linear behaviour is expected from these benchmarks.
 
 \begin{figure}[h!]
   \centering
@@ -381,7 +376,7 @@ Figures \ref{Builder3Benchmarks} and \ref{Builder4Benchmarks} show that the RB a
 
 \FloatBarrier
 
-Increasing the sizes of the blocks will reduce the amounts of blocks that need to be allocated during the building. Larger block will also take slightly longer to allocate. Figure \ref{BuilderBlocksBenchmarks} shows that the difference is not really big, but with a sweet spot on blocks of size 64 for builders.
+Increasing the sizes of the blocks will reduce the amounts of blocks that need to be allocated during the building. Larger blocks will also take slightly longer to allocate. Figure \ref{BuilderBlocksBenchmarks} shows that the difference isn't substantial, but has a sweet spot on blocks of size 64 for builders.
 
 \begin{figure}[h!]
   \centering
@@ -411,9 +406,9 @@ In figure \ref{ParallelBenchmarks} it can be seen that the base sequential \text
   \label{ParallelBenchmarks}
 \end{figure}
 
-The current parallel \texttt{Vector} (that uses RB-Trees) results show that with 1, 2 and 4 threads the performance of the operation is worse. With 8 threads it becomes a little bit faster. This is what we expected, due to the lazy concatenation at the end of the combination of results. But, it show that this parallel collection is useless in practice.
+The results for the parallel RB \texttt{Vector} show that with 1, 2 and 4 threads the performance of the operation is worse. With 8 threads it becomes a little bit faster. This is what we expected, due to the lazy concatenation at the end of the combination of results. But, it show that this parallel collection is useless in practice.
 
-When using the RRB-Vectors parallel, the parallelism is evident. With two threads the performance improvement is of almost 2X, then it tends to go towards 2.5X. This is the type of parallelism behaviour that is expected (see Amdahl's law\cite{Rodgers:1985:IMS:327010.327215}). Even the case on thread pool of one thread is a bit faster than the normal sequential one. 
+When using the RRB-Vectors parallel, the parallelism is evident. With two threads the performance improvement is of almost 2X, then it tends to go towards 2.5X. This is the type of parallelism behaviour that is expected (see Amdahl's law\cite{Rodgers:1985:IMS:327010.327215}). Even the case on thread pool of one thread is a bit faster than the normal sequential one, as the thread is dedicated. 
 \FloatBarrier
 
 Figure \ref{ParallelUnbalancedBenchmarks} shows how unbalanced parallel vector behave. There is a slight loss in performance when they are unbalanced. But, this operations will create a balanced vector and therefore this small overhead can be amortized over the next operations.
@@ -435,7 +430,7 @@ Figure \ref{ParallelUnbalancedBenchmarks} shows how unbalanced parallel vector b
 %-----------------------------------
 \subsection{Memory footprint}
 % describe the benchmark function
-This is not really a benchmark, it is rather the characterization of the memory footprint of the vector that where used as input in the benchmarks. The aim of this is to show that even with the additional sizes of the unbalanced nodes and additional fields, the vectors size in memory is almost the same. 
+This is not really a benchmark, it is rather the characterization of the memory footprint of the vectors that where used as input in the benchmarks. The aim of this is to show that even with the additional sizes of the unbalanced nodes and additional fields, the vectors size in memory is almost the same. 
 
 % compare expectation with results
 % explain the upper bound

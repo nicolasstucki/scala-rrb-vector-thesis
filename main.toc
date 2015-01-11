@@ -76,10 +76,8 @@
 \contentsline {section}{\numberline {5.2}White Box Testing}{56}{section.333}
 \contentsline {chapter}{\numberline {6}Related and Future Work}{58}{chapter.335}
 \contentsline {section}{\numberline {6.1}Related Work}{58}{section.336}
-\contentsline {paragraph}{Paper: \emph {RRB-Trees: Efficient Immutable Vectors}}{59}{section*.337}
-\contentsline {paragraph}{Paper: \emph {Improving RRB-Tree Performance through Transience}}{59}{section*.337}
-\contentsline {section}{\numberline {6.2}Future Work}{59}{section.338}
-\contentsline {paragraph}{Mesure unbalance}{59}{section*.339}
-\contentsline {paragraph}{Simplify Code}{59}{section*.339}
-\contentsline {paragraph}{Formalization}{60}{section*.342}
-\contentsline {chapter}{\numberline {7}Conclusions}{61}{chapter.343}
+\contentsline {section}{\numberline {6.2}Future Work}{59}{section.337}
+\contentsline {paragraph}{Mesure unbalance}{59}{section*.338}
+\contentsline {paragraph}{Simplify Code}{59}{section*.338}
+\contentsline {paragraph}{Formalization}{59}{section*.341}
+\contentsline {chapter}{\numberline {7}Conclusions}{61}{chapter.342}

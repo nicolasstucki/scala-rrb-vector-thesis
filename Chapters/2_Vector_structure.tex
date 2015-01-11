@@ -62,7 +62,7 @@ The performances of most operations on RB-Trees have a computational complexity 
 % naive implementation just as high level guide
 In this section the operations will be presented on a high level\footnote{Ignoring some pieces of code like casts, return types, type covariance, among others.} and without optimization. These reflect the base implementation that is used before adding optimizations, which, in many cases lower the cost of the operations (see Chapter \ref{Optimizations}). This makes the operations in this section act as worst-case scenarios, when none of the optimizations apply and thus the basic operations have to be performed.
 
-For simplicity of written code we define:
+For simplicity of code in this section we define:
 \begin{lstlisting}[frame=single]
   type Node = Array[AnyRef]
   val Node = Array
