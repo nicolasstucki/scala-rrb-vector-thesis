@@ -13,19 +13,20 @@ I% Chapter Template
 %----------------------------------------------------------------------------------------
 
 \section{Motivation}
+With the increase on multicore machines, programs tend to use more parallelism and concurrency. In these contexts, managing mutable data structures introduces more complexity. The managements of the thread safeness can become a burden on the programer and the machine. A simpler approach is using immutable data structures, where the data can't be corrupted and can be accessed directly without any risk. The tradeoffs that must be made are on the creation and modification time of such data structures.
+
+In classical functional programming immutable data structures are a requirement. In languages like Scala where there is a functional side and an object oriented side immutable data is not longer required, but the compiler provides better optimizations on them.
+
 % what are vectors
 %% highly optimized
 %% lack of efficient concatenation
 %%% parallel vector is suboptimal
-
+Scala has a rich collection of immutable data structures as well as parallel versions that divide their work transparently on thread pools. Where the \texttt{Vector} is used as the default general purpose parallel sequence. The immutable vector is designed to have effective constant time in practice on its key operations: get element at index, update element at index, insert on an end of the vector and splitting the vector. But, one of the operations required for parallelism is an efficient concatenation.
 
 % what are rrb tree (RRBTrees paper \cite{RRBTrees})
 %% efficient concatenation
 %% lacks the other operations
-
-
-% in fact no efficient concatenation structures in the current Scala immutable collections 
-
+To improve this operation P. Bagwell and T. Rompf proposed a less strict structure for the vector \cite{RRBTrees}. They propose the use of a Relaxed Radix Balanced Tree instead of the current Radix Balanced Tree. With these trees it is additionally possible to implement effective constant time in practice concatenation and inserts in any position. The drawback is in the loss of some optimizations opportunities due to the relaxation.
 
 \section{Objective}
 % use rrb-trees for vectors (This project repository \cite{projecRepo})
@@ -33,7 +34,7 @@ I% Chapter Template
 %% without loosing performance other operations
 %% keep the optimisations whenever possible
 %% implementation aims to be production ready (not prototype)
-The main objective of this project was to implement\footnote{Implementation is located a \url{https://github.com/ nicolasstucki/scala-rrb-vector} \cite{projecRepo}} version of the Scala immutable Vector using RRB-Trees that could potentially replace the old one. The challenges behind this implementation where to have an implementation that would be as performant as the old one for all operations excepting the concatenation, even when the relaxed representation of the tree can't take advantage of some key optimization. To avoid the complete loss of optimization, ways to apply such optimizations partially where are explored.
+The main objective of this project was to implement\footnote{Implementation is located a \url{https://github.com/nicolasstucki/scala-rrb-vector} \cite{projecRepo}} version of the Scala immutable Vector using RRB-Trees that could potentially replace the old one. The challenges behind this implementation where to have an implementation that would be as performant as the old one for all operations excepting the concatenation, even when the relaxed representation of the tree can't take advantage of some key optimization. To avoid the complete loss of optimization, ways to apply such optimizations partially where explored and applied.
 
 % benchmark and analysis the performance
 %% compare with the current vector
