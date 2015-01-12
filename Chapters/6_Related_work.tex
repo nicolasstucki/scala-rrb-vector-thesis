@@ -10,25 +10,26 @@ I% Chapter Template
 %	SECTION Related Work
 %----------------------------------------------------------------------------------------
 \section{Related Work}
-
+\newcommand{\itemspace}{\vspace{-1mm}}
 List of related subjects:
+\itemspace
 \begin{itemize}
-  \item RRB Trees and Vectors \cite{RRBTrees, lorange2014rrb, cormen2001introduction}
-  \item Scala \cite{odersky2008programming,36605}
-  \item Scala Collection \cite{ 1979992642, Oliveira:2010:TCO:1869459.1869489, EPFL-REPORT-200245, scalaVector211}
-  \item Scala Parallel Collection \cite{collect11,Lea:2000:JFF:337449.337465, 6264/THESES, Prokopec:2014aa,scalaParVector211}
-  \item Functional data structures and semi-mutable data structures and related data structures \cite{Okasaki:1998:PFD:280586,DBLP:journals/jfp/HinzeP06, Driscoll:1989:MDS:64313.64317,4637966, Bayer:1970:OML:1734663.1734671, SPE:SPE4380251203, Bagwell01idealhash}
-  \item Paper: Improving RRB-Tree Performance through Transience \cite{lorange2014rrb}
-  \item Performance and Code specialization \cite{5456/THESES, Chafi:2011:DAH:1941553.1941561}
-  \item JVM: Arrays, GC, JIT compiler \cite{Kotzmann:2008:DJH:1369396.1370017, Paleczny:2001:JHT:1267847.1267848, Wurthinger:2011:EGC:2048147.2048168}
-  \item ScalaMeter \cite{Georges:2007:SRJ:1297027.1297033,scalameter}
-  \item Scala Test \cite{scalatest}
-  \item Scala Reflection and Quasiquotes \cite{EPFL-CONF-186844, quasiquotes}
-  \item Type specialization and Miniboxing \cite{Ureche:2013:MIS:2509136.2509537, Ureche:2014:LDL:2660193.2660197, Stucki:2013:BIS:2489837.2489847, 4820/THESES, EPFL-REPORT-200245}
-  \item Fusion \cite{Coutts:2007:SFL:1291151.1291199, scalablitz15}
+  \itemspace\item RRB Trees and Vectors \cite{RRBTrees, lorange2014rrb, cormen2001introduction}
+  \itemspace\item Scala \cite{odersky2008programming,36605}
+  \itemspace\item Scala Collection \cite{ 1979992642, Oliveira:2010:TCO:1869459.1869489, EPFL-REPORT-200245, scalaVector211}
+  \itemspace\item Scala Parallel Collection \cite{collect11,Lea:2000:JFF:337449.337465, 6264/THESES, Prokopec:2014aa,scalaParVector211}
+ \itemspace\item Functional data structures and semi-mutable data structures and related data structures \cite{Okasaki:1998:PFD:280586,DBLP:journals/jfp/HinzeP06, Driscoll:1989:MDS:64313.64317,4637966, Bayer:1970:OML:1734663.1734671, SPE:SPE4380251203, Bagwell01idealhash}
+  \itemspace\item Paper: Improving RRB-Tree Performance through Transience \cite{lorange2014rrb}
+  \itemspace\item Performance and Code specialization \cite{5456/THESES, Chafi:2011:DAH:1941553.1941561}
+  \itemspace\item JVM: Arrays, GC, JIT compiler \cite{Kotzmann:2008:DJH:1369396.1370017, Paleczny:2001:JHT:1267847.1267848, Wurthinger:2011:EGC:2048147.2048168}
+  \itemspace\item ScalaMeter \cite{Georges:2007:SRJ:1297027.1297033,scalameter}
+  \itemspace\item Scala Test \cite{scalatest}
+  \itemspace\item Scala Reflection and Quasiquotes \cite{EPFL-CONF-186844, quasiquotes}
+  \itemspace\item Type specialization and Miniboxing \cite{Ureche:2013:MIS:2509136.2509537, Ureche:2014:LDL:2660193.2660197, Stucki:2013:BIS:2489837.2489847, 4820/THESES, EPFL-REPORT-200245}
+  \itemspace\item Fusion \cite{Coutts:2007:SFL:1291151.1291199, scalablitz15}
 \end{itemize}
 
-\color{red} TODO: Cite more references \color{black}
+\color{red} TODO: Cite 5 more references \color{black}
 
 
 
@@ -42,7 +43,7 @@ List of related subjects:
 % characterize vectors on real world programs
 One analysis that was left out of the scope of this project was the characterization of the vectors unbalance. There is currently no way to quantitatively measure the unbalance of on the tree node. Some ideas for this are: number of unbalanced nodes, number of balanced subtrees, average height of balanced subtrees, ... 
 
-Once this measurement exists it would be possible to conduct a real world application characterisation of these vectors. And see how common the unbalanced vectors are and if they are only slightly unbalanced or extremely unbalanced. From this it would be possible to give a true expected performance for the cases where the performances differ.
+Once this measurement exists it would be possible to conduct a real world application characterization of these vectors. And see how common the unbalanced vectors are and if they are only slightly unbalanced or extremely unbalanced. From this it would be possible to give a true expected performance for the cases where the performances differ.
 
 \paragraph{Simplify Code}
 % use macros to define core operations of the vector to simplify expanded code (half of the work is already done on the generators)

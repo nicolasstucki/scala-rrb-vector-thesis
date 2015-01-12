@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.16)  12 JAN 2015 17:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.16)  12 JAN 2015 19:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1557,31 +1557,31 @@ Chapter 6.
 ------------------------------------------------------------------------------
  6 Related and Future Work
 ------------------------------------------------------------------------------
+
+Package hyperref Warning: Difference (3) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 41.
+
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 41.
+
 [60
 
 ]
 
-Package hyperref Warning: Difference (3) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 40.
-
-
-Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 40.
-
-
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 47.
+(hyperref)                than one, level fixed on input line 48.
 
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 54.
+(hyperref)                be the same. Added a new anchor on input line 55.
 
-) (./Chapters/7_Conclusion.tex [61] [62]
+) (./Chapters/7_Conclusion.tex [61]
 Chapter 7.
 ------------------------------------------------------------------------------
  7 Conclusions
 ------------------------------------------------------------------------------
-) (./main.bbl [63
+) (./main.bbl [62
 
 ]
 Underfull \hbox (badness 3088) in paragraph at lines 19--23
@@ -1601,7 +1601,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--29
 cala /
  []
 
-[64
+[63
 
 ]
 Underfull \hbox (badness 1975) in paragraph at lines 118--127
@@ -1621,9 +1621,9 @@ Underfull \hbox (badness 1762) in paragraph at lines 118--127
 OT1/pcr/m/n/10.95 http : / / dx . doi . org / 10 . 1007 /
  []
 
-[65] [66] [67])
+[64] [65] [66])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 347.
- [68]
+ [67]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 347.
  (./main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 347.
@@ -1635,13 +1635,16 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 117.38377pt have occurred.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 347.
  ) 
 Here is how much of TeX's memory you used:
  15774 strings out of 493117
- 226660 string characters out of 6135433
+ 226662 string characters out of 6135433
  356942 words of memory out of 5000000
- 18468 multiletter control sequences out of 15000+600000
+ 18469 multiletter control sequences out of 15000+600000
  22151 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  49i,12n,47p,1060b,1884s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1667,10 +1670,10 @@ type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2014/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2014/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type
 1/urw/courier/ucrr8a.pfb>
-Output written on main.pdf (77 pages, 1616277 bytes).
+Output written on main.pdf (76 pages, 1615493 bytes).
 PDF statistics:
- 1929 PDF objects out of 2073 (max. 8388607)
- 1693 compressed objects within 17 object streams
- 463 named destinations out of 1000 (max. 500000)
+ 1923 PDF objects out of 2073 (max. 8388607)
+ 1688 compressed objects within 17 object streams
+ 462 named destinations out of 1000 (max. 500000)
  964 words of extra memory for PDF output out of 10000 (max. 10000000)
 

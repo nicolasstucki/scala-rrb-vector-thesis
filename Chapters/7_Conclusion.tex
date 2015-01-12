@@ -13,19 +13,15 @@ I% Chapter Template
 
 % implemented
 %% without loosing the optimization (effects reduced in some cases)
-The new implementation of vector used the RRB-Trees while using all the optimizations that on RB-Trees where possible. In most cases they are applied on balanced subtrees. The algorithm variant chosen for the concatenation yield better balanced subtrees for a small cost in performance, a cost that is considered irrelevant considering that the algorithm improved from linear time to constant time.
+The new implementation of vector uses the RRB-Trees while using all the optimizations that where possible on RB-Trees. In most cases they are applied on balanced subtrees. The algorithm variant chosen for the concatenation yield better balanced subtrees for a small cost in performance, a cost that is considered irrelevant considering that the algorithm improved from linear time to constant time.
 
 % performance 
 %% in most cases there is no loss
 %% when there is loss, the performance is still bounded by a constant
-The implementation achieved the performance goals in most cases. Usually the performance degrades only when the vector is extremely unbalanced. Effective constant time (or in some cases amortized constant time from $log_{32}(n)$) was achieved for all the core operations: apply, appended, prepended, updated, take, drop, concatenated and insertAt.
-
 % showed that branching of 32 is still the best option
-It was also showed that with relaxed trees the branch sizes of 32 are still a good choice.
+The implementation achieved the performance goals in most cases. Usually the performance degrades only when the vector is extremely unbalanced. Effective constant time (or in some cases amortized constant time from $log_{32}(n)$) was achieved for all the core operations: apply, appended, prepended, updated, take, drop, concatenated and insert. It was also showed that with relaxed trees the branch sizes of 32 are still the best choice for the performance of these operations.
 
 % showed improvement on parallel vectors
-Parallel vector achieved the desired parallelism of the split-combine operations on the fork-join pools. 
-
-
-\color{red} TODO \color{black}
+Parallel vector achieved the desired parallelism on the fork-join pools using their split-combine operations. 
+\color{red} TODO: add more sentences to this paragraph \color{black}
 
