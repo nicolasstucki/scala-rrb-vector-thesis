@@ -10,19 +10,21 @@ I% Chapter Template
 %	CONCLUSIONS
 %----------------------------------------------------------------------------------------
 
+
 % implemented
 %% without loosing the optimization (effects reduced in some cases)
+The new implementation of vector used the RRB-Trees while using all the optimizations that on RB-Trees where possible. In most cases they are applied on balanced subtrees. The algorithm variant chosen for the concatenation yield better balanced subtrees for a small cost in performance, a cost that is considered irrelevant considering that the algorithm improved from linear time to constant time.
 
 % performance 
 %% in most cases there is no loss
 %% when there is loss, the performance is still bounded by a constant
+The implementation achieved the performance goals in most cases. Usually the performance degrades only when the vector is extremely unbalanced. Effective constant time (or in some cases amortized constant time from $log_{32}(n)$) was achieved for all the core operations: apply, appended, prepended, updated, take, drop, concatenated and insertAt.
 
 % showed that branching of 32 is still the best option
+It was also showed that with relaxed trees the branch sizes of 32 are still a good choice.
 
 % showed improvement on parallel vectors
-
-
-
+Parallel vector achieved the desired parallelism of the split-combine operations on the fork-join pools. 
 
 
 \color{red} TODO \color{black}

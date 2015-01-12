@@ -14,7 +14,7 @@
 \contentsline {subsubsection}{\numberline {2.1.2.1}Apply}{6}{subsubsection.28}
 \contentsline {subsubsection}{\numberline {2.1.2.2}Updated}{7}{subsubsection.38}
 \contentsline {subsubsection}{\numberline {2.1.2.3}Append}{8}{subsubsection.53}
-\contentsline {subsubsection}{\numberline {2.1.2.4}Prepend}{8}{subsubsection.73}
+\contentsline {subsubsection}{\numberline {2.1.2.4}Prepend}{9}{subsubsection.73}
 \contentsline {subsubsection}{\numberline {2.1.2.5}Concatenation}{10}{subsubsection.95}
 \contentsline {subsubsection}{\numberline {2.1.2.6}Splits}{10}{subsubsection.96}
 \contentsline {section}{\numberline {2.2}Related Structures}{11}{section.97}

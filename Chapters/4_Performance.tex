@@ -416,6 +416,8 @@ When using the RRB-Vectors parallel, the parallelism is evident. With two thread
 
 Figure \ref{ParallelUnbalancedBenchmarks} shows how unbalanced parallel vector behave. There is a slight loss in performance when they are unbalanced. But, this operations will create a balanced vector and therefore this small overhead can be amortized over the next operations.
 
+For vectors smaller than 1024 the combine operation parallelism is lost. This is a consequence of the rebalance in the concatenation algorithm. Better calibration or a different approach for this range of sizes could improve it further.
+
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.49\textwidth]{Benchmarks/parmap_unbalanced_1.pdf}
