@@ -13,7 +13,7 @@ I% Chapter Template
  A immutable vector is an representation for an indexed sequence\footnote{Ordered sequence of elements where each one is identified by its index or position.} of elements with efficient random access and update\footnote{Update in the scene of immutable data structures refers to the creation of a structure with an element changed.}. It also provides operations that allow efficient additions and removal of elements.
  
 \section{Radix Balanced Vectors}
-
+\label{RadixBalancedVectors}
 % vector as a wrappers for the tree
 The current immutable \texttt{Vector} implementation\cite{scalaVector211} of the Scala Collections is wrapper around an immutable tree. The vector implements the methods of based on a set of core efficient operations on the trees.
 
@@ -224,6 +224,7 @@ The computational complexity of any split operation is $O(log_{32}(n))$ due to t
 %----------------------------------------------------------------------------------------
 
 \section{Related Structures}
+\label{RelatedStructures}
 
 \subsection{Vector Builder}
 A vector builder is a special wrapper for a RB-Tree that has an efficient \texttt{append} operation. It encapsulates mutable trees during the building of the vector and then freezes on the creation of the result. Details of this structures are discussed in section \ref{builder}.
@@ -266,6 +267,7 @@ The current implementation of the immutable parallel vector uses the lazy approa
 %----------------------------------------------------------------------------------------
 \clearpage
 \section{Relaxed Radix Balanced Vectors}
+\label{RelaxedRadixBalancedVectors}
 
 The implementation for RRB vectors proposed consists in replacing the wrapped RB-Tree by an RRB-Tree and augmenting the operations accordingly while trying to maintain the performance of RB-Tree operations. The structure of the RRB-Trees doesn't ensure by itself that the tree height is bounded, this is something that the implementation of the operations must ensure. 
 

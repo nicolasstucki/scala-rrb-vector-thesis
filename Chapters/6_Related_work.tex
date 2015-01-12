@@ -46,7 +46,7 @@ Once this measurement exists it would be possible to conduct a real world applic
 
 \paragraph{Simplify Code}
 % use macros to define core operations of the vector to simplify expanded code (half of the work is already done on the generators)
-It should be possible to simplify and reduce the amount of code of the Scala implementation of vector using Scala Macros\footnote{Or Scala Meta in the future} to expand and optimize the code that was done manually. This was partially done on the vector implementation generators (see \ref{ImplementationGenerators}), where some key abstractions generate most of the expansions. This is a good basis to write such macros.
+It should be possible to simplify and reduce the amount of code of the Scala implementation of vector using Scala Macros \cite{EPFL-CONF-186844}  to expand and optimize the code that was done manually. This was partially done on the vector implementation generators (see \ref{ImplementationGenerators}), where some key abstractions generate most of the expansions. This is a good basis to write such macros.
 
 % fallthroug switch
 Another way to simplify the code would involve the creation of a new abstraction that would compile down to bytecode \texttt{tableswitch} instructions with fallthroughs. A switch with no \texttt{break}s should be enough\footnote{Look at \texttt{copyDisplays} function in the code, the \texttt{if/else} expressions could be replaced by a single \texttt{switch} statement.}. This could help a bit with performance.

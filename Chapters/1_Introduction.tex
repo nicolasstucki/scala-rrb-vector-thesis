@@ -12,27 +12,59 @@ I% Chapter Template
 %	SECTION 1
 %----------------------------------------------------------------------------------------
 
-% What are immutable vectors
-\color{red} TODO: What are immutable vectors \color{black}
-
-% Why vector is important
-% scala collections does not have any immutable sequence with efficient concatenation
-\color{red} TODO: Why vector is important \color{black}
-
-% Why changes are needed
-\color{red} TODO: Why changes are needed \color{black}
+\section{Motivation}
+% what are vectors
+%% highly optimized
+%% lack of efficient concatenation
+%%% parallel vector is suboptimal
 
 
-%--------------------------------
-% related work
-
-%\paragraph{Paper: \emph{RRB-Trees: Efficient Immutable Vectors}}
-%\color{red} TODO \color{black}
-
-%\paragraph{Paper: \emph{Improving RRB-Tree Performance through Transience}}
-% Describe the improvements proposed with transient mutable states
-% Describe fundamental difference between this transience and the display one.
+% what are rrb tree (RRBTrees paper \cite{RRBTrees})
+%% efficient concatenation
+%% lacks the other operations
 
 
-(RRBTrees paper \cite{RRBTrees})
-(This project repository \cite{projecRepo})
+% in fact no efficient concatenation structures in the current Scala immutable collections 
+
+
+\section{Objective}
+% use rrb-trees for vectors (This project repository \cite{projecRepo})
+%% generalize operations
+%% without loosing performance other operations
+%% keep the optimisations whenever possible
+%% implementation aims to be production ready (not prototype)
+The main objective of this project was to implement\footnote{Implementation is located a \url{https://github.com/ nicolasstucki/scala-rrb-vector} \cite{projecRepo}} version of the Scala immutable Vector using RRB-Trees that could potentially replace the old one. The challenges behind this implementation where to have an implementation that would be as performant as the old one for all operations excepting the concatenation, even when the relaxed representation of the tree can't take advantage of some key optimization. To avoid the complete loss of optimization, ways to apply such optimizations partially where are explored.
+
+% benchmark and analysis the performance
+%% compare with the current vector
+%% compare with other implementation variants
+To show and analyse the tradeoffs between the implementations extensive benchmarks where realised on all core operations of the vectors. These compare the current vector with an array of different RRB-Trees including: different tree branching sizes, different implementation of concatenation algorithm and differently unbalanced RRB-Trees. 
+
+\section{Document Structure}
+% section 2:
+%% 1. introduce the vector and structure of the current vector and the operations in a generic
+%% 2. related structures that uses the trees
+%% 3. how the tree structure is relaxed and how it affects the operarations
+%%% addition of concatenation and insert at
+In chapter \ref{VectorStructure} we discuss the data structures and operations: Section \ref{RadixBalancedVectors} describes the current version of the vector structure and operations, section \ref{RelatedStructures} discusses related data structure that use the same trees in other ways (like the iterator of a vector), section \ref{RelaxedRadixBalancedVectors} describes the RRB-Tree and how to relax the operations based on the non relaxed versions.
+
+% section 3: optimizations done on the implementations
+%% 1. discussion on representations of data and code. how this affects performance
+%% 2. discussion of optimization that aim to amortize the operations to constant time.
+%% 3. related structures optimized implementations
+In chapter \ref{Optimizations} we describe the optimization done on the current version of the vector and how they are affected by the relaxation. In section \ref{WhereIsTimeSpent} we discuss optimizations on the representation of data and the code. In section \ref{sec:Displays} we describe the optimizations that are used to reduce the algorithmic complexities of some operations. In section \ref{OptimizationRelatedStructures} we describe the implementation of the related structures and optimizations on them.
+
+% section 4: performance in practice
+%% 1. Discussion on JVM performance caracteristics and how it was used in the implementation
+%% 2-3 How the was performance measured
+%% 4 benchmarks results
+In chapter \ref{Performance} we discuss the performance of the implementation in practice. In section \ref{InPractice} we describe characteristics of the JVM and how to take advantage of them. In sections \ref{Measuringperformance} and \ref{ImplementationGenerators} we describe how the performance is measured in benchmarks. In section \ref{Benchmarks} we show  the results of the benchmarks and analyse it.
+
+% section 5: testing the correctness of the code
+% section 6: related work and future work
+% section 7: conclude in section 7
+In chapter \ref{Testing} the testing methodology, chapter \ref{RelatedWork} lists the related and future work and finally the conclusion is in chapter \ref{Conclusions}.
+
+
+
+

@@ -43,6 +43,7 @@ We use this knowledge of the heuristic in two ways. The first is to avoid inlini
 %----------------------------------------------------------------------------------------
 \clearpage
 \section{Measuring performance}
+\label{Measuringperformance}
 % Scalameter
 ScalaMeter framework\cite{scalameter} is used to measure performance of operations on different implementations of vector. This framework was used to identify performance improvements or regressions during the development process. 
 
@@ -81,6 +82,8 @@ This also help to find and fix bugs, because a bug has a higher probability of a
 %----------------------------------------------------------------------------------------
 \clearpage
 \section{Benchmarks}
+\label{Benchmarks}
+
 % reiterate the the different benchmark types 
 %% differences between implementation (vector vs rrbvector)
 %% differences between unbalances
@@ -361,7 +364,7 @@ The builder benchmarks aim to show the time it takes to build a vector of some s
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Benchmarks/Builder_3.pdf}
-  \caption{Execution time to build a vector of a given size.}
+  \caption{Execution time to build a vector of a given size for trees of depth 3.}
     \label{Builder3Benchmarks}
 \end{figure}
 
@@ -370,7 +373,7 @@ Figures \ref{Builder3Benchmarks} and \ref{Builder4Benchmarks} show that the RB a
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Benchmarks/Builder_4.pdf}
-  \caption{Execution time to build a vector of a given size.}
+  \caption{Execution time to build a vector of a given size for trees of depth 4.}
    \label{Builder4Benchmarks}
 \end{figure}
 

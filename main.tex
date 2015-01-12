@@ -178,7 +178,16 @@
 \abstract{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
 
 \color{red}The Thesis Abstract is written here (and usually kept to just this page). The page is kept centered vertically so can expand into the blank space above the title too\ldots\color{black}
+
+\color{red}TODO: immutable vector with efficient append, prepend, update, getElementAtIndex. optimizations\ldots\color{black}
+
+\color{red}TODO: rrb-trees vector and generailize the same optimizations\ldots\color{black}
+
+\color{red}TODO: result: clear improvement con concatenation. Other operations achieve the same performance when the tree is not too unbalanced, otherwise there is an overhead to be expected, but operations are still nicely bounded\ldots\color{black}
+
 }
+
+
 
 \clearpage % Start a new page
 
@@ -220,6 +229,7 @@
 \lhead{\emph{Abbreviations}} % Set the left side page header to "Abbreviations"
 \listofsymbols{ll} % Include a list of Abbreviations (a table of two columns)
 {
+\textbf{GC} & \textbf{G}arbage \textbf{C}colletor \\
 \textbf{JVM} & \textbf{J}ava \textbf{V}irtual \textbf{M}achine \\
 \textbf{JIT} & \textbf{J}ust \textbf{I}n \textbf{T}ime \\
 \textbf{LHS} & \textbf{L}eft \textbf{H}and \textbf{S}ide \\
