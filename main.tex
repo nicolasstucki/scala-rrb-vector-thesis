@@ -41,6 +41,7 @@
 \usepackage{placeins}
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage{multirow}
 
 \usepackage{draftwatermark}
 \SetWatermarkLightness{0.95}
@@ -136,11 +137,22 @@
 \begin{titlepage}
 \begin{center}
 
-\textsc{\LARGE \univname}\\[1.5cm] % University name
+%\textsc{\LARGE \univname}\\[1.5cm] % University name
+ \includegraphics[width=0.7\textwidth]{Logos/EPFL}
+\vskip 2em  
 \textsc{\Large Master Thesis}\\[0.5cm] % Thesis type
 
 \HRule \\[0.4cm] % Horizontal line
-{\huge \bfseries \ttitle}\\[0.4cm] % Thesis title
+%{\huge \bfseries \ttitle}\\[0.4cm] % Thesis title
+{\huge \bfseries
+
+\begin{tabular}{ c }
+Turning Relaxed Radix Balanced Vector \\
+  from Theory into Practice \\
+  for Scala Collections \\
+\end{tabular}
+}
+\vskip -1em
 \HRule \\[1.5cm] % Horizontal line
  
 \begin{minipage}{0.4\textwidth}
