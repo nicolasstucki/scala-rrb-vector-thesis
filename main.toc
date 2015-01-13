@@ -41,47 +41,48 @@
 \contentsline {subsubsection}{\numberline {2.3.6.2}Parallel Vector}{21}{subsubsection.201}
 \contentsline {paragraph}{Splitter}{21}{section*.202}
 \contentsline {paragraph}{Combiner}{21}{section*.202}
-\contentsline {chapter}{\numberline {3}Optimizations}{23}{chapter.203}
-\contentsline {section}{\numberline {3.1}Where is time spent?}{23}{section.204}
-\contentsline {subsection}{\numberline {3.1.1}Arrays}{23}{subsection.205}
-\contentsline {subsection}{\numberline {3.1.2}Computing indices}{24}{subsection.209}
-\contentsline {paragraph}{Radix}{24}{section*.210}
-\contentsline {paragraph}{Relaxing the Radix}{24}{figure.caption.214}
-\contentsline {subsection}{\numberline {3.1.3}Abstractions}{25}{subsection.222}
-\contentsline {paragraph}{Functions}{26}{section*.223}
-\contentsline {paragraph}{Generalization}{26}{section*.223}
-\contentsline {section}{\numberline {3.2}Displays}{28}{section.251}
-\contentsline {subsection}{\numberline {3.2.1}As cache}{28}{subsection.255}
-\contentsline {subsection}{\numberline {3.2.2}For transient states}{29}{subsection.265}
-\contentsline {subsection}{\numberline {3.2.3}Relaxing the Displays}{30}{subsection.268}
-\contentsline {subsection}{\numberline {3.2.4}Vector Canonicalization}{31}{subsection.281}
-\contentsline {section}{\numberline {3.3}Related Structures}{34}{section.285}
-\contentsline {subsection}{\numberline {3.3.1}Builder}{34}{subsection.286}
-\contentsline {paragraph}{Relaxing the Builder}{34}{section*.287}
-\contentsline {subsection}{\numberline {3.3.2}Iterator}{34}{subsection.288}
-\contentsline {paragraph}{Relaxing the Iterator}{35}{section*.290}
-\contentsline {chapter}{\numberline {4} Performance in Practice}{36}{chapter.291}
-\contentsline {section}{\numberline {4.1}In practice: Running on JVM}{36}{section.292}
-\contentsline {subsection}{\numberline {4.1.1}Cost of Abstraction and JIT Inline}{37}{subsection.293}
-\contentsline {section}{\numberline {4.2}Measuring performance}{38}{section.295}
-\contentsline {section}{\numberline {4.3}Implementation Generators}{39}{section.298}
-\contentsline {section}{\numberline {4.4}Benchmarks}{40}{section.301}
-\contentsline {subsection}{\numberline {4.4.1}Apply}{40}{subsection.302}
-\contentsline {subsection}{\numberline {4.4.2}Concatenation}{43}{subsection.307}
-\contentsline {subsection}{\numberline {4.4.3}Append}{44}{subsection.309}
-\contentsline {subsection}{\numberline {4.4.4}Prepend}{46}{subsection.313}
-\contentsline {subsection}{\numberline {4.4.5}Splits}{48}{subsection.317}
-\contentsline {subsection}{\numberline {4.4.6}Iterator}{49}{subsection.320}
-\contentsline {subsection}{\numberline {4.4.7}Builder}{52}{subsection.325}
-\contentsline {subsection}{\numberline {4.4.8}Parallel split-combine}{54}{subsection.329}
-\contentsline {subsection}{\numberline {4.4.9}Memory footprint}{56}{subsection.333}
-\contentsline {chapter}{\numberline {5}Testing}{58}{chapter.336}
-\contentsline {section}{\numberline {5.1}Black Box Testing}{58}{section.337}
-\contentsline {section}{\numberline {5.2}White Box Testing}{58}{section.338}
-\contentsline {chapter}{\numberline {6}Related and Future Work}{60}{chapter.340}
-\contentsline {section}{\numberline {6.1}Related Work}{60}{section.341}
-\contentsline {section}{\numberline {6.2}Future Work}{61}{section.342}
-\contentsline {paragraph}{Mesure unbalance}{61}{section*.343}
-\contentsline {paragraph}{Simplify Code}{61}{section*.343}
-\contentsline {paragraph}{Formalization}{61}{section*.345}
-\contentsline {chapter}{\numberline {7}Conclusions}{62}{chapter.346}
+\contentsline {chapter}{\numberline {3}Optimizations}{22}{chapter.203}
+\contentsline {section}{\numberline {3.1}Where is time spent?}{22}{section.204}
+\contentsline {subsection}{\numberline {3.1.1}Arrays}{22}{subsection.205}
+\contentsline {subsection}{\numberline {3.1.2}Computing indices}{23}{subsection.211}
+\contentsline {paragraph}{Radix}{23}{section*.212}
+\contentsline {paragraph}{Relaxing the Radix}{23}{figure.caption.216}
+\contentsline {subsection}{\numberline {3.1.3}Abstractions}{24}{subsection.224}
+\contentsline {paragraph}{Functions}{25}{section*.225}
+\contentsline {paragraph}{Generalization}{25}{section*.225}
+\contentsline {section}{\numberline {3.2}Displays}{27}{section.253}
+\contentsline {subsection}{\numberline {3.2.1}As cache}{27}{subsection.257}
+\contentsline {subsection}{\numberline {3.2.2}For transient states}{28}{subsection.267}
+\contentsline {subsection}{\numberline {3.2.3}Relaxing the Displays}{29}{subsection.270}
+\contentsline {subsection}{\numberline {3.2.4}Vector Canonicalization}{30}{subsection.283}
+\contentsline {section}{\numberline {3.3}Related Structures}{33}{section.287}
+\contentsline {subsection}{\numberline {3.3.1}Builder}{33}{subsection.288}
+\contentsline {paragraph}{Relaxing the Builder}{33}{section*.289}
+\contentsline {subsection}{\numberline {3.3.2}Iterator}{33}{subsection.290}
+\contentsline {paragraph}{Relaxing the Iterator}{34}{section*.292}
+\contentsline {chapter}{\numberline {4} Performance in Practice}{35}{chapter.293}
+\contentsline {section}{\numberline {4.1}In practice: Running on JVM}{35}{section.294}
+\contentsline {subsection}{\numberline {4.1.1}Cost of Abstraction and JIT Inline}{36}{subsection.295}
+\contentsline {section}{\numberline {4.2}Measuring performance}{37}{section.297}
+\contentsline {section}{\numberline {4.3}Implementation Generators}{38}{section.300}
+\contentsline {section}{\numberline {4.4}Benchmarks}{39}{section.303}
+\contentsline {subsection}{\numberline {4.4.1}Apply}{39}{subsection.304}
+\contentsline {subsection}{\numberline {4.4.2}Concatenation}{42}{subsection.309}
+\contentsline {subsection}{\numberline {4.4.3}Append}{43}{subsection.311}
+\contentsline {subsection}{\numberline {4.4.4}Prepend}{45}{subsection.315}
+\contentsline {subsection}{\numberline {4.4.5}Splits}{47}{subsection.319}
+\contentsline {subsection}{\numberline {4.4.6}Iterator}{48}{subsection.322}
+\contentsline {subsection}{\numberline {4.4.7}Builder}{51}{subsection.327}
+\contentsline {subsection}{\numberline {4.4.8}Parallel split-combine}{53}{subsection.331}
+\contentsline {subsection}{\numberline {4.4.9}Memory footprint}{55}{subsection.335}
+\contentsline {chapter}{\numberline {5}Testing}{57}{chapter.338}
+\contentsline {section}{\numberline {5.1}Black Box Testing}{57}{section.339}
+\contentsline {section}{\numberline {5.2}White Box Testing}{57}{section.340}
+\contentsline {chapter}{\numberline {6}Related and Future Work}{59}{chapter.342}
+\contentsline {section}{\numberline {6.1}Related Work}{59}{section.343}
+\contentsline {section}{\numberline {6.2}Future Work}{60}{section.344}
+\contentsline {paragraph}{Mesure unbalance}{60}{section*.345}
+\contentsline {paragraph}{Miniboxing}{60}{section*.345}
+\contentsline {paragraph}{Simplify Code}{60}{section*.347}
+\contentsline {paragraph}{Formalization}{61}{section*.347}
+\contentsline {chapter}{\numberline {7}Conclusions}{62}{chapter.349}

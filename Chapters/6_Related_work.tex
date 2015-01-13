@@ -45,6 +45,10 @@ One analysis that was left out of the scope of this project was the characteriza
 
 Once this measurement exists it would be possible to conduct a real world application characterization of these vectors. And see how common the unbalanced vectors are and if they are only slightly unbalanced or extremely unbalanced. From this it would be possible to give a true expected performance for the cases where the performances differ.
 
+\paragraph{Miniboxing}
+As discussed in section \ref{Arrays}, when primitive types are used in vector they become boxed. A proposed solution to this phenomenon is using Miniboxing \cite{Ureche:2013:MIS:2509136.2509537} on the vectors. Applying this transformation on the type parameter of the vector will remove boxing in the method calls. Additionally, this allows the use of \texttt{MbArray} on the leafs, these arrays take advantage of the additional type information that Miniboxing provides and applies it opportunistically. A prototype of this vector is already implemented in this project repository\footnote{Project \cite{projecRepo} under the \texttt{adding-miniboxing} branch.}. The prototype shows that the boxing is removed and that the leafs arrays are getting specialized. Tests and benchmarks specific to this implementation details are still required.
+
+
 \paragraph{Simplify Code}
 % use macros to define core operations of the vector to simplify expanded code (half of the work is already done on the generators)
 It should be possible to simplify and reduce the amount of code of the Scala implementation of vector using Scala Macros \cite{EPFL-CONF-186844}  to expand and optimize the code that was done manually. This was partially done on the vector implementation generators (see \ref{ImplementationGenerators}), where some key abstractions generate most of the expansions. This is a good basis to write such macros.

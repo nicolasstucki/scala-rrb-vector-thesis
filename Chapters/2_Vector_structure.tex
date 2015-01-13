@@ -536,19 +536,19 @@ The computational complexity of any split operation is $O(log_{32}(n))$ due to t
 \subsection{Related Structures}
 
 \subsubsection{Vector Builder and Iterator}
+\vskip -1em
 The relaxation of the vector builder is discussed in section \ref{builder} and the relaxation of the vector iterator in section \ref{iterator}.
 
 \subsubsection{Parallel Vector}
 % Combine: trivial expansion from builder
 %% heuristic: try to construct balanced trees 
 % Split into subtrees two, take the nearest power of 32 to the half
+\vskip -1em
 The main difference between the RB and RRB parallel vectors is in the implementation of the combiner. This combiner is capable of combining in parallel and each combination is done in $O(log_{32}(n))$. The splitter also changed a bit to add an heuristic that helps on the performance of the combination and will tend to recreate balanced trees. 
 
 \paragraph{Splitter}
 The splitter heuristic consists in creating partitions of the tree that contain a number of elements equal to a multiple of a completely filled tree (i.e. $a \cdot 32^b$ elements). The splitter will always split into two new splitters that have a size that is as equivalent as possible taking into account the first rule. To do so, the mid point of the splitter remaining elements is identified, then shifted to the next multiple of a power of 32. This way all nodes will be full and the subsequent concatenation rebalancing will be trivial. As all nodes are full, there is no node that requires shifting elements and therefore new node creation can be avoided in some cases.
 
 \paragraph{Combiner}
-The combiner is a trivial extension of the RRB-Vector builder. It wraps an instance of the builder and for each operation of the \texttt{Combiner} that is defined in \texttt{Builder} it delegates it to the builder. The \texttt{combine} operation concatenates the results of the two builders into a new combiner.
-
-The advantages of this combiner are that the combination is done in $O(log_{32}(n))$ and that they can run in parallel on the thread pool.
+The combiner is a trivial extension of the RRB-Vector builder. It wraps an instance of the builder and for each operation of the \texttt{Combiner} that is defined in \texttt{Builder} it delegates it to the builder. The \texttt{combine} operation concatenates the results of the two builders into a new combiner. The advantages of this combiner are that the combination is done in $O(log_{32}(n))$ and that they can run in parallel on the thread pool.
 
