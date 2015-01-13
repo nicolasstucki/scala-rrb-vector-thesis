@@ -24,6 +24,10 @@
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
+\newif\ifpaper
+
+%\papertrue % or
+\paperfalse
 
 \documentclass[11pt, oneside]{Thesis} % The default font size and one-sided printing (no margin offsets)
 
@@ -46,6 +50,7 @@
 \usepackage{draftwatermark}
 \SetWatermarkLightness{0.95}
 \SetWatermarkScale{5}
+
 
 \titleformat
 {\chapter} % command
@@ -79,6 +84,13 @@
   morestring=[b]',
   morestring=[b]"""
 }
+\ifpaper
+  % using paper
+    \definecolor{LinkColor}{HTML}{000000}
+\else
+  % electronic
+  \definecolor{LinkColor}{HTML}{900000}
+\fi
 
 \definecolor{ggray}{gray}{0.5}
 \definecolor{Green}{HTML}{005500}
@@ -105,7 +117,8 @@
 }
 
 
-\hypersetup{urlcolor=blue, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
+%\usepackage[colorlinks = true,            linkcolor = blue,            urlcolor  = blue,            citecolor = blue,            anchorcolor = blue]hyperref}
+\hypersetup{urlcolor=LinkColor, linkcolor = LinkColor, citecolor = LinkColor, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
 \title{\ttitle} % Defines the thesis title - don't touch this
 
 \begin{document}
@@ -129,10 +142,7 @@
 \hypersetup{pdfauthor=\authornames}
 \hypersetup{pdfkeywords=\keywordnames}               
             
-\newif\ifpaper
 
-\papertrue % or
-%\paperfalse
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
