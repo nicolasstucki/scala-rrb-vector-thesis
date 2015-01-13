@@ -15,7 +15,7 @@ I% Chapter Template
 \section{Radix Balanced Vectors}
 \label{RadixBalancedVectors}
 % vector as a wrappers for the tree
-The current immutable \texttt{Vector} implementation\cite{scalaVector211} of the Scala Collections is wrapper around an immutable tree. The vector implements the methods of based on a set of core efficient operations on the trees.
+The current immutable \texttt{Vector} implementation\cite{scalaVector211} of the Scala Collections is a wrapper around an immutable tree. The vector implements its methods based on a set of core efficient operations on the trees.
 
 %-----------------------------------
 %	SUBSECTION - Tree structure
@@ -46,7 +46,7 @@ Yet, the tree may have numbers of elements that are not powers of 32. To allow t
    \label{badix_balanced_32}
 \end{figure}
 
-Similarly, to have efficient implementation of \texttt{drop} and \texttt{prepend} operations (see \ref{Operations}), the vector defines a \texttt{startIndex} field that points to the first element in the tree that is actually used in the vector. In this case, although the leafs are empty on the left of the first element, the nodes are still allocated with the full size. As such, the tree structure is logically still full on the left but elements are never accessed if below the \texttt{startIndex}. An element at some \texttt{index} in the vector will by at \texttt{startIndex + index} in the tree. This allows the balanced radix structure to be maintained regardless of the missing elements on the left. As such, the implementations for \texttt{drop} and \texttt{prepend} will take advantage of the index to avoid restructuring the whole tree.
+Similarly, to have efficient implementation of \texttt{drop} and \texttt{prepend} operations (see \ref{Operations}), the vector defines a \texttt{startIndex} field that points to the first element in the tree that is actually used in the vector. In this case, although the leafs are empty on the left of the first element, the nodes are still allocated with the full size. As such, the tree structure is logically still full on the left but elements are never accessed if below the \texttt{startIndex}. An element at some \texttt{index} in the vector will be at \texttt{startIndex + index} in the tree. This allows the balanced radix structure to be maintained regardless of the missing elements on the left. As such, the implementations for \texttt{drop} and \texttt{prepend} will take advantage of the index to avoid restructuring the whole tree.
 
 %-----------------------------------
 %	SUBSECTION - Operations

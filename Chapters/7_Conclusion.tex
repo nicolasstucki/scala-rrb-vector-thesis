@@ -22,6 +22,5 @@ The new implementation of vector uses the RRB-Trees while using all the optimiza
 The implementation achieved the performance goals in most cases. Usually the performance degrades only when the vector is extremely unbalanced. Effective constant time (or in some cases amortized constant time from $log_{32}(n)$) was achieved for all the core operations: apply, appended, prepended, updated, take, drop, concatenated and insert. It was also showed that with relaxed trees the branch sizes of 32 are still the best choice for the performance of these operations.
 
 % showed improvement on parallel vectors
-Parallel vector achieved the desired parallelism on the fork-join pools using their split-combine operations. 
-\color{red} TODO: add more sentences to this paragraph \color{black}
+Parallel vector achieved the desired parallelism on the fork-join pools using their split-combine operations. Benchmarks showed a 2.3X improvement on the data split and combination on a 4 thread pool.
 

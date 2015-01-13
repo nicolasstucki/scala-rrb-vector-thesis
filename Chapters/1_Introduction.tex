@@ -13,9 +13,7 @@ I% Chapter Template
 %----------------------------------------------------------------------------------------
 
 \section{Motivation}
-With the increase on multicore machines, programs tend to use more parallelism and concurrency. In these contexts, managing mutable data structures introduces more complexity. The managements of the thread safeness can become a burden on the programmer and the machine. A simpler approach is using immutable data structures, where the data can't be corrupted and can be accessed directly without any risk. The tradeoffs that must be made are on the creation and modification time of such data structures.
-
-In classical functional programming immutable data structures are a requirement. In languages like Scala where there is a functional side and an object oriented side immutable data is not longer required, but the compiler provides better optimizations on them.
+With the increase on multicore machines, programs tend to use more parallelism and concurrency. In these contexts, managing mutable data structures introduces more complexity. The managements of the thread safeness can become a burden on the programmer and the machine. A simpler approach is using immutable data structures, where elements can be accessed directly without any risk of corruption due to race conditions. In classical functional programming immutable data structures are a requirement. In languages like Scala where there is a functional side and an object oriented side immutable data is not longer required, but the compiler provides better optimizations on them.
 
 % what are vectors
 %% highly optimized
@@ -26,7 +24,7 @@ Scala has a rich collection of immutable data structures as well as parallel ver
 % what are rrb tree (RRBTrees paper \cite{RRBTrees})
 %% efficient concatenation
 %% lacks the other operations
-To improve this operation P. Bagwell and T. Rompf proposed a less strict structure for the vector \cite{RRBTrees}. They propose the use of a Relaxed Radix Balanced Tree instead of the current Radix Balanced Tree. With these trees it is additionally possible to implement effective constant time in practice concatenation and inserts in any position. The drawback is in the loss of some optimizations opportunities due to the relaxation.
+To improve this operation P. Bagwell and T. Rompf proposed a less strict structure for the vector \cite{RRBTrees}. They propose the use of a Relaxed Radix Balanced Tree instead of the current Radix Balanced Tree. With these trees it is additionally possible to implement effective constant time concatenation and inserts in any position. The drawback is in the loss of some optimizations opportunities due to the relaxation.
 
 \section{Objective}
 % use rrb-trees for vectors (This project repository \cite{projecRepo})
@@ -40,6 +38,12 @@ The main objective of this project was to implement\footnote{Implementation is l
 %% compare with the current vector
 %% compare with other implementation variants
 To show and analyze the tradeoffs between the implementations extensive benchmarks where realized on all core operations of the vectors. These compare the current vector with an array of different RRB-Trees including: different tree branching sizes, different implementation of concatenation algorithm and differently unbalanced RRB-Trees.  
+
+\section{Results}
+
+The implementation successfully integrated the the RRB-Trees with the radix based optimizations. As such the new Vector implementation has constant time for all operation on which it had before and on the additional concatenation and insertion operations. Form this it was possible to create a parallel vector that takes full advantage of the fork-join pool paralellization. Benchmarks showed a 2.3X improvement on the data split and combination on a pool with 4 threads.
+
+The benchmarks showed that for almost all preexisting constant time operations the performance achieved was almost identical. The few cases that do not have the same performance are still well bounded by constant time. It was shown that even with an apparently less compact tree structure the change in memory footprint negligible.
 
 \section{Document Structure}
 % section 2:
@@ -59,7 +63,7 @@ In chapter \ref{Optimizations} we describe the optimization done on the current 
 %% 1. Discussion on JVM performance caracteristics and how it was used in the implementation
 %% 2-3 How the was performance measured
 %% 4 benchmarks results
-In chapter \ref{Performance} we discuss the performance of the implementation in practice. In section \ref{InPractice} we describe characteristics of the JVM and how to take advantage of them. In sections \ref{Measuringperformance} and \ref{ImplementationGenerators} we describe how the performance is measured in benchmarks. In section \ref{Benchmarks} we show  the results of the benchmarks and analyze it.
+In chapter \ref{Performance} we discuss the performance of the implementation in practice. In section \ref{InPractice} we describe characteristics of the JVM and how to take advantage of them. In sections \ref{Measuringperformance} and \ref{ImplementationGenerators} we describe the benchmarks used to measure performance. In section \ref{Benchmarks} we show  the results of the benchmarks and analyze it.
 
 % section 5: testing the correctness of the code
 % section 6: related work and future work
