@@ -4,47 +4,48 @@ The top-level auxiliary file: main.aux
 The style file: unsrtnat.bst
 Database file #1: Bibliography.bib
 Warning--empty year in scalameter
-Warning--empty year in scalatest
+Warning--empty institution in 31/LAMP
 Warning--empty booktitle in scalablitz15
-You've used 39 entries,
+Warning--empty year in scalatest
+You've used 42 entries,
             2481 wiz_defined-function locations,
-            852 strings with 13506 characters,
-and the built_in function-call counts, 15183 in all, are:
-= -- 1475
-> -- 589
-< -- 35
-+ -- 249
-- -- 170
-* -- 1041
-:= -- 2374
-add.period$ -- 181
-call.type$ -- 39
-change.case$ -- 72
-chr.to.int$ -- 38
-cite$ -- 44
-duplicate$ -- 826
-empty$ -- 1380
-format.name$ -- 215
-if$ -- 3368
+            877 strings with 14346 characters,
+and the built_in function-call counts, 16465 in all, are:
+= -- 1605
+> -- 626
+< -- 42
++ -- 265
+- -- 180
+* -- 1128
+:= -- 2563
+add.period$ -- 195
+call.type$ -- 42
+change.case$ -- 79
+chr.to.int$ -- 41
+cite$ -- 48
+duplicate$ -- 900
+empty$ -- 1498
+format.name$ -- 230
+if$ -- 3659
 int.to.chr$ -- 2
-int.to.str$ -- 40
-missing$ -- 29
-newline$ -- 254
-num.names$ -- 111
-pop$ -- 306
+int.to.str$ -- 43
+missing$ -- 31
+newline$ -- 272
+num.names$ -- 122
+pop$ -- 330
 preamble$ -- 1
-purify$ -- 39
+purify$ -- 42
 quote$ -- 0
-skip$ -- 531
+skip$ -- 581
 stack$ -- 0
-substring$ -- 542
-swap$ -- 189
-text.length$ -- 15
+substring$ -- 596
+swap$ -- 213
+text.length$ -- 19
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 261
-warning$ -- 3
-while$ -- 120
+type$ -- 282
+warning$ -- 4
+while$ -- 133
 width$ -- 0
-write$ -- 644
-(There were 3 warnings)
+write$ -- 693
+(There were 4 warnings)

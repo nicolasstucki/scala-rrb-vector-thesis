@@ -14,22 +14,20 @@ I% Chapter Template
 List of related subjects:
 \itemspace
 \begin{itemize}
-  \itemspace\item RRB Trees and Vectors \cite{RRBTrees, lorange2014rrb, cormen2001introduction}
+  \itemspace\item RRB Trees and Vectors \cite{RRBTrees, lorange2014rrb, cormen2001introduction, scalaVector211, scalaParVector211}
   \itemspace\item Scala \cite{odersky2008programming,36605}
-  \itemspace\item Scala Collection \cite{ 1979992642, Oliveira:2010:TCO:1869459.1869489, EPFL-REPORT-200245, scalaVector211}
-  \itemspace\item Scala Parallel Collection \cite{collect11,Lea:2000:JFF:337449.337465, 6264/THESES, Prokopec:2014aa,scalaParVector211}
- \itemspace\item Functional data structures and semi-mutable data structures and related data structures \cite{Okasaki:1998:PFD:280586,DBLP:journals/jfp/HinzeP06, Driscoll:1989:MDS:64313.64317,4637966, Bayer:1970:OML:1734663.1734671, SPE:SPE4380251203, Bagwell01idealhash}
-  \itemspace\item Paper: Improving RRB-Tree Performance through Transience \cite{lorange2014rrb}
-  \itemspace\item Performance and Code specialization \cite{5456/THESES, Chafi:2011:DAH:1941553.1941561}
+  \itemspace\item Scala Collections \cite{ 1979992642, Oliveira:2010:TCO:1869459.1869489, EPFL-REPORT-200245, scalaVector211, FightingbitRotwithTypes, EPFL-CONF-170981}
+  \itemspace\item Scala Parallel Collections \cite{collect11,Lea:2000:JFF:337449.337465, 6264/THESES, Prokopec:2014aa,scalaParVector211}
+ \itemspace\item Functional data structures and semi-mutable data structures and related data structures \cite{Okasaki:1998:PFD:280586,DBLP:journals/jfp/HinzeP06, Driscoll:1989:MDS:64313.64317,4637966, Bayer:1970:OML:1734663.1734671, SPE:SPE4380251203, Bagwell01idealhash, 31/LAMP}
+  \itemspace\item Performance and Code specialization \cite{5456/THESES, Chafi:2011:DAH:1941553.1941561, Coutts:2007:SFL:1291151.1291199, scalablitz15}
   \itemspace\item JVM: Arrays, GC, JIT compiler \cite{Kotzmann:2008:DJH:1369396.1370017, Paleczny:2001:JHT:1267847.1267848, Wurthinger:2011:EGC:2048147.2048168}
   \itemspace\item ScalaMeter \cite{Georges:2007:SRJ:1297027.1297033,scalameter}
   \itemspace\item Scala Test \cite{scalatest}
   \itemspace\item Scala Reflection and Quasiquotes \cite{EPFL-CONF-186844, quasiquotes}
   \itemspace\item Type specialization and Miniboxing \cite{Ureche:2013:MIS:2509136.2509537, Ureche:2014:LDL:2660193.2660197, Stucki:2013:BIS:2489837.2489847, 4820/THESES, EPFL-REPORT-200245}
-  \itemspace\item Fusion \cite{Coutts:2007:SFL:1291151.1291199, scalablitz15}
 \end{itemize}
 
-\color{red} TODO: Cite 5 more references \color{black}
+\color{red} TODO: Cite more references \color{black}
 
 
 
@@ -46,7 +44,7 @@ One analysis that was left out of the scope of this project was the characteriza
 Once this measurement exists it would be possible to conduct a real world application characterization of these vectors. And see how common the unbalanced vectors are and if they are only slightly unbalanced or extremely unbalanced. From this it would be possible to give a true expected performance for the cases where the performances differ.
 
 \paragraph{Miniboxing}
-As discussed in section \ref{Arrays}, when primitive types are used in vector they become boxed. A proposed solution to this phenomenon is using Miniboxing \cite{Ureche:2013:MIS:2509136.2509537} on the vectors. Applying this transformation on the type parameter of the vector will remove boxing in the method calls. Additionally, this allows the use of \texttt{MbArray} on the leafs, these arrays take advantage of the additional type information that Miniboxing provides and applies it opportunistically. A prototype of this vector is already implemented in this project repository\footnote{Project \cite{projecRepo} under the \texttt{adding-miniboxing} branch.}. The prototype shows that the boxing is removed and that the leafs arrays are getting specialized. Tests and benchmarks specific to this implementation details are still required.
+As discussed in section \ref{Arrays}, when primitive types are used in vector they become boxed. A proposed solution to this phenomenon is using Miniboxing \cite{Ureche:2013:MIS:2509136.2509537,  EPFL-REPORT-200245} on the vectors. Applying this transformation on the type parameter of the vector will remove boxing in the method calls. Additionally, this allows the use of \texttt{MbArray} on the leafs, these arrays take advantage of the additional type information that Miniboxing provides and applies it opportunistically. A prototype of this vector is already implemented in this project repository\footnote{Project \cite{projecRepo} under the \texttt{adding-miniboxing} branch.}. The prototype shows that the boxing is removed and that the leafs arrays are getting specialized. Tests and benchmarks specific to this implementation details are still required.
 
 
 \paragraph{Simplify Code}

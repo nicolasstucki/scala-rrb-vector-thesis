@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.16)  13 JAN 2015 10:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.16)  13 JAN 2015 11:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -891,9 +891,9 @@ Chapter 1.
 ------------------------------------------------------------------------------
  1 Introduction
 ------------------------------------------------------------------------------
-[1
+[2
 
-] [2]) (./Chapters/2_Vector_structure.tex [3]
+] [3]) (./Chapters/2_Vector_structure.tex [4]
 Chapter 2.
 ------------------------------------------------------------------------------
  2 Immutable Vector Structure and Operations
@@ -908,7 +908,7 @@ Package pdftex.def Info: Figures/Radix_Balanced.pdf used on input line 33.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[4
+[5
 
 ] <Figures/Radix_Balanced_32.pdf, id=658, 340.27126pt x 161.60374pt>
 File: Figures/Radix_Balanced_32.pdf Graphic file (type pdf)
@@ -916,9 +916,9 @@ File: Figures/Radix_Balanced_32.pdf Graphic file (type pdf)
 <use Figures/Radix_Balanced_32.pdf>
 Package pdftex.def Info: Figures/Radix_Balanced_32.pdf used on input line 44.
 (pdftex.def)             Requested size: 166.98668pt x 79.30734pt.
- [5 <./Figures/Radix_Balanced.pdf> <./Figures/Radix_Balanced_32.pdf>] [6] [7
+ [6 <./Figures/Radix_Balanced.pdf> <./Figures/Radix_Balanced_32.pdf>] [7] [8
 
-] [8] [9] [10]
+] [9] [10] [11]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 248.
@@ -927,7 +927,7 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
 (hyperref)                be the same. Added a new anchor on input line 248.
 
-[11] [12]
+[12] [13]
 <Figures/Relaxed_Radix_balanced.pdf, id=808, 519.9425pt x 161.60374pt>
 File: Figures/Relaxed_Radix_balanced.pdf Graphic file (type pdf)
 
@@ -935,7 +935,7 @@ File: Figures/Relaxed_Radix_balanced.pdf Graphic file (type pdf)
 Package pdftex.def Info: Figures/Relaxed_Radix_balanced.pdf used on input line 
 287.
 (pdftex.def)             Requested size: 333.97972pt x 103.80331pt.
- [13
+ [14
 
  <./Figures/Relaxed_Radix_balanced.pdf>] <Figures/Relaxed_radix_example.pdf, id
 =832, 503.8825pt x 161.60374pt>
@@ -970,7 +970,7 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
 (hyperref)                be the same. Added a new anchor on input line 330.
 
-[14 <./Figures/Relaxed_radix_example.pdf>]
+[15 <./Figures/Relaxed_radix_example.pdf>]
 Overfull \hbox (4.25371pt too wide) in paragraph at lines 348--349
 \OT1/pcr/m/n/10.95 copyBranchAndAppend\OT1/cmr/m/n/10.95 , \OT1/pcr/m/n/10.95 c
 opyAndUpdateLast \OT1/cmr/m/n/10.95 and \OT1/pcr/m/n/10.95 createNewBranch \OT1
@@ -983,7 +983,7 @@ Overfull \hbox (7.77243pt too wide) in paragraph at lines 348--349
 e by one. The \OT1/pcr/m/n/10.95 createNewBranch
  []
 
-[15 <./Figures/AbstractionsLayers.pdf>] [16]
+[16 <./Figures/AbstractionsLayers.pdf>] [17]
 LaTeX Font Info:    Try loading font information for OML+cmr on input line 407.
 
 
@@ -1028,12 +1028,12 @@ Package pdftex.def Info: Figures/Concat3.pdf used on input line 447.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[17 <./Figures/Concat0.pdf>]
+[18 <./Figures/Concat0.pdf>]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 458.
 
-[18 <./Figures/Concat1.pdf> <./Figures/Concat2.pdf> <./Figures/Concat3.pdf>]
+[19 <./Figures/Concat1.pdf> <./Figures/Concat2.pdf> <./Figures/Concat3.pdf>]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 480.
@@ -1042,17 +1042,17 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
 (hyperref)                be the same. Added a new anchor on input line 480.
 
-[19] [20]
+[20] [21]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
 (hyperref)                be the same. Added a new anchor on input line 549.
 
-) (./Chapters/3_Optimizations.tex [21]
+) (./Chapters/3_Optimizations.tex [22]
 Chapter 3.
 ------------------------------------------------------------------------------
  3 Optimizations
 ------------------------------------------------------------------------------
-[22
+[23
 
 ]
 
@@ -1074,7 +1074,7 @@ Package pdftex.def Info: Figures/Radix_Balanced_index_example.pdf used on input
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[23]
+[24]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 98.
@@ -1083,14 +1083,14 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
 (hyperref)                be the same. Added a new anchor on input line 98.
 
-[24 <./Figures/Radix_Balanced_index_example.pdf>] [25] [26]
+[25 <./Figures/Radix_Balanced_index_example.pdf>] [26] [27]
 <Figures/Displays.pdf, id=1194, 465.74pt x 150.5625pt>
 File: Figures/Displays.pdf Graphic file (type pdf)
 
 <use Figures/Displays.pdf>
 Package pdftex.def Info: Figures/Displays.pdf used on input line 155.
 (pdftex.def)             Requested size: 333.97972pt x 107.97069pt.
- [27
+ [28
 
  <./Figures/Displays.pdf>]
 <Figures/Transient_state.pdf, id=1222, 474.77374pt x 161.60374pt>
@@ -1099,7 +1099,7 @@ File: Figures/Transient_state.pdf Graphic file (type pdf)
 <use Figures/Transient_state.pdf>
 Package pdftex.def Info: Figures/Transient_state.pdf used on input line 202.
 (pdftex.def)             Requested size: 333.97972pt x 113.68407pt.
- [28 <./Figures/Transient_state.pdf>] [29]
+ [29 <./Figures/Transient_state.pdf>] [30]
 Overfull \hbox (70.59293pt too wide) in paragraph at lines 237--238
 []\OT1/cmr/m/n/10.95 This \OT1/pcr/m/n/10.95 apply \OT1/cmr/m/n/10.95 method on
  the un-bal-anced sub-trees of fig-ure [][]3.4[][] would use the \OT1/pcr/m/n/1
@@ -1127,7 +1127,7 @@ File: Figures/StatesGraphRealySimple.pdf Graphic file (type pdf)
 Package pdftex.def Info: Figures/StatesGraphRealySimple.pdf used on input line 
 258.
 (pdftex.def)             Requested size: 333.97972pt x 192.11774pt.
- [30 <./Figures/Balanced_subtrees.pdf> <./Figures/StatesGraphRealySimple.pdf>]
+ [31 <./Figures/Balanced_subtrees.pdf> <./Figures/StatesGraphRealySimple.pdf>]
 <Figures/StatesGraphSimple.pdf, id=1320, 713.66624pt x 428.60126pt>
 File: Figures/StatesGraphSimple.pdf Graphic file (type pdf)
 
@@ -1145,7 +1145,7 @@ Package pdftex.def Info: Figures/StatesGraph.pdf used on input line 281.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[31 <./Figures/StatesGraphSimple.pdf>] [32 <./Figures/StatesGraph.pdf>]
+[32 <./Figures/StatesGraphSimple.pdf>] [33 <./Figures/StatesGraph.pdf>]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 306.
@@ -1154,7 +1154,7 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
 (hyperref)                be the same. Added a new anchor on input line 306.
 
-[33
+[34
 
 ]
 
@@ -1165,16 +1165,16 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
 (hyperref)                be the same. Added a new anchor on input line 326.
 
-) (./Chapters/4_Performance.tex [34]
+) (./Chapters/4_Performance.tex [35]
 Chapter 4.
 ------------------------------------------------------------------------------
  4  Performance in Practice
 ------------------------------------------------------------------------------
-[35
+[36
 
-] [36] [37
+] [37] [38
 
-] [38
+] [39
 
 ]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 97.
@@ -1184,7 +1184,7 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 97.
- [39
+ [40
 
 ]
 <Benchmarks/Apply_2.pdf, id=1426, 704.6325pt x 456.70625pt>
@@ -1204,14 +1204,14 @@ Package pdftex.def Info: Benchmarks/Apply_3.pdf used on input line 132.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[40 <./Benchmarks/Apply_2.pdf>]
+[41 <./Benchmarks/Apply_2.pdf>]
 <Benchmarks/Apply_random_3.pdf, id=1435, 704.6325pt x 426.59375pt>
 File: Benchmarks/Apply_random_3.pdf Graphic file (type pdf)
 
 <use Benchmarks/Apply_random_3.pdf>
 Package pdftex.def Info: Benchmarks/Apply_random_3.pdf used on input line 143.
 (pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
- [41 <./Benchmarks/Apply_3.pdf> <./Benchmarks/Apply_random_3.pdf>]
+ [42 <./Benchmarks/Apply_3.pdf> <./Benchmarks/Apply_random_3.pdf>]
 <Benchmarks/Apply_blocks_32.pdf, id=1443, 451.6875pt x 301.125pt>
 File: Benchmarks/Apply_blocks_32.pdf Graphic file (type pdf)
 
@@ -1254,7 +1254,7 @@ Package pdftex.def Info: Benchmarks/Concat.png used on input line 180.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[42 <./Benchmarks/Apply_blocks_32.pdf> <./Benchmarks/Apply_blocks_64.pdf> <./Be
+[43 <./Benchmarks/Apply_blocks_32.pdf> <./Benchmarks/Apply_blocks_64.pdf> <./Be
 nchmarks/Apply_blocks_128.pdf> <./Benchmarks/Apply_blocks_256.pdf>]
 <Benchmarks/Append_2.pdf, id=1458, 704.6325pt x 426.59375pt>
 File: Benchmarks/Append_2.pdf Graphic file (type pdf)
@@ -1276,7 +1276,7 @@ Package pdftex.def Info: Benchmarks/Append_3.pdf used on input line 212.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[43 <./Benchmarks/Concat.png>] [44 <./Benchmarks/Append_2.pdf> <./Benchmarks/Ap
+[44 <./Benchmarks/Concat.png>] [45 <./Benchmarks/Append_2.pdf> <./Benchmarks/Ap
 pend_3.pdf>]
 <Benchmarks/Append_blocks_32.pdf, id=1476, 451.6875pt x 301.125pt>
 File: Benchmarks/Append_blocks_32.pdf Graphic file (type pdf)
@@ -1330,9 +1330,9 @@ Package pdftex.def Info: Benchmarks/Prepend_3.pdf used on input line 257.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[45 <./Benchmarks/Append_blocks_32.pdf> <./Benchmarks/Append_blocks_64.pdf> <./
+[46 <./Benchmarks/Append_blocks_32.pdf> <./Benchmarks/Append_blocks_64.pdf> <./
 Benchmarks/Append_blocks_128.pdf> <./Benchmarks/Append_blocks_256.pdf>]
-[46 <./Benchmarks/Prepend_2.pdf> <./Benchmarks/Prepend_3.pdf>]
+[47 <./Benchmarks/Prepend_2.pdf> <./Benchmarks/Prepend_3.pdf>]
 <Benchmarks/Prepend_blocks_32.pdf, id=1501, 451.6875pt x 301.125pt>
 File: Benchmarks/Prepend_blocks_32.pdf Graphic file (type pdf)
 
@@ -1385,7 +1385,7 @@ Package pdftex.def Info: Benchmarks/Split_drop_3.pdf used on input line 303.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[47 <./Benchmarks/Prepend_blocks_32.pdf> <./Benchmarks/Prepend_blocks_64.pdf> <
+[48 <./Benchmarks/Prepend_blocks_32.pdf> <./Benchmarks/Prepend_blocks_64.pdf> <
 ./Benchmarks/Prepend_blocks_128.pdf> <./Benchmarks/Prepend_blocks_256.pdf>]
 <Benchmarks/Iteration_3.pdf, id=1517, 704.6325pt x 426.59375pt>
 File: Benchmarks/Iteration_3.pdf Graphic file (type pdf)
@@ -1397,7 +1397,7 @@ Package pdftex.def Info: Benchmarks/Iteration_3.pdf used on input line 320.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[48 <./Benchmarks/Split_take_3.pdf> <./Benchmarks/Split_drop_3.pdf>]
+[49 <./Benchmarks/Split_take_3.pdf> <./Benchmarks/Split_drop_3.pdf>]
 <Benchmarks/Iteration_4.pdf, id=1528, 704.6325pt x 426.59375pt>
 File: Benchmarks/Iteration_4.pdf Graphic file (type pdf)
 
@@ -1408,7 +1408,7 @@ Package pdftex.def Info: Benchmarks/Iteration_4.pdf used on input line 332.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[49 <./Benchmarks/Iteration_3.pdf>]
+[50 <./Benchmarks/Iteration_3.pdf>]
 <Benchmarks/Iteration_blocks_32.pdf, id=1536, 451.6875pt x 301.125pt>
 File: Benchmarks/Iteration_blocks_32.pdf Graphic file (type pdf)
 
@@ -1444,7 +1444,7 @@ Package pdftex.def Info: Benchmarks/Iteration_blocks_256.pdf used on input line
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[50 <./Benchmarks/Iteration_4.pdf>]
+[51 <./Benchmarks/Iteration_4.pdf>]
 <Benchmarks/Builder_3.pdf, id=1545, 704.6325pt x 426.59375pt>
 File: Benchmarks/Builder_3.pdf Graphic file (type pdf)
 
@@ -1465,7 +1465,7 @@ Package pdftex.def Info: Benchmarks/Builder_4.pdf used on input line 375.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[51 <./Benchmarks/Iteration_blocks_32.pdf> <./Benchmarks/Iteration_blocks_64.pd
+[52 <./Benchmarks/Iteration_blocks_32.pdf> <./Benchmarks/Iteration_blocks_64.pd
 f> <./Benchmarks/Iteration_blocks_128.pdf> <./Benchmarks/Iteration_blocks_256.p
 df>] <Benchmarks/Builder_blocks.pdf, id=1558, 704.6325pt x 426.59375pt>
 File: Benchmarks/Builder_blocks.pdf Graphic file (type pdf)
@@ -1477,7 +1477,7 @@ Package pdftex.def Info: Benchmarks/Builder_blocks.pdf used on input line 386.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[52 <./Benchmarks/Builder_3.pdf> <./Benchmarks/Builder_4.pdf>]
+[53 <./Benchmarks/Builder_3.pdf> <./Benchmarks/Builder_4.pdf>]
 <Benchmarks/Parmap_balanced.pdf, id=1568, 704.6325pt x 456.70625pt>
 File: Benchmarks/Parmap_balanced.pdf Graphic file (type pdf)
 
@@ -1489,7 +1489,7 @@ Package pdftex.def Info: Benchmarks/Parmap_balanced.pdf used on input line 407.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[53 <./Benchmarks/Builder_blocks.pdf>]
+[54 <./Benchmarks/Builder_blocks.pdf>]
 <Benchmarks/parmap_unbalanced_1.pdf, id=1578, 451.6875pt x 301.125pt>
 File: Benchmarks/parmap_unbalanced_1.pdf Graphic file (type pdf)
 
@@ -1525,7 +1525,7 @@ Package pdftex.def Info: Benchmarks/parmap_unbalanced_8.pdf used on input line
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[54 <./Benchmarks/Parmap_balanced.pdf>]
+[55 <./Benchmarks/Parmap_balanced.pdf>]
 <Benchmarks/Memory_3.pdf, id=1588, 704.6325pt x 426.59375pt>
 File: Benchmarks/Memory_3.pdf Graphic file (type pdf)
 
@@ -1536,7 +1536,7 @@ Package pdftex.def Info: Benchmarks/Memory_3.pdf used on input line 447.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[55 <./Benchmarks/parmap_unbalanced_1.pdf> <./Benchmarks/parmap_unbalanced_2.pd
+[56 <./Benchmarks/parmap_unbalanced_1.pdf> <./Benchmarks/parmap_unbalanced_2.pd
 f> <./Benchmarks/parmap_unbalanced_4.pdf> <./Benchmarks/parmap_unbalanced_8.pdf
 >] <Benchmarks/Memory_blocks.pdf, id=1598, 704.6325pt x 426.59375pt>
 File: Benchmarks/Memory_blocks.pdf Graphic file (type pdf)
@@ -1544,44 +1544,44 @@ File: Benchmarks/Memory_blocks.pdf Graphic file (type pdf)
 <use Benchmarks/Memory_blocks.pdf>
 Package pdftex.def Info: Benchmarks/Memory_blocks.pdf used on input line 458.
 (pdftex.def)             Requested size: 417.47307pt x 252.74263pt.
-) (./Chapters/5_Testing.tex [56 <./Benchmarks/Memory_3.pdf> <./Benchmarks/Memor
+) (./Chapters/5_Testing.tex [57 <./Benchmarks/Memory_3.pdf> <./Benchmarks/Memor
 y_blocks.pdf>]
 Chapter 5.
 ------------------------------------------------------------------------------
  5 Testing
 ------------------------------------------------------------------------------
-[57
+[58
 
-]) (./Chapters/6_Related_work.tex [58]
+]) (./Chapters/6_Related_work.tex [59]
 Chapter 6.
 ------------------------------------------------------------------------------
  6 Related and Future Work
 ------------------------------------------------------------------------------
 
 Package hyperref Warning: Difference (3) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 41.
+(hyperref)                than one, level fixed on input line 39.
 
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 41.
+(hyperref)                be the same. Added a new anchor on input line 39.
 
-[59
+[60
 
 ]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 48.
+(hyperref)                than one, level fixed on input line 46.
 
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 52.
+(hyperref)                be the same. Added a new anchor on input line 50.
 
-[60]) (./Chapters/7_Conclusion.tex [61]
+[61]) (./Chapters/7_Conclusion.tex [62]
 Chapter 7.
 ------------------------------------------------------------------------------
  7 Conclusions
 ------------------------------------------------------------------------------
-) (./main.bbl [62
+) (./main.bbl [63
 
 ]
 Underfull \hbox (badness 3088) in paragraph at lines 19--23
@@ -1601,29 +1601,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--29
 cala /
  []
 
-[63
+[64
 
-]
-Underfull \hbox (badness 1975) in paragraph at lines 118--127
+] [65]
+Underfull \hbox (badness 1975) in paragraph at lines 150--159
 \OT1/cmr/m/it/10.95 pil-ers for Par-al-lel Com-put-ing\OT1/cmr/m/n/10.95 , Lec-
 ture Notes in Com-puter Sci-ence, pages
  []
 
 
-Underfull \hbox (badness 2799) in paragraph at lines 118--127
+Underfull \hbox (badness 2799) in paragraph at lines 150--159
 \OT1/cmr/m/n/10.95 55--86. Springer In-ter-na-tional Pub-lish-ing, 2014.  ISBN 
 978-3-319-09966-8.
  []
 
 
-Underfull \hbox (badness 1762) in paragraph at lines 118--127
+Underfull \hbox (badness 1762) in paragraph at lines 150--159
 \OT1/cmr/m/n/10.95 doi: $10 . 1007 / 978-[]3-[]319-[]09967-[]5[]4$.  URL [][]$\
 OT1/pcr/m/n/10.95 http : / / dx . doi . org / 10 . 1007 /
  []
 
-[64] [65] [66])
+[66] [67] [68])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 347.
- [67]
+ [69]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 347.
  (./main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 347.
@@ -1638,10 +1638,10 @@ LaTeX Font Warning: Size substitutions with differences
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 347.
  ) 
 Here is how much of TeX's memory you used:
- 15778 strings out of 493117
- 226709 string characters out of 6135433
- 356981 words of memory out of 5000000
- 18470 multiletter control sequences out of 15000+600000
+ 15790 strings out of 493117
+ 226976 string characters out of 6135433
+ 357072 words of memory out of 5000000
+ 18478 multiletter control sequences out of 15000+600000
  22151 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  49i,12n,47p,1060b,1884s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1667,10 +1667,10 @@ type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2014/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2014/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type
 1/urw/courier/ucrr8a.pfb>
-Output written on main.pdf (76 pages, 1617052 bytes).
+Output written on main.pdf (77 pages, 1619019 bytes).
 PDF statistics:
- 1939 PDF objects out of 2073 (max. 8388607)
- 1703 compressed objects within 18 object streams
- 465 named destinations out of 1000 (max. 500000)
+ 1951 PDF objects out of 2073 (max. 8388607)
+ 1714 compressed objects within 18 object streams
+ 469 named destinations out of 1000 (max. 500000)
  972 words of extra memory for PDF output out of 10000 (max. 10000000)
 
