@@ -19,7 +19,7 @@ With the increase on multicore machines, programs tend to use more parallelism a
 %% highly optimized
 %% lack of efficient concatenation
 %%% parallel vector is suboptimal
-Scala has a rich collection of immutable data structures as well as parallel versions that divide their work transparently on thread pools. Where the \texttt{Vector} is used as the default general purpose parallel sequence. The immutable vector is designed to have effective constant time in practice on its key operations: get element at index, update element at index, insert on an end of the vector and splitting the vector. But, one of the operations required for parallelism is an efficient concatenation.
+Scala has a rich collection of immutable data structures as well as parallel versions that divide their work transparently on thread pools. Where the \texttt{Vector} is used as the default general purpose parallel sequence. The immutable vector is designed to have effective constant time in practice on its key operations: get element at index, update element at index, append, prepend and splitting the vector. But, one of the operations required for parallelism is an efficient concatenation.
 
 % what are rrb tree (RRBTrees paper \cite{RRBTrees})
 %% efficient concatenation
