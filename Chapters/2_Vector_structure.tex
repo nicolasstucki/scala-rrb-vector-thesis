@@ -77,7 +77,7 @@ For simplicity of code in this section we define:
 \label{sec:apply}
 % used in head and last
 The \texttt{apply} operation returns the element located at the given index. This is the main element access method and it is used in other methods such as \texttt{head} and \texttt{last}. 
-\clearpage
+
 \begin{lstlisting}[frame=single]
 def apply(index: Int): A = {
   def getElem(node: Node, depth: Int): A = {
@@ -222,7 +222,7 @@ The computational complexity of any split operation is $O(log_{32}(n))$ due to t
 %----------------------------------------------------------------------------------------
 %	SECTION - Parallel Vectors
 %----------------------------------------------------------------------------------------
-
+\clearpage
 \section{Related Structures}
 \label{RelatedStructures}
 
@@ -313,7 +313,7 @@ For most operations the implementation is relaxed using the same technique. It c
 To take advantage of radix based code when possible the operations will still call the radix version if the node is balanced. This implies that from a balanced node down the radix based code is executed. Only the unbalanced nodes will have loss in performance due to generalization and therefore the code executed for a balanced RRB-Tree will tend to be the same as the one for RB-Trees.
 
 % ensuring height bounds
-As the RRB-Tree structure does not ensure the bound on the height unless the tree is completely balanced, the operation must ensure that tree respects the $log_{32}(n)$ height. Fortunately there are only three operations that can unbalance a tree: the \texttt{concatenated}, \texttt{prepend} and \texttt{drop} operations. The operations that also modify the structure of the tree like \texttt{append} and \texttt{take} do not add unbalanced nodes, but can affect the existing ones.
+As the RRB-Tree structure does not ensure the bound on the height unless the tree is completely balanced, the operation must ensure that tree respects the $log_{32}(n)$ height. Fortunately there are only three operations that can unbalance a tree: the \texttt{concate}-\texttt{nated}, \texttt{prepend} and \texttt{drop} operations. The operations that also modify the structure of the tree like \texttt{append} and \texttt{take} do not add unbalanced nodes, but can affect the existing ones.
 
 \begin{figure}[h!]
   \centering
@@ -345,7 +345,7 @@ For the \texttt{updated} the changes are simple because the structure of the RRB
 \paragraph{Append}
 % difference is that the the sizes may need to be updated
 % performance log_32(n), remind hint of transient to amortize consecutive appends are amortised
-To append an element on an RRB-Tree it is only necessary to change the \texttt{copyBranchAndAppend},  \texttt{copyAndUpdateLast} and \texttt{createNewBranch} helper functions. The \texttt{copyBranchAndAppend} will additionally copy the sizes and append to it a new size with value equal the previous last size plus one. The \texttt{copyAndUpdateLast} will also copy the sizes of the branch and increase the last size by one. The \texttt{createNewBranch} will have to allocate one empty position at the end of the new non leaf nodes of the branch. Note that any new branch created by append will be created as a balanced subtree.
+To append an element on an RRB-Tree it is only necessary to change the \texttt{copyBranchAndAppend},  \texttt{copyAndUpdateLast} and \texttt{createNewBranch} helper functions. The \texttt{copyBranchAndAppend} will additionally copy the sizes and append to it a new size with value equal the previous last size plus one. The \texttt{copyAndUpdateLast} will also copy the sizes of the branch and increase the last size by one. The \texttt{createNew}-\texttt{Branch} will have to allocate one empty position at the end of the new non leaf nodes of the branch. Note that any new branch created by append will be created as a balanced subtree.
 
 %-----------------------------------
 
@@ -359,7 +359,7 @@ This operation needs to take into account the RRB tree traversal scheme to go do
 % describe high level implementation in rrbvector
 % performance log_32(n)
 The concatenation algorithm used on RRB-Vectors is the one proposed in the RRB-Trees paper \cite{RRBTrees}. From a high level, the algorithm merges the rightmost branch of the vector on the LHS with the leftmost branch of the vector on the RHS. While merging the node, there is a rebalancing that is effectuated on each of them to ensure the logarithmic bound on the height of the vector. The RRB version of concatenation has a time complexity of $O(log_{32}(n))$, which is a clear improvement from the RB concatenation that was $O(n)$.
- 
+ \clearpage
 %\lstinputlisting[]
 \begin{lstlisting}[frame=single]
 def concatenate(left: Vector[A], right: Vector[A]) = {
@@ -388,10 +388,17 @@ def mergedLeafs(left: Node, right: Node} = {
 
 %% describe high level algorithm
 The concatenation operation starts at the bottom of the branches by merging the leafs into a balanced tree of height 2 using \texttt{mergedLeafs}. Then, for each level on top of it, the newly created merged subtree and the remaining branches on that level will be merged and rebalanced into a new subtree. This new subtree always adds a new level to the tree, even though it might be drop later on. New sizes of nodes are computed each time a node is created based on sizes of children nodes.
-
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.8\textwidth]{Figures/Concat0.pdf}
+  \caption{Concatenation example with nodes of size 4: Rebalancing level 0}
+  \label{Concat0Benchmarks}
+\end{figure}
 %% describe branch rebalancing 
 The rebalancing algorithm has two proposed variants. The first consists in completely rebalancing the nodes on the two top levels of the subtree. The second also rebalances the top two level of the subtree but it only rebalance the minimum amount of nodes that ensures the logarithmic bound. The first one leaves the tree better balanced, while the second is faster. More detail on the bounds and complexities can be bound on the RRB-Tree paper \cite{RRBTrees}. The following snippet of code shows a high level implementation of the first variant.
 
+
+\clearpage
 \begin{lstlisting}[frame=single]
 def mergeRebalance(left: Node, center: Node, right: Node) {
   val merged = left ++ centre ++ right // join all branches
@@ -421,12 +428,6 @@ def mergeRebalance(left: Node, center: Node, right: Node) {
 
 Figures \ref{Concat0Benchmarks}, \ref{Concat1Benchmarks}, \ref{Concat2Benchmarks} and \ref{Concat3Benchmarks} show a concrete step by step (level by level) example of the concatenation of two vectors. In the example, some of the subtrees where collapsed. This is not only to make it fit, but also to expose only the nodes that are referenced during the execution of the algorithm. Nodes with colours represent new nodes and changes, to help track them from figure to figure.
 
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=0.8\textwidth]{Figures/Concat0.pdf}
-  \caption{Concatenation example with nodes of size 4: Rebalancing level 0}
-  \label{Concat0Benchmarks}
-\end{figure}
 
 \begin{figure}[h!]
   \centering
@@ -473,6 +474,7 @@ As this operation is new in the context of a vector and no real world use cases 
 
 \subsection{Prepend and Drop}
 % describe different implementation
+\vskip -1em
 From a high level, the \texttt{prepend} and \texttt{drop} operations on RB-Trees and RRB-Trees are quite similar. The difference is in the way the nodes are copied, updated and cut. In the RRB operations, instead of using a \texttt{startIndex}, the nodes on the leftmost branch can become unbalanced and hence represent a first branch that is not fully filled.
 
 Most of the time, both these operation will create new unbalanced nodes, but only on the left most branch. Calling several times combinations of these two will not contribute in generating even more unbalanced branches. As such they are only responsible for the creation of at most $ log_{32}(n)$ unbalanced nodes on any vector.

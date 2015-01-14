@@ -10,7 +10,7 @@ I% Chapter Template
 %	SECTION Related Work
 %----------------------------------------------------------------------------------------
 \section{Related Work}
-\newcommand{\itemspace}{\vspace{-1mm}}
+\newcommand{\itemspace}{\vspace{-0.5mm}}
 List of related subjects:
 \itemspace
 \begin{itemize}
@@ -33,7 +33,7 @@ List of related subjects:
 %	SECTION Related Work
 %----------------------------------------------------------------------------------------
 \section{Future Work}
-
+\vskip -1em
 \paragraph{Mesure unbalance}
 % find a good measurement of unbalancess to characterise vectors
 % characterize vectors on real world programs
@@ -56,7 +56,3 @@ Another way to simplify the code would involve the creation of a new abstraction
 % formal proof of correctness of relaxed operations
 % formal proof of correctness of canonicalisation
 There is still the need for formal proof on some operations. Mainly for the optimized implementations of the relaxed operations. The canonicalization operation of the vector also needs a formal proof and may be a interesting study case for immutable data structures with simple internal mutation schemes.
-
-%\paragraph{String concatenation} 
-%Explore the possibility of improving string concatenation using RRB vector. It would probably not be a good idea to use a vector of characters as a string due to overhead on memory an access time due to boxing of characters (this is speculation). Rather try to represent the result of string concatenations in a vector of strings. If a wrapper is used, it could use the same technique as the canonicalization to generate the actual string if needed and drop the vector. Compare performance with other string representation (like ropes \cite{SPE:SPE4380251203}).
-
