@@ -10,7 +10,7 @@ I% Chapter Template
 %	SECTION - Radix Balanced Vectors
 %----------------------------------------------------------------------------------------
 
- A immutable vector is an representation for an indexed sequence\footnote{Ordered sequence of elements where each one is identified by its index or position.} of elements with efficient random access and update\footnote{Update in the scene of immutable data structures refers to the creation of a structure with an element changed.}. It also provides operations that allow efficient additions and removal of elements.
+An immutable vector is an representation for an indexed sequence\footnote{Ordered sequence of elements where each one is identified by its index or position.} of elements with efficient random access and update\footnote{Update in the scene of immutable data structures refers to the creation of a structure with an element changed.}. It also provides operations that allow efficient additions and removal of elements.
  
 \section{Radix Balanced Vectors}
 \label{RadixBalancedVectors}
@@ -26,7 +26,7 @@ The current immutable \texttt{Vector} implementation\cite{scalaVector211} of the
 % describe tree: balancing, filling, block sizes
 % hint why radix?
 % why structure helps with operations implementation 
-The RB-Tree (Relaxed Balanced Tree)  structure is a shallow and densely-filled tree where elements are located only in the leafs and on the left side. The nodes in the tree have a fixed size, whether they're internal nodes, linking to subtrees, or leafs, containing elements. Benchmarks have shown the optimal node size is 32, but as we will later see\footnote{Nodes of size 64 could also be consider, with some tradeoffs.}, the node size can be any power of 2, allowing efficient radix-based implementations (see \ref{ComputingIndices}). Figure \ref{badix_balanced} shows this structure for $m$ children on each node. 
+The RB-Tree (Relaxed Balanced Tree)  structure is a shallow and densely-filled tree where elements are located only in the leafs and on the left side. The nodes in the tree have a fixed size, whether they're internal nodes, linking to subtrees, or leafs, containing elements. Benchmarks have shown the optimal node size is 32, but as we will later see\footnote{Nodes of size 64 could also be consider, with some trade-offs.}, the node size can be any power of 2, allowing efficient radix-based implementations (see \ref{ComputingIndices}). Figure \ref{badix_balanced} shows this structure for $m$ children on each node. 
 
 \begin{figure}[h!]
   \centering
@@ -35,7 +35,7 @@ The RB-Tree (Relaxed Balanced Tree)  structure is a shallow and densely-filled t
    \label{badix_balanced}
 \end{figure}
 
-The RB-Vector also keeps the height of the tree in the \texttt{depth} field. This height will always be upper bounded by $log_{32}(size-1)+1$ for nodes of 32 branches. Therefore the tree is quite shallow and the complexity to traverse it is considered as effectively constant when taking into account that the size will never exude the maximum index representable with \texttt{Int}, which corresponds to a maximum depth of 7 levels\footnote{Maximum depth of $log_{32}(2^{31}) + 1$, which is 6.2.}.
+The RB-Vector also keeps the height of the tree in the \texttt{depth} field. This height will always be upper bounded by $log_{32}(size-1)+1$ for nodes of 32 branches. Therefore the tree is quite shallow and the complexity to traverse it is considered as effectively constant when taking into account that the size will never be larger than the maximum index representable with \texttt{Int}, which corresponds to a maximum depth of 7 levels\footnote{Maximum depth of $log_{32}(2^{31}) + 1$, which is 6.2.}.
 
 Yet, the tree may have numbers of elements that are not powers of 32. To allow this, the RB-tree fills in the elements in the leafs from the left. The branches on the right that do not contain any element in any of their leafs are not allocated (left as empty references or truncated nodes). For example the tree that would hold 1056 elements in figure \ref{badix_balanced_32} would have empty subtrees on the right of the nodes on the rightmost branch. To prevent out-of-bounds access, the vector has an \texttt{endIndex} field that point to that last index. With this it is possible to have efficient implementations of \texttt{take} and \texttt{append} (see \ref{Operations}), as they make changes on this index rather that the structure of the tree.
 
@@ -130,7 +130,7 @@ Therefore the complexity of this operation is $O(log_{32}(n))$, for the traversa
 
 \subsubsection{Append}
 % base implementation needs to update the whole branch
-The \texttt{appended} operation  (or \texttt{:+}) adds an element to the end of the vector. Its implementation has two cases, depending on the current state of the RB-Tree: If the last leaf is not full the element is inserted at the end of it and all nodes of the last branch are copies. If the leaf is full we must find the lowest node in the last branch where there is sill room left for a new branch. Then a new branch is appended to it, down to the a new leaf with the element being appended. 
+The \texttt{appended} operation  (or \texttt{:+}) adds an element to the end of the vector. Its implementation has two cases, depending on the current state of the RB-Tree: If the last leaf is not full the element is inserted at the end of it and all nodes of the last branch are copied. If the leaf is full we must find the lowest node in the last branch where there is sill room left for a new branch. Then a new branch is appended to it, down to the new leaf with the element being appended. 
 
 In both cases the new \texttt{Vector} object will have the end index increased by one. When the root is full, the depth of the vector will also increase by one.
 
@@ -194,7 +194,7 @@ def +:(elem: A): Vector[A] = {
 }
 \end{lstlisting}
 
-% performance log_32(n), hint of transient to amortise consecutive prepends are amortised
+% performance log_32(n), hint of transient to amortize consecutive prepends are amortised
 Since the algorithm traverses and creates new nodes from the root to a leaf, the complexity of the prepend operation is $O(log_{32}(n))$. Like the updated and appended operations, \texttt{prepended} can be optimized by keeping transient states of the immutable vector (see Section \ref{sec:DisplaysTransient}).
 
 
@@ -227,7 +227,7 @@ The computational complexity of any split operation is $O(log_{32}(n))$ due to t
 \label{RelatedStructures}
 
 \subsection{Vector Builder}
-A vector builder is a special wrapper for a RB-Tree that has an efficient \texttt{append} operation. It encapsulates mutable trees during the building of the vector and then freezes on the creation of the result. Details of this structures are discussed in section \ref{builder}.
+A vector builder is a special wrapper for a RB-Tree that has an efficient \texttt{append} operation. It encapsulates mutable trees during the building of the vector and then freezes them on the creation of the result. Details of this structures are discussed in section \ref{builder}.
 
 \subsection{Vector Iterator}
 A vector iterator is a structure that implements an efficient traversal of the vector. In the case of vectors, it is achieved by direct inorder traversal on trees. Details of this structures are discussed in section \ref{iterator}.
@@ -249,7 +249,7 @@ The use of a vector combiner produces additional overhead, since requires an con
 % split into half 
 To divide the work into tasks for the thread pool, a splitter is used to iterate over all elements of the collection. Splitters are a special kind of iterator that can be split at any time into some partition of the remaining elements. In the case of sequences the splitter should retain the original order. The most common implementation consists in dividing the remaining elements into two half. 
 
-The current implementation of the immutable parallel  vector uses the common division into 2 parts for its splitter. The drop and take operations are used divide the vector for the two new splitters.
+The current implementation of the immutable parallel  vector uses the common division into 2 parts of same size. The drop and take operations are used divide the vector for the two new splitters.
 
 %-----------------------------------
 %	SUBSUBSECTION - Combiner
@@ -308,9 +308,9 @@ As it is possible to represent trees that are not filled on the left, the \textt
 %-----------------------------------
 \subsection{Relaxing the Operations}
 % describe how the implementation uses relaxed radix when necessary and uses radix based operation when possible
-Form most operations the implementation is relaxed using the same technique. It consist in using a generalised version of the code for RB-Trees that take into account the unbalanced nodes that do not support radix operations. Mainly this consists in changing the way the \texttt{indicesInNode} are computed on unbalanced nodes and their \texttt{clone} operations. This adds an abstraction layer for some of the operations (see figure \ref{AbstractionsLayers}).
+For most operations the implementation is relaxed using the same technique. It consist in using a generalized version of the code for RB-Trees that take into account the unbalanced nodes that do not support radix operations. Mainly this consists in changing the way the \texttt{indicesInNode} are computed on unbalanced nodes and their \texttt{clone} operations. This adds an abstraction layer for some of the operations (see figure \ref{AbstractionsLayers}).
 
-To take advantage of radix based code when possible the operations will still call the radix version if the node is balanced. This implies that from a balanced node down the radix based code is executed. Only the unbalanced nodes will have loss in performance due to generalisation and therefore the code executed for a balanced RRB-Tree will tend to be the same as the one for RB-Trees.
+To take advantage of radix based code when possible the operations will still call the radix version if the node is balanced. This implies that from a balanced node down the radix based code is executed. Only the unbalanced nodes will have loss in performance due to generalization and therefore the code executed for a balanced RRB-Tree will tend to be the same as the one for RB-Trees.
 
 % ensuring height bounds
 As the RRB-Tree structure does not ensure the bound on the height unless the tree is completely balanced, the operation must ensure that tree respects the $log_{32}(n)$ height. Fortunately there are only three operations that can unbalance a tree: the \texttt{concatenated}, \texttt{prepend} and \texttt{drop} operations. The operations that also modify the structure of the tree like \texttt{append} and \texttt{take} do not add unbalanced nodes, but can affect the existing ones.
@@ -338,13 +338,13 @@ The apply operation does not fundamentally change. The only difference is in the
 
 \paragraph{Updated}
 % doesn't change much, the sizes do not need to be updated, they jus need to be copied. Going to the correct position still may needs to access the sizes.
-For the \texttt{updated} the changes are simple because the structure of the RRB-Tree will not be affected. The computation of the \texttt{indexInNode} will change to take into account the possibility of unbalanced nodes while traversing down the tree. The \texttt{copy} operation will need to copy the sizes of the node if the node is unbalances. Because the sizes are represented in an immutable array, this copy of sizes is in fact a reference to the same object.
+For the \texttt{updated} the changes are simple because the structure of the RRB-Tree will not be affected. The computation of the \texttt{indexInNode} will change to take into account the possibility of unbalanced nodes while traversing down the tree. The \texttt{copy} operation will need to copy the sizes of the node if the node is unbalanced. Because the sizes are represented in an immutable array, this copy of sizes is in fact a reference to the same object.
 
 %-----------------------------------
 
 \paragraph{Append}
 % difference is that the the sizes may need to be updated
-% performance log_32(n), remind hint of transient to amortise consecutive appends are amortised
+% performance log_32(n), remind hint of transient to amortize consecutive appends are amortised
 To append an element on an RRB-Tree it is only necessary to change the \texttt{copyBranchAndAppend},  \texttt{copyAndUpdateLast} and \texttt{createNewBranch} helper functions. The \texttt{copyBranchAndAppend} will additionally copy the sizes and append to it a new size with value equal the previous last size plus one. The \texttt{copyAndUpdateLast} will also copy the sizes of the branch and increase the last size by one. The \texttt{createNewBranch} will have to allocate one empty position at the end of the new non leaf nodes of the branch. Note that any new branch created by append will be created as a balanced subtree.
 
 %-----------------------------------
@@ -453,7 +453,7 @@ Figures \ref{Concat0Benchmarks}, \ref{Concat1Benchmarks}, \ref{Concat2Benchmarks
 The concatenation algorithm chosen as for the RRB-Vector is the one that is slower but that rebalances better the trees. The reason behind this decision is that with better balanced trees all other operations on the trees are more performant. In fact choosing the least performant option does not need to be seen as a reduction in performance because the improvement is in relation to the RB concatenation linear complexity. An interesting consequence of the this choice, is that all vectors of size at most 1024\footnote{The maximum size of a two level RRB-Tree.} that where created by concatenation will be completely balanced.
 
 % optimizations on small appends and prepends
-When using displays and transient states, concatenating a small vector the concatenation algorithm is less performant that strait forward append or prepends on the other vector. That case is identified by using bounds on their lengths. If one is big and the other is small, a \texttt{prependAll}/\texttt{appendAll} variant is used. Those two operations are optimised version of the \texttt{append}/\texttt{prepend} that do not create the intermediate \texttt{Vector} wrapper object and some of the leaf arrays. When both vector are small enough the rebalance is done directly with \texttt{mergedLeafs}.
+When using displays and transient states, concatenating a small vector the concatenation algorithm is less performant that strait forward append or prepends on the other vector. That case is identified by using bounds on their lengths. If one is big and the other is small, a \texttt{prependAll}/\texttt{appendAll} variant is used. Those two operations are optimized version of the \texttt{append}/\texttt{prepend} that do not create the intermediate \texttt{Vector} wrapper object and some of the leaf arrays. When both vector are small enough the rebalance is done directly with \texttt{mergedLeafs}.
 
 \paragraph{InsertAt}
 % new operation
@@ -469,7 +469,7 @@ def insertAt(elem: A, n: Int): Vector[A] = {
 \end{lstlisting}
 
 % hint at possible optimization by inserting directly and using transient states (take advantage of locality)
-As this operation is new in the context of a vector and no real world use cases exist, this simple implementation is used\footnote{It would be possible to optimise for localised inserts on the same leaf using the same optimizations that are used for \texttt{updated}, \texttt{appended} and \texttt{prepended}}.
+As this operation is new in the context of a vector and no real world use cases exist, this simple implementation is used\footnote{It would be possible to optimize for localized inserts on the same leaf using the same optimizations that are used for \texttt{updated}, \texttt{appended} and \texttt{prepended}}.
 
 \subsection{Prepend and Drop}
 % describe different implementation
