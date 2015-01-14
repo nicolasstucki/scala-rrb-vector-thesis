@@ -206,17 +206,17 @@ Turning Relaxed Radix Balanced Vector \\
 %To improve the programming experience and enable code reuse the Scala programming language provides an extensive set of collections in the library. While these collections provide many convenience methods, their data structures are adapted to provide fast implementations for subsets of the methods.
 
 %In particular, 
-The immutable \texttt{Vector} collection in the Scala library offers nearly constant-time random access reads thanks to its underlying wide tree data structure. Furthermore, it provides amortized constant time sequential \texttt{read}, \texttt{update}, \texttt{append} and \texttt{prepend} operations by efficiently sharing parts of the tree between different immutable vectors. 
-However, the performance of parallel operations is hindered by the overhead of splitting and combining the vector into parts that are fed to the parallel workers. 
 
-Recent research has shown that parallel performance can be improved by relaxing the wide tree invariants and thus improving the performance of the spilt and combine operations. Although tree sharing is still used, sequential \texttt{read}, \texttt{update}, \texttt{append} and \texttt{prepend} are no longer amortized constant time. Sacrificing sequential performance in order to improve parallel performance prevents this new approach from making its way into the Scala Collections library. 
+\emph{The immutable \texttt{Vector} collection in the Scala library offers nearly constant-time random access reads thanks to its underlying wide tree data structure. Furthermore, it provides amortized constant time sequential \texttt{read}, \texttt{update}, \texttt{append} and \texttt{prepend} operations by efficiently sharing parts of the tree between different immutable vectors. 
+However, the performance of parallel operations is hindered by the overhead of re-combining the results obtained from parallel workers.}
 
-The main insight of this thesis is that relaxed-invariant vector trees can be seen as a composition of strict and irregular parts. Therefore earlier optimizations can still be applied to strict subtrees, while irregular subtrees bring their own new optimization opportunities. This allows our implementation to provide both amortized constant-time sequential operations and efficient parallel execution.
+\emph{Recent research has shown that parallel performance can be improved by relaxing the wide tree invariants and thus improving the performance of the combine operation. Although tree sharing is still used, sequential \texttt{read}, \texttt{update}, \texttt{append} and \texttt{prepend} are no longer amortized constant time. This prevents the new approach from making its way into the Scala Collections library.}
 
-Using this approach, our implementation, which is fully compatible with Scala Collections, matches the sequential performance of standard vectors in most cases. At the same time benchmarks show parallel operations execute up to 2.3X faster on 4 threads on a 4 core machine.
+\emph{The main insight of this thesis is that relaxed-invariant vector trees can be seen as a composition of strict and irregular parts. Therefore earlier optimizations can still be applied to strict subtrees, while irregular subtrees bring their own new optimization opportunities. This allows our implementation to provide both amortized constant-time sequential operations and efficient parallel execution at the same time.}
+
+\emph{Our implementation, which is fully compatible with Scala Collections, matches the sequential performance of standard vectors in most cases. At the same time benchmarks show parallel operations execute up to 2.3X faster on 4 threads on a 4 core machine thanks to the relaxed invariants allowing fast re-combination of results from different parallel executions.}
 
 }
-
 
 
 \clearpage % Start a new page
