@@ -1,0 +1,200 @@
+
+\documentclass{beamer}
+
+\mode<presentation> {
+
+%\usetheme{Antibes}
+\usetheme{Luebeck}
+%\usetheme{Malmoe}
+%\usetheme{Darmstadt}
+
+%\usetheme{Berlin}
+%\usetheme{Copenhagen}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Warsaw}
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{color, colortbl}
+
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Scala RRB Vectors]{Turning Relaxed Radix Balanced Vector\\from Theory into Practice\\for Scala Collections} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author{Nicolas Stucki} % Your name
+\institute[UCLA] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+\'Ecole Polytechnique F\'ed\'erale de Lausanne (EPFL) \\ % Your institution for the title page
+\medskip
+\textit{nicolas.stucki@epfl.ch} % Your email address
+}
+\date{
+26 January 2015\\[2em]
+\includegraphics[height=0.7cm]{logos/epfl-logo.pdf} \hspace{1cm}
+\includegraphics[height=0.7cm]{logos/scala-logo.pdf}
+
+
+} % Date, can be changed to a custom date
+
+
+\definecolor{beamer@blendedblue}{rgb}{0.8,0.0,0.0} % Red
+
+\definecolor{scalared}{rgb}{0.8,0.0,0.0} % Red
+
+%\setbeamercolor{alerted text}{fg=orange}
+%\setbeamercolor{background canvas}{bg=white}
+%\setbeamercolor{block body alerted}{bg=normal text.bg!90!black}
+\setbeamercolor{block body}{bg=normal text.bg!95!black}
+%\setbeamercolor{block body example}{bg=normal text.bg!90!black}
+%\setbeamercolor{block title alerted}{use={normal text,alerted text},fg=alerted text.fg!75!normal text.fg,bg=normal text.bg!75!black}
+\setbeamercolor{block title}{bg=scalared}
+%\setbeamercolor{block title example}{use={normal text,example text},fg=example text.fg!75!normal text.fg,bg=normal text.bg!75!black}
+%\setbeamercolor{fine separation line}{}
+%\setbeamercolor{frametitle}{fg=brown}
+%\setbeamercolor{item projected}{fg=black}
+%\setbeamercolor{normal text}{bg=black,fg=yellow}
+%\setbeamercolor{palette sidebar primary}{use=normal text,fg=normal text.fg}
+%\setbeamercolor{palette sidebar quaternary}{use=structure,fg=structure.fg}
+%\setbeamercolor{palette sidebar secondary}{use=structure,fg=structure.fg}
+%\setbeamercolor{palette sidebar tertiary}{use=normal text,fg=normal text.fg}
+%\setbeamercolor{section in sidebar}{fg=brown}
+%\setbeamercolor{section in sidebar shaded}{fg= grey}
+%\setbeamercolor{separation line}{}
+%\setbeamercolor{sidebar}{bg=red}
+%\setbeamercolor{sidebar}{parent=palette primary}
+%\setbeamercolor{structure}{bg=black, fg=green}
+%\setbeamercolor{subsection in sidebar}{fg=brown}
+%\setbeamercolor{subsection in sidebar shaded}{fg= grey}
+%\setbeamercolor{title}{fg=brown}
+%\setbeamercolor{titlelike}{fg=brown}
+
+\usepackage{listings}
+% "define" Scala
+\lstdefinelanguage{scala}{
+  morekeywords={abstract,case,catch,class,def,%
+    do,else,extends,false,final,finally,%
+    for,if,implicit,import,macro,match,mixin,%
+    new,null,object,override,package,%
+    private,protected,requires,return,sealed,%
+    specialized,super,this,throw,trait,true,try,%
+    type,val,var,while,with,yield},
+  otherkeywords={=>,<-,<\%,<:,>:,\#,@},
+  sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[n]{/*}{*/},
+  morestring=[b]",
+  morestring=[b]',
+  morestring=[b]"""
+}
+
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+ 
+% Default settings for code listings
+\lstset{frame=tb,
+  language=scala,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=left,
+%      numbersep=7pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{scalared},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  frame=single,
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
+
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+\begin{frame}
+\frametitle{Overview} % Table of contents slide, comment this block out to remove it
+\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%
+\section{Section 1} 
+%------------------------------------------------
+\subsection{Subsection 1.1} 
+
+\begin{frame}[fragile]
+	\frametitle{Frame title}
+	\begin{block}{Block title}
+		Block content
+	\end{block}
+\end{frame}
+
+
+%------------------------------------------------
+\subsection{Subsection 1.2}
+\begin{frame}[fragile]
+	\frametitle{Frame title}
+	\begin{block}{Block title}
+		Block content
+	\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%
+\section{Section 2} 
+
+\begin{frame}[fragile]
+	\frametitle{Frame title}
+	\begin{block}{Block title}
+		Block content
+	\end{block}
+\end{frame}
+
+%------------------------------------------------
+\section{} 
+%------------------------------------------------
+
+\begin{frame}
+ \vspace{3cm}
+\Huge{\centerline{Any questions?}} \vspace{2cm}
+\centerline{\small{\url{https://github.com/nicolasstucki/scala-rrb-vector}}}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document} 

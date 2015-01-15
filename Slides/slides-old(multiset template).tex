@@ -1,0 +1,554 @@
+
+\documentclass{beamer}
+
+\mode<presentation> {
+
+%\usetheme{Antibes}
+\usetheme{Luebeck}
+%\usetheme{Malmoe}
+%\usetheme{Darmstadt}
+
+%\usetheme{Berlin}
+%\usetheme{Copenhagen}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Warsaw}
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{color, colortbl}
+
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Scala Multisets]{Scala Multisets} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author{Nicolas Stucki} % Your name
+\institute[UCLA] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+\'Ecole Polytechnique F\'ed\'erale de Lausanne (EPFL) \\ % Your institution for the title page
+\medskip
+\textit{nicolas.stucki@epfl.ch} % Your email address
+}
+\date{
+26 January 2015\\[2em]
+\includegraphics[height=0.7cm]{logos/epfl-logo.pdf} \hspace{1cm}
+\includegraphics[height=0.7cm]{logos/scala-logo.pdf}
+
+
+} % Date, can be changed to a custom date
+
+
+\definecolor{beamer@blendedblue}{rgb}{0.8,0.0,0.0} % Red
+
+\definecolor{scalared}{rgb}{0.8,0.0,0.0} % Red
+
+%\setbeamercolor{alerted text}{fg=orange}
+%\setbeamercolor{background canvas}{bg=white}
+%\setbeamercolor{block body alerted}{bg=normal text.bg!90!black}
+\setbeamercolor{block body}{bg=normal text.bg!95!black}
+%\setbeamercolor{block body example}{bg=normal text.bg!90!black}
+%\setbeamercolor{block title alerted}{use={normal text,alerted text},fg=alerted text.fg!75!normal text.fg,bg=normal text.bg!75!black}
+\setbeamercolor{block title}{bg=scalared}
+%\setbeamercolor{block title example}{use={normal text,example text},fg=example text.fg!75!normal text.fg,bg=normal text.bg!75!black}
+%\setbeamercolor{fine separation line}{}
+%\setbeamercolor{frametitle}{fg=brown}
+%\setbeamercolor{item projected}{fg=black}
+%\setbeamercolor{normal text}{bg=black,fg=yellow}
+%\setbeamercolor{palette sidebar primary}{use=normal text,fg=normal text.fg}
+%\setbeamercolor{palette sidebar quaternary}{use=structure,fg=structure.fg}
+%\setbeamercolor{palette sidebar secondary}{use=structure,fg=structure.fg}
+%\setbeamercolor{palette sidebar tertiary}{use=normal text,fg=normal text.fg}
+%\setbeamercolor{section in sidebar}{fg=brown}
+%\setbeamercolor{section in sidebar shaded}{fg= grey}
+%\setbeamercolor{separation line}{}
+%\setbeamercolor{sidebar}{bg=red}
+%\setbeamercolor{sidebar}{parent=palette primary}
+%\setbeamercolor{structure}{bg=black, fg=green}
+%\setbeamercolor{subsection in sidebar}{fg=brown}
+%\setbeamercolor{subsection in sidebar shaded}{fg= grey}
+%\setbeamercolor{title}{fg=brown}
+%\setbeamercolor{titlelike}{fg=brown}
+
+\usepackage{listings}
+% "define" Scala
+\lstdefinelanguage{scala}{
+  morekeywords={abstract,case,catch,class,def,%
+    do,else,extends,false,final,finally,%
+    for,if,implicit,import,macro,match,mixin,%
+    new,null,object,override,package,%
+    private,protected,requires,return,sealed,%
+    specialized,super,this,throw,trait,true,try,%
+    type,val,var,while,with,yield},
+  otherkeywords={=>,<-,<\%,<:,>:,\#,@},
+  sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[n]{/*}{*/},
+  morestring=[b]",
+  morestring=[b]',
+  morestring=[b]"""
+}
+
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+ 
+% Default settings for code listings
+\lstset{frame=tb,
+  language=scala,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=left,
+%      numbersep=7pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{scalared},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  frame=single,
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
+
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+\begin{frame}
+\frametitle{Overview} % Table of contents slide, comment this block out to remove it
+\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%
+\section{What are they?} 
+%------------------------------------------------
+\subsection{Multisets} 
+
+\begin{frame}[fragile]
+	\frametitle{Multisets in Mathematics}
+	\begin{block}{Definition}
+		A multiset (or bag), in mathematics, is a set like container where the elements may appear multiple times.
+	\end{block}	
+	\begin{block}{Multiset queries}
+		\begin{itemize}
+			\item $multiplicity$ : number of times some element is inside
+			\item $\in$ : as in sets
+			\item $\subseteq$ : multiset ``\emph{subset of} " (multiplicities are $\le$)
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Multisets in Mathematics}
+	\begin{block}{Multiset operations}
+		\begin{itemize}
+			\item $\cup$ : Multiset union (agregation)
+			\item $\uplus$ : Generalised set union (max. multiplicities)
+			\item $\cap$ : Multiset intersection (min. multiplicities)
+			\item $\setminus$ : Multiset minus (subtracting multiplicities)
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Multiset as Data Structures}
+	\begin{block}{Objectives}
+		\begin{itemize}
+			\item Define a set like collection where elements can be repeated
+			\item Faster multiset methods
+			\item Decrease space used for dense multi sets
+		\end{itemize}
+	\end{block}
+	\begin{block}{Found in a variety of languages}
+		\begin{itemize}
+			\item Java: Multisets of Guava library
+			\item C/C++: std::multiset
+			\item Python: Counter object
+			\item Haskell: Data.MultiSet
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+%------------------------------------------------
+\subsection{Bag Trait}
+
+\begin{frame}[fragile]
+	\frametitle{\texttt{Bag} trait}
+	\begin{block}{\texttt{Bag} trait}
+		\begin{itemize}
+			\item Trait that goes along \texttt{Seq}, \texttt{Set}, \texttt{Map} in the collection hierarchy
+			\item Represents a Multiset 
+			\item Elements grouped together when equivalent
+			\item Flexible groups representation
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Bag trait}
+	\begin{block}{Bag Properties}
+		\begin{itemize}
+			\item Sub-trait of \texttt{Iterable}
+			\item Groups equivalent elements in buckets
+			\item Allows any internal representation of buckets
+		\end{itemize}
+	\end{block}
+	\begin{block}{Bucket (trait) Properties}
+		\begin{itemize}
+			\item Sub-trait of \texttt{Iterable}
+			\item Contains only equivalent elements \\(== by default or any equiv)
+			\item Has the same operations as Bag
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Bag trait}
+	\begin{block}{Multiset operations}
+		\begin{itemize}
+			\item \texttt{union}: $\cup$
+			\item \texttt{maxUnion}: $\uplus$
+			\item \texttt{intersect}: $\cap$
+			\item \texttt{diff}: $\setminus$
+		\end{itemize}
+	\end{block}
+	\begin{block}{Lookup operations}
+		\begin{itemize}
+			\item \texttt{multiplicity(e)}: counts occurrences of element \texttt{e}
+			\item \texttt{multiplicities}: returns a map of the multiplicities
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Bag trait}
+	\begin{block}{Additions, removals and updates operations}
+		\begin{itemize}
+			\item Usual operators: \texttt{+}, \texttt{-}, \texttt{++}, ..., [\texttt{+=}, \texttt{-=}, ...]
+			\item \texttt{added(e,n)} [\texttt{add(e,n)}]
+			\item \texttt{removed(e,n)} [\texttt{remove(e,n)}]
+			\item \texttt{withMultiplicity(e,n)} [\texttt{setMultiplicity(e,n)}]
+		\end{itemize}
+	\end{block}
+	\begin{block}{Operations on equivalences (Bag only)}
+		\begin{itemize}
+			\item \texttt{apply(e)}: elements equivalent to \texttt{e} in a bag
+			\item \texttt{mostCommon}: sub-bag with the most common elements
+			\item \texttt{leastCommon}: sub-bag with the least common elements 
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Bag trait}
+	\begin{block}{Iterators}
+		\begin{itemize}
+			\item \texttt{iterator}: normal iterator
+			\item \texttt{distinctIterator}: iterator elements that are distinct
+			\item \texttt{bucketsIterator}: iterator over buckets (Bag only)
+		\end{itemize}
+	\end{block}	
+	\begin{block}{Representative element (Buckets only)}
+		\begin{itemize}
+			\item \texttt{sentinel}: element that is equivalent to all others in the bucket
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%
+\section{Concrete implementations} 
+%------------------------------------------------
+\subsection{HashBag and TreeBag}
+
+\begin{frame}[fragile]
+	\frametitle{HashBag and TreeBag}
+	\begin{block}{HashBag}
+		\begin{itemize}
+			\item Keeps buckets in a hash table
+		\end{itemize}
+	\end{block}	
+	\begin{block}{TreeBag}
+		\begin{itemize}
+			\item Keeps buckets in a red-black tree
+		\end{itemize}
+	\end{block}	
+	%\includegraphics[scale=0.4]{coll}
+\end{frame}
+
+\subsection{Example}
+
+\begin{frame}[fragile]
+	\frametitle{Example}
+	\begin{lstlisting}
+		// immutable Bag with a hash table containing the bag buckets
+		import scala.collection.Bag
+		import scala.collection.immutable.{HashBag=>Bag}
+		// or immutable Bag with a red-black tree containing the buckets
+		import scala.collection.immutable.{TreeBag=>Bag}
+		// or mutable Bag with a hash table containing the bag buckets
+		import scala.collection.mutable.{HashBag=>Bag}
+		// or mutable Bag with a red-black tree containing the buckets
+		import scala.collection.mutable.{TreeBag=>Bag}
+	\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Example}
+	\begin{lstlisting}
+		val bag = Bag.from("cat"->1, "dog"->3, "mouse"->1)
+		// or 
+		val bag = Bag("cat", "dog", "dog", "dog", "mouse")
+		// or 
+		val bag = Bag.empty[String] + "cat" + "dog" + "dog" + "dog" + "mouse"
+		// or 
+		val bag = Bag.empty[String] added ("cat"->1) added ("dog"->3) added ("mouse"->1)
+		// or 
+		val bag = Bag.empty[String] withMultiplicity ("cat", 1) withMultiplicity ("dog", 3) withMultiplicity ("mouse", 1)
+		
+		bag.toString // result:  Bag(dog, dog, dog; cat; mouse)
+	\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Example}
+	\begin{lstlisting}
+		val bag = Bag("cat", "dog", "dog", "dog", "mouse")
+		val bag2 = Bag("cat", "mouse")
+
+		bag("dog") // result:  Bag(dog, dog, dog)
+		
+		bag.multiplicity("cat")
+		
+		bag union bag2
+		bag intersect bag2
+		bag diff bag2
+		bag maxUnion bag2
+		
+		for (animal <- bag) { ... }
+	\end{lstlisting}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%
+\section{Bag configuration} 
+\begin{frame}[fragile]
+	\frametitle{Bag configuration}
+	\begin{block}{Custom equivalences}
+		\begin{itemize}
+			\item Change the way elements are grouped together
+		\end{itemize}
+	\end{block}
+	\begin{block}{Bucket representation}
+		\begin{itemize}
+			\item Change the way buckets are represented
+		\end{itemize}
+	\end{block}
+	\begin{block}{\texttt{BagConfiguration} instance}
+		\begin{itemize}
+			\item Has one defined equivalence
+			\item Generates instances of buckets
+			\item Each \texttt{Bag} has one
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+%------------------------------------------------
+\subsection{Custom equivalence} 
+
+\begin{frame}[fragile]
+	\frametitle{Equivalences}
+	\begin{block}{Equivalence relation}
+		\begin{itemize}
+			\item \emph{reflexive}: \texttt{equiv(x,x)==true}  for any \texttt{x}
+			\item \emph{symmetric}: \texttt{equiv(x,y)==equiv(y,x)} for any \texttt{x} and any \texttt{y}
+			\item \emph{transitive}: if \texttt{equiv(x,y)==true \&\& equiv(y,z)==true} then \texttt{equiv(x,z)==true}
+		\end{itemize}
+	\end{block}	
+	\begin{block}{Scala \texttt{Equiv[T]} trait}
+		\begin{itemize}
+			\item \texttt{equiv(x:T,y:T):Boolean }
+		\end{itemize}
+	\end{block}	
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Ordered Equivalence}
+	\begin{block}{Equivalence for TreeBag}
+		\begin{itemize}
+			\item \texttt{TreeBag} also require \texttt{Ordering}
+			\item Use \texttt{Ordering} as equivalence
+		\end{itemize}
+	\end{block}
+	\begin{lstlisting}
+		val stringEquiv =   new Ordering[String] {
+		   def compare(x: String, y: String): Int = x.size compare y.size
+		}
+	\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Hashed Equivalence}
+	\begin{block}{Equivalence for HashBag}
+		\begin{itemize}
+			\item \texttt{HashBag} also require a hash code
+			\item Hash code must be coherent with equivalence
+			\item Use \texttt{Equiv[T] with Hashing[T]} as equivalence
+		\end{itemize}
+	\end{block}
+	\begin{lstlisting}
+		val stringEquiv =   new Equiv[String] with Hashing[String] {
+		   def equiv(x: String, y: String): Boolean = x.toLowerCase == y.toLowerCase
+		   def hash(x: String): Int = x.toLowerCase.hashCode
+		}
+\end{lstlisting}
+\end{frame}
+
+%------------------------------------------------
+\subsection{Bucket representation} 
+
+\begin{frame}[fragile]
+	\frametitle{Bucket representation}
+	\begin{block}{\texttt{MultiplicityBucket}}
+		\begin{itemize}
+			\item 2-Tuple with reference to element and it's multiplicity
+			\item Most compact representation
+			\item Only on equality (no custom equivalence)
+		\end{itemize}
+	\end{block}
+	\begin{block}{\texttt{BagOfMultiplicities}}
+		\begin{itemize}
+			\item Bag with \texttt{MultiplicityBucket}
+			\item Compact representation
+			\item Allows custom equivalence
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Bucket representation}
+	\begin{block}{\texttt{ListBucket}}
+		\begin{itemize}
+			\item Keeps all elements in a \texttt{List}
+			\item Full representation
+			\item Doesn't lose references to objects
+			\item Allows custom equivalence
+		\end{itemize}
+	\end{block}
+	
+	\begin{block}{Custom implementations}
+		\begin{itemize}
+			\item Uses can implements their own bucket
+			\item Need to define a new \texttt{BagConfiguration}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\subsection{Bag Configuration instances} 
+
+\begin{frame}[fragile]
+	\frametitle{Bag Configuration instances}
+	\begin{block}{Bag configuration}
+		\begin{itemize}
+			\item Created with methods in \texttt{Bag.configuration}
+			\item Set as implicit value
+		\end{itemize}
+	\end{block}
+	\begin{lstlisting}
+		implicit val conf = Bag.configuration.compact[T]
+		implicit val conf = Bag.configuration.compactWithEquiv[T](equiv)
+		implicit val conf = Bag.configuration.keepAll[T]
+		implicit val conf = Bag.configuration.keepAll[T](equiv)
+	\end{lstlisting}
+\end{frame}
+
+
+\subsection{Example} 
+
+\begin{frame}[fragile]
+	\frametitle{Example}
+
+	\begin{lstlisting}
+	object StringOrd extends Ordering[String] {
+	   def compare(x: String, y: String): Int = x.size compare y.size
+	}
+	
+	implicit val conf = TreeBag.configuration.compactWithEquiv(StringOrd)
+	
+	val bag = TreeBag("cat", "cat", "mouse","fish", "elephant", "dog", "bear" )
+	
+	bag.toString() 
+	// result:  TreeBag(cat, cat, dog; bear, fish; mouse; elephant)
+	\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Example}
+
+	\begin{lstlisting}
+	// bag = TreeBag(cat, cat, dog; bear, fish; mouse; elephant)
+	
+	bag("cat") // result:  TreeBag("cat", "cat", "dog")
+	bag("ooo") // result:  TreeBag("cat", "cat", "dog")
+	bag("xxxx") // result:  TreeBag("fish", "bear")
+	bag("") // result:  TreeBag()
+
+	bag.mostCommon 
+	// result:   TreeBag("cat", "cat", "dog") 
+	
+	bag.leastCommon 
+	// result:  TreeBag("mouse"; "elephant") 
+	\end{lstlisting}
+\end{frame}
+
+
+%------------------------------------------------
+\section{} 
+%------------------------------------------------
+
+\begin{frame}
+ \vspace{3cm}
+\Huge{\centerline{Any questions?}} \vspace{2cm}
+\centerline{\small{\url{https://github.com/nicolasstucki/multisets}}}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document} 

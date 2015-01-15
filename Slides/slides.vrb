@@ -1,0 +1,4 @@
+\frametitle{Frame title}
+\begin{block}{Block title}
+Block content
+\end{block}
